@@ -1,0 +1,30 @@
+site_name: Blueprint by ShougTech
+site_description: Clean, production-ready websites and documentation systems.
+site_url: https://blueprint.shoug-tech.com
+theme:
+  name: mkdocs
+  language: en
+nav:
+  - Home: index.md
+  - Packages: packages.md
+  - Websites Built by Me:
+      - Overview: web-platforms/index.md
+      - "Platform: Multi-Region Docs API": web-platforms/docs-api-platform.md
+      - "Platform: Product Analytics Console": web-platforms/analytics-console.md
+      - "Platform: Client Operations Portal": web-platforms/ops-portal.md
+  - About: about.md
+  - Contact: contact.md
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+extra_css:
+  - stylesheets/extra.css
+copyright: >
+  <div class="site-footer">
+    <span class="footer-brand">Blueprint by ShougTech</span>
+    <span class="footer-sep">|</span>
+    <a href="https://github.com/Shoug-Alomran" target="_blank" rel="noopener">GitHub</a>
+    <span class="footer-sep">|</span>
+    <a href="mailto:blueprint@shoug-tech.com">blueprint@shoug-tech.com</a>
+  </div>

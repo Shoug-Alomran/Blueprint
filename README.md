@@ -107,3 +107,17 @@ No permission is granted to copy, modify, distribute, or reuse any part of this 
 
 Blueprint by ShougTech  
 Structured. Intentional. Built to last.
+
+---
+
+## GitHub Pages Deployment (MkDocs)
+
+This repository includes a GitHub Actions workflow at `.github/workflows/deploy-pages.yml` that builds and deploys the MkDocs site to GitHub Pages on every push to `main`.
+
+Required one-time repository settings:
+
+1. Go to `Settings` → `Pages`.
+2. Set `Source` to **GitHub Actions**.
+3. Ensure your default deployment branch is `main`.
+
+After that, push to `main` and GitHub will publish the site automatically.
