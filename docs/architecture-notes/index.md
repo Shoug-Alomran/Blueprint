@@ -4,7 +4,6 @@ role: Technical Decision Author
 scope: ADRs, postmortems, tradeoff documents
 constraints: Clarity, traceability, operational relevance
 metrics: decision adoption, incident recurrence, review quality
-status: Active
 last_updated: 2026-03-01
 ---
 

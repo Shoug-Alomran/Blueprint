@@ -1,74 +1,91 @@
 ---
 title: Packages
 role: Service Offerings
-scope: Website build packages and pricing
-constraints: Clarity, scope control, delivery quality
-metrics: delivery time, revision rounds, support scope
-status: Active
+scope: Static website packages and add-ons
+constraints: Clear scope, predictable delivery, maintainable structure
+metrics: delivery time, revision rounds, scope boundaries
 last_updated: 2026-03-01
 ---
 
 # Packages
 
-Simple, fixed-scope packages so you know exactly what is included and what it costs.
+Blueprint Studio offers one structured base package with optional add-ons.
 
-## 1) Starter Site
+Clear scope. Predictable delivery. Long-term maintainability.
 
-Best for students or personal profiles that need a clean, professional online presence.
+---
 
-- Price: **$___**
-- Delivery: **__ to __ days**
-- Includes:
-  - Up to 4 pages
-  - Clean responsive layout
-  - Basic SEO setup
-  - GitHub Pages deployment
-  - 1 revision round
+## Base Package — Structured Static Site
 
-## 2) Documentation Site
+Best for students, instructors, professionals, and small teams who need a clean, organized online presence.
 
-Best for technical projects, workshops, and structured documentation.
+**Price: 850 SAR**  
+**Delivery: 5–7 working days**
 
-- Price: **$___**
-- Delivery: **__ to __ days**
-- Includes:
-  - Up to 8 pages
-  - Structured docs navigation
-  - Search-ready documentation layout
-  - GitHub Actions deployment workflow
-  - 2 revision rounds
+### Includes
 
-## 3) Custom System Site
+- Up to 4 pages  
+- Clean responsive layout  
+- Structured navigation hierarchy  
+- Basic SEO setup (titles + metadata)  
+- GitHub Pages deployment  
+- Free GitHub domain  
+- 2 revision rounds  
+- Deployment + handover guidance  
 
-Best for clients who need custom structure, advanced sections, or ongoing technical support.
+This package is designed for static websites only.
 
-- Price: **Starting at $___**
-- Delivery: **Based on scope**
-- Includes:
-  - Custom architecture and page planning
-  - Advanced integrations (as agreed)
-  - Deployment + domain setup
-  - Priority communication
-  - Custom revision scope
+---
 
 ## Add-Ons
 
-- Additional page: **$___ per page**
-- Bilingual setup: **$___**
-- Custom domain setup: **$___**
-- Priority delivery: **$___**
-- Monthly maintenance: **$___ / month**
+Enhance your base package as needed.
 
-## Process
+- Additional page — 88 SAR per page  
+- Bilingual setup (Arabic + English) — 300 SAR  
+- Custom domain setup (DNS configuration + HTTPS) — 250 SAR  
+- Priority delivery (3–4 working days) — 200 SAR  
+- Monthly maintenance (minor updates) — 50 SAR / month
+- Dayily maintenance (minor updates) - 25 SAR
 
-1. Scope confirmation
-2. Structure draft
-3. Build and review
-4. Revisions
-5. Deployment and handover
+All add-ons are confirmed before implementation.
+
+---
+
+## What Is Not Included
+
+To maintain quality and delivery control, the following are outside the scope of Blueprint services:
+
+- Full-stack applications  
+- Databases  
+- Authentication systems  
+- SaaS platform development  
+- Complex backend integrations  
+- Custom web applications  
+
+Projects requiring dynamic systems fall outside Blueprint’s static service scope.
+
+---
+
+## Project Flow
+
+1. Scope confirmation  
+2. Structure approval  
+3. First build  
+4. Revision rounds  
+5. Final approval  
+6. Payment  
+7. Deployment & handover  
+
+Payment is due after final approval and before project handover.
+
+---
 
 ## Notes
 
-- Final pricing depends on confirmed scope.
-- Out-of-scope requests are quoted separately before implementation.
-- Hosting/domain fees are handled separately unless included in writing.
+- Final timeline depends on content readiness.  
+- Delays in feedback may extend delivery.  
+- Out-of-scope changes are quoted separately before implementation.  
+- Hosting and domain registration fees are separate unless explicitly included in writing.  
+
+Structured input leads to efficient delivery.

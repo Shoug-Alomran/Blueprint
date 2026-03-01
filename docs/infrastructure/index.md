@@ -4,7 +4,6 @@ role: End-to-End Infrastructure Owner
 scope: Runtime, data, operations, security
 constraints: Reliability, cost, velocity, maintainability
 metrics: availability, p95 latency, MTTR, deployment frequency
-status: Active
 last_updated: 2026-03-01
 ---
 

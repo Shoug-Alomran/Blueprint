@@ -1,0 +1,23 @@
+:root {
+  --bg-page: #f4f8f9;
+  --text-main: #1f2937;
+  --line-soft: rgba(15, 89, 101, 0.2);
+  --line-strong: rgba(15, 89, 101, 0.34);
+  --radius-lg: 0.9rem;
+  --radius-xl: 1.1rem;
+  --shadow-soft: 0 12px 28px rgba(15, 23, 42, 0.12);
+  --ring: #0f766e;
+  --brand-2: #0f3d4a;
+  --brand-3: #115e59;
+  --brand-4: #0f766e;
+  --bar-gradient: linear-gradient(120deg, #0f2933, #0f3d4a, #115e59);
+}
+
+[data-md-color-scheme="slate"] {
+  --bg-page: #0b1220;
+  --text-main: #e5edf5;
+  --line-soft: rgba(45, 212, 191, 0.24);
+  --line-strong: rgba(45, 212, 191, 0.36);
+  --ring: #2dd4bf;
+  --shadow-soft: 0 12px 28px rgba(2, 6, 23, 0.36);
+}

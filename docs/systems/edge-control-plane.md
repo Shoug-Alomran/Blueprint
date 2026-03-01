@@ -4,7 +4,6 @@ role: System Architect and Implementer
 scope: Routing, policy enforcement, rollout controls
 constraints: Global latency budget, tenant isolation, safe rollout
 metrics: p95 latency, rollback time, policy propagation lag
-status: Production
 last_updated: 2026-03-01
 ---
 

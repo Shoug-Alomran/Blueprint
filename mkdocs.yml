@@ -1,30 +1,122 @@
-site_name: Blueprint by ShougTech
-site_description: Clean, production-ready websites and documentation systems.
-site_url: https://blueprint.shoug-tech.com
+site_name: Blueprint
+site_url: https://blueprint.shoug-tech.com/
+site_author: Shoug Fawaz Alomran
+site_description: >
+  Blueprint is a student-focused digital presence studio under ShougTech.
+  We build structured static websites for portfolios, academic documentation, and workshop/course pages.
+copyright: © 2026 Shoug Fawaz Alomran · All rights reserved
+
 theme:
-  name: mkdocs
-  language: en
+  name: material
+  logo: logo.png
+  favicon: google.png
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Manrope
+    code: Fira Code
+
 nav:
   - Home: index.md
   - Packages: packages.md
-  - Websites Built by Me:
+  - Process:
+      - Overview: process/index.md
+      - Discovery & Content Checklist: process/discovery-content-checklist.md
+      - Structure & Sitemap: process/structure-sitemap.md
+      - First Build: process/first-build.md
+      - Revision Rounds: process/revision-rounds.md
+      - Deployment & Handover: process/deployment-handover.md
+  - Case Studies:
       - Overview: web-platforms/index.md
-      - "Platform: Multi-Region Docs API": web-platforms/docs-api-platform.md
-      - "Platform: Product Analytics Console": web-platforms/analytics-console.md
-      - "Platform: Client Operations Portal": web-platforms/ops-portal.md
+      - Student Portfolio Website: web-platforms/student-portfolio.md
+      - Academic Documentation Website: web-platforms/academic-documentation.md
+      - Workshop Course Page: web-platforms/workshop-course-page.md
   - About: about.md
   - Contact: contact.md
+
+exclude_docs: |
+  architecture-notes/**
+  infrastructure/**
+  systems/**
+  templates/**
+
 markdown_extensions:
   - admonition
+  - pymdownx.details
   - toc:
       permalink: true
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+          site_name: "Blueprint"
+          theme:
+            language: en
+        - locale: ar
+          name: العربية
+          build: true
+          site_name: "بلو برنت"
+          theme:
+            language: ar
+
+validation:
+  nav:
+    omitted_files: ignore
+    not_found: warn
+    absolute_links: ignore
+  links:
+    not_found: ignore
+    anchors: ignore
+    unrecognized_links: ignore
+
 extra_css:
-  - stylesheets/extra.css
-copyright: >
-  <div class="site-footer">
-    <span class="footer-brand">Blueprint by ShougTech</span>
-    <span class="footer-sep">|</span>
-    <a href="https://github.com/Shoug-Alomran" target="_blank" rel="noopener">GitHub</a>
-    <span class="footer-sep">|</span>
-    <a href="mailto:blueprint@shoug-tech.com">blueprint@shoug-tech.com</a>
-  </div>
+  - styles/tokens.css
+  - styles/layout.css
+  - styles/components.css
+
+extra:
+  generator: false
+
+extra_javascript:
+  - javascripts/cta-footer.js
+  - javascripts/standalone-theme.js

@@ -4,7 +4,6 @@ role: Release Systems Engineer
 scope: Deployment checks, gating, post-deploy verification
 constraints: Fast release cycles, low false positives, rollback speed
 metrics: failed-safe deploys, mean verification time, incident escape rate
-status: Production
 last_updated: 2026-03-01
 ---
 

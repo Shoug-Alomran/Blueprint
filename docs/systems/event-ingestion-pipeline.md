@@ -4,7 +4,6 @@ role: Data Path Engineer
 scope: Event intake, buffering, processing, replay
 constraints: Burst traffic, duplicate events, downstream backpressure
 metrics: ingest success rate, queue lag, replay completion time
-status: Production
 last_updated: 2026-03-01
 ---
 
