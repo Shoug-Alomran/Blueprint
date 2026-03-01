@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Effective Date:** [Insert Date]
+**Effective Date:** 1/3/2026
 
 These Terms of Service govern the services provided by Blueprint by ShougTech.
 

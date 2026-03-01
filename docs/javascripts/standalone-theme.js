@@ -19,9 +19,50 @@
     return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + path + '"></path></svg>';
   }
 
-  function isArabicPage() {
-    var lang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
-    return lang.indexOf('ar') === 0;
+  function normalizeNavPath(pathname) {
+    var path = pathname || '/';
+    if (!path.startsWith('/')) {
+      path = '/' + path;
+    }
+    if (path === '/ar' || path === '/ar/') {
+      return '/';
+    }
+    if (path.indexOf('/ar/') === 0) {
+      return '/' + path.slice(4);
+    }
+    return path;
+  }
+
+  function arabicNavLabelForPath(pathname) {
+    var p = normalizeNavPath(pathname);
+    var map = [
+      { prefix: '/packages/', label: 'الباقات' },
+      { prefix: '/process/discovery-content-checklist/', label: 'اكتشاف المتطلبات' },
+      { prefix: '/process/structure-sitemap/', label: 'الهيكلة وخريطة الموقع' },
+      { prefix: '/process/first-build/', label: 'النسخة الأولى' },
+      { prefix: '/process/revision-rounds/', label: 'جولات المراجعة' },
+      { prefix: '/process/deployment-handover/', label: 'النشر والتسليم' },
+      { prefix: '/process/', label: 'العملية' },
+      { prefix: '/web-platforms/student-portfolio/', label: 'موقع بورتفوليو طالب' },
+      { prefix: '/web-platforms/academic-documentation/', label: 'موقع توثيق أكاديمي' },
+      { prefix: '/web-platforms/workshop-course-page/', label: 'صفحة ورشة أو دورة' },
+      { prefix: '/web-platforms/', label: 'دراسات الحالة' },
+      { prefix: '/about/', label: 'عنّا' },
+      { prefix: '/contact/', label: 'تواصل' },
+      { prefix: '/policies/terms-of-service/', label: 'الشروط' },
+      { prefix: '/policies/privacy-policy/', label: 'الخصوصية' },
+      { prefix: '/policies/content-responsibility/', label: 'مسؤولية المحتوى' },
+      { prefix: '/policies/revision-policy/', label: 'سياسة المراجعات' }
+    ];
+    for (var i = 0; i < map.length; i += 1) {
+      if (p.indexOf(map[i].prefix) === 0) {
+        return map[i].label;
+      }
+    }
+    if (p === '/' || p === '/index/') {
+      return 'الرئيسية';
+    }
+    return '';
   }
 
   function injectHeaderActions() {
@@ -110,25 +151,13 @@
       return;
     }
 
-    var tabMap = {
-      '/': 'الرئيسية',
-      '/index/': 'الرئيسية',
-      '/packages/': 'الباقات',
-      '/process/': 'العملية',
-      '/web-platforms/': 'دراسات الحالة',
-      '/about/': 'عنّا',
-      '/contact/': 'تواصل'
-    };
-
     document.querySelectorAll('.md-tabs__link').forEach(function (link) {
       try {
         var url = new URL(link.href, window.location.origin);
-        var path = url.pathname;
-        Object.keys(tabMap).forEach(function (prefix) {
-          if (path === prefix || (prefix !== '/' && path.indexOf(prefix) === 0)) {
-            link.textContent = tabMap[prefix];
-          }
-        });
+        var label = arabicNavLabelForPath(url.pathname);
+        if (label) {
+          link.textContent = label;
+        }
       } catch (e) {}
     });
 
@@ -137,6 +166,29 @@
       searchInput.setAttribute('placeholder', 'ابحث');
       searchInput.setAttribute('aria-label', 'ابحث');
     }
+
+    document.querySelectorAll('.md-sidebar--primary a.md-nav__link, .md-sidebar--secondary a.md-nav__link').forEach(function (link) {
+      try {
+        var linkUrl = new URL(link.href, window.location.origin);
+        var linkLabel = arabicNavLabelForPath(linkUrl.pathname);
+        if (linkLabel) {
+          link.textContent = linkLabel;
+        }
+      } catch (e) {}
+    });
+
+    var currentSectionLabel = arabicNavLabelForPath(window.location.pathname);
+    if (!currentSectionLabel) {
+      currentSectionLabel = 'القسم';
+    }
+
+    document.querySelectorAll('.md-sidebar--primary .md-nav--primary > .md-nav__title, .md-sidebar--primary .md-nav--primary > label.md-nav__title').forEach(function (el) {
+      el.textContent = currentSectionLabel;
+    });
+
+    document.querySelectorAll('.md-sidebar--secondary .md-nav__title').forEach(function (el) {
+      el.textContent = 'جدول المحتويات';
+    });
   }
 
   function applyReveal() {
