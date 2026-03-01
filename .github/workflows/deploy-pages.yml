@@ -27,8 +27,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install MkDocs
-        run: pip install mkdocs
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
