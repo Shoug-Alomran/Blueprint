@@ -74,7 +74,7 @@ All projects include limited revision rounds to maintain clarity and efficiency.
 
 ---
 
-## 🧭 Workflow
+## Workflow
 
 1. Inquiry submission
 2. Content & structure checklist
