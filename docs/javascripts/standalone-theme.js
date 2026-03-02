@@ -41,6 +41,9 @@
     var p = normalizeNavPath(pathname);
     var map = [
       { prefix: '/packages/', label: 'الباقات' },
+      { prefix: '/start-project/', label: 'ابدأ المشروع' },
+      { prefix: '/CV_index/', label: 'قوالب السيرة الذاتية' },
+      { prefix: '/cv_index/', label: 'قوالب السيرة الذاتية' },
       { prefix: '/process/discovery-content-checklist/', label: 'اكتشاف المتطلبات' },
       { prefix: '/process/structure-sitemap/', label: 'الهيكلة وخريطة الموقع' },
       { prefix: '/process/first-build/', label: 'النسخة الأولى' },

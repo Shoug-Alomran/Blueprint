@@ -17,10 +17,11 @@
 
     var ar = isArabicPage();
     var t = ar ? {
+      brand: 'بلو برنت',
       title: 'ابنِ حضور رقمي مرتب',
       subtitle: 'مواقع ثابتة لبورتفوليو الطلاب، التوثيق الأكاديمي، وصفحات الورش.',
-      placeholder: 'نوع المشروع والمدة المتوقعة',
-      cta: 'ابدأ المشروع',
+      placeholder: 'اكتب بريدك الإلكتروني',
+      cta: 'إرسال',
       note: 'النطاق: خدمات مواقع ثابتة فقط. لا Backend ولا SaaS.',
       packages: 'الباقات',
       base: 'الباقة الأساسية',
@@ -39,12 +40,14 @@
       terms: 'الشروط',
       privacy: 'الخصوصية',
       content: 'مسؤولية المحتوى',
-      revision: 'سياسة المراجعات'
+      revision: 'سياسة المراجعات',
+      copyright: 'حقوق النشر'
     } : {
+      brand: 'Blueprint',
       title: 'Build a Structured Digital Presence',
       subtitle: 'Static websites for student portfolios, academic documentation, and workshop pages.',
-      placeholder: 'Project type and timeline',
-      cta: 'Start Project',
+      placeholder: 'Enter your email address',
+      cta: 'Send',
       note: 'Scope: static website services only. No backend or SaaS development.',
       packages: 'Packages',
       base: 'Base Package',
@@ -63,7 +66,8 @@
       terms: 'Terms',
       privacy: 'Privacy',
       content: 'Content Responsibility',
-      revision: 'Revision Policy'
+      revision: 'Revision Policy',
+      copyright: 'Copyright'
     };
 
     var section = document.createElement('section');
@@ -71,11 +75,11 @@
     section.innerHTML = [
       '<div class="custom-footer__inner">',
       '<div class="custom-footer__left">',
-      '<p class="custom-footer__brand">Blueprint</p>',
+      '<p class="custom-footer__brand">' + t.brand + '</p>',
       '<h2 class="custom-footer__title">' + t.title + '</h2>',
       '<p class="custom-footer__subtitle">' + t.subtitle + '</p>',
       '<div class="custom-footer__form">',
-      '<input class="custom-footer__input" type="text" placeholder="' + t.placeholder + '" aria-label="' + t.placeholder + '">',
+      '<input class="custom-footer__input" type="email" inputmode="email" autocomplete="email" required placeholder="' + t.placeholder + '" aria-label="' + t.placeholder + '">',
       '<button class="custom-footer__button" type="button">' + t.cta + '</button>',
       '</div>',
       '<p class="custom-footer__note">' + t.note + '</p>',
@@ -108,12 +112,44 @@
       '<a class="footer-link" href="' + localizedPath('/policies/privacy-policy/', ar) + '">' + t.privacy + '</a>',
       '<a class="footer-link" href="' + localizedPath('/policies/content-responsibility/', ar) + '">' + t.content + '</a>',
       '<a class="footer-link" href="' + localizedPath('/policies/revision-policy/', ar) + '">' + t.revision + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/policies/copyright/', ar) + '">' + t.copyright + '</a>',
       '</div>',
       '</div>',
       '</div>'
     ].join('');
 
     footer.prepend(section);
+
+    var emailInput = section.querySelector('.custom-footer__input');
+    var submitBtn = section.querySelector('.custom-footer__button');
+    if (!emailInput || !submitBtn) return;
+
+    function submitEmail() {
+      if (!emailInput.checkValidity()) {
+        emailInput.reportValidity();
+        return;
+      }
+
+      var email = encodeURIComponent(emailInput.value.trim());
+      if (!email) return;
+
+      var subject = ar ? 'طلب مشروع جديد' : 'New Project Inquiry';
+      var body = ar
+        ? 'البريد الإلكتروني: ' + decodeURIComponent(email)
+        : 'Email: ' + decodeURIComponent(email);
+
+      window.location.href = 'mailto:blueprint@shoug-tech.com?subject=' +
+        encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    }
+
+    submitBtn.addEventListener('click', submitEmail);
+    emailInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        submitEmail();
+      }
+    });
   }
 
   document.addEventListener('DOMContentLoaded', injectFooter);

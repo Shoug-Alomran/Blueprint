@@ -271,14 +271,14 @@ last_updated: 2026-03-02
       <h2>نموذج استقبال المشروع</h2>
       <p>عبّئ النموذج قبل بدء التنفيذ حتى نثبت النطاق والمدة والمخرجات بشكل واضح.</p>
       <div class="bp-intake-meta">
-        <span>Blueprint Studio</span>
+        <span>بلو برنت ستوديو</span>
         <span>blueprint@shoug-tech.com</span>
         <span>blueprint.shoug-tech.com</span>
       </div>
     </div>
 
     <form class="bp-form" id="bp-intake-form" novalidate>
-      <input type="hidden" name="_subject" value="Blueprint Intake Form Submission">
+      <input type="hidden" name="_subject" value="بلو برنت Intake Form Submission">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
 
@@ -344,10 +344,10 @@ last_updated: 2026-03-02
       </section>
 
       <div class="bp-submit">
-        <p class="bp-submit-note">تقدر تحمل نسخة PDF، أو ترسل النموذج مباشرة إلى Blueprint.</p>
+        <p class="bp-submit-note">تقدر تحمل نسخة PDF، أو ترسل النموذج مباشرة إلى بلو برنت.</p>
         <div class="bp-actions">
           <button class="bp-btn" type="button" onclick="bpIntakeExportPDF()">تحميل PDF</button>
-          <button class="bp-btn primary" type="submit">إرسال إلى Blueprint</button>
+          <button class="bp-btn primary" type="submit">إرسال إلى بلو برنت</button>
         </div>
       </div>
       <div class="bp-status" id="bp-intake-status"></div>
@@ -375,7 +375,7 @@ last_updated: 2026-03-02
           if (!value || key.charAt(0) === '_') return;
           lines.push(key + ': ' + value);
         });
-        var subject = 'نموذج استقبال مشروع Blueprint';
+        var subject = 'نموذج استقبال مشروع بلو برنت';
         var body = lines.join('\n');
         return 'mailto:blueprint@shoug-tech.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       }
@@ -402,7 +402,7 @@ last_updated: 2026-03-02
             throw new Error('Failed to send');
           }
 
-          setStatus('ok', 'تم الإرسال بنجاح. سيصل نموذجك مباشرة إلى بريد Blueprint.');
+          setStatus('ok', 'تم الإرسال بنجاح. سيصل نموذجك مباشرة إلى بريد بلو برنت.');
           form.reset();
         } catch (err) {
           var mailtoUrl = buildFallbackMailto(fd);
