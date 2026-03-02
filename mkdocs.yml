@@ -8,8 +8,8 @@ copyright: © 2026 Shoug Fawaz Alomran · All rights reserved
 
 theme:
   name: material
-  logo: logo.png
-  favicon: google.png
+  logo: assets/logo.png
+  favicon: assets/google.png
   features:
     - navigation.tracking
     - navigation.tabs

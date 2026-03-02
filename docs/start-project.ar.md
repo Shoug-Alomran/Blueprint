@@ -4,7 +4,7 @@ role: استقبال المشروع
 scope: جمع متطلبات المشروع وتأكيد النطاق
 constraints: مدخلات واضحة، مدة واقعية، التزام بنطاق المواقع الثابتة
 metrics: جودة تعبئة النموذج، معدل الإرسال، سرعة بدء التنفيذ
-last_updated: 2026-03-02
+last_updated: 2026-03-03
 ---
 
 # ابدأ مشروعك
@@ -28,19 +28,27 @@ last_updated: 2026-03-02
       --shadow: var(--shadow-soft, 0 12px 28px rgba(15, 23, 42, 0.12));
       --required: #c0392b;
       margin-top: 1rem;
+      width: 100%;
       direction: rtl;
     }
 
     .bp-intake * { box-sizing: border-box; }
 
     .bp-intake .bp-intake-page {
-      max-width: 900px;
+      width: 100%;
+      max-width: min(100%, 1040px);
       margin: 0 auto;
       background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(241, 247, 247, 0.95));
       border: 1px solid var(--rule);
       border-radius: var(--radius-xl, 1rem);
       overflow: hidden;
       box-shadow: var(--shadow);
+    }
+
+    body.sg-hide-left-sidebar .bp-intake .bp-intake-page,
+    body.sg-hide-right-sidebar .bp-intake .bp-intake-page,
+    body.sg-hide-left-sidebar.sg-hide-right-sidebar .bp-intake .bp-intake-page {
+      max-width: min(100%, 1320px);
     }
 
     .bp-intake .bp-intake-header {
@@ -283,62 +291,163 @@ last_updated: 2026-03-02
       <input type="hidden" name="_captcha" value="false">
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">1</span><div><h3 class="bp-title">بيانات العميل</h3><p class="bp-desc">معلومات التواصل الأساسية</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">1</span><div><h3 class="bp-title">بيانات العميل</h3><p class="bp-desc">بيانات التواصل والتعريف الأساسية</p></div></div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>الاسم الكامل <span class="req">*</span></label><input required name="client_name" type="text"></div>
           <div class="bp-field"><label>البريد الإلكتروني <span class="req">*</span></label><input required name="client_email" type="email"></div>
         </div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>رقم الجوال / واتساب</label><input name="client_phone" type="tel"></div>
-          <div class="bp-field"><label>اللغة المفضلة</label><select name="client_lang"><option value="">اختر...</option><option>العربية</option><option>الإنجليزية</option><option>كلها</option></select></div>
+          <div class="bp-field"><label>الجامعة / الجهة (إن وجدت)</label><input name="client_org" type="text"></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>لغة التواصل المفضلة</label><select name="client_lang"><option value="">اختر...</option><option>العربية</option><option>الإنجليزية</option><option>كلاهما</option></select></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">نوع الخدمة</h3><p class="bp-desc">حدد الخدمة المطلوبة</p></div></div>
-        <div class="bp-choice-grid bp-cols-3">
+        <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">نوع الخدمة</h3><p class="bp-desc">اختر الخدمة التي تريد البدء بها</p></div></div>
+        <div class="bp-choice-grid bp-cols-2">
           <div class="bp-choice"><input id="svc_website_ar" name="service_type" type="radio" value="Website Package"><label for="svc_website_ar">باقة موقع<small>الباقة 1 أو 2 أو 3</small></label></div>
-          <div class="bp-choice"><input id="svc_cv_basic_ar" name="service_type" type="radio" value="CV Basic"><label for="svc_cv_basic_ar">قالب CV — Basic<small>68 ريال</small></label></div>
-          <div class="bp-choice"><input id="svc_cv_pro_ar" name="service_type" type="radio" value="CV Pro"><label for="svc_cv_pro_ar">قالب CV — Pro<small>95 ريال</small></label></div>
+          <div class="bp-choice"><input id="svc_cv_basic_ar" name="service_type" type="radio" value="CV Basic"><label for="svc_cv_basic_ar">قالب سيرة ذاتية — Basic<small>68 ريال</small></label></div>
+          <div class="bp-choice"><input id="svc_cv_pro_ar" name="service_type" type="radio" value="CV Pro"><label for="svc_cv_pro_ar">قالب سيرة ذاتية — Pro<small>95 ريال</small></label></div>
+          <div class="bp-choice"><input id="svc_cv_done_ar" name="service_type" type="radio" value="CV Already Done"><label for="svc_cv_done_ar">سيرة ذاتية جاهزة مسبقًا<small>تنسيق/إعادة بناء</small></label></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">3</span><div><h3 class="bp-title">باقة الموقع</h3><p class="bp-desc">في حال اختيار خدمة الموقع</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">3</span><div><h3 class="bp-title">باقة الموقع وملخص المشروع</h3><p class="bp-desc">تحديد الباقة ومدخلات المشروع الأساسية</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="tier1_ar" name="tier" type="radio" value="Tier 1"><label for="tier1_ar">الباقة 1<small>600 ريال · 3–5 أيام</small></label></div>
-          <div class="bp-choice"><input id="tier2_ar" name="tier" type="radio" value="Tier 2"><label for="tier2_ar">الباقة 2<small>950 ريال · 5–7 أيام</small></label></div>
-          <div class="bp-choice"><input id="tier3_ar" name="tier" type="radio" value="Tier 3"><label for="tier3_ar">الباقة 3<small>1,400 ريال · 7–10 أيام</small></label></div>
+          <div class="bp-choice"><input id="tier1_ar" name="tier" type="radio" value="Tier 1"><label for="tier1_ar">الباقة 1<small>حضور شخصي</small></label></div>
+          <div class="bp-choice"><input id="tier2_ar" name="tier" type="radio" value="Tier 2"><label for="tier2_ar">الباقة 2<small>موقع نمو</small></label></div>
+          <div class="bp-choice"><input id="tier3_ar" name="tier" type="radio" value="Tier 3"><label for="tier3_ar">الباقة 3<small>بناء متقدم</small></label></div>
         </div>
-        <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>وصف المشروع <span class="req">*</span></label><textarea required name="project_desc" placeholder="وش هدف الموقع؟ ومين الجمهور المستهدف؟"></textarea></div>
+        <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>عنوان المشروع / الموقع</label><input name="project_title" type="text"></div>
+          <div class="bp-field"><label>المقرر / القسم (إذا كان أكاديميًا)</label><input name="project_course" type="text"></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>وصف المشروع <span class="req">*</span></label><textarea required name="project_desc" placeholder="ما الهدف من الموقع؟ من يستخدمه؟ وما الذي يجب أن يجده؟"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>الجمهور المستهدف</label><input name="audience" type="text"></div>
+          <div class="bp-field"><label>الهدف الرئيسي للموقع</label><input name="goal" type="text"></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">4</span><div><h3 class="bp-title">الهيكلة والمدة</h3><p class="bp-desc">الأقسام، الجاهزية، وموعد التسليم</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">4</span><div><h3 class="bp-title">تخطيط الهيكل</h3><p class="bp-desc">الأقسام، عمق الصفحات، وتوقعات التنقل</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>عدد الأقسام المتوقع <span class="req">*</span></label><input required name="section_count" type="number" min="1" max="20"></div>
-          <div class="bp-field"><label>تاريخ الإطلاق / التسليم <span class="req">*</span></label><input required name="deadline" type="date"></div>
+          <div class="bp-field"><label>عدد الأقسام المتوقع <span class="req">*</span></label><input required name="section_count" type="number" min="1" max="40"></div>
+          <div class="bp-field"><label>عدد الصفحات المتوقع لكل قسم</label><input name="pages_per_section" type="number" min="1" max="30"></div>
         </div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>قائمة الأقسام</label><textarea name="sections_list" placeholder="كل قسم في سطر"></textarea></div>
         </div>
-      </section>
-
-      <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">الإضافات</h3><p class="bp-desc">خيارات إضافية حسب الحاجة</p></div></div>
-        <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="ao_bilingual_ar" name="addon_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual_ar">إعداد ثنائي اللغة<small>300 ريال</small></label></div>
-          <div class="bp-choice"><input id="ao_domain_ar" name="addon_domain" type="checkbox" value="Custom Domain"><label for="ao_domain_ar">دومين مخصص<small>250 ريال</small></label></div>
-          <div class="bp-choice"><input id="ao_priority_ar" name="addon_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority_ar">تسليم مستعجل<small>200 ريال</small></label></div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>ملاحظات التنقل</label><textarea name="nav_notes" placeholder="التجميع، الترتيب، والأسماء المفضلة (اختياري)"></textarea></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">6</span><div><h3 class="bp-title">ملاحظات إضافية</h3><p class="bp-desc">أي متطلبات خاصة قبل البدء</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">جاهزية المحتوى</h3><p class="bp-desc">حالة المواد المتوفرة وما هو الناقص</p></div></div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>الملاحظات</label><textarea name="anything_else"></textarea></div>
+          <div class="bp-field"><label>الحالة العامة للمحتوى</label><select name="content_status"><option value="">اختر...</option><option>جاهز بالكامل</option><option>جاهز جزئيًا</option><option>مسودة تحتاج ترتيب</option><option>لم يبدأ بعد</option></select></div>
+        </div>
+        <div class="bp-choice-grid bp-cols-3">
+          <div class="bp-choice"><input id="cnt_text_ar" name="cnt_text" type="checkbox" value="Written text"><label for="cnt_text_ar">نصوص مكتوبة</label></div>
+          <div class="bp-choice"><input id="cnt_images_ar" name="cnt_images" type="checkbox" value="Images / logos"><label for="cnt_images_ar">صور / شعارات</label></div>
+          <div class="bp-choice"><input id="cnt_report_ar" name="cnt_report" type="checkbox" value="Report / paper"><label for="cnt_report_ar">تقرير / ورقة</label></div>
+          <div class="bp-choice"><input id="cnt_code_ar" name="cnt_code" type="checkbox" value="Code / repo"><label for="cnt_code_ar">كود / مستودع</label></div>
+          <div class="bp-choice"><input id="cnt_data_ar" name="cnt_data" type="checkbox" value="Data / results"><label for="cnt_data_ar">بيانات / نتائج</label></div>
+          <div class="bp-choice"><input id="cnt_refs_ar" name="cnt_refs" type="checkbox" value="References"><label for="cnt_refs_ar">مراجع</label></div>
+        </div>
+        <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>ملاحظات المحتوى</label><textarea name="content_notes" placeholder="ما المفقود؟ ما صيغة الملفات؟ وما الذي سيصل لاحقًا؟"></textarea></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">6</span><div><h3 class="bp-title">إدراج التقرير</h3><p class="bp-desc">طريقة عرض التقرير أو الملف ضمن التسليم النهائي</p></div></div>
+        <div class="bp-choice-grid bp-cols-2">
+          <div class="bp-choice"><input id="rep_none_ar" name="rep_none" type="checkbox" value="Not applicable"><label for="rep_none_ar">غير مطلوب</label></div>
+          <div class="bp-choice"><input id="rep_pdf_ar" name="rep_pdf" type="checkbox" value="Embedded PDF"><label for="rep_pdf_ar">PDF مدمج</label></div>
+          <div class="bp-choice"><input id="rep_hosted_ar" name="rep_hosted" type="checkbox" value="HTML Hosted"><label for="rep_hosted_ar">HTML مستضاف</label></div>
+          <div class="bp-choice"><input id="rep_download_ar" name="rep_download" type="checkbox" value="HTML Standalone"><label for="rep_download_ar">HTML مستقل</label></div>
+        </div>
+        <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>ملاحظات التقرير</label><textarea name="report_notes" placeholder="مثال: ملف Word يحتاج تحويل، أو تقرير نهائي جاهز"></textarea></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">7</span><div><h3 class="bp-title">الإضافات</h3><p class="bp-desc">خيارات اختيارية وتوسعة النطاق</p></div></div>
+        <div class="bp-choice-grid bp-cols-3">
+          <div class="bp-choice"><input id="ao_bilingual_ar" name="ao_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual_ar">إعداد ثنائي اللغة<small>300 ريال</small></label></div>
+          <div class="bp-choice"><input id="ao_domain_ar" name="ao_domain" type="checkbox" value="Custom Domain"><label for="ao_domain_ar">إعداد دومين مخصص<small>250 ريال</small></label></div>
+          <div class="bp-choice"><input id="ao_priority_ar" name="ao_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority_ar">تسليم مستعجل<small>200 ريال</small></label></div>
+          <div class="bp-choice"><input id="ao_monthly_ar" name="ao_monthly" type="checkbox" value="Monthly Maintenance"><label for="ao_monthly_ar">صيانة شهرية</label></div>
+          <div class="bp-choice"><input id="ao_daily_ar" name="ao_daily" type="checkbox" value="Daily Maintenance"><label for="ao_daily_ar">صيانة يومية</label></div>
+          <div class="bp-choice"><input id="ao_extra_ar" name="ao_extra" type="checkbox" value="Extra Sections"><label for="ao_extra_ar">أقسام إضافية</label></div>
+        </div>
+        <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>اسم الدومين المطلوب (إن وجد)</label><input name="custom_domain" type="text" placeholder="example.com"></div>
+          <div class="bp-field"><label>عدد الأقسام الإضافية (إن وجد)</label><input name="extra_sections" type="number" min="1" max="20"></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">8</span><div><h3 class="bp-title">المدة والتوجه البصري</h3><p class="bp-desc">تفاصيل الموعد والتفضيلات التصميمية</p></div></div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>تاريخ الإطلاق / التسليم <span class="req">*</span></label><input required name="deadline" type="date"></div>
+          <div class="bp-field"><label>هل الموعد ثابت؟</label><select name="deadline_flex"><option value="">اختر...</option><option>ثابت</option><option>مرن</option><option>أفضل قبل الموعد إن أمكن</option></select></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>سياق الموعد</label><textarea name="deadline_notes" placeholder="موعد تسليم أكاديمي، إطلاق عام، اختبار، أو غيره"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>توجه الألوان</label><input name="color_dir" type="text" placeholder="هادئ، جريء، احترافي، بسيط..."></div>
+          <div class="bp-field"><label>ألوان الهوية (HEX أو وصف)</label><input name="brand_colors" type="text" placeholder="#0f3d4a, #5eead4"></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>مواقع مرجعية</label><textarea name="references" placeholder="روابط أو وصف مختصر للمواقع القريبة من ذوقك"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>رابط GitHub / بورتفوليو</label><input name="portfolio_link" type="text"></div>
+          <div class="bp-field"><label>ملاحظات تصميم</label><input name="design_notes" type="text" placeholder="الخطوط، أسلوب الترتيب، وما يجب تجنبه"></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">9</span><div><h3 class="bp-title">الدومين والمستودع</h3><p class="bp-desc">طريقة النشر وحالة المستودع الحالية</p></div></div>
+        <div class="bp-choice-grid bp-cols-2">
+          <div class="bp-choice"><input id="domain_free_ar" name="domain_type" type="radio" value="Free GitHub Pages"><label for="domain_free_ar">GitHub Pages مجاني</label></div>
+          <div class="bp-choice"><input id="domain_custom_ar" name="domain_type" type="radio" value="Custom Domain"><label for="domain_custom_ar">دومين مخصص</label></div>
+        </div>
+        <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>اسم مستخدم GitHub (إن وجد)</label><input name="github_user" type="text"></div>
+          <div class="bp-field"><label>مستودع موجود مسبقًا (إن وجد)</label><input name="github_repo" type="text"></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">10</span><div><h3 class="bp-title">الفريق والملاحظات النهائية</h3><p class="bp-desc">تفاصيل التعاون، الإحالة، والمتطلبات الخاصة</p></div></div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>هل المشروع فردي أم جماعي؟</label><select name="is_team"><option value="">اختر...</option><option>فردي</option><option>جماعي</option></select></div>
+          <div class="bp-field"><label>عدد أعضاء الفريق (إن كان جماعيًا)</label><input name="team_count" type="number" min="1" max="20"></div>
+        </div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>المشرف / المدرس (إن وجد)</label><input name="supervisor" type="text"></div>
+          <div class="bp-field"><label>كيف تعرفت على Blueprint؟</label><input name="referral" type="text"></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>أسماء أعضاء الفريق وأدوارهم (كل عضو في سطر)</label><textarea name="team_members"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>متطلبات أو قيود خاصة</label><textarea name="special_req"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>أي تفاصيل إضافية يجب أن يعرفها فريق Blueprint قبل البدء</label><textarea name="anything_else"></textarea></div>
         </div>
         <div class="bp-summary">بإرسال النموذج أنت تؤكد صحة البيانات. اعتماد النطاق والسعر النهائي يتم كتابيًا قبل التنفيذ.</div>
       </section>

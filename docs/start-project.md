@@ -4,7 +4,7 @@ role: Project Intake
 scope: Structured intake and scope confirmation
 constraints: Clear inputs, realistic timelines, static-site delivery boundaries
 metrics: form completion quality, submission rate, kickoff speed
-last_updated: 2026-03-02
+last_updated: 2026-03-03
 ---
 
 # Start Project
@@ -28,18 +28,26 @@ Use this intake form to submit your project details in one pass.
       --shadow: var(--shadow-soft, 0 12px 28px rgba(15, 23, 42, 0.12));
       --required: #c0392b;
       margin-top: 1rem;
+      width: 100%;
     }
 
     .bp-intake * { box-sizing: border-box; }
 
     .bp-intake .bp-intake-page {
-      max-width: 900px;
+      width: 100%;
+      max-width: min(100%, 1040px);
       margin: 0 auto;
       background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(241, 247, 247, 0.95));
       border: 1px solid var(--rule);
       border-radius: var(--radius-xl, 1rem);
       overflow: hidden;
       box-shadow: var(--shadow);
+    }
+
+    body.sg-hide-left-sidebar .bp-intake .bp-intake-page,
+    body.sg-hide-right-sidebar .bp-intake .bp-intake-page,
+    body.sg-hide-left-sidebar.sg-hide-right-sidebar .bp-intake .bp-intake-page {
+      max-width: min(100%, 1320px);
     }
 
     .bp-intake .bp-intake-header {
@@ -365,62 +373,163 @@ Use this intake form to submit your project details in one pass.
       <input type="hidden" name="_captcha" value="false">
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">1</span><div><h3 class="bp-title">Client Information</h3><p class="bp-desc">Core contact information</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">1</span><div><h3 class="bp-title">Client Information</h3><p class="bp-desc">Core contact and communication details</p></div></div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>Full Name <span class="req">*</span></label><input required name="client_name" type="text"></div>
           <div class="bp-field"><label>Email Address <span class="req">*</span></label><input required name="client_email" type="email"></div>
         </div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>Phone / WhatsApp</label><input name="client_phone" type="tel"></div>
-          <div class="bp-field"><label>Preferred Language</label><select name="client_lang"><option value="">Select...</option><option>English</option><option>Arabic</option><option>Both</option></select></div>
+          <div class="bp-field"><label>University / Organization (if applicable)</label><input name="client_org" type="text"></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>Preferred Communication Language</label><select name="client_lang"><option value="">Select...</option><option>English</option><option>Arabic</option><option>Both</option></select></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Service Type</h3><p class="bp-desc">Select requested service</p></div></div>
-        <div class="bp-choice-grid bp-cols-3">
+        <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Service Type</h3><p class="bp-desc">Select the service you want to start with</p></div></div>
+        <div class="bp-choice-grid bp-cols-2">
           <div class="bp-choice"><input id="svc_website" name="service_type" type="radio" value="Website Package"><label for="svc_website">Website Package<small>Tier 1, 2, or 3</small></label></div>
           <div class="bp-choice"><input id="svc_cv_basic" name="service_type" type="radio" value="CV Basic"><label for="svc_cv_basic">CV Template — Basic<small>68 SAR</small></label></div>
           <div class="bp-choice"><input id="svc_cv_pro" name="service_type" type="radio" value="CV Pro"><label for="svc_cv_pro">CV Template — Pro<small>95 SAR</small></label></div>
+          <div class="bp-choice"><input id="svc_cv_done" name="service_type" type="radio" value="CV Already Done"><label for="svc_cv_done">CV Already Done<small>Formatting/rebuild support</small></label></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">3</span><div><h3 class="bp-title">Website Tier</h3><p class="bp-desc">If website package is selected</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">3</span><div><h3 class="bp-title">Website Tier & Project Brief</h3><p class="bp-desc">Tier selection and project fundamentals</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Tier 1<small>600 SAR · 3–5 days</small></label></div>
-          <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Tier 2<small>950 SAR · 5–7 days</small></label></div>
-          <div class="bp-choice"><input id="tier3" name="tier" type="radio" value="Tier 3"><label for="tier3">Tier 3<small>1,400 SAR · 7–10 days</small></label></div>
+          <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Tier 1<small>Personal Presence</small></label></div>
+          <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Tier 2<small>Growth Site</small></label></div>
+          <div class="bp-choice"><input id="tier3" name="tier" type="radio" value="Tier 3"><label for="tier3">Tier 3<small>Advanced Build</small></label></div>
         </div>
-        <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Project Description <span class="req">*</span></label><textarea required name="project_desc" placeholder="What is this site for and who is it for?"></textarea></div>
+        <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>Project / Website Title</label><input name="project_title" type="text"></div>
+          <div class="bp-field"><label>Course / Department (if academic)</label><input name="project_course" type="text"></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>Project Description <span class="req">*</span></label><textarea required name="project_desc" placeholder="What is this site for, who uses it, and what should they find?"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>Target Audience</label><input name="audience" type="text"></div>
+          <div class="bp-field"><label>Primary Goal of the Site</label><input name="goal" type="text"></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">4</span><div><h3 class="bp-title">Structure & Timeline</h3><p class="bp-desc">Sections, readiness, and deadline</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">4</span><div><h3 class="bp-title">Structure Planning</h3><p class="bp-desc">Sections, page depth, and navigation expectations</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Estimated Number of Sections <span class="req">*</span></label><input required name="section_count" type="number" min="1" max="20"></div>
-          <div class="bp-field"><label>Preferred Launch / Submission Date <span class="req">*</span></label><input required name="deadline" type="date"></div>
+          <div class="bp-field"><label>Estimated Number of Sections <span class="req">*</span></label><input required name="section_count" type="number" min="1" max="40"></div>
+          <div class="bp-field"><label>Estimated Pages per Section</label><input name="pages_per_section" type="number" min="1" max="30"></div>
         </div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>Sections List</label><textarea name="sections_list" placeholder="One section per line"></textarea></div>
         </div>
-      </section>
-
-      <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">Add-Ons</h3><p class="bp-desc">Optional extras</p></div></div>
-        <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="ao_bilingual" name="addon_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual">Bilingual Setup<small>300 SAR</small></label></div>
-          <div class="bp-choice"><input id="ao_domain" name="addon_domain" type="checkbox" value="Custom Domain"><label for="ao_domain">Custom Domain Setup<small>250 SAR</small></label></div>
-          <div class="bp-choice"><input id="ao_priority" name="addon_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority">Priority Delivery<small>200 SAR</small></label></div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>Navigation Notes</label><textarea name="nav_notes" placeholder="Grouping, ordering, and preferred naming (optional)"></textarea></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">6</span><div><h3 class="bp-title">Additional Notes</h3><p class="bp-desc">Any constraints or special requirements</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">Content Readiness</h3><p class="bp-desc">Current status of source material and missing items</p></div></div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Notes</label><textarea name="anything_else"></textarea></div>
+          <div class="bp-field"><label>Overall Content Status</label><select name="content_status"><option value="">Select...</option><option>Ready now</option><option>Partially ready</option><option>Draft exists, needs cleanup</option><option>Not started yet</option></select></div>
+        </div>
+        <div class="bp-choice-grid bp-cols-3">
+          <div class="bp-choice"><input id="cnt_text" name="cnt_text" type="checkbox" value="Written text"><label for="cnt_text">Written Text</label></div>
+          <div class="bp-choice"><input id="cnt_images" name="cnt_images" type="checkbox" value="Images / logos"><label for="cnt_images">Images / Logos</label></div>
+          <div class="bp-choice"><input id="cnt_report" name="cnt_report" type="checkbox" value="Report / paper"><label for="cnt_report">Report / Paper</label></div>
+          <div class="bp-choice"><input id="cnt_code" name="cnt_code" type="checkbox" value="Code / repo"><label for="cnt_code">Code / Repo</label></div>
+          <div class="bp-choice"><input id="cnt_data" name="cnt_data" type="checkbox" value="Data / results"><label for="cnt_data">Data / Results</label></div>
+          <div class="bp-choice"><input id="cnt_refs" name="cnt_refs" type="checkbox" value="References"><label for="cnt_refs">References</label></div>
+        </div>
+        <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>Content Notes</label><textarea name="content_notes" placeholder="What is missing, what format assets are in, and what is still coming"></textarea></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">6</span><div><h3 class="bp-title">Report Integration</h3><p class="bp-desc">How reports or documents should appear in the final delivery</p></div></div>
+        <div class="bp-choice-grid bp-cols-2">
+          <div class="bp-choice"><input id="rep_none" name="rep_none" type="checkbox" value="Not applicable"><label for="rep_none">Not Applicable</label></div>
+          <div class="bp-choice"><input id="rep_pdf" name="rep_pdf" type="checkbox" value="Embedded PDF"><label for="rep_pdf">Embedded PDF</label></div>
+          <div class="bp-choice"><input id="rep_hosted" name="rep_hosted" type="checkbox" value="HTML Hosted"><label for="rep_hosted">HTML Hosted</label></div>
+          <div class="bp-choice"><input id="rep_download" name="rep_download" type="checkbox" value="HTML Standalone"><label for="rep_download">HTML Standalone</label></div>
+        </div>
+        <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>Report Notes</label><textarea name="report_notes" placeholder="For example: Word doc to convert, report already final, hosting preference"></textarea></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">7</span><div><h3 class="bp-title">Add-Ons</h3><p class="bp-desc">Optional extras and scope extensions</p></div></div>
+        <div class="bp-choice-grid bp-cols-3">
+          <div class="bp-choice"><input id="ao_bilingual" name="ao_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual">Bilingual Setup<small>300 SAR</small></label></div>
+          <div class="bp-choice"><input id="ao_domain" name="ao_domain" type="checkbox" value="Custom Domain"><label for="ao_domain">Custom Domain Setup<small>250 SAR</small></label></div>
+          <div class="bp-choice"><input id="ao_priority" name="ao_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority">Priority Delivery<small>200 SAR</small></label></div>
+          <div class="bp-choice"><input id="ao_monthly" name="ao_monthly" type="checkbox" value="Monthly Maintenance"><label for="ao_monthly">Monthly Maintenance</label></div>
+          <div class="bp-choice"><input id="ao_daily" name="ao_daily" type="checkbox" value="Daily Maintenance"><label for="ao_daily">Daily Maintenance</label></div>
+          <div class="bp-choice"><input id="ao_extra" name="ao_extra" type="checkbox" value="Extra Sections"><label for="ao_extra">Extra Sections</label></div>
+        </div>
+        <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>Custom Domain Name (if applicable)</label><input name="custom_domain" type="text" placeholder="example.com"></div>
+          <div class="bp-field"><label>Number of Extra Sections (if applicable)</label><input name="extra_sections" type="number" min="1" max="20"></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">8</span><div><h3 class="bp-title">Timeline & Design Direction</h3><p class="bp-desc">Deadline context and creative preferences</p></div></div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>Target Launch / Submission Date <span class="req">*</span></label><input required name="deadline" type="date"></div>
+          <div class="bp-field"><label>Is This Deadline Fixed?</label><select name="deadline_flex"><option value="">Select...</option><option>Fixed</option><option>Flexible</option><option>Prefer earlier if possible</option></select></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>Deadline Context</label><textarea name="deadline_notes" placeholder="Course submission, event launch, exam date, or other context"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>Color Direction</label><input name="color_dir" type="text" placeholder="Minimal, vibrant, neutral, premium, etc."></div>
+          <div class="bp-field"><label>Brand Colors (hex or description)</label><input name="brand_colors" type="text" placeholder="#0f3d4a, #5eead4"></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>Reference Sites</label><textarea name="references" placeholder="URLs or short descriptions of sites you like"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>GitHub / Portfolio Link</label><input name="portfolio_link" type="text"></div>
+          <div class="bp-field"><label>Design Notes</label><input name="design_notes" type="text" placeholder="Fonts, layout style, and things to avoid"></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">9</span><div><h3 class="bp-title">Domain & Repository</h3><p class="bp-desc">Publishing method and existing repo details</p></div></div>
+        <div class="bp-choice-grid bp-cols-2">
+          <div class="bp-choice"><input id="domain_free" name="domain_type" type="radio" value="Free GitHub Pages"><label for="domain_free">Free GitHub Pages</label></div>
+          <div class="bp-choice"><input id="domain_custom" name="domain_type" type="radio" value="Custom Domain"><label for="domain_custom">Custom Domain</label></div>
+        </div>
+        <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>GitHub Username (if you have one)</label><input name="github_user" type="text"></div>
+          <div class="bp-field"><label>Existing Repository (if applicable)</label><input name="github_repo" type="text"></div>
+        </div>
+      </section>
+
+      <section class="bp-section">
+        <div class="bp-section-label"><span class="bp-num">10</span><div><h3 class="bp-title">Team & Final Notes</h3><p class="bp-desc">Collaboration setup, referrals, and special constraints</p></div></div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>Solo or Team Project?</label><select name="is_team"><option value="">Select...</option><option>Solo</option><option>Team</option></select></div>
+          <div class="bp-field"><label>Number of Team Members (if team)</label><input name="team_count" type="number" min="1" max="20"></div>
+        </div>
+        <div class="bp-row bp-cols-2">
+          <div class="bp-field"><label>Supervisor / Instructor (if applicable)</label><input name="supervisor" type="text"></div>
+          <div class="bp-field"><label>How Did You Hear About Blueprint?</label><input name="referral" type="text"></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>Team Members (names and roles, one per line)</label><textarea name="team_members"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>Special Requirements or Constraints</label><textarea name="special_req"></textarea></div>
+        </div>
+        <div class="bp-row bp-cols-1">
+          <div class="bp-field"><label>Anything Else Blueprint Should Know Before the Project Begins</label><textarea name="anything_else"></textarea></div>
         </div>
         <div class="bp-summary">By submitting, you confirm details are accurate. Final scope and pricing are confirmed in writing before implementation.</div>
       </section>
