@@ -57,7 +57,6 @@ nav:
   - Work: web-platforms/index.md
   - About: about.md
   - Contact: contact.md
-      - Form.md
 
 exclude_docs: |
   architecture-notes/**
