@@ -4,6 +4,11 @@
     return lang.indexOf('ar') === 0;
   }
 
+  function localizedPath(path, isArabic) {
+    if (!isArabic) return path;
+    return path.indexOf('/ar/') === 0 ? path : '/ar' + path;
+  }
+
   function injectFooter() {
     var footer = document.querySelector('.md-footer');
     if (!footer || footer.querySelector('.custom-footer')) {
@@ -23,8 +28,10 @@
       scope: 'حدود النطاق',
       studio: 'الاستوديو',
       process: 'العملية',
-      discovery: 'اكتشاف المتطلبات',
-      cases: 'دراسات الحالة',
+      discovery: 'مرحلة الاكتشاف',
+      templates: 'نماذج السيرة',
+      startProject: 'ابدأ المشروع',
+      work: 'الأعمال',
       about: 'عنّا',
       support: 'الدعم',
       contact: 'تواصل',
@@ -45,8 +52,10 @@
       scope: 'Scope Boundaries',
       studio: 'Studio',
       process: 'Process',
-      discovery: 'Discovery Checklist',
-      cases: 'Case Studies',
+      discovery: 'Discovery',
+      templates: 'CV Templates',
+      startProject: 'Start Project',
+      work: 'Work',
       about: 'About',
       support: 'Support',
       contact: 'Contact',
@@ -74,29 +83,31 @@
       '<div class="custom-footer__right">',
       '<div class="footer-col">',
       '<p class="footer-col__title">' + t.packages + '</p>',
-      '<a class="footer-link" href="/packages/">' + t.base + '</a>',
-      '<a class="footer-link" href="/packages/">' + t.addons + '</a>',
-      '<a class="footer-link" href="/packages/">' + t.scope + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/packages/', ar) + '">' + t.base + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/packages/', ar) + '">' + t.addons + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/packages/', ar) + '">' + t.scope + '</a>',
       '</div>',
       '<div class="footer-col">',
       '<p class="footer-col__title">' + t.studio + '</p>',
-      '<a class="footer-link" href="/process/">' + t.process + '</a>',
-      '<a class="footer-link" href="/process/discovery-content-checklist/">' + t.discovery + '</a>',
-      '<a class="footer-link" href="/web-platforms/">' + t.cases + '</a>',
-      '<a class="footer-link" href="/about/">' + t.about + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/process/', ar) + '">' + t.process + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/process/discovery/', ar) + '">' + t.discovery + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/CV_index/', ar) + '">' + t.templates + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/start-project/', ar) + '">' + t.startProject + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/web-platforms/', ar) + '">' + t.work + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/about/', ar) + '">' + t.about + '</a>',
       '</div>',
       '<div class="footer-col footer-col--support">',
       '<p class="footer-col__title">' + t.support + '</p>',
-      '<a class="footer-link" href="/contact/">' + t.contact + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/contact/', ar) + '">' + t.contact + '</a>',
       '<a class="footer-link" href="mailto:blueprint@shoug-tech.com">blueprint@shoug-tech.com</a>',
       '<a class="footer-link" href="https://github.com/Shoug-Alomran" target="_blank" rel="noopener">GitHub</a>',
       '</div>',
       '<div class="footer-col footer-col--policies">',
       '<p class="footer-col__title">' + t.policies + '</p>',
-      '<a class="footer-link" href="/policies/terms-of-service/">' + t.terms + '</a>',
-      '<a class="footer-link" href="/policies/privacy-policy/">' + t.privacy + '</a>',
-      '<a class="footer-link" href="/policies/content-responsibility/">' + t.content + '</a>',
-      '<a class="footer-link" href="/policies/revision-policy/">' + t.revision + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/policies/terms-of-service/', ar) + '">' + t.terms + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/policies/privacy-policy/', ar) + '">' + t.privacy + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/policies/content-responsibility/', ar) + '">' + t.content + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/policies/revision-policy/', ar) + '">' + t.revision + '</a>',
       '</div>',
       '</div>',
       '</div>'
