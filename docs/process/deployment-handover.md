@@ -1,53 +1,15 @@
-# Deployment & Handover
-
-This stage moves the project from approved build to live production and transfers operational control.
-
-Deployment is only initiated after final approval.
-
+---
+title: Deployment & Handover
+role: Production Launch
+scope: Final deployment, validation, payment, and ownership transfer
+constraints: Final approval and payment required before handover
+metrics: deployment stability, handover clarity, ownership transfer completeness
+last_updated: 2026-03-02
 ---
 
-## Deployment Focus
+# 06 · Deployment & Handover
 
-- Publish to GitHub Pages or agreed static host  
-- Configure custom domain (if included)  
-- Enable HTTPS and verify secure access  
-- Validate navigation across devices  
-- Run final performance and accessibility checks  
-
-The objective is stable, production-ready delivery.
-
----
-
-## Handover Deliverables
-
-Upon payment confirmation, the following are provided:
-
-- Live production URL  
-- Repository access or source files (as agreed)  
-- Domain configuration confirmation (if included)  
-- Update guidance for future content changes  
-
----
-
-## Ownership Transition
-
-After handover:
-
-- The client assumes responsibility for ongoing updates unless maintenance is separately agreed.  
-- Hosting platform limitations and third-party policies fall outside studio control.  
-
----
-
-## Finalization
-
-Handover is completed after:
-
-1. Final approval  
-2. Payment confirmation  
-
-Structured delivery ensures long-term clarity and stability.# Deployment & Handover
-
-This stage transitions the project from approved build to live production and ownership transfer.
+The approved build is published to production, validated across devices, and transferred to the client. Deployment is only initiated after final approval is confirmed.
 
 ---
 
@@ -62,17 +24,17 @@ This stage transitions the project from approved build to live production and ow
 
   <article class="hero-card">
     <h3>Domain & HTTPS Setup</h3>
-    <p>Custom domain configuration and secure HTTPS validation (if included).</p>
+    <p>Custom domain configuration and HTTPS validation, if included in the project scope.</p>
   </article>
 
   <article class="hero-card">
     <h3>Final Validation</h3>
-    <p>Navigation, responsiveness, and performance checks across devices.</p>
+    <p>Navigation, responsiveness, and performance checked across mobile and desktop before handover.</p>
   </article>
 
   <article class="hero-card">
-    <h3>Ownership Transition</h3>
-    <p>Repository access or source files are transferred upon payment confirmation.</p>
+    <h3>Ownership Transfer</h3>
+    <p>Repository access or source files transferred upon payment confirmation.</p>
   </article>
 
 </div>
@@ -85,17 +47,17 @@ This stage transitions the project from approved build to live production and ow
 
   <article class="info-card">
     <h3>Live URL</h3>
-    <p>Your production-ready website link.</p>
+    <p>Your production-ready website at the agreed domain or GitHub Pages address.</p>
   </article>
 
   <article class="info-card">
-    <h3>Access & Files</h3>
-    <p>Repository access or agreed source files.</p>
+    <h3>Repository Access or Source Files</h3>
+    <p>Full access to your site files as agreed during intake.</p>
   </article>
 
   <article class="info-card">
     <h3>Update Guidance</h3>
-    <p>Instructions for maintaining and updating content.</p>
+    <p>Documentation covering how to edit and maintain your content going forward.</p>
   </article>
 
 </div>
@@ -104,20 +66,101 @@ This stage transitions the project from approved build to live production and ow
 
 ## Finalization Conditions
 
-<div class="card-grid">
+Handover requires both conditions to be met:
 
-  <article class="info-card">
-    <h3>Final Approval</h3>
-    <p>All included revision rounds completed and approved.</p>
+1. **Final approval** — all included revision rounds completed and client sign-off confirmed  
+2. **Payment confirmation** — full payment received before repository access or source files are transferred  
+
+---
+
+## After Handover
+
+The client assumes full responsibility for ongoing content updates unless a maintenance add-on was agreed in writing. Hosting platform limitations and third-party service policies fall outside Blueprint's control after handover.
+
+---
+
+## Timeline
+
+| Tier | Typical Duration |
+| --- | --- |
+| Tier 1 – Personal Presence | 1 working day |
+| Tier 2 – Project Documentation | 1 working day |
+| Tier 3 – Research Documentation | 1–2 working days |# 06 · Deployment & Handover
+
+The approved build is published to production, validated across devices, and transferred to the client. Deployment is only initiated after final approval is confirmed.
+
+---
+
+## What Happens at This Stage
+
+<div class="card-grid hero-cards">
+
+  <article class="hero-card">
+    <h3>Production Deployment</h3>
+    <p>The site is published to GitHub Pages or the agreed static host.</p>
   </article>
 
-  <article class="info-card">
-    <h3>Payment Confirmation</h3>
-    <p>Full payment is required before handover is finalized.</p>
+  <article class="hero-card">
+    <h3>Domain & HTTPS Setup</h3>
+    <p>Custom domain configuration and HTTPS validation, if included in the project scope.</p>
+  </article>
+
+  <article class="hero-card">
+    <h3>Final Validation</h3>
+    <p>Navigation, responsiveness, and performance checked across mobile and desktop before handover.</p>
+  </article>
+
+  <article class="hero-card">
+    <h3>Ownership Transfer</h3>
+    <p>Repository access or source files transferred upon payment confirmation.</p>
   </article>
 
 </div>
 
-After handover, the client assumes responsibility for ongoing updates unless maintenance is separately agreed.
+---
 
-Structured deployment ensures stability, clarity, and clean ownership transfer.
+## What You Receive
+
+<div class="card-grid">
+
+  <article class="info-card">
+    <h3>Live URL</h3>
+    <p>Your production-ready website at the agreed domain or GitHub Pages address.</p>
+  </article>
+
+  <article class="info-card">
+    <h3>Repository Access or Source Files</h3>
+    <p>Full access to your site files as agreed during intake.</p>
+  </article>
+
+  <article class="info-card">
+    <h3>Update Guidance</h3>
+    <p>Documentation covering how to edit and maintain your content going forward.</p>
+  </article>
+
+</div>
+
+---
+
+## Finalization Conditions
+
+Handover requires both conditions to be met:
+
+1. **Final approval** — all included revision rounds completed and client sign-off confirmed  
+2. **Payment confirmation** — full payment received before repository access or source files are transferred  
+
+---
+
+## After Handover
+
+The client assumes full responsibility for ongoing content updates unless a maintenance add-on was agreed in writing. Hosting platform limitations and third-party service policies fall outside Blueprint's control after handover.
+
+---
+
+## Timeline
+
+| Tier | Typical Duration |
+| --- | --- |
+| Tier 1 – Personal Presence | 1 working day |
+| Tier 2 – Project Documentation | 1 working day |
+| Tier 3 – Research Documentation | 1–2 working days |

@@ -765,3 +765,7 @@ body.hide-left-nav.hide-right-toc .container > .row {
     scroll-behavior: auto !important;
   }
 }
+.hero-cards .info-card {
+  border: 1px solid rgba(15, 143, 139, 0.25);
+  background: linear-gradient(180deg, #ffffff, #f4fbfa);
+}

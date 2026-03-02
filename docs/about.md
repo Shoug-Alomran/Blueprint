@@ -4,39 +4,49 @@ role: Studio Positioning
 scope: Service philosophy and fit
 constraints: Clarity, professionalism, defined boundaries
 metrics: project fit, communication quality, delivery consistency
-last_updated: 2026-03-01
+last_updated: 2026-03-02
 ---
 
 # About
 
-Blueprint Studio is a structured digital presence studio under ShougTech.
+Blueprint Studio is a structured digital presence studio based in Riyadh, Saudi Arabia — built under ShougTech.
 
-We build static websites that prioritize clarity, organization, and long-term maintainability.
+We build static websites and HTML CV templates for students, researchers, and professionals who need their work organized, presented clearly, and easy to maintain long-term.
 
 ---
 
-## What Blueprint Is
+## The Studio
+
+Blueprint is run by a Software Engineering and Cybersecurity student at Prince Sultan University — someone who builds the same kinds of sites for clients that they build for themselves. Every project in the [Work](../web-platforms/index.md) section is a real site, built and deployed. The portfolio is the proof.
+
+The studio works in both Arabic and English. Projects are delivered bilingually when needed, and client communication can happen in either language — whatever makes the process easier for you.
+
+Blueprint is a one-person studio. That means one point of contact, direct communication, and no handoffs between team members. When you reach out, you talk to the person building your site.
+
+---
+
+## What Blueprint Builds
 
 <div class="card-grid hero-cards">
 
   <article class="hero-card">
-    <h3>Structured</h3>
-    <p>Every project begins with hierarchy and navigation — not decoration.</p>
+    <h3>Personal Presence Sites</h3>
+    <p>Portfolios, digital gardens, and professional profile sites — clean, navigable, and built to last.</p>
   </article>
 
   <article class="hero-card">
-    <h3>Static-First</h3>
-    <p>Fast, secure, low-maintenance architecture without unnecessary backend complexity.</p>
+    <h3>Project Documentation Sites</h3>
+    <p>Academic project documentation built around how evaluators and reviewers actually read — structured, chapter-based, and submission-ready.</p>
   </article>
 
   <article class="hero-card">
-    <h3>Process-Oriented</h3>
-    <p>Defined workflow, controlled revisions, predictable delivery.</p>
+    <h3>Research Documentation Sites</h3>
+    <p>Publication-ready documentation for university research — methodology, results, paper artifacts, and deployment guides organized for academic review.</p>
   </article>
 
   <article class="hero-card">
-    <h3>Scope-Driven</h3>
-    <p>Clear boundaries that protect quality and timeline.</p>
+    <h3>HTML CV Templates</h3>
+    <p>Pre-designed professional CV templates available in Basic and Pro — with dark mode, Arabic/English toggle, and print-to-PDF built in.</p>
   </article>
 
 </div>
@@ -45,26 +55,28 @@ We build static websites that prioritize clarity, organization, and long-term ma
 
 ## Who Blueprint Is Best For
 
+Blueprint works best for people who know what they want to say — and need someone to build the structure that says it clearly.
+
 <div class="card-grid">
 
   <article class="info-card">
     <h3>Students</h3>
-    <p>Building portfolios, capstone showcases, or academic project websites.</p>
+    <p>Building portfolios, capstone showcases, or academic project documentation sites.</p>
   </article>
 
   <article class="info-card">
-    <h3>Instructors</h3>
+    <h3>Researchers</h3>
+    <p>Turning a university research project into a structured, publication-ready documentation site with paper artifacts, methodology, and results organized for review.</p>
+  </article>
+
+  <article class="info-card">
+    <h3>Instructors & Organizers</h3>
     <p>Creating structured course hubs, documentation systems, or workshop pages.</p>
   </article>
 
   <article class="info-card">
-    <h3>Professionals</h3>
-    <p>Needing a clean, focused digital presence without technical overhead.</p>
-  </article>
-
-  <article class="info-card">
-    <h3>Small Teams</h3>
-    <p>Organizing documentation or public-facing content into a maintainable structure.</p>
+    <h3>Professionals & Small Teams</h3>
+    <p>Needing a clean, focused digital presence or organized documentation without technical overhead.</p>
   </article>
 
 </div>
@@ -77,22 +89,22 @@ We build static websites that prioritize clarity, organization, and long-term ma
 
   <article class="info-card">
     <h3>Structure Before Styling</h3>
-    <p>Hierarchy and navigation are finalized before visual refinement.</p>
+    <p>Hierarchy and navigation are finalized before visual refinement begins.</p>
   </article>
 
   <article class="info-card">
     <h3>Clarity Before Expansion</h3>
-    <p>Content organization takes priority over adding unnecessary features.</p>
+    <p>Content organization takes priority over adding features that don't serve the audience.</p>
   </article>
 
   <article class="info-card">
     <h3>Stability Before Complexity</h3>
-    <p>Static architecture ensures reliability and long-term ease of updates.</p>
+    <p>Static architecture keeps sites fast, reliable, and easy to update long after handover.</p>
   </article>
 
   <article class="info-card">
     <h3>Defined Scope</h3>
-    <p>Controlled revisions and boundaries protect delivery quality.</p>
+    <p>Every project starts with a clear tier, confirmed add-ons, and locked scope. No surprises on either side.</p>
   </article>
 
 </div>
@@ -101,18 +113,24 @@ We build static websites that prioritize clarity, organization, and long-term ma
 
 ## Scope Boundaries
 
-Blueprint Studio focuses exclusively on static website services.
+Blueprint focuses exclusively on static websites and HTML CV templates.
 
 We do not provide:
 
-- Full-stack product engineering  
-- Database systems  
-- Authentication flows  
-- SaaS platform development  
-- Custom backend integrations  
+- Full-stack product engineering
+- Database systems
+- Authentication flows
+- SaaS platform development
+- Custom backend integrations
 
-If your project requires dynamic systems or application logic, Blueprint is not the right fit.
+If your project requires dynamic systems or application logic, Blueprint is not the right fit — and we'll tell you that upfront rather than take on work outside our scope.
 
 ---
 
-Blueprint exists for clients who value structure, clarity, and maintainable digital presence over complexity.
+## Based In
+
+Riyadh, Saudi Arabia. Working with clients locally and remotely.
+
+Response within 2 business days. Communication in Arabic or English — your choice.
+
+[Start a project →](../contact.md)

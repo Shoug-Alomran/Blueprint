@@ -46,18 +46,18 @@ nav:
   - Packages: packages.md
   - Process:
       - Overview: process/index.md
-      - Discovery & Content Checklist: process/discovery-content-checklist.md
+      - Intake & Fit Check: process/intake-fit-check.md
+      - Discovery: process/discovery.md
       - Structure & Sitemap: process/structure-sitemap.md
-      - First Build: process/first-build.md
-      - Revision Rounds: process/revision-rounds.md
+      - Build: process/build.md
+      - Review & Revisions: process/revisions.md
       - Deployment & Handover: process/deployment-handover.md
-  - Case Studies:
-      - Overview: web-platforms/index.md
-      - Student Portfolio Website: web-platforms/student-portfolio.md
-      - Academic Documentation Website: web-platforms/academic-documentation.md
-      - Workshop Course Page: web-platforms/workshop-course-page.md
+  - CV Templates: CV_index.md
+  - Start Project: start-project.md
+  - Work: web-platforms/index.md
   - About: about.md
   - Contact: contact.md
+      - Form.md
 
 exclude_docs: |
   architecture-notes/**

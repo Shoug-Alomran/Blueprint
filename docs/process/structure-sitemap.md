@@ -1,33 +1,40 @@
-# Structure & Sitemap
+---
+title: Structure & Sitemap
+role: Navigation Design
+scope: Page hierarchy and navigation flow approval
+constraints: Approved before visual work begins
+metrics: navigation clarity, hierarchy logic, implementation readiness
+last_updated: 2026-03-02
+---
 
-This stage defines how visitors move through the site.
+# 03 · Structure & Sitemap
 
-Structure is finalized before visual polish to ensure clean implementation and long-term maintainability.
+Structure defines how visitors move through the site. Navigation hierarchy and content grouping are finalized and approved here before any visual or layout work begins.
 
 ---
 
-## What We Design
+## What Gets Designed
 
 <div class="card-grid hero-cards">
 
   <article class="hero-card">
-    <h3>Page Hierarchy</h3>
-    <p>Define core pages and their logical relationships.</p>
+    <h3>Section Hierarchy</h3>
+    <p>Define all top-level sections and the pages nested within each one.</p>
   </article>
 
   <article class="hero-card">
     <h3>Navigation System</h3>
-    <p>Establish primary and secondary navigation paths.</p>
+    <p>Establish primary navigation paths and any secondary or sidebar navigation.</p>
   </article>
 
   <article class="hero-card">
     <h3>Content Grouping</h3>
-    <p>Cluster related sections for clarity and reduced cognitive load.</p>
+    <p>Cluster related content to reduce cognitive load and improve scanning behavior.</p>
   </article>
 
   <article class="hero-card">
     <h3>User Flow</h3>
-    <p>Map how visitors naturally move from entry point to key content.</p>
+    <p>Map how the target audience moves from the entry point to the most critical content.</p>
   </article>
 
 </div>
@@ -40,17 +47,17 @@ Structure is finalized before visual polish to ensure clean implementation and l
 
   <article class="info-card">
     <h3>Readability</h3>
-    <p>Ensure clear section order and predictable scanning patterns.</p>
+    <p>Clear section order and predictable scanning patterns for the target audience.</p>
   </article>
 
   <article class="info-card">
     <h3>Device Consistency</h3>
-    <p>Confirm hierarchy remains intact across mobile and desktop.</p>
+    <p>Hierarchy remains intact and navigable across mobile and desktop.</p>
   </article>
 
   <article class="info-card">
     <h3>Implementation Readiness</h3>
-    <p>Prepare structure for efficient static build.</p>
+    <p>Structure is clean and buildable without ambiguity.</p>
   </article>
 
 </div>
@@ -61,6 +68,16 @@ Structure is finalized before visual polish to ensure clean implementation and l
 
 - Approved sitemap  
 - Locked navigation hierarchy  
-- Structured content map ready for implementation  
+- Structured content map ready for build  
 
-Strong structure reduces revision complexity later.
+Structure is approved by the client before build begins. Structural changes requested after approval are assessed and quoted separately.
+
+---
+
+## Timeline
+
+| Tier | Typical Duration |
+| --- | --- |
+| Tier 1 – Personal Presence | 1 working day |
+| Tier 2 – Project Documentation | 1 working day |
+| Tier 3 – Research Documentation | 1–2 working days |

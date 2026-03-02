@@ -1,107 +1,135 @@
 ---
-title: Case Studies
-role: Service Outcomes
-scope: Student and academic website examples
-constraints: Clear goals, structured delivery, practical outcomes
-metrics: navigation clarity, delivery quality, maintainability
-last_updated: 2026-03-01
+title: Work
+role: Portfolio
+scope: All sites built under Blueprint Studio and ShougTech
+constraints: Accurate descriptions, tier-grouped, live links
+metrics: navigation clarity, credibility, project range
+last_updated: 2026-03-02
 ---
 
-# Case Studies
+# Work
 
-Selected examples demonstrating how structured static websites solve real clarity and navigation challenges.
+Every site below was built using static architecture — MkDocs Material, GitHub Pages, and structured navigation designed around the audience that would actually use it.
 
-Each case study focuses on problem definition, structural decisions, and measurable outcomes.
-
----
-
-## Featured Work
-
-<div class="card-grid hero-cards">
-
-  <article class="hero-card">
-    <h3>Student Portfolio Website</h3>
-    <p>Designed for fast project evaluation by recruiters and professors.</p>
-    <p><a href="student-portfolio/">View Case Study →</a></p>
-  </article>
-
-  <article class="hero-card">
-    <h3>Academic Documentation Website</h3>
-    <p>Chapter-based documentation system for organized academic submissions.</p>
-    <p><a href="academic-documentation/">View Case Study →</a></p>
-  </article>
-
-  <article class="hero-card">
-    <h3>Workshop Course Page</h3>
-    <p>Participant-focused workshop site prioritizing agenda clarity and resource access.</p>
-    <p><a href="workshop-course-page/">View Case Study →</a></p>
-  </article>
-
-</div>
+Organized by tier to reflect the scope and complexity of each project.
 
 ---
 
-## Live Websites Built by Me
+## Tier 1 — Personal Presence
 
-The websites below are part of my production portfolio.
-
-Important scope note:
-
-- `sillah-app` is a **full-stack** application.
-- All other websites in this list are **static/documentation-style** websites.
-
-| Website | Type | URL |
-| --- | --- | --- |
-| linkedlist | Static | [linkedlist.shoug-tech.com](https://linkedlist.shoug-tech.com) |
-| numerical-analysis | Static | [numerical-analysis.shoug-tech.com](https://numerical-analysis.shoug-tech.com) |
-| operating-systems | Static | [operating-systems.shoug-tech.com](https://operating-systems.shoug-tech.com) |
-| secure-key-exch | Static | [secure-key-exch.shoug-tech.com](https://secure-key-exch.shoug-tech.com) |
-| sillah | Static | [sillah.shoug-tech.com](https://sillah.shoug-tech.com) |
-| sillah-app | Full-stack | [sillah-app.shoug-tech.com](https://sillah-app.shoug-tech.com) |
-| software-require | Static | [software-require.shoug-tech.com](https://software-require.shoug-tech.com) |
-| www | Static | [www.shoug-tech.com](https://www.shoug-tech.com) |
-| CS316 Mental Health AI Project (for a friend) | Static | [layanalnasser.github.io/CS316-Mental-Health-AI-Project](https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/) |
-| My Garden (for a friend) | Static | [layanalnasser.github.io/My-Garden](https://layanalnasser.github.io/My-Garden/) |
-
----
-
-## What These Projects Demonstrate
+Clean, navigable digital presence sites built for individuals who need their work and identity organized in one place.
 
 <div class="card-grid">
 
   <article class="info-card">
-    <h3>Structured Hierarchy</h3>
-    <p>Information organized for fast scanning and reduced cognitive load.</p>
+    <h3>Shoug's Digital Garden</h3>
+    <p>Personal hub covering academic coursework, career development, and curated technical resources. Audience-based entry paths for students, instructors, and employers.</p>
+    <p><strong>Built for:</strong> Personal</p>
+    <p><a href="https://www.shoug-tech.com" target="_blank">Visit Site →</a></p>
   </article>
 
   <article class="info-card">
-    <h3>Audience-Focused Flow</h3>
-    <p>Navigation built around how users naturally search for information.</p>
+    <h3>Blueprint Studio</h3>
+    <p>The studio site itself. Bilingual (Arabic + English), structured service documentation, tiered packages, process workflow, and case studies.</p>
+    <p><strong>Built for:</strong> Business</p>
+    <p><a href="https://blueprint.shoug-tech.com" target="_blank">Visit Site →</a></p>
   </article>
 
   <article class="info-card">
-    <h3>Static Performance</h3>
-    <p>Fast, stable delivery without backend complexity.</p>
-  </article>
-
-  <article class="info-card">
-    <h3>Maintainable Systems</h3>
-    <p>Clear structure that supports long-term updates without breaking layout.</p>
+    <h3>Layan's Digital Garden</h3>
+    <p>Personal digital garden for a Computer Science and AI student. Covers academic notes, career development, CV, projects, and curated resources.</p>
+    <p><strong>Built for:</strong> Client</p>
+    <p><a href="https://layanalnasser.github.io/My-Garden" target="_blank">Visit Site →</a></p>
   </article>
 
 </div>
 
 ---
 
-## Why Static Structure Works
+## Tier 2 — Project Documentation
 
-Blueprint Studio prioritizes clarity over complexity.
+Structured academic documentation sites built for course projects, capstone submissions, and technical reports. Each site is organized around how evaluators and reviewers actually read academic work.
 
-By focusing on structured static architecture:
+<div class="card-grid">
 
-- Pages load quickly  
-- Content remains predictable  
-- Navigation stays intuitive  
-- Long-term maintenance is simple  
+  <article class="info-card">
+    <h3>CS210 — Linked List & Runtime Analysis</h3>
+    <p>Documentation for a Java-based linked list implementation comparing four sorting algorithms — Selection, Insertion, Merge, and Quick Sort — with theoretical and empirical runtime analysis.</p>
+    <p><strong>Course:</strong> CS210 · Prince Sultan University</p>
+    <p><a href="https://linkedlist.shoug-tech.com" target="_blank">Visit Site →</a></p>
+  </article>
 
-The result is reliable digital presence without unnecessary technical overhead.
+  <article class="info-card">
+    <h3>SE201 — Sillah Family Health System</h3>
+    <p>Full software engineering documentation for a preventive family health management system. Covers proposal, requirements, UML design, Java prototype, and test results across four phases.</p>
+    <p><strong>Course:</strong> SE201 · Prince Sultan University</p>
+    <p><a href="https://sillah.shoug-tech.com" target="_blank">Visit Site →</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>Math221 — Numerical Analysis</h3>
+    <p>Comparison of three root-finding methods — Bisection, Newton–Raphson, and Secant — implemented in GNU Octave. Includes methodology, results tables, convergence analysis, and embedded PDF report.</p>
+    <p><strong>Course:</strong> Math221 · Prince Sultan University</p>
+    <p><a href="https://numerical-analysis.shoug-tech.com" target="_blank">Visit Site →</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>CS330 — Operating Systems Project</h3>
+    <p>Two-phase OS course project covering Linux process-based benchmarking and Java multithreaded performance optimization. Includes setup guides, experiment plans, results, and a reference section.</p>
+    <p><strong>Course:</strong> CS330 · Prince Sultan University</p>
+    <p><a href="https://operating-systems.shoug-tech.com" target="_blank">Visit Site →</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>CS102 — School Course Enrolment System</h3>
+    <p>Documentation for a Java console application simulating a university course management environment with role-based access for students, instructors, and administrators. Covers class structure, workflows, and code reference.</p>
+    <p><strong>Course:</strong> CS102 · Prince Sultan University</p>
+    <p><a href="https://school-course-enrolment-system.shoug-tech.com" target="_blank">Visit Site →</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>CS340 — Database Web Application</h3>
+    <p>Six-phase documentation of a full database lifecycle project — from ER/EER conceptual modeling and relational schema mapping through SQL implementation and full-stack CRUD web application. Includes sustainability analysis and appendix.</p>
+    <p><strong>Course:</strong> CS340 · Prince Sultan University</p>
+    <p><a href="https://database.shoug-tech.com" target="_blank">Visit Site →</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>CS285 — Secure Key Exchange</h3>
+    <p>Documentation for a Diffie-Hellman key exchange implementation in Java, demonstrating public-key cryptography over an insecure channel. Covers discrete mathematics foundations, implementation phases, encryption validation, and an embedded report.</p>
+    <p><strong>Course:</strong> CS285 · Prince Sultan University</p>
+    <p><a href="https://secure-key-exchange.shoug-tech.com" target="_blank">Visit Site →</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>SE311 — Software Requirements Analysis</h3>
+    <p>Expanded requirements engineering documentation for the Sillah system. Covers the full requirements lifecycle across six phases — inception, elicitation, analysis, specification, validation, and requirements management — following IEEE 830 standards.</p>
+    <p><strong>Course:</strong> SE311 · Prince Sultan University</p>
+    <p><a href="https://software-requirements-analysis.shoug-tech.com" target="_blank">Visit Site →</a></p>
+  </article>
+
+</div>
+
+---
+
+## Tier 3 — Research Documentation
+
+Publication-ready documentation sites for university research projects — structured for academic review, reproducibility, and professional credibility.
+
+<div class="card-grid">
+
+  <article class="info-card">
+    <h3>CS316 — Mental Health AI Project</h3>
+    <p>Research documentation for an Arabic NLP and machine learning system that classifies depression and anxiety severity using embedding-based representations and SVM classifiers. Includes methodology, results, error analysis, deployment guide, IEEE paper draft, and responsible AI framework.</p>
+    <p><strong>Course:</strong> CS316 · Prince Sultan University</p>
+    <p><strong>Built for:</strong> Friend</p>
+    <p><a href="https://layanalnasser.github.io/CS316-Mental-Health-AI-Project" target="_blank">Visit Site →</a></p>
+  </article>
+
+</div>
+
+---
+
+## Scope Note
+
+The CS340 database project documents a full-stack application — its documentation site is static, but the underlying system involves a database and web backend. Blueprint Studio builds the documentation website, not the application itself. This distinction is noted for transparency.

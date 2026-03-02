@@ -55,3 +55,9 @@ After initial review, you will receive:
 3. Next steps for kickoff  
 
 Structured inquiries lead to structured results.
+
+---
+
+## Start Project Form
+
+Use the full intake form here: [Start Project](start-project.md).

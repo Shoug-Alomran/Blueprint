@@ -33,6 +33,10 @@
     return path;
   }
 
+  function dropdownChevronSvg() {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"></path></svg>';
+  }
+
   function arabicNavLabelForPath(pathname) {
     var p = normalizeNavPath(pathname);
     var map = [
@@ -96,7 +100,7 @@
       '<button class="header-icon-btn header-toggle-btn" data-sg-toggle="right" type="button" aria-label="' + labels.right + '">' +
         iconSvg('M4 5h16v2H4zm0 6h10v2H4zm0 6h16v2H4z') +
       '</button>',
-      '<a class="header-cta" href="/contact/">' + labels.cta + '</a>'
+      '<a class="header-cta" href="/start-project/">' + labels.cta + '</a>'
     ].join('');
 
     right.parentElement.insertBefore(wrap, right.nextSibling);
@@ -146,6 +150,147 @@
     });
   }
 
+  function buildTabDropdowns() {
+    var tabs = document.querySelector('.md-tabs__list');
+    var primaryRoot = document.querySelector('.md-sidebar--primary .md-nav--primary > .md-nav__list');
+    if (!tabs || !primaryRoot) {
+      return;
+    }
+
+    tabs.querySelectorAll('.md-tabs__dropdown').forEach(function (el) {
+      el.remove();
+    });
+    tabs.querySelectorAll('.md-tabs__item').forEach(function (item) {
+      item.classList.remove('md-tabs__item--has-dropdown');
+    });
+    tabs.querySelectorAll('.md-tabs__link .tabs-caret').forEach(function (el) {
+      el.remove();
+    });
+
+    var childMap = new Map();
+    primaryRoot.querySelectorAll(':scope > .md-nav__item').forEach(function (item) {
+      var parentLink = item.querySelector(':scope > .md-nav__container > a.md-nav__link, :scope > a.md-nav__link');
+      if (!parentLink) {
+        return;
+      }
+      var parentPath = normalizeNavPath(new URL(parentLink.href, window.location.origin).pathname);
+      var childLinks = [];
+
+      item.querySelectorAll(':scope > .md-nav a.md-nav__link').forEach(function (child) {
+        var childPath = normalizeNavPath(new URL(child.href, window.location.origin).pathname);
+        if (childPath === parentPath) {
+          return;
+        }
+        childLinks.push({
+          href: child.getAttribute('href') || child.href,
+          label: (child.textContent || '').trim(),
+          path: childPath
+        });
+      });
+
+      var seen = new Set();
+      var uniqueChildren = childLinks.filter(function (entry) {
+        if (!entry.path || seen.has(entry.path)) {
+          return false;
+        }
+        seen.add(entry.path);
+        return true;
+      });
+
+      if (uniqueChildren.length >= 2) {
+        childMap.set(parentPath, uniqueChildren);
+      }
+    });
+
+    tabs.querySelectorAll(':scope > .md-tabs__item').forEach(function (tabItem) {
+      var tabLink = tabItem.querySelector(':scope > .md-tabs__link');
+      if (!tabLink) {
+        return;
+      }
+
+      var tabPath = normalizeNavPath(new URL(tabLink.href, window.location.origin).pathname);
+      var children = childMap.get(tabPath);
+      if (!children || children.length < 2) {
+        return;
+      }
+
+      tabItem.classList.add('md-tabs__item--has-dropdown');
+      if (!tabLink.querySelector('.tabs-caret')) {
+        var caret = document.createElement('span');
+        caret.className = 'tabs-caret';
+        caret.innerHTML = dropdownChevronSvg();
+        tabLink.appendChild(caret);
+      }
+
+      var menu = document.createElement('div');
+      menu.className = 'md-tabs__dropdown';
+      var list = document.createElement('ul');
+      list.className = 'md-tabs__dropdown-list';
+      children.forEach(function (entry) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.className = 'md-tabs__dropdown-link';
+        a.href = entry.href;
+        a.textContent = entry.label;
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      menu.appendChild(list);
+      tabItem.appendChild(menu);
+    });
+  }
+
+  function setupTabDropdownInteractions() {
+    var tabs = document.querySelector('.md-tabs__list');
+    if (!tabs || tabs.dataset.dropdownBound === 'true') {
+      return;
+    }
+    tabs.dataset.dropdownBound = 'true';
+
+    function closeAllDropdowns() {
+      tabs.querySelectorAll('.md-tabs__item--has-dropdown.is-open').forEach(function (item) {
+        item.classList.remove('is-open');
+      });
+    }
+
+    tabs.addEventListener('click', function (event) {
+      var link = event.target.closest('.md-tabs__item--has-dropdown > .md-tabs__link');
+      if (!link) {
+        return;
+      }
+
+      if (window.matchMedia('(max-width: 76.234375em)').matches) {
+        return;
+      }
+
+      var item = link.parentElement;
+      if (!item) {
+        return;
+      }
+
+      if (!item.classList.contains('is-open')) {
+        event.preventDefault();
+        closeAllDropdowns();
+        item.classList.add('is-open');
+        return;
+      }
+
+      item.classList.remove('is-open');
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.md-tabs__item--has-dropdown')) {
+        closeAllDropdowns();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeAllDropdowns();
+      }
+    });
+  }
+
   function localizeHeaderUI() {
     if (!isArabicPage()) {
       return;
@@ -167,7 +312,11 @@
       searchInput.setAttribute('aria-label', 'ابحث');
     }
 
-    document.querySelectorAll('.md-sidebar--primary a.md-nav__link, .md-sidebar--secondary a.md-nav__link').forEach(function (link) {
+    document.querySelectorAll('.md-sidebar--primary a.md-nav__link').forEach(function (link) {
+      var href = link.getAttribute('href') || '';
+      if (href.indexOf('#') !== -1) {
+        return;
+      }
       try {
         var linkUrl = new URL(link.href, window.location.origin);
         var linkLabel = arabicNavLabelForPath(linkUrl.pathname);
@@ -310,6 +459,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     injectHeaderActions();
     localizeHeaderUI();
+    buildTabDropdowns();
+    setupTabDropdownInteractions();
     enhancePageHero();
     applyReveal();
   });
@@ -318,6 +469,8 @@
     window.document$.subscribe(function () {
       injectHeaderActions();
       localizeHeaderUI();
+      buildTabDropdowns();
+      setupTabDropdownInteractions();
       enhancePageHero();
       applyReveal();
     });
