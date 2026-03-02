@@ -89,6 +89,6 @@ last_updated: 2026-03-01
 
 1. Review what’s included in [Packages](packages.md)
 2. See delivery steps in [Process](process/index.md)
-3. Explore outcomes in [Case Studies](web-platforms/index.md)
+3. Explore outcomes in [Work](web-platforms/index.md)
 4. Begin with [Start Project](start-project.md) (quick intake)
 5. Or reach out via [Contact](contact.md)
