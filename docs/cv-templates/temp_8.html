@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Template — Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #f0ede8;
+      --bg-cv: #ffffff;
+      --ink: #111111;
+      --ink-mid: #444444;
+      --ink-light: #888888;
+      --accent: #111111;
+      --rule: #e0ddd8;
+      --rule-heavy: #111111;
+      --shadow: 0 2px 48px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06);
+      --tag-bg: #f5f3ef;
+    }
+
+    /* single theme only */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      background: var(--bg-page);
+      min-height: 100%;
+      transition: background 0.3s;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      transition: all 0.3s;
+    }
+
+    /* no toolbar */
+
+    /* ── PAGE ── */
+    .page-outer {
+      min-height: 100vh;
+    }
+
+    /* ── CV ── */
+    .cv {
+      background: var(--bg-cv);
+      color: var(--ink);
+      max-width: 820px;
+      margin: 48px auto;
+      padding: 0;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    /* Top rule accent */
+    .cv::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--rule-heavy);
+      transition: background 0.3s;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 52px 64px 36px;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .header { direction: rtl; }
+
+    .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      letter-spacing: -1px;
+      line-height: 1;
+      color: var(--ink);
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .name {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 300;
+      font-size: 42px;
+      letter-spacing: 0;
+    }
+
+    .title-line {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 10px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .title-line {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 13px;
+    }
+
+    .contact-block {
+      text-align: right;
+      font-size: 12px;
+      color: var(--ink-light);
+      line-height: 2;
+      letter-spacing: 0.3px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .contact-block {
+      text-align: left;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .contact-block a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-block a:hover { color: var(--ink); }
+
+    /* ── BODY ── */
+    .cv-body {
+      padding: 0 64px 56px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding-top: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    [data-lang="ar"] .section-header { flex-direction: row-reverse; }
+
+    .section-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .section-title {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 1px;
+      font-size: 12px;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      transition: background 0.3s;
+    }
+
+    /* ── SUMMARY ── */
+    .summary-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      font-style: italic;
+      max-width: 580px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .summary-text {
+      font-family: 'Tajawal', sans-serif;
+      font-style: normal;
+      font-size: 16px;
+      direction: rtl;
+    }
+
+    /* ── ENTRY ── */
+    .entry {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 32px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .entry {
+      grid-template-columns: 1fr 140px;
+      direction: rtl;
+    }
+
+    .entry:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .entry-date {
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      padding-top: 2px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .entry-date {
+      font-family: 'Tajawal', sans-serif;
+      text-align: left;
+    }
+
+    .entry-org {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .entry-org {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 16px;
+    }
+
+    .entry-role {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: var(--ink-light);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .entry-role {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 13px;
+    }
+
+    .entry-bullets {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .entry-bullets li {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .entry-bullets li {
+      font-family: 'Tajawal', sans-serif;
+      padding-left: 0;
+      padding-right: 16px;
+      font-size: 14px;
+    }
+
+    .entry-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 9px;
+      width: 4px;
+      height: 1px;
+      background: var(--ink-light);
+      transition: background 0.3s;
+    }
+
+    [data-lang="ar"] .entry-bullets li::before {
+      left: auto;
+      right: 4px;
+    }
+
+    /* ── PROJECTS ── */
+    .project {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 32px;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .project {
+      grid-template-columns: 1fr 140px;
+      direction: rtl;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .project-tools-label {
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.3px;
+      line-height: 1.5;
+      padding-top: 2px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .project-tools-label {
+      font-family: 'Tajawal', sans-serif;
+      text-align: left;
+    }
+
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .project-name {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 16px;
+      flex-direction: row-reverse;
+    }
+
+    .project-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .project-desc {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-top: 5px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .project-desc {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .skills-table tr {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.3s;
+    }
+
+    .skills-table tr:last-child { border-bottom: none; }
+
+    .skills-table td {
+      padding: 10px 0;
+      vertical-align: top;
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      transition: color 0.3s;
+    }
+
+    .skills-table td:first-child {
+      width: 140px;
+      padding-right: 32px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    [data-lang="ar"] .skills-table { direction: rtl; }
+
+    [data-lang="ar"] .skills-table td:first-child {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 12px;
+      padding-right: 0;
+      padding-left: 32px;
+    }
+
+    [data-lang="ar"] .skills-table td:last-child {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+
+    /* ── CERTS ── */
+    .cert-row {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 0 32px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .cert-row {
+      direction: rtl;
+      grid-template-columns: auto 1fr 140px;
+    }
+
+    .cert-row:last-child { border-bottom: none; }
+
+    .cert-issuer {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-family: 'DM Sans', sans-serif;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .cert-issuer {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 12px;
+      text-transform: none;
+    }
+
+    .cert-name {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .cert-name {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+
+    .cert-year {
+      font-size: 11px;
+      color: var(--ink-light);
+      text-align: right;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .cert-year { text-align: left; }
+
+    /* ── ACTIVITIES ── */
+    .activity-row {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 0 32px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .activity-row {
+      direction: rtl;
+      grid-template-columns: auto 1fr 140px;
+    }
+
+    .activity-row:last-child { border-bottom: none; }
+
+    .activity-org {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-family: 'DM Sans', sans-serif;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .activity-org {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 12px;
+      text-transform: none;
+    }
+
+    .activity-role {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .activity-role {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+
+    .activity-date {
+      font-size: 11px;
+      color: var(--ink-light);
+      text-align: right;
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .activity-date { text-align: left; }
+
+    /* ── FOOTER ── */
+    .cv-footer {
+      margin: 40px 64px 0;
+      padding: 16px 0 48px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      transition: border-color 0.3s;
+    }
+
+    .footer-text {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--rule);
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .footer-text {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 12px;
+    }
+
+    /* single language only */
+
+    /* ── PRINT ── */
+    @media print {
+      html { background: white !important; }
+      .cv { margin: 0; box-shadow: none; max-width: 100%; }
+      .cv-footer { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      .cv { margin: 8px; }
+      .header { padding: 36px 28px 24px; grid-template-columns: 1fr; }
+      .contact-block { text-align: left !important; }
+      .cv-body { padding: 0 28px 40px; }
+      .entry, .project, .cert-row, .activity-row {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+      }
+      .cv-footer { margin: 24px 28px 0; padding-bottom: 36px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/cv-templates/watermark.css" />
+</head>
+<body>
+
+<div class="page-outer">
+<div class="cv">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div>
+      <div class="name">
+        [Your Full Name]
+        
+      </div>
+      <div class="title-line">
+        [Field · Specialization · University · Class of 20XX]
+        
+      </div>
+    </div>
+    <div class="contact-block">
+      <div>
+        [your.email@university.edu]
+        
+      </div>
+      <div>
+        [+966 5X XXX XXXX]
+        
+      </div>
+      <div>
+        [Riyadh, Saudi Arabia]
+        
+      </div>
+      <div><a href="#">linkedin.com/in/[handle]</a></div>
+      <div><a href="#">[yoursite.com]</a></div>
+    </div>
+  </header>
+
+  <div class="cv-body">
+
+    <!-- PROFILE -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          Profile
+          
+        </span>
+        <div class="section-rule"></div>
+      </div>
+      <p class="summary-text">
+        [Two to three sentences. What you study, what you are drawn to, and what kind of environment you are looking for. Keep it precise — this is the only place for a personal voice.]
+        
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          Education
+          
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">
+          [Sep 2022]<br>[May 2026]<br>[Riyadh, KSA]
+          
+        </div>
+        <div>
+          <div class="entry-org">
+            [University Name]
+            
+          </div>
+          <div class="entry-role">
+            [Bachelor of Science — Major · Minor if applicable]
+            
+          </div>
+          <ul class="entry-bullets">
+            <li>
+              GPA [X.XX / 4.00] — [Dean's List / Honors if applicable]
+              
+            </li>
+            <li>
+              Relevant coursework: [list key courses here]
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          Experience
+          
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">
+          [Jun — Aug 2024]<br>[City, KSA]
+          
+        </div>
+        <div>
+          <div class="entry-org">
+            [Organization Name]
+            
+          </div>
+          <div class="entry-role">
+            [Job Title · Internship / Part-time / Freelance]
+            
+          </div>
+          <ul class="entry-bullets">
+            <li>
+              [What you did — start with an action verb. Quantify if possible.]
+              
+            </li>
+            <li>
+              [Second responsibility or outcome]
+              
+            </li>
+            <li>
+              [Third point if applicable]
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">
+          [Jan — May 2024]<br>[City, KSA]
+          
+        </div>
+        <div>
+          <div class="entry-org">
+            [Second Organization]
+            
+          </div>
+          <div class="entry-role">
+            [Role · Type]
+            
+          </div>
+          <ul class="entry-bullets">
+            <li>
+              [Responsibility with outcome]
+              
+            </li>
+            <li>
+              [Second point]
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          Projects
+          
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="project">
+        <div class="project-tools-label">
+          [Excel, Python]
+          
+        </div>
+        <div>
+          <div class="project-name">
+            [Project Title]
+            
+            <a class="project-link" href="#">
+              View
+              
+            </a>
+          </div>
+          <div class="project-desc">
+            [One clear sentence. What it is, what it does, why it matters.]
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-tools-label">
+          [R, Tableau]
+          
+        </div>
+        <div>
+          <div class="project-name">
+            [Second Project Title]
+            
+            <a class="project-link" href="#">
+              View
+              
+            </a>
+          </div>
+          <div class="project-desc">
+            [One clear sentence about this project.]
+            
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          Skills
+          
+        </span>
+        <div class="section-rule"></div>
+      </div>
+      <table class="skills-table">
+        <tr>
+          <td>
+            Technical
+            
+          </td>
+          <td>
+            [Excel, Python, SQL, Power BI, Bloomberg Terminal]
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Domain
+            
+          </td>
+          <td>
+            [Financial Modelling, Valuation, Equity Research, Budgeting, Risk Analysis]
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Languages
+            
+          </td>
+          <td>
+            [Arabic — Native · English — Professional]
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Soft
+            
+          </td>
+          <td>
+            [Analytical Thinking, Structured Writing, Presentation, Detail-Oriented]
+            
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          Certifications
+          
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-issuer">
+          Bloomberg
+          
+        </div>
+        <div class="cert-name">
+          Bloomberg Market Concepts (BMC)
+          
+        </div>
+        <div class="cert-year">2024</div>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-issuer">
+          CFA Institute
+          
+        </div>
+        <div class="cert-name">
+          Investment Foundations Certificate
+          
+        </div>
+        <div class="cert-year">2023</div>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-issuer">
+          [Issuer]
+          
+        </div>
+        <div class="cert-name">
+          [Certificate Name]
+          
+        </div>
+        <div class="cert-year">[20XX]</div>
+      </div>
+
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          Activities
+          
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="activity-row">
+        <div class="activity-org">
+          [University Club]
+          
+        </div>
+        <div class="activity-role">
+          [Role — e.g. Vice President, Finance Club]
+          
+        </div>
+        <div class="activity-date">
+          2023 — Present
+          
+        </div>
+      </div>
+
+      <div class="activity-row">
+        <div class="activity-org">
+          [Competition]
+          
+        </div>
+        <div class="activity-role">
+          [Participant — Case Competition Name]
+          
+        </div>
+        <div class="activity-date">2024</div>
+      </div>
+
+      <div class="activity-row">
+        <div class="activity-org">
+          [Volunteer]
+          
+        </div>
+        <div class="activity-role">
+          [Role · Organization Name]
+          
+        </div>
+        <div class="activity-date">2023</div>
+      </div>
+
+    </section>
+
+  </div><!-- /.cv-body -->
+
+  <!-- FOOTER -->
+  <footer class="cv-footer">
+    <span class="footer-text">
+      References available upon request
+      
+    </span>
+    <span class="footer-text">
+      Curriculum
+      
+    </span>
+  </footer>
+
+</div><!-- /.cv -->
+</div><!-- /.page-outer -->
+
+</body>
+</html>

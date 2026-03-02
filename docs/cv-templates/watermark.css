@@ -1,0 +1,63 @@
+/* Preview watermark layer for public CV demo pages. */
+html::before {
+  content: "BLUEPRINT PREVIEW ONLY • BLUEPRINT PREVIEW ONLY • BLUEPRINT PREVIEW ONLY";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-28deg);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(24px, 3.2vw, 56px);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(7, 20, 31, 0.18);
+  white-space: nowrap;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Light templates. */
+html.light::before,
+html[data-theme="light"]::before {
+  color: rgba(7, 20, 31, 0.18);
+}
+
+/* Dark templates (default in several pro CVs). */
+html:not(.light)::before,
+html.dark::before,
+html[data-theme="dark"]::before {
+  color: rgba(255, 255, 255, 0.22);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+/* Optional softer layer to make crop-and-remove harder. */
+html::after {
+  content: "PREVIEW • PREVIEW • PREVIEW • PREVIEW • PREVIEW";
+  position: fixed;
+  inset: auto 0 2rem 0;
+  text-align: center;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(10px, 1.2vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(7, 20, 31, 0.2);
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+}
+
+html:not(.light)::after,
+html.dark::after,
+html[data-theme="dark"]::after {
+  color: rgba(255, 255, 255, 0.24);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+/* Keep print/PDF clean if templates use print export. */
+@media print {
+  html::before,
+  html::after {
+    display: none !important;
+  }
+}

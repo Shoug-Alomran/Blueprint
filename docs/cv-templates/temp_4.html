@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[YOUR NAME] — CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0d1f3c;
+      --navy-mid: #1a3358;
+      --gold: #b8962e;
+      --cream: #faf8f4;
+      --ink: #1c1c1c;
+      --ink-light: #4a4a4a;
+      --rule: #c8c0b0;
+      --page-width: 860px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #e8e4dc;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      max-width: var(--page-width);
+      margin: 48px auto;
+      padding: 72px 80px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    /* Left accent bar */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 60%, var(--gold) 100%);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1.5px solid var(--navy);
+      position: relative;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .title-line {
+      font-family: 'EB Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
+    .contact-block {
+      text-align: right;
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.9;
+    }
+
+    .contact-block a {
+      color: var(--navy-mid);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-block a:hover {
+      border-bottom-color: var(--gold);
+    }
+
+    .contact-divider {
+      color: var(--rule);
+      margin: 0 6px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ── SUMMARY ── */
+    .summary p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--ink-light);
+      font-style: italic;
+      max-width: 620px;
+    }
+
+    /* ── ENTRY (Education / Experience) ── */
+    .entry {
+      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 20px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+
+    .entry-org {
+      font-family: 'Playfair Display', serif;
+      font-size: 15.5px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .entry-role {
+      font-size: 14.5px;
+      color: var(--ink);
+      margin-top: 1px;
+    }
+
+    .entry-role em {
+      font-style: italic;
+      color: var(--ink-light);
+    }
+
+    .entry-meta {
+      text-align: right;
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    .entry-bullets {
+      margin-top: 7px;
+      padding-left: 16px;
+      list-style: none;
+    }
+
+    .entry-bullets li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-light);
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 3px;
+    }
+
+    .entry-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 12px;
+      top: 1px;
+    }
+
+    /* ── PROJECTS ── */
+    .project {
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e8e2d8;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .project-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .project-link {
+      font-size: 12.5px;
+      color: var(--gold);
+      text-decoration: none;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: var(--ink-light);
+      margin-top: 3px;
+      line-height: 1.6;
+    }
+
+    .project-tools {
+      font-size: 12.5px;
+      color: var(--ink-light);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 40px;
+    }
+
+    .skill-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 4px;
+    }
+
+    .skill-items {
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.6;
+    }
+
+    /* ── CERTS & LANGUAGES ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 40px;
+    }
+
+    .cert-item, .lang-item {
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cert-name, .lang-name {
+      color: var(--ink);
+    }
+
+    .cert-date, .lang-level {
+      color: var(--ink-light);
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    /* ── ACTIVITIES ── */
+    .activity {
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      margin-bottom: 5px;
+    }
+
+    .activity-role {
+      color: var(--ink);
+    }
+
+    .activity-date {
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    /* ── FOOTER ── */
+    .cv-footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      font-size: 11.5px;
+      color: var(--rule);
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--rule);
+      text-transform: uppercase;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      html { background: white; }
+      body {
+        margin: 0;
+        padding: 56px 64px;
+        box-shadow: none;
+        max-width: 100%;
+      }
+      body::before { display: none; }
+      a { color: inherit; border: none !important; }
+      .cv-footer { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 40px 28px; margin: 0; }
+      .header-top { flex-direction: column; gap: 16px; }
+      .contact-block { text-align: left; }
+      .entry { grid-template-columns: 1fr; }
+      .entry-meta { text-align: left; margin-bottom: 4px; }
+      .skills-grid, .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="/cv-templates/watermark.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <div class="header-left">
+        <div class="name">[FULL NAME]</div>
+        <div class="title-line">[Field or Concentration — e.g. Finance & Investment · Class of 2026]</div>
+      </div>
+      <div class="contact-block">
+        <div>[your.email@university.edu] <span class="contact-divider">·</span> [+966 5X XXX XXXX]</div>
+        <div>[City, Country]</div>
+        <div><a href="#">linkedin.com/in/[yourhandle]</a> <span class="contact-divider">·</span> <a href="#">[yoursite.com]</a></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section class="section summary">
+    <div class="section-header">
+      <span class="section-title">Profile</span>
+      <div class="section-rule"></div>
+    </div>
+    <p>[Finance student with a focus on [investment analysis / corporate finance / financial modelling]. Seeking opportunities to apply quantitative and analytical skills in [internship / graduate role / research]. Known for [attention to detail / clear communication / structured thinking].]</p>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Education</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-main">
+        <div class="entry-org">[University Name]</div>
+        <div class="entry-role">[Bachelor of Science in Finance] <em>· [Minor if applicable]</em></div>
+        <ul class="entry-bullets">
+          <li>GPA: [X.XX / 4.00] — [Dean's List / Honors if applicable]</li>
+          <li>Relevant coursework: [Financial Modelling, Corporate Finance, Investment Analysis, Econometrics]</li>
+        </ul>
+      </div>
+      <div class="entry-meta">
+        [City, Country]<br>
+        [Sep 2022] — [May 2026]
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Experience</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-main">
+        <div class="entry-org">[Company or Organization Name]</div>
+        <div class="entry-role">[Job Title] <em>· [Internship / Part-time / Freelance]</em></div>
+        <ul class="entry-bullets">
+          <li>[Assisted in preparing financial models and variance analysis reports for [X] client portfolios]</li>
+          <li>[Conducted equity research on [sector], summarizing findings in weekly briefing notes]</li>
+          <li>[Supported due diligence process by organizing and verifying financial statements]</li>
+        </ul>
+      </div>
+      <div class="entry-meta">
+        [City, Country]<br>
+        [Jun 2024] — [Aug 2024]
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-main">
+        <div class="entry-org">[Second Organization]</div>
+        <div class="entry-role">[Role Title] <em>· [Type]</em></div>
+        <ul class="entry-bullets">
+          <li>[Responsibility or achievement with measurable outcome where possible]</li>
+          <li>[Second responsibility — quantify if you can: managed X, reduced Y by Z%]</li>
+        </ul>
+      </div>
+      <div class="entry-meta">
+        [City, Country]<br>
+        [Jan 2024] — [May 2024]
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Projects</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">[Project Title — e.g. Portfolio Optimization Model]</span>
+        <a class="project-link" href="#">View Project →</a>
+      </div>
+      <div class="project-desc">[Built a mean-variance optimization model to construct an efficient frontier for a 10-asset portfolio using historical return data from [source].]</div>
+      <div class="project-tools">Tools: [Excel, Python, Bloomberg Terminal]</div>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">[Second Project Title]</span>
+        <a class="project-link" href="#">View Project →</a>
+      </div>
+      <div class="project-desc">[One clear sentence describing the project, what it analyzed or produced, and why it matters.]</div>
+      <div class="project-tools">Tools: [R, Tableau, Excel]</div>
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Skills</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-label">Financial</div>
+        <div class="skill-items">[Financial Modelling, Valuation, DCF Analysis, Equity Research, Budgeting]</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Technical</div>
+        <div class="skill-items">[Excel (Advanced), Python, R, SQL, Bloomberg Terminal, Power BI]</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Soft Skills</div>
+        <div class="skill-items">[Analytical Thinking, Report Writing, Attention to Detail, Presentation]</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Languages</div>
+        <div class="skill-items">[Arabic — Native &nbsp;·&nbsp; English — Professional]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Certifications</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="two-col">
+      <div class="cert-item">
+        <span class="cert-name">[Bloomberg Market Concepts (BMC)]</span>
+        <span class="cert-date">[2024]</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">[CFA Institute — Investment Foundations]</span>
+        <span class="cert-date">[2023]</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">[Excel Financial Modelling — [Issuer]]</span>
+        <span class="cert-date">[2024]</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">[Additional Certification]</span>
+        <span class="cert-date">[Year]</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITIES -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Activities & Leadership</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="activity">
+      <span><span class="activity-role">[Role — e.g. Vice President, Finance Club]</span> · [University Name]</span>
+      <span class="activity-date">[2023] — [Present]</span>
+    </div>
+    <div class="activity">
+      <span><span class="activity-role">[Participant — Case Competition Name]</span> · [Organizer]</span>
+      <span class="activity-date">[2024]</span>
+    </div>
+    <div class="activity">
+      <span><span class="activity-role">[Volunteer Role]</span> · [Organization]</span>
+      <span class="activity-date">[2023]</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="cv-footer">
+    <span class="footer-note">References available upon request</span>
+    <span class="footer-mark">pg.</span>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Your Name] — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Noto+Naskh+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════
+       TOKENS — Light
+    ═══════════════════════════════════════════ */
+    :root {
+      --beige-bg:        #f0ebe0;
+      --beige-page:      #faf7f2;
+      --beige-strip:     #ede6d8;
+      --ink:             #2a2420;
+      --ink-mid:         #5a504a;
+      --ink-soft:        #8a7f78;
+      --accent:          #7a5c44;
+      --rule:            #d8cfc4;
+      --shadow:          rgba(60,40,20,.13);
+      --toolbar-bg:      #ede6d8;
+      --toolbar-border:  #d8cfc4;
+      --btn-bg:          #faf7f2;
+      --btn-hover:       #e8dfd4;
+      --btn-active:      #7a5c44;
+      --btn-active-text: #faf7f2;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', 'Gill Sans', Optima, sans-serif;
+      --font-arabic:  'Noto Naskh Arabic', 'Traditional Arabic', serif;
+
+      --pad-h: 16mm;
+      --pad-v: 14mm;
+    }
+
+    /* ═══════════════════════════════════════════
+       TOKENS — Dark
+    ═══════════════════════════════════════════ */
+    html.dark {
+      --beige-bg:        #1a1612;
+      --beige-page:      #221e18;
+      --beige-strip:     #2a2420;
+      --ink:             #f0ebe0;
+      --ink-mid:         #c8b8a8;
+      --ink-soft:        #9a8878;
+      --accent:          #c49a72;
+      --rule:            #3a3028;
+      --shadow:          rgba(0,0,0,.5);
+      --toolbar-bg:      #2a2420;
+      --toolbar-border:  #3a3028;
+      --btn-bg:          #322c26;
+      --btn-hover:       #3e3630;
+      --btn-active:      #c49a72;
+      --btn-active-text: #1a1612;
+    }
+
+    /* ═══════════════════════════════════════════
+       ARABIC MODE
+    ═══════════════════════════════════════════ */
+    html[lang="ar"] body {
+      font-family: var(--font-arabic) !important;
+      line-height: 2;
+    }
+    html[lang="ar"] .name {
+      font-family: var(--font-arabic) !important;
+      font-style: normal !important;
+      font-size: 28pt;
+      letter-spacing: 0;
+    }
+    html[lang="ar"] .name em { font-style: normal !important; }
+
+    html[lang="ar"] .job-title,
+    html[lang="ar"] .entry-title,
+    html[lang="ar"] .entry-sub,
+    html[lang="ar"] .entry-date,
+    html[lang="ar"] .section-title,
+    html[lang="ar"] .skill-cat,
+    html[lang="ar"] .skill-list,
+    html[lang="ar"] .compact-name,
+    html[lang="ar"] .compact-sub,
+    html[lang="ar"] .compact-date,
+    html[lang="ar"] .project-desc,
+    html[lang="ar"] .project-tech,
+    html[lang="ar"] .project-name {
+      font-family: var(--font-arabic) !important;
+      line-height: 1.9;
+    }
+    html[lang="ar"] .job-title    { letter-spacing: 0 !important; text-transform: none !important; }
+    html[lang="ar"] .section-title { letter-spacing: 0 !important; text-transform: none !important; font-size: 8pt; }
+
+    html[lang="ar"] .summary p {
+      font-family: var(--font-arabic) !important;
+      font-style: normal !important;
+      font-size: 11pt;
+      line-height: 2;
+    }
+    html[lang="ar"] .entry ul {
+      padding-left: 0;
+      padding-right: 14px;
+    }
+    /* contact bar stays LTR always — URLs/email/phone */
+    html[lang="ar"] .contact-bar {
+      direction: ltr;
+      justify-content: flex-end;
+      font-family: var(--font-body) !important;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--beige-bg);
+      font-family: var(--font-body);
+      font-size: 8.5pt;
+      color: var(--ink);
+      line-height: 1.6;
+      transition: background .3s, color .3s;
+    }
+
+    /* ═══════════════════════════════════════════
+       TOOLBAR
+    ═══════════════════════════════════════════ */
+    .toolbar {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--toolbar-bg);
+      border: 1px solid var(--toolbar-border);
+      border-radius: 40px;
+      padding: 6px 10px;
+      box-shadow: 0 4px 24px var(--shadow);
+      transition: background .3s, border-color .3s, opacity .3s;
+      direction: ltr;
+    }
+    .toolbar-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border: none;
+      border-radius: 30px;
+      background: var(--btn-bg);
+      color: var(--ink-mid);
+      font-family: var(--font-body);
+      font-size: 7.5pt;
+      font-weight: 500;
+      letter-spacing: .6px;
+      cursor: pointer;
+      transition: background .2s, color .2s, transform .1s;
+      white-space: nowrap;
+    }
+    .toolbar-btn:hover  { background: var(--btn-hover); color: var(--ink); }
+    .toolbar-btn:active { transform: scale(.96); }
+    .toolbar-btn.active { background: var(--btn-active); color: var(--btn-active-text); }
+
+    #btn-lang { font-family: var(--font-arabic); font-size: 9pt; }
+
+    .toolbar-divider { width:1px; height:18px; background: var(--rule); flex-shrink:0; }
+    .btn-icon { font-size:10pt; line-height:1; }
+
+    .btn-download {
+      background: var(--accent);
+      color: #faf7f2;
+      letter-spacing: 1px;
+    }
+    html.dark .btn-download { color: #1a1612; }
+    .btn-download:hover { opacity:.88; background: var(--accent) !important; color:#faf7f2 !important; }
+    html.dark .btn-download:hover { color:#1a1612 !important; }
+
+    /* ═══════════════════════════════════════════
+       PAGE
+    ═══════════════════════════════════════════ */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 36px auto 60px;
+      background: var(--beige-page);
+      box-shadow: 0 8px 60px var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: background .3s, box-shadow .3s;
+    }
+    .page::before, .page::after {
+      content: '';
+      position: absolute;
+      border-color: var(--accent);
+      border-style: solid;
+      opacity: .22;
+      pointer-events: none;
+      transition: border-color .3s;
+    }
+    .page::before { top:7mm; left:7mm; width:18mm; height:18mm; border-width:1px 0 0 1px; }
+    .page::after  { bottom:7mm; right:7mm; width:18mm; height:18mm; border-width:0 1px 1px 0; }
+
+    /* ═══════════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════════ */
+    header {
+      background: var(--beige-strip);
+      padding: var(--pad-v) var(--pad-h) calc(var(--pad-v) * .85);
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      transition: background .3s, border-color .3s;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top:0; left:0; right:0;
+      height: 3px;
+      background: var(--accent);
+      opacity: .75;
+    }
+    .name {
+      font-family: var(--font-display);
+      font-size: 34pt;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 5px;
+      transition: color .3s;
+    }
+    .name em { font-style:italic; color:var(--accent); transition:color .3s; }
+
+    .job-title {
+      font-family: var(--font-body);
+      font-size: 8pt;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 14px;
+      transition: color .3s;
+    }
+
+    /* contact bar — always LTR, always Latin font for URLs/email/phone */
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: var(--ink-soft);
+      letter-spacing: .3px;
+      font-family: var(--font-body);
+    }
+    .contact-bar .sep { margin:0 9px; color:var(--rule); }
+    .contact-bar a { color:var(--ink-soft); text-decoration:none; transition:color .2s; }
+    .contact-bar a:hover { color:var(--accent); text-decoration:underline; }
+
+    /* ═══════════════════════════════════════════
+       BODY AREA
+    ═══════════════════════════════════════════ */
+    .body { padding: calc(var(--pad-v) * .9) var(--pad-h) var(--pad-v); }
+    section { margin-bottom: 17px; }
+
+    .section-head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+    .section-title {
+      font-family: var(--font-body);
+      font-size: 6.5pt;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+      transition: color .3s;
+    }
+    .section-line { flex:1; height:1px; background:var(--rule); transition:background .3s; }
+
+    .summary p {
+      font-family: var(--font-display);
+      font-size: 11.5pt;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      max-width: 95%;
+      transition: color .3s;
+    }
+
+    .entry { margin-bottom: 11px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-top { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+    .entry-title { font-weight:500; font-size:9pt; color:var(--ink); transition:color .3s; }
+    .entry-date  { font-size:7.5pt; font-weight:300; color:var(--ink-soft); white-space:nowrap; flex-shrink:0; transition:color .3s; }
+    .entry-sub   { font-size:8pt; font-weight:300; color:var(--ink-soft); margin-top:1px; margin-bottom:4px; transition:color .3s; }
+
+    .entry ul { padding-left:13px; margin-top:3px; }
+    .entry ul li { font-size:8.5pt; font-weight:300; color:var(--ink-mid); margin-bottom:2px; transition:color .3s; }
+    .entry ul li::marker { color:var(--accent); font-size:8pt; }
+
+    .project-entry { margin-bottom:9px; }
+    .project-entry:last-child { margin-bottom:0; }
+    .project-name { font-weight:500; font-size:9pt; }
+    .project-name a { color:var(--accent); text-decoration:none; }
+    .project-name a:hover { text-decoration:underline; }
+    .project-desc { font-size:8pt; font-weight:300; color:var(--ink-mid); margin-top:1px; transition:color .3s; }
+    .project-tech { font-size:7.5pt; font-weight:300; color:var(--ink-soft); margin-top:2px; font-style:italic; transition:color .3s; }
+
+    .skills-grid { display:flex; flex-direction:column; gap:5px; }
+    .skill-row { display:flex; gap:10px; align-items:baseline; font-size:8.5pt; }
+    .skill-cat  { font-weight:500; min-width:88px; flex-shrink:0; color:var(--ink); font-size:8pt; transition:color .3s; }
+    .skill-list { font-weight:300; color:var(--ink-mid); transition:color .3s; }
+
+    .compact-entry { display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:6px; }
+    .compact-entry:last-child { margin-bottom:0; }
+    .compact-left { display:flex; flex-direction:column; }
+    .compact-name { font-weight:500; font-size:8.5pt; color:var(--ink); transition:color .3s; }
+    .compact-sub  { font-weight:300; font-size:8pt; color:var(--ink-soft); transition:color .3s; }
+    .compact-date { font-size:7.5pt; font-weight:300; color:var(--ink-soft); white-space:nowrap; flex-shrink:0; transition:color .3s; }
+
+    /* ═══════════════════════════════════════════
+       PRINT
+    ═══════════════════════════════════════════ */
+    @media print {
+      body { background: var(--beige-page); }
+      .toolbar { display:none; }
+      .page { width:100%; min-height:unset; margin:0; box-shadow:none; }
+      a { color:inherit !important; text-decoration:none !important; }
+      section { page-break-inside:avoid; }
+    }
+    @page { size:A4; margin:0; }
+  </style>
+  <link rel="stylesheet" href="/cv-templates/watermark.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════ TOOLBAR ══════════════ -->
+  <div class="toolbar" id="toolbar">
+
+    <button class="toolbar-btn btn-download" id="btn-download" onclick="downloadPDF()">
+      <span class="btn-icon">↓</span>
+      <span id="lbl-download">Download CV</span>
+    </button>
+
+    <div class="toolbar-divider"></div>
+
+    <button class="toolbar-btn" id="btn-dark" onclick="toggleDark()">
+      <span class="btn-icon" id="dark-icon">◐</span>
+      <span id="lbl-dark">Dark</span>
+    </button>
+
+    <div class="toolbar-divider"></div>
+
+    <button class="toolbar-btn" id="btn-lang" onclick="toggleLang()">
+      <span id="lbl-lang">عربي</span>
+    </button>
+
+  </div>
+
+  <!-- ══════════════ PAGE ══════════════ -->
+  <div class="page" id="cv-page">
+
+    <!-- HEADER -->
+    <header>
+      <div class="name"
+        data-en="[Your <em>Full Name</em>]"
+        data-ar="[<em>اسمك الكامل</em>]">
+        [Your <em>Full Name</em>]
+      </div>
+
+      <div class="job-title"
+        data-en="[Job Title &nbsp;·&nbsp; Field or Specialisation]"
+        data-ar="[المسمى الوظيفي &nbsp;·&nbsp; التخصص]">
+        [Job Title &nbsp;·&nbsp; Field or Specialisation]
+      </div>
+
+      <!-- Contact bar — always LTR, Latin font. Only city label translates. -->
+      <div class="contact-bar">
+        <a href="mailto:[your.email@example.com]">[your.email@example.com]</a>
+        <span class="sep">|</span>
+        <span>[+966 5X XXX XXXX]</span>
+        <span class="sep">|</span>
+        <span id="txt-city" data-en="[City, Saudi Arabia]" data-ar="[المدينة، المملكة العربية السعودية]">[City, Saudi Arabia]</span>
+        <span class="sep">|</span>
+        <a href="https://linkedin.com/in/[yourhandle]" target="_blank">linkedin.com/in/[yourhandle]</a>
+        <span class="sep">|</span>
+        <a href="https://[yourwebsite.com]" target="_blank">[yourwebsite.com]</a>
+      </div>
+    </header>
+
+    <div class="body">
+
+      <!-- SUMMARY -->
+      <section>
+        <div class="section-head">
+          <span class="section-title"
+            data-en="Summary"
+            data-ar="نبذة عني">Summary</span>
+          <span class="section-line"></span>
+        </div>
+        <div class="summary">
+          <p data-en="[A 2–3 sentence professional summary. Who you are, what you bring, and what you're looking for. Example: Thoughtful product designer with 6 years crafting digital experiences across fintech and e-commerce. Known for turning ambiguous briefs into clear, user-centred solutions. Seeking a senior role at a purpose-driven team.]"
+             data-ar="[ملخص مهني من جملتين أو ثلاث. مثال: مصمم منتجات عندي خبرة ٦ سنوات في بناء تجارب رقمية في قطاع التقنية المالية والتجارة الإلكترونية. مشهور بتحويل المتطلبات الضبابية لحلول واضحة تخدم المستخدم. أدور على دور قيادي في فريق عنده هدف حقيقي.]">
+            [A 2–3 sentence professional summary. Who you are, what you bring, and what you're looking for. Example: Thoughtful product designer with 6 years crafting digital experiences across fintech and e-commerce. Known for turning ambiguous briefs into clear, user-centred solutions. Seeking a senior role at a purpose-driven team.]
+          </p>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section>
+        <div class="section-head">
+          <span class="section-title" data-en="Education" data-ar="التعليم">Education</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Degree — e.g. BSc Computer Science]"
+              data-ar="[الدرجة العلمية — مثل: بكالوريوس علوم الحاسب]">
+              [Degree — e.g. BSc Computer Science]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – [Mon YYYY]"
+              data-ar="[شهر سنة] – [شهر سنة]">[Mon YYYY] – [Mon YYYY]</span>
+          </div>
+          <div class="entry-sub"
+            data-en="[University Name] · [City, Country]"
+            data-ar="[اسم الجامعة] · [المدينة، المملكة العربية السعودية]">
+            [University Name] &nbsp;·&nbsp; [City, Country]</div>
+          <div class="entry-sub"
+            data-en="[Optional: GPA 3.9 / 4.0 · Relevant coursework: X, Y, Z]"
+            data-ar="[اختياري: المعدل التراكمي ٣٫٩ من ٤ · مواد ذات صلة: س، ص، ع]">
+            [Optional: GPA 3.9 / 4.0 &nbsp;·&nbsp; Relevant coursework: X, Y, Z]</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Second Degree or High School]"
+              data-ar="[درجة ثانية أو الثانوية العامة]">
+              [Second Degree or High School]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – [Mon YYYY]"
+              data-ar="[شهر سنة] – [شهر سنة]">[Mon YYYY] – [Mon YYYY]</span>
+          </div>
+          <div class="entry-sub"
+            data-en="[Institution Name] · [City, Country]"
+            data-ar="[اسم المؤسسة] · [المدينة]">
+            [Institution Name] &nbsp;·&nbsp; [City, Country]</div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section>
+        <div class="section-head">
+          <span class="section-title" data-en="Experience" data-ar="الخبرة المهنية">Experience</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Job Title — e.g. Senior Software Engineer]"
+              data-ar="[المسمى الوظيفي — مثل: مهندس برمجيات أول]">
+              [Job Title — e.g. Senior Software Engineer]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – Present"
+              data-ar="[شهر سنة] – حتى الآن">[Mon YYYY] – Present</span>
+          </div>
+          <div class="entry-sub"
+            data-en="[Company Name] · [City or Remote]"
+            data-ar="[اسم الشركة] · [المدينة أو عن بُعد]">
+            [Company Name] &nbsp;·&nbsp; [City or Remote]</div>
+          <ul>
+            <li data-en="[Key achievement with measurable impact — e.g. Reduced API response time by 40% through caching refactor.]"
+                data-ar="[إنجاز رئيسي بأرقام — مثل: خفّضت وقت استجابة الـ API بنسبة ٤٠٪ من خلال إعادة هيكلة الكاش.]">
+              [Key achievement with measurable impact — e.g. Reduced API response time by 40%.]</li>
+            <li data-en="[Another accomplishment. What did you build, own, or improve?]"
+                data-ar="[إنجاز ثاني. إيش بنيت، تملّكت، أو طوّرت؟]">
+              [Another accomplishment. What did you build, own, or improve?]</li>
+            <li data-en="[Optional: scope, team size, or cross-functional collaboration worth noting.]"
+                data-ar="[اختياري: نطاق الشغل، حجم الفريق، أو التنسيق بين الأقسام.]">
+              [Optional: scope, team size, or cross-functional collaboration.]</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Job Title]"
+              data-ar="[المسمى الوظيفي]">[Job Title]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – [Mon YYYY]"
+              data-ar="[شهر سنة] – [شهر سنة]">[Mon YYYY] – [Mon YYYY]</span>
+          </div>
+          <div class="entry-sub"
+            data-en="[Company Name] · [City or Remote]"
+            data-ar="[اسم الشركة] · [المدينة أو عن بُعد]">
+            [Company Name] &nbsp;·&nbsp; [City or Remote]</div>
+          <ul>
+            <li data-en="[Key achievement or responsibility.]"
+                data-ar="[إنجاز أو مسؤولية رئيسية.]">
+              [Key achievement or responsibility.]</li>
+            <li data-en="[Another outcome — use numbers where possible.]"
+                data-ar="[نتيجة ثانية — استخدم أرقاماً لو أمكن.]">
+              [Another outcome — use numbers where possible.]</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Earlier Role or Internship]"
+              data-ar="[دور سابق أو تدريب تعاوني]">
+              [Earlier Role or Internship]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – [Mon YYYY]"
+              data-ar="[شهر سنة] – [شهر سنة]">[Mon YYYY] – [Mon YYYY]</span>
+          </div>
+          <div class="entry-sub"
+            data-en="[Company Name] · [City]"
+            data-ar="[اسم الشركة] · [المدينة]">
+            [Company Name] &nbsp;·&nbsp; [City]</div>
+          <ul>
+            <li data-en="[Contribution or skill demonstrated.]"
+                data-ar="[المساهمة أو المهارة اللي أبرزتها في هذا الدور.]">
+              [Contribution or skill demonstrated.]</li>
+            <li data-en="[Tools, technologies, or processes involved.]"
+                data-ar="[الأدوات والتقنيات والأساليب اللي اشتغلت فيها.]">
+              [Tools, technologies, or processes involved.]</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section>
+        <div class="section-head">
+          <span class="section-title" data-en="Projects" data-ar="المشاريع">Projects</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="project-entry">
+          <div class="entry-top">
+            <span class="project-name">
+              <a href="https://[project-link.com]" target="_blank"
+                data-en="[Project Name]"
+                data-ar="[اسم المشروع]">[Project Name]</a>
+            </span>
+            <span class="entry-date" data-en="[Year]" data-ar="[السنة]">[Year]</span>
+          </div>
+          <div class="project-desc"
+            data-en="[One-line description — what it does and who it's for.]"
+            data-ar="[وصف في سطر — إيش يسوّي المشروع ومن المستهدف منه.]">
+            [One-line description — what it does and who it's for.]</div>
+          <div class="project-tech"
+            data-en="Tools: [React, Node.js, PostgreSQL]"
+            data-ar="الأدوات: [React, Node.js, PostgreSQL]">
+            Tools: [React, Node.js, PostgreSQL]</div>
+        </div>
+
+        <div class="project-entry">
+          <div class="entry-top">
+            <span class="project-name"
+              data-en="[Project Name — no link]"
+              data-ar="[اسم المشروع — بدون رابط]">[Project Name — no link]</span>
+            <span class="entry-date" data-en="[Year]" data-ar="[السنة]">[Year]</span>
+          </div>
+          <div class="project-desc"
+            data-en="[Brief description of purpose and your role.]"
+            data-ar="[وصف مختصر للغرض من المشروع ودورك فيه.]">
+            [Brief description of purpose and your role.]</div>
+          <div class="project-tech"
+            data-en="Tools: [Python, TensorFlow, Pandas]"
+            data-ar="الأدوات: [Python, TensorFlow, Pandas]">
+            Tools: [Python, TensorFlow, Pandas]</div>
+        </div>
+
+        <div class="project-entry">
+          <div class="entry-top">
+            <span class="project-name">
+              <a href="https://github.com/[yourhandle/project]" target="_blank"
+                data-en="[Open-Source Contribution]"
+                data-ar="[مساهمة في مشروع مفتوح المصدر]">[Open-Source Contribution]</a>
+            </span>
+            <span class="entry-date" data-en="[Year]" data-ar="[السنة]">[Year]</span>
+          </div>
+          <div class="project-desc"
+            data-en="[What you contributed. Mention stars or scale if relevant.]"
+            data-ar="[وش قدّمت. اذكر النجوم أو الحجم لو كان له أهمية.]">
+            [What you contributed. Mention stars or scale if relevant.]</div>
+          <div class="project-tech"
+            data-en="Tools: [Go, Docker, Kubernetes]"
+            data-ar="الأدوات: [Go, Docker, Kubernetes]">
+            Tools: [Go, Docker, Kubernetes]</div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section>
+        <div class="section-head">
+          <span class="section-title" data-en="Skills" data-ar="المهارات">Skills</span>
+          <span class="section-line"></span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Technical" data-ar="التقنية">Technical</span>
+            <span class="skill-list">[JavaScript, TypeScript, Python, SQL, HTML/CSS, REST APIs, GraphQL]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Frameworks" data-ar="الأطر البرمجية">Frameworks</span>
+            <span class="skill-list">[React, Next.js, Node.js, Express, Django, FastAPI]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Tools &amp; Platforms" data-ar="الأدوات والمنصات">Tools &amp; Platforms</span>
+            <span class="skill-list">[Git, Docker, AWS, Figma, Linux, Jira, Notion]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</span>
+            <span class="skill-list"
+              data-en="[Technical writing, cross-functional communication, mentorship, agile collaboration]"
+              data-ar="[الكتابة التقنية، التواصل بين الأقسام، التوجيه والتطوير، الشغل بأسلوب أجايل]">
+              [Technical writing, cross-functional communication, mentorship, agile collaboration]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section>
+        <div class="section-head">
+          <span class="section-title" data-en="Certifications" data-ar="الشهادات والاعتمادات">Certifications</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[Certification Name — e.g. AWS Certified Solutions Architect]"
+              data-ar="[اسم الشهادة — مثل: مهندس حلول AWS المعتمد]">
+              [Certification Name — e.g. AWS Certified Solutions Architect]</span>
+            <span class="compact-sub"
+              data-en="[Issuing Organisation]"
+              data-ar="[الجهة المانحة]">[Issuing Organisation]</span>
+          </div>
+          <span class="compact-date"
+            data-en="[Mon YYYY]" data-ar="[شهر سنة]">[Mon YYYY]</span>
+        </div>
+
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[Certification Name]"
+              data-ar="[اسم الشهادة]">[Certification Name]</span>
+            <span class="compact-sub"
+              data-en="[Issuing Organisation]"
+              data-ar="[الجهة المانحة]">[Issuing Organisation]</span>
+          </div>
+          <span class="compact-date"
+            data-en="[Mon YYYY]" data-ar="[شهر سنة]">[Mon YYYY]</span>
+        </div>
+      </section>
+
+      <!-- LANGUAGES -->
+      <section>
+        <div class="section-head">
+          <span class="section-title" data-en="Languages" data-ar="اللغات">Languages</span>
+          <span class="section-line"></span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-cat" data-en="[Arabic]" data-ar="[العربية]">[Arabic]</span>
+            <span class="skill-list"
+              data-en="[Native]"
+              data-ar="[لغة أم]">[Native]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="[English]" data-ar="[الإنجليزية]">[English]</span>
+            <span class="skill-list"
+              data-en="[Professional working proficiency — B2]"
+              data-ar="[إتقان مهني — B2]">
+              [Professional working proficiency — B2]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="[French]" data-ar="[الفرنسية]">[French]</span>
+            <span class="skill-list"
+              data-en="[Elementary proficiency — A2]"
+              data-ar="[إتقان أساسي — A2]">
+              [Elementary proficiency — A2]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVITIES & VOLUNTEER -->
+      <section>
+        <div class="section-head">
+          <span class="section-title"
+            data-en="Activities &amp; Volunteer Work"
+            data-ar="الأنشطة والتطوع">Activities &amp; Volunteer Work</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[Role — e.g. Coding Workshop Instructor]"
+              data-ar="[الدور — مثل: مدرّب ورشة برمجة]">
+              [Role — e.g. Coding Workshop Instructor]</span>
+            <span class="compact-sub"
+              data-en="[Organisation Name]"
+              data-ar="[اسم الجهة]">[Organisation Name]</span>
+          </div>
+          <span class="compact-date"
+            data-en="[Mon YYYY] – Present"
+            data-ar="[شهر سنة] – حتى الآن">[Mon YYYY] – Present</span>
+        </div>
+
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[Role — e.g. Event Organiser]"
+              data-ar="[الدور — مثل: منسّق فعاليات]">
+              [Role — e.g. Event Organiser]</span>
+            <span class="compact-sub"
+              data-en="[Organisation Name]"
+              data-ar="[اسم الجهة]">[Organisation Name]</span>
+          </div>
+          <span class="compact-date"
+            data-en="[Mon YYYY] – [Mon YYYY]"
+            data-ar="[شهر سنة] – [شهر سنة]">[Mon YYYY] – [Mon YYYY]</span>
+        </div>
+
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[Role — e.g. Open Source Contributor]"
+              data-ar="[الدور — مثل: مساهم في مشاريع مفتوحة المصدر]">
+              [Role — e.g. Open Source Contributor]</span>
+            <span class="compact-sub"
+              data-en="[Project or Organisation Name]"
+              data-ar="[اسم المشروع أو الجهة]">[Project or Organisation Name]</span>
+          </div>
+          <span class="compact-date"
+            data-en="[Mon YYYY] – Present"
+            data-ar="[شهر سنة] – حتى الآن">[Mon YYYY] – Present</span>
+        </div>
+      </section>
+
+    </div><!-- /.body -->
+  </div><!-- /.page -->
+
+  <script>
+    let isDark   = false;
+    let isArabic = false;
+
+    /* ── Dark Mode ─────────────────── */
+    function toggleDark() {
+      isDark = !isDark;
+      document.documentElement.classList.toggle('dark', isDark);
+      document.getElementById('dark-icon').textContent = isDark ? '☀' : '◐';
+      document.getElementById('lbl-dark').textContent  =
+        isDark ? (isArabic ? 'فاتح' : 'Light')
+               : (isArabic ? 'داكن' : 'Dark');
+      document.getElementById('btn-dark').classList.toggle('active', isDark);
+    }
+
+    /* ── Language Toggle ───────────── */
+    function toggleLang() {
+      isArabic = !isArabic;
+      const html = document.documentElement;
+      const btn  = document.getElementById('btn-lang');
+
+      if (isArabic) {
+        html.setAttribute('lang', 'ar');
+        html.setAttribute('dir', 'rtl');
+
+        document.getElementById('lbl-lang').textContent     = 'English';
+        document.getElementById('lbl-download').textContent = 'تحميل السيرة';
+        document.getElementById('lbl-dark').textContent     = isDark ? 'فاتح' : 'داكن';
+        btn.classList.add('active');
+
+        /* swap every element that has a data-ar attribute */
+        document.querySelectorAll('[data-ar]').forEach(el => {
+          el.innerHTML = el.getAttribute('data-ar');
+        });
+
+        /* contact bar stays LTR regardless of page direction */
+        document.querySelector('.contact-bar').style.direction = 'ltr';
+
+      } else {
+        html.setAttribute('lang', 'en');
+        html.setAttribute('dir', 'ltr');
+
+        document.getElementById('lbl-lang').textContent     = 'عربي';
+        document.getElementById('lbl-download').textContent = 'Download CV';
+        document.getElementById('lbl-dark').textContent     = isDark ? 'Light' : 'Dark';
+        btn.classList.remove('active');
+
+        document.querySelectorAll('[data-en]').forEach(el => {
+          el.innerHTML = el.getAttribute('data-en');
+        });
+
+        document.querySelector('.contact-bar').style.direction = '';
+      }
+    }
+
+    /* ── Download PDF ──────────────── */
+    function downloadPDF() {
+      const btn     = document.getElementById('btn-download');
+      const toolbar = document.getElementById('toolbar');
+
+      btn.disabled          = true;
+      toolbar.style.opacity = '0';
+      document.getElementById('lbl-download').textContent = isArabic ? '…جارٍ التحضير' : 'Generating…';
+
+      html2pdf()
+        .set({
+          margin:      0,
+          filename:    isArabic ? 'السيرة-الذاتية.pdf' : 'CV.pdf',
+          image:       { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, backgroundColor: null },
+          jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        })
+        .from(document.getElementById('cv-page'))
+        .save()
+        .then(() => {
+          document.getElementById('lbl-download').textContent = isArabic ? 'تحميل السيرة' : 'Download CV';
+          btn.disabled          = false;
+          toolbar.style.opacity = '1';
+        });
+    }
+  </script>
+
+</body>
+</html>

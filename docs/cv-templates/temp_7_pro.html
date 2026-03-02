@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Your Name] — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Naskh+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    /* ─── DARK (default) ─────────────────────── */
+    :root {
+      --bg:          #0d1117;
+      --page-bg:     #0d1117;
+      --header-bg:   #161b22;
+      --border:      #21262d;
+      --border-mid:  #30363d;
+
+      --ink:         #e6edf3;
+      --ink-mid:     #8b949e;
+      --ink-soft:    #484f58;
+
+      --green:       #3fb950;
+      --green-dim:   #1a7f37;
+      --amber:       #e3b341;
+      --blue:        #58a6ff;
+      --pink:        #f778ba;
+      --purple:      #bc8cff;
+      --cyan:        #76e3ea;
+
+      --accent:      #3fb950;
+      --accent-dim:  rgba(63,185,80,.09);
+      --shadow:      rgba(0,0,0,.6);
+
+      --toolbar-bg:      #161b22;
+      --toolbar-border:  #30363d;
+      --btn-bg:          #21262d;
+      --btn-hover:       #30363d;
+      --btn-active:      #3fb950;
+      --btn-active-txt:  #0d1117;
+
+      --font-mono:   'JetBrains Mono', 'Fira Code', monospace;
+      --font-body:   'DM Sans', system-ui, sans-serif;
+      --font-arabic: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+
+      --pad-h: 22mm;
+      --pad-v: 16mm;
+    }
+
+    /* ─── LIGHT MODE ─────────────────────────── */
+    html.light {
+      --bg:          #eef1f5;
+      --page-bg:     #ffffff;
+      --header-bg:   #f6f8fa;
+      --border:      #d0d7de;
+      --border-mid:  #b0b7c0;
+
+      --ink:         #1f2328;
+      --ink-mid:     #57606a;
+      --ink-soft:    #a8b1ba;
+
+      --green:       #1a7f37;
+      --green-dim:   #1a7f37;
+      --amber:       #9a6700;
+      --blue:        #0969da;
+      --pink:        #bf3989;
+      --purple:      #7c3aed;
+      --cyan:        #0e7490;
+
+      --accent:      #1a7f37;
+      --accent-dim:  rgba(26,127,55,.07);
+      --shadow:      rgba(31,35,40,.14);
+
+      --toolbar-bg:      #f6f8fa;
+      --toolbar-border:  #d0d7de;
+      --btn-bg:          #ffffff;
+      --btn-hover:       #f3f4f6;
+      --btn-active:      #1a7f37;
+      --btn-active-txt:  #ffffff;
+    }
+
+    /* ─── ARABIC ─────────────────────────────── */
+    html[lang="ar"] body { font-family: var(--font-arabic) !important; line-height: 2; }
+    html[lang="ar"] .name-main { font-family:var(--font-arabic) !important; font-size:22pt; letter-spacing:0; }
+    html[lang="ar"] .job-title,
+    html[lang="ar"] .entry-title,
+    html[lang="ar"] .entry-sub,
+    html[lang="ar"] .entry-date,
+    html[lang="ar"] .section-label,
+    html[lang="ar"] .skill-cat,
+    html[lang="ar"] .skill-list,
+    html[lang="ar"] .compact-name,
+    html[lang="ar"] .compact-sub,
+    html[lang="ar"] .compact-date,
+    html[lang="ar"] .project-name,
+    html[lang="ar"] .project-desc { font-family:var(--font-arabic) !important; line-height:1.9; }
+    html[lang="ar"] .section-label { letter-spacing:0 !important; }
+    html[lang="ar"] .job-title { letter-spacing:0 !important; }
+    html[lang="ar"] .summary p { font-family:var(--font-arabic) !important; font-style:normal !important; font-size:10pt; line-height:2; }
+    html[lang="ar"] .entry ul { padding-left:0; padding-right:14px; }
+    html[lang="ar"] .entry ul li::before { left:auto; right:-11px; content:'‹'; }
+    html[lang="ar"] .summary p { border-left:none; border-right:2px solid var(--border-mid); padding-left:0; padding-right:10px; }
+    html[lang="ar"] .contact-bar { direction:ltr; justify-content:flex-end; font-family:var(--font-mono) !important; }
+
+    /* ─── RESET ──────────────────────────────── */
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+
+    body {
+      background: var(--bg);
+      font-family: var(--font-body);
+      font-size: 8.5pt;
+      color: var(--ink);
+      line-height: 1.6;
+      transition: background .3s, color .3s;
+      overflow-x: hidden;
+    }
+
+    /* dot-grid background */
+    body::before {
+      content:'';
+      position:fixed; inset:0;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity: .4;
+      pointer-events: none;
+      z-index: 0;
+    }
+    html.light body::before { opacity:.2; }
+
+    /* ─── TOOLBAR ────────────────────────────── */
+    .toolbar {
+      position:fixed; top:18px; right:18px;
+      z-index:200;
+      display:flex; align-items:center; gap:4px;
+      background:var(--toolbar-bg);
+      border:1px solid var(--toolbar-border);
+      border-radius:7px;
+      padding:5px 7px;
+      box-shadow:0 4px 28px var(--shadow);
+      transition:background .3s, border-color .3s, opacity .3s;
+      direction:ltr;
+      font-family:var(--font-mono);
+    }
+
+    .toolbar-btn {
+      display:flex; align-items:center; gap:4px;
+      padding:4px 9px;
+      border:1px solid var(--border-mid);
+      border-radius:5px;
+      background:var(--btn-bg);
+      color:var(--ink-mid);
+      font-family:var(--font-mono);
+      font-size:6.8pt;
+      font-weight:400;
+      cursor:pointer;
+      transition:background .15s, color .15s, border-color .15s, transform .1s;
+      white-space:nowrap;
+    }
+    .toolbar-btn:hover  { background:var(--btn-hover); color:var(--ink); border-color:var(--accent); }
+    .toolbar-btn:active { transform:scale(.96); }
+    .toolbar-btn.active { background:var(--btn-active); color:var(--btn-active-txt); border-color:var(--btn-active); }
+
+    #btn-lang { font-family:var(--font-arabic); font-size:8.5pt; }
+
+    .toolbar-divider { width:1px; height:14px; background:var(--border-mid); flex-shrink:0; margin:0 1px; }
+
+    .btn-download {
+      background:var(--accent); color:#0d1117;
+      border-color:var(--accent); font-weight:500;
+    }
+    html.light .btn-download { color:#fff; }
+    .btn-download:hover { opacity:.85; background:var(--accent) !important; color:#0d1117 !important; border-color:var(--accent) !important; }
+    html.light .btn-download:hover { color:#fff !important; }
+    .btn-download::before { content:'$ '; opacity:.65; }
+
+    /* ─── SCALE WRAPPER ─────────────────────── */
+    /* Keeps A4 proportions on any screen size  */
+    .page-scaler {
+      width: 210mm;
+      transform-origin: top center;
+      margin: 0 auto;
+    }
+
+    /* ─── PAGE ───────────────────────────────── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 40px;
+      background:var(--page-bg);
+      box-shadow:0 0 0 1px var(--border), 0 20px 64px var(--shadow);
+      position:relative; z-index:1;
+      overflow:hidden;
+      transition:background .3s, box-shadow .3s;
+    }
+
+    /* left rainbow stripe */
+    .page::before {
+      content:'';
+      position:absolute; top:0; left:0; bottom:0; width:3px;
+      background:linear-gradient(180deg,
+        var(--green) 0%, var(--cyan) 30%,
+        var(--blue) 55%, var(--purple) 80%, var(--pink) 100%);
+      opacity:.75;
+    }
+
+    /* scanlines */
+    .page::after {
+      content:'';
+      position:absolute; inset:0;
+      background:repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(255,255,255,.013) 3px, rgba(255,255,255,.013) 4px
+      );
+      pointer-events:none;
+    }
+    html.light .page::after { display:none; }
+
+    /* ─── HEADER ─────────────────────────────── */
+    header {
+      background:var(--header-bg);
+      padding:var(--pad-v) var(--pad-h) calc(var(--pad-v)*.8) var(--pad-h);
+      border-bottom:1px solid var(--border);
+      position:relative;
+      transition:background .3s;
+    }
+
+    /* fake terminal window chrome */
+    .term-bar {
+      display:flex; align-items:center; gap:5px;
+      margin-bottom:9px;
+    }
+    .dot { width:7px; height:7px; border-radius:50%; }
+    .dot-r { background:#ff5f57; }
+    .dot-y { background:#febc2e; }
+    .dot-g { background:#28c840; }
+    .term-path {
+      font-family:var(--font-mono);
+      font-size:6.5pt; color:var(--ink-soft);
+      margin-left:6px;
+    }
+    .p-user { color:var(--green); }
+    .p-at   { color:var(--ink-soft); }
+    .p-host { color:var(--blue); }
+    .p-sep  { color:var(--ink-soft); }
+    .p-dir  { color:var(--amber); }
+
+    /* name */
+    .name-row {
+      display:flex; align-items:baseline; gap:7px;
+      margin-bottom:2px;
+    }
+    .name-prompt {
+      font-family:var(--font-mono);
+      font-size:12pt; color:var(--green);
+      font-weight:400; flex-shrink:0; opacity:.75;
+    }
+    .name-main {
+      font-family:var(--font-mono);
+      font-size:28pt; font-weight:700;
+      color:var(--ink); letter-spacing:-1.5px;
+      line-height:1; transition:color .3s;
+    }
+    .cursor {
+      display:inline-block;
+      width:3px; height:.85em;
+      background:var(--green);
+      margin-left:2px; vertical-align:text-bottom;
+      animation:blink 1.1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* job title as code comment */
+    .job-title {
+      font-family:var(--font-mono);
+      font-size:8pt; font-weight:400;
+      color:var(--ink-mid);
+      margin-bottom:11px;
+    }
+    .c-slash { color:var(--ink-soft); }
+    .c-str   { color:var(--amber); }
+
+    /* contact bar */
+    .contact-bar {
+      display:flex; flex-wrap:wrap; align-items:center;
+      font-family:var(--font-mono);
+      font-size:6.8pt; color:var(--ink-soft);
+    }
+    .contact-bar .sep { margin:0 6px; color:var(--border-mid); }
+    .contact-bar .lbl { color:var(--ink-soft); margin-right:1px; font-size:6.3pt; }
+    .contact-bar a { color:var(--blue); text-decoration:none; transition:color .15s; }
+    .contact-bar a:hover { color:var(--green); text-decoration:underline; }
+
+    /* ─── BODY ───────────────────────────────── */
+    .body {
+      padding: calc(var(--pad-v)*.85) var(--pad-h) var(--pad-v) var(--pad-h);
+    }
+
+    section { margin-bottom:15px; }
+
+    .section-head { display:flex; align-items:center; gap:7px; margin-bottom:8px; }
+
+    .section-hash {
+      font-family:var(--font-mono);
+      font-size:8.5pt; font-weight:700;
+      color:var(--purple); flex-shrink:0;
+    }
+
+    .section-label {
+      font-family:var(--font-mono);
+      font-size:7pt; font-weight:500;
+      letter-spacing:1.6px; text-transform:uppercase;
+      color:var(--ink-mid); white-space:nowrap;
+    }
+
+    .section-rule { flex:1; height:1px; background:var(--border); transition:background .3s; }
+
+    /* summary */
+    .summary p {
+      font-family:var(--font-body);
+      font-size:9pt; font-style:italic;
+      color:var(--ink-mid); line-height:1.65;
+      max-width:95%;
+      padding-left:10px;
+      border-left:2px solid var(--border-mid);
+    }
+
+    /* entries */
+    .entry { margin-bottom:10px; }
+    .entry:last-child { margin-bottom:0; }
+
+    .entry-top {
+      display:flex; justify-content:space-between; align-items:baseline;
+      gap:12px; width:100%;
+    }
+
+    .entry-title {
+      font-family:var(--font-mono);
+      font-weight:500; font-size:8.5pt;
+      color:var(--amber); transition:color .3s;
+      min-width:0; flex:1;
+      overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    }
+    .entry-date {
+      font-family:var(--font-mono);
+      font-size:7pt; font-weight:300;
+      color:var(--ink-soft); white-space:nowrap; flex-shrink:0;
+    }
+    .entry-sub {
+      font-family:var(--font-body);
+      font-size:8pt; color:var(--ink-mid);
+      margin-top:1px; margin-bottom:3px;
+    }
+    .co { color:var(--blue); }
+
+    .entry ul { padding-left:13px; margin-top:3px; list-style:none; }
+    .entry ul li {
+      font-size:8.5pt; color:var(--ink-mid);
+      margin-bottom:2px; position:relative;
+    }
+    .entry ul li::before {
+      content:'›';
+      position:absolute; left:-11px;
+      color:var(--green);
+      font-family:var(--font-mono);
+    }
+
+    /* projects */
+    .project-entry { margin-bottom:9px; }
+    .project-entry:last-child { margin-bottom:0; }
+
+    .proj-top {
+      display:flex; justify-content:space-between; align-items:baseline;
+      gap:12px; width:100%;
+    }
+
+    .project-name {
+      font-family:var(--font-mono);
+      font-weight:500; font-size:8.5pt;
+      color:var(--blue);
+      min-width:0; flex:1;
+      overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    }
+    .project-name a { color:var(--blue); text-decoration:none; }
+    .project-name a:hover { color:var(--cyan); text-decoration:underline; }
+
+    .project-desc {
+      font-size:8pt; color:var(--ink-mid);
+      margin-top:2px;
+    }
+
+    .tags { margin-top:3px; }
+    .tag {
+      display:inline-block;
+      font-family:var(--font-mono);
+      font-size:6.5pt; font-weight:500;
+      background:var(--accent-dim);
+      border:1px solid var(--green-dim);
+      color:var(--green);
+      border-radius:3px;
+      padding:0 4px; margin-right:3px;
+      line-height:1.7;
+    }
+    html.light .tag { background:rgba(26,127,55,.06); }
+
+    /* skills */
+    .skills-grid { display:flex; flex-direction:column; gap:4px; }
+    .skill-row   { display:flex; gap:10px; align-items:baseline; font-size:8.5pt; }
+    .skill-cat {
+      font-family:var(--font-mono);
+      font-weight:500; font-size:7.5pt;
+      color:var(--pink); min-width:92px; flex-shrink:0;
+      transition:color .3s;
+    }
+    .skill-cat::before { content:'['; color:var(--ink-soft); }
+    .skill-cat::after  { content:']'; color:var(--ink-soft); }
+    .skill-list { font-family:var(--font-body); font-weight:300; color:var(--ink-mid); }
+
+    /* compact */
+    .compact-entry { display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:5px; }
+    .compact-entry:last-child { margin-bottom:0; }
+    .compact-left  { display:flex; flex-direction:column; }
+    .compact-name  { font-family:var(--font-mono); font-weight:500; font-size:7.5pt; color:var(--amber); transition:color .3s; }
+    .compact-sub   { font-size:7.5pt; color:var(--ink-soft); margin-top:1px; }
+    .compact-date  { font-family:var(--font-mono); font-size:7pt; color:var(--ink-soft); white-space:nowrap; flex-shrink:0; }
+
+    /* ─── PRINT ──────────────────────────────── */
+    @media print {
+      body { background:var(--page-bg); }
+      body::before { display:none; }
+      .toolbar { display:none; }
+      .page-scaler { width:100% !important; transform:none !important; margin:0 !important; }
+      .page { width:100%; min-height:unset; margin:0; box-shadow:none; }
+      .page::after { display:none; }
+      .cursor { display:none; }
+      a { color:inherit !important; text-decoration:none !important; }
+      section { page-break-inside:avoid; }
+    }
+    @page { size:A4; margin:0; }
+  </style>
+  <link rel="stylesheet" href="/cv-templates/watermark.css" />
+</head>
+
+<body>
+
+  <!-- ══ TOOLBAR ═══════════════════════════════ -->
+  <div class="toolbar" id="toolbar">
+    <button class="toolbar-btn btn-download" id="btn-download" onclick="downloadPDF()">
+      <span id="lbl-download">download</span>
+    </button>
+    <div class="toolbar-divider"></div>
+    <button class="toolbar-btn" id="btn-light" onclick="toggleLight()">
+      <span id="light-icon">☀</span>
+      <span id="lbl-light">light</span>
+    </button>
+    <div class="toolbar-divider"></div>
+    <button class="toolbar-btn" id="btn-lang" onclick="toggleLang()">
+      <span id="lbl-lang">عربي</span>
+    </button>
+  </div>
+
+  <!-- ══ PAGE ══════════════════════════════════ -->
+  <div class="page-scaler" id="page-scaler">
+  <div class="page" id="cv-page">
+
+    <!-- HEADER -->
+    <header>
+      <!-- terminal window chrome -->
+      <div class="term-bar">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="term-path">
+          <span class="p-user" data-en="user" data-ar="مستخدم">user</span><span class="p-at">@</span><span class="p-host" data-en="dev-machine" data-ar="جهاز-تطوير">dev-machine</span><span class="p-sep">:</span><span class="p-dir" data-en="~/resume" data-ar="~/السيرة-الذاتية">~/resume</span><span class="p-sep"> $ cat cv.md</span>
+        </span>
+      </div>
+
+      <!-- name -->
+      <div class="name-row">
+        <span class="name-prompt">▸</span>
+        <span class="name-main"
+          data-en="[YourName]"
+          data-ar="[اسمك_الكامل]">[YourName]</span><span class="cursor"></span>
+      </div>
+
+      <!-- job title -->
+      <div class="job-title"
+        data-en='<span class="c-slash">// </span><span class="c-str">[Job Title · Field · Specialisation]</span>'
+        data-ar='<span class="c-slash">// </span><span class="c-str">[المسمى الوظيفي · التخصص]</span>'>
+        <span class="c-slash">// </span><span class="c-str">[Job Title · Field · Specialisation]</span>
+      </div>
+
+      <!-- contact — always LTR, monospace Latin for URLs/email/phone -->
+      <div class="contact-bar">
+        <span class="lbl">email:</span><a href="/cdn-cgi/l/email-protection#53082a3c262113363e323a3f7d303c3e0e">[<span class="__cf_email__" data-cfemail="b1c8dec4c3f1d4dcd0d8dd9fd2dedc">[email&#160;protected]</span>]</a>
+        <span class="sep">·</span>
+        <span class="lbl">tel:</span><span>[+966 5X XXX XXXX]</span>
+        <span class="sep">·</span>
+        <span id="city-txt" data-en="[City, Saudi Arabia]" data-ar="[المدينة، المملكة العربية السعودية]">[City, Saudi Arabia]</span>
+        <span class="sep">·</span>
+        <span class="lbl">gh:</span><a href="https://github.com/[yourhandle]" target="_blank">github.com/[yourhandle]</a>
+        <span class="sep">·</span>
+        <span class="lbl">li:</span><a href="https://linkedin.com/in/[yourhandle]" target="_blank">linkedin.com/in/[yourhandle]</a>
+        <span class="sep">·</span>
+        <span class="lbl">www:</span><a href="https://[yourwebsite.com]" target="_blank">[yourwebsite.com]</a>
+      </div>
+    </header>
+
+    <div class="body">
+
+      <!-- ABOUT -->
+      <section>
+        <div class="section-head">
+          <span class="section-hash">##</span>
+          <span class="section-label" data-en="About" data-ar="نبذة عني">About</span>
+          <span class="section-rule"></span>
+        </div>
+        <div class="summary">
+          <p data-en="[2–3 sentence summary. Who you are, what you build, what drives you. Example: Full-stack engineer obsessed with clean architecture and fast UIs. 5 years shipping production code in fintech and devtools. Looking for a team that values craft, autonomy, and real impact.]"
+             data-ar="[ملخص من جملتين أو ثلاث. مثال: مهندس برمجيات متكامل مهووس بالكود النظيف والواجهات السريعة. عندي ٥ سنوات خبرة في كود جاهز للإنتاج في التقنية المالية وأدوات المطورين. أدور على فريق يقدّر الجودة والاستقلالية والأثر الحقيقي.]">
+            [2–3 sentence summary. Who you are, what you build, what drives you. Example: Full-stack engineer obsessed with clean architecture and fast UIs. 5 years shipping production code in fintech and devtools. Looking for a team that values craft, autonomy, and real impact.]
+          </p>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section>
+        <div class="section-head">
+          <span class="section-hash">##</span>
+          <span class="section-label" data-en="Experience" data-ar="الخبرة المهنية">Experience</span>
+          <span class="section-rule"></span>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Job Title — e.g. Senior Software Engineer]"
+              data-ar="[المسمى الوظيفي — مثل: مهندس برمجيات أول]">
+              [Job Title — e.g. Senior Software Engineer]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – present"
+              data-ar="[شهر سنة] – حتى الآن">[Mon YYYY] – present</span>
+          </div>
+          <div class="entry-sub">
+            <span class="co" data-en="[Company Name]" data-ar="[اسم الشركة]">[Company Name]</span>
+            <span data-en=" · [City or Remote]" data-ar=" · [المدينة أو عن بُعد]"> · [City or Remote]</span>
+          </div>
+          <ul>
+            <li data-en="[Key win with numbers — e.g. Cut build time 60% migrating CI to Turborepo + esbuild.]"
+                data-ar="[إنجاز بأرقام — مثل: خفّضت وقت البناء ٦٠٪ بعد الانتقال لـ Turborepo و esbuild.]">
+              [Key win with numbers — e.g. Cut build time 60% migrating CI to Turborepo.]</li>
+            <li data-en="[What you architected, owned, or led. Be specific about scope and stack.]"
+                data-ar="[إيش صمّمت أو قدت أو تملّكت. كن محدداً في النطاق والتقنيات.]">
+              [What you architected, owned, or led. Scope and stack.]</li>
+            <li data-en="[Cross-team impact, code review culture, mentorship, or process improvement.]"
+                data-ar="[أثر على الفرق، ثقافة مراجعة الكود، التوجيه، أو تحسين العمليات.]">
+              [Cross-team impact, mentorship, or process improvement.]</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Job Title]"
+              data-ar="[المسمى الوظيفي]">[Job Title]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – [Mon YYYY]"
+              data-ar="[شهر سنة] – [شهر سنة]">[Mon YYYY] – [Mon YYYY]</span>
+          </div>
+          <div class="entry-sub">
+            <span class="co" data-en="[Company Name]" data-ar="[اسم الشركة]">[Company Name]</span>
+            <span data-en=" · [City or Remote]" data-ar=" · [المدينة أو عن بُعد]"> · [City or Remote]</span>
+          </div>
+          <ul>
+            <li data-en="[Achievement or responsibility with context.]"
+                data-ar="[إنجاز أو مسؤولية مع السياق.]">
+              [Achievement or responsibility with context.]</li>
+            <li data-en="[Another outcome — quantify where possible.]"
+                data-ar="[نتيجة ثانية — حدّدها بأرقام لو أمكن.]">
+              [Another outcome — quantify where possible.]</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Internship or Earlier Role]"
+              data-ar="[تدريب تعاوني أو دور سابق]">
+              [Internship or Earlier Role]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – [Mon YYYY]"
+              data-ar="[شهر سنة] – [شهر سنة]">[Mon YYYY] – [Mon YYYY]</span>
+          </div>
+          <div class="entry-sub">
+            <span class="co" data-en="[Company Name]" data-ar="[اسم الشركة]">[Company Name]</span>
+            <span data-en=" · [City]" data-ar=" · [المدينة]"> · [City]</span>
+          </div>
+          <ul>
+            <li data-en="[What you shipped or learned.]"
+                data-ar="[وش أطلقت أو تعلّمت.]">
+              [What you shipped or learned.]</li>
+            <li data-en="[Stack, tools, or methodologies.]"
+                data-ar="[التقنيات والأدوات والأساليب.]">
+              [Stack, tools, or methodologies.]</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section>
+        <div class="section-head">
+          <span class="section-hash">##</span>
+          <span class="section-label" data-en="Projects" data-ar="المشاريع">Projects</span>
+          <span class="section-rule"></span>
+        </div>
+
+        <div class="project-entry">
+          <div class="proj-top">
+            <span class="project-name">
+              <a href="https://github.com/[yourhandle/project-one]" target="_blank"
+                data-en="[project-one]" data-ar="[اسم-المشروع-الأول]">[project-one]</a>
+            </span>
+            <span class="entry-date" data-en="[Year]" data-ar="[السنة]">[Year]</span>
+          </div>
+          <div class="project-desc"
+            data-en="[One-liner: what problem it solves and who uses it.]"
+            data-ar="[وصف في سطر: إيش المشكلة اللي يحلها ومن يستخدمه.]">
+            [One-liner: what problem it solves and who uses it.]</div>
+          <div class="tags">
+            <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">[add]</span>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="proj-top">
+            <span class="project-name">
+              <a href="https://github.com/[yourhandle/project-two]" target="_blank"
+                data-en="[project-two]" data-ar="[اسم-المشروع-الثاني]">[project-two]</a>
+            </span>
+            <span class="entry-date" data-en="[Year]" data-ar="[السنة]">[Year]</span>
+          </div>
+          <div class="project-desc"
+            data-en="[What it does. Scale, stars, or users if notable.]"
+            data-ar="[إيش يسوّي. اذكر الحجم أو النجوم أو المستخدمين لو كانت لافتة.]">
+            [What it does. Scale, stars, or users if notable.]</div>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">[add]</span>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="proj-top">
+            <span class="project-name"
+              data-en="[project-three — no link]"
+              data-ar="[اسم-المشروع-الثالث — بدون رابط]">[project-three — no link]</span>
+            <span class="entry-date" data-en="[Year]" data-ar="[السنة]">[Year]</span>
+          </div>
+          <div class="project-desc"
+            data-en="[Brief description. What tech decisions are you proud of?]"
+            data-ar="[وصف مختصر. وش القرارات التقنية اللي تفتخر فيها؟]">
+            [Brief description. What tech decisions are you proud of?]</div>
+          <div class="tags">
+            <span class="tag">Go</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">[add]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section>
+        <div class="section-head">
+          <span class="section-hash">##</span>
+          <span class="section-label" data-en="Education" data-ar="التعليم">Education</span>
+          <span class="section-rule"></span>
+        </div>
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-title"
+              data-en="[Degree — e.g. BSc Computer Science]"
+              data-ar="[الدرجة العلمية — مثل: بكالوريوس علوم الحاسب]">
+              [Degree — e.g. BSc Computer Science]</span>
+            <span class="entry-date"
+              data-en="[Mon YYYY] – [Mon YYYY]"
+              data-ar="[شهر سنة] – [شهر سنة]">[Mon YYYY] – [Mon YYYY]</span>
+          </div>
+          <div class="entry-sub">
+            <span class="co" data-en="[University Name]" data-ar="[اسم الجامعة]">[University Name]</span>
+            <span data-en=" · [City, Country]" data-ar=" · [المدينة، المملكة العربية السعودية]"> · [City, Country]</span>
+          </div>
+          <div class="entry-sub"
+            data-en="[Optional: GPA 3.9/4.0 · Coursework: Algorithms, OS, Distributed Systems, Compilers]"
+            data-ar="[اختياري: المعدل التراكمي ٣٫٩/٤ · مواد: الخوارزميات، أنظمة التشغيل، الأنظمة الموزعة، المترجمات]">
+            [Optional: GPA 3.9/4.0 · Coursework: Algorithms, OS, Distributed Systems, Compilers]</div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section>
+        <div class="section-head">
+          <span class="section-hash">##</span>
+          <span class="section-label" data-en="Skills" data-ar="المهارات">Skills</span>
+          <span class="section-rule"></span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Languages" data-ar="لغات البرمجة">Languages</span>
+            <span class="skill-list">[TypeScript, Python, Go, Rust, SQL, Bash]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Frontend" data-ar="الواجهة الأمامية">Frontend</span>
+            <span class="skill-list">[React, Next.js, Vite, TailwindCSS, WebSockets]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Backend" data-ar="الواجهة الخلفية">Backend</span>
+            <span class="skill-list">[Node.js, FastAPI, PostgreSQL, Redis, GraphQL]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Infra / DevOps" data-ar="البنية التحتية">Infra / DevOps</span>
+            <span class="skill-list">[Docker, Kubernetes, AWS, GitHub Actions, Terraform]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</span>
+            <span class="skill-list"
+              data-en="[Code review, technical writing, system design, agile/scrum]"
+              data-ar="[مراجعة الكود، الكتابة التقنية، تصميم الأنظمة، أجايل وسكرام]">
+              [Code review, technical writing, system design, agile/scrum]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section>
+        <div class="section-head">
+          <span class="section-hash">##</span>
+          <span class="section-label" data-en="Certifications" data-ar="الشهادات والاعتمادات">Certifications</span>
+          <span class="section-rule"></span>
+        </div>
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[e.g. AWS Certified Solutions Architect — Associate]"
+              data-ar="[مثل: مهندس حلول AWS المعتمد — المستوى المشارك]">
+              [e.g. AWS Certified Solutions Architect — Associate]</span>
+            <span class="compact-sub"
+              data-en="[Issuing Organisation]"
+              data-ar="[الجهة المانحة]">[Issuing Organisation]</span>
+          </div>
+          <span class="compact-date" data-en="[Mon YYYY]" data-ar="[شهر سنة]">[Mon YYYY]</span>
+        </div>
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[Certification Name]"
+              data-ar="[اسم الشهادة]">[Certification Name]</span>
+            <span class="compact-sub"
+              data-en="[Issuing Organisation]"
+              data-ar="[الجهة المانحة]">[Issuing Organisation]</span>
+          </div>
+          <span class="compact-date" data-en="[Mon YYYY]" data-ar="[شهر سنة]">[Mon YYYY]</span>
+        </div>
+      </section>
+
+      <!-- LANGUAGES -->
+      <section>
+        <div class="section-head">
+          <span class="section-hash">##</span>
+          <span class="section-label" data-en="Languages" data-ar="اللغات">Languages</span>
+          <span class="section-rule"></span>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-cat" data-en="[Arabic]" data-ar="[العربية]">[Arabic]</span>
+            <span class="skill-list" data-en="[Native]" data-ar="[لغة أم]">[Native]</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-cat" data-en="[English]" data-ar="[الإنجليزية]">[English]</span>
+            <span class="skill-list"
+              data-en="[Professional — B2/C1]"
+              data-ar="[مستوى مهني — B2/C1]">[Professional — B2/C1]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVITIES -->
+      <section>
+        <div class="section-head">
+          <span class="section-hash">##</span>
+          <span class="section-label" data-en="Activities &amp; Volunteer" data-ar="الأنشطة والتطوع">Activities &amp; Volunteer</span>
+          <span class="section-rule"></span>
+        </div>
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[Role — e.g. Hackathon Mentor / Open-Source Contributor]"
+              data-ar="[الدور — مثل: مرشد في هاكاثون / مساهم في مشاريع مفتوحة المصدر]">
+              [Role — e.g. Hackathon Mentor / Open-Source Contributor]</span>
+            <span class="compact-sub"
+              data-en="[Organisation or Project]"
+              data-ar="[الجهة أو المشروع]">[Organisation or Project]</span>
+          </div>
+          <span class="compact-date"
+            data-en="[Mon YYYY] – present"
+            data-ar="[شهر سنة] – حتى الآن">[Mon YYYY] – present</span>
+        </div>
+        <div class="compact-entry">
+          <div class="compact-left">
+            <span class="compact-name"
+              data-en="[Role — e.g. Tech Talk Speaker]"
+              data-ar="[الدور — مثل: متحدث في محاضرات تقنية]">
+              [Role — e.g. Tech Talk Speaker]</span>
+            <span class="compact-sub"
+              data-en="[Event or Organisation]"
+              data-ar="[الفعالية أو الجهة]">[Event or Organisation]</span>
+          </div>
+          <span class="compact-date"
+            data-en="[Mon YYYY]"
+            data-ar="[شهر سنة]">[Mon YYYY]</span>
+        </div>
+      </section>
+
+    </div><!-- /.body -->
+  </div><!-- /.page -->
+  </div><!-- /.page-scaler -->
+
+  <script>
+    (function () {
+      'use strict';
+
+      let isLight  = false;
+      let isArabic = false;
+
+      /* ── Responsive scaler ──────────────────── */
+      const A4_PX = 794; // 210mm at 96 dpi
+
+      function scaleCV() {
+        var scaler = document.getElementById('page-scaler');
+        if (!scaler) return;
+        var vw        = window.innerWidth;
+        var padding   = vw < 900 ? 16 : 40;
+        var available = vw - padding * 2;
+        var ratio     = Math.min(1, available / A4_PX);
+        scaler.style.transform      = 'scale(' + ratio + ')';
+        scaler.style.transformOrigin = 'top center';
+        scaler.style.marginTop      = '24px';
+        // shrink the space the scaler takes in document flow
+        var naturalH = scaler.offsetHeight;
+        var delta    = naturalH * ratio - naturalH;
+        scaler.style.marginBottom = (delta + 48) + 'px';
+      }
+
+      window.addEventListener('resize', scaleCV);
+      document.addEventListener('DOMContentLoaded', scaleCV);
+      scaleCV();
+
+      /* ── Light / Dark toggle ────────────────── */
+      window.toggleLight = function () {
+        isLight = !isLight;
+        document.documentElement.classList.toggle('light', isLight);
+
+        var icon = document.getElementById('light-icon');
+        var lbl  = document.getElementById('lbl-light');
+        var btn  = document.getElementById('btn-light');
+
+        if (icon) icon.textContent = isLight ? '◐' : '☀';
+        if (lbl)  lbl.textContent  = isLight
+          ? (isArabic ? 'داكن' : 'dark')
+          : (isArabic ? 'فاتح' : 'light');
+        if (btn)  btn.classList.toggle('active', isLight);
+      };
+
+      /* ── Language toggle ────────────────────── */
+      window.toggleLang = function () {
+        isArabic = !isArabic;
+        var html = document.documentElement;
+        var btn  = document.getElementById('btn-lang');
+
+        if (isArabic) {
+          html.setAttribute('lang', 'ar');
+          html.setAttribute('dir',  'rtl');
+
+          setText('lbl-lang',     'English');
+          setText('lbl-download', 'تحميل');
+          setText('lbl-light',    isLight ? 'داكن' : 'فاتح');
+
+          if (btn) btn.classList.add('active');
+
+          document.querySelectorAll('[data-ar]').forEach(function (el) {
+            el.innerHTML = el.getAttribute('data-ar');
+          });
+
+          var cb = document.querySelector('.contact-bar');
+          if (cb) cb.style.direction = 'ltr';
+
+        } else {
+          html.setAttribute('lang', 'en');
+          html.setAttribute('dir',  'ltr');
+
+          setText('lbl-lang',     'عربي');
+          setText('lbl-download', 'download');
+          setText('lbl-light',    isLight ? 'dark' : 'light');
+
+          if (btn) btn.classList.remove('active');
+
+          document.querySelectorAll('[data-en]').forEach(function (el) {
+            el.innerHTML = el.getAttribute('data-en');
+          });
+
+          var cb = document.querySelector('.contact-bar');
+          if (cb) cb.style.direction = '';
+        }
+      };
+
+      /* ── Download PDF ───────────────────────── */
+      window.downloadPDF = function () {
+        if (typeof html2pdf === 'undefined') {
+          alert('PDF library not loaded yet. Please try again in a moment.');
+          return;
+        }
+
+        var btn     = document.getElementById('btn-download');
+        var toolbar = document.getElementById('toolbar');
+        var cursor  = document.querySelector('.cursor');
+        var page    = document.getElementById('cv-page');
+        var scaler  = document.getElementById('page-scaler');
+
+        if (!page) return;
+
+        // temporarily reset scale so html2canvas captures full A4
+        var savedTransform = scaler ? scaler.style.transform : '';
+        if (scaler) scaler.style.transform = 'scale(1)';
+
+        if (btn)    { btn.disabled = true; }
+        if (toolbar){ toolbar.style.opacity = '0'; toolbar.style.pointerEvents = 'none'; }
+        if (cursor) { cursor.style.display = 'none'; }
+        setText('lbl-download', '...');
+
+        var filename = isArabic ? 'السيرة-الذاتية.pdf' : 'CV.pdf';
+
+        html2pdf()
+          .set({
+            margin:      0,
+            filename:    filename,
+            image:       { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, backgroundColor: null, logging: false },
+            jsPDF:       { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          })
+          .from(page)
+          .save()
+          .then(function () {
+            if (scaler) scaler.style.transform = savedTransform;
+            if (btn)    { btn.disabled = false; }
+            if (toolbar){ toolbar.style.opacity = '1'; toolbar.style.pointerEvents = ''; }
+            if (cursor) { cursor.style.display = ''; }
+            setText('lbl-download', isArabic ? 'تحميل' : 'download');
+          })
+          .catch(function (err) {
+            console.error('PDF generation failed:', err);
+            if (scaler) scaler.style.transform = savedTransform;
+            if (btn)    { btn.disabled = false; }
+            if (toolbar){ toolbar.style.opacity = '1'; toolbar.style.pointerEvents = ''; }
+            if (cursor) { cursor.style.display = ''; }
+            setText('lbl-download', isArabic ? 'تحميل' : 'download');
+          });
+      };
+
+      /* ── Utility ────────────────────────────── */
+      function setText(id, text) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = text;
+      }
+
+    }());
+  </script>
+</body>
+</html>

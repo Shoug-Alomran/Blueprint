@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Template — Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #f0ede8;
+      --bg-cv: #ffffff;
+      --ink: #111111;
+      --ink-mid: #444444;
+      --ink-light: #888888;
+      --accent: #111111;
+      --rule: #e0ddd8;
+      --rule-heavy: #111111;
+      --toolbar-bg: #111111;
+      --toolbar-text: #f0ede8;
+      --shadow: 0 2px 48px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06);
+      --tag-bg: #f5f3ef;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #0c0c0c;
+      --bg-cv: #161616;
+      --ink: #f0ede8;
+      --ink-mid: #b0ada8;
+      --ink-light: #666666;
+      --accent: #f0ede8;
+      --rule: #2a2a2a;
+      --rule-heavy: #f0ede8;
+      --toolbar-bg: #0c0c0c;
+      --toolbar-text: #f0ede8;
+      --shadow: 0 2px 48px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.3);
+      --tag-bg: #1e1e1e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      background: var(--bg-page);
+      min-height: 100%;
+      transition: background 0.3s;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      transition: all 0.3s;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--toolbar-bg);
+      padding: 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      transition: background 0.3s;
+    }
+
+    .tb-btn {
+      padding: 6px 16px;
+      border: 1px solid rgba(240,237,232,0.2);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--toolbar-text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tb-btn:hover {
+      background: rgba(240,237,232,0.1);
+      border-color: rgba(240,237,232,0.5);
+    }
+
+    .tb-btn.active {
+      background: var(--toolbar-text);
+      color: var(--toolbar-bg);
+      border-color: var(--toolbar-text);
+    }
+
+    .tb-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(240,237,232,0.15);
+      margin: 0 4px;
+    }
+
+    /* ── PAGE ── */
+    .page-outer {
+      padding-top: 58px;
+      min-height: 100vh;
+    }
+
+    /* ── CV ── */
+    .cv {
+      background: var(--bg-cv);
+      color: var(--ink);
+      max-width: 820px;
+      margin: 48px auto;
+      padding: 0;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    /* Top rule accent */
+    .cv::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--rule-heavy);
+      transition: background 0.3s;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 52px 64px 36px;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .header { direction: rtl; }
+
+    .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      letter-spacing: -1px;
+      line-height: 1;
+      color: var(--ink);
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .name {
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 300;
+      font-size: 42px;
+      letter-spacing: 0;
+    }
+
+    .title-line {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 10px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .title-line {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 13px;
+    }
+
+    .contact-block {
+      text-align: right;
+      font-size: 12px;
+      color: var(--ink-light);
+      line-height: 2;
+      letter-spacing: 0.3px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .contact-block {
+      text-align: left;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .contact-block a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-block a:hover { color: var(--ink); }
+
+    /* ── BODY ── */
+    .cv-body {
+      padding: 0 64px 56px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding-top: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    [data-lang="ar"] .section-header { flex-direction: row-reverse; }
+
+    .section-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .section-title {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 1px;
+      font-size: 12px;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      transition: background 0.3s;
+    }
+
+    /* ── SUMMARY ── */
+    .summary-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      font-style: italic;
+      max-width: 580px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .summary-text {
+      font-family: 'Tajawal', sans-serif;
+      font-style: normal;
+      font-size: 16px;
+      direction: rtl;
+    }
+
+    /* ── ENTRY ── */
+    .entry {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 32px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .entry {
+      grid-template-columns: 1fr 140px;
+      direction: rtl;
+    }
+
+    .entry:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .entry-date {
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      padding-top: 2px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .entry-date {
+      font-family: 'Tajawal', sans-serif;
+      text-align: left;
+    }
+
+    .entry-org {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .entry-org {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 16px;
+    }
+
+    .entry-role {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: var(--ink-light);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .entry-role {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 13px;
+    }
+
+    .entry-bullets {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .entry-bullets li {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .entry-bullets li {
+      font-family: 'Tajawal', sans-serif;
+      padding-left: 0;
+      padding-right: 16px;
+      font-size: 14px;
+    }
+
+    .entry-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 9px;
+      width: 4px;
+      height: 1px;
+      background: var(--ink-light);
+      transition: background 0.3s;
+    }
+
+    [data-lang="ar"] .entry-bullets li::before {
+      left: auto;
+      right: 4px;
+    }
+
+    /* ── PROJECTS ── */
+    .project {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 32px;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .project {
+      grid-template-columns: 1fr 140px;
+      direction: rtl;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .project-tools-label {
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.3px;
+      line-height: 1.5;
+      padding-top: 2px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .project-tools-label {
+      font-family: 'Tajawal', sans-serif;
+      text-align: left;
+    }
+
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .project-name {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 16px;
+      flex-direction: row-reverse;
+    }
+
+    .project-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .project-desc {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-top: 5px;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .project-desc {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .skills-table tr {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.3s;
+    }
+
+    .skills-table tr:last-child { border-bottom: none; }
+
+    .skills-table td {
+      padding: 10px 0;
+      vertical-align: top;
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      transition: color 0.3s;
+    }
+
+    .skills-table td:first-child {
+      width: 140px;
+      padding-right: 32px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    [data-lang="ar"] .skills-table { direction: rtl; }
+
+    [data-lang="ar"] .skills-table td:first-child {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 12px;
+      padding-right: 0;
+      padding-left: 32px;
+    }
+
+    [data-lang="ar"] .skills-table td:last-child {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+
+    /* ── CERTS ── */
+    .cert-row {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 0 32px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .cert-row {
+      direction: rtl;
+      grid-template-columns: auto 1fr 140px;
+    }
+
+    .cert-row:last-child { border-bottom: none; }
+
+    .cert-issuer {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-family: 'DM Sans', sans-serif;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .cert-issuer {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 12px;
+      text-transform: none;
+    }
+
+    .cert-name {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .cert-name {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+
+    .cert-year {
+      font-size: 11px;
+      color: var(--ink-light);
+      text-align: right;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .cert-year { text-align: left; }
+
+    /* ── ACTIVITIES ── */
+    .activity-row {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 0 32px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+      transition: border-color 0.3s;
+    }
+
+    [data-lang="ar"] .activity-row {
+      direction: rtl;
+      grid-template-columns: auto 1fr 140px;
+    }
+
+    .activity-row:last-child { border-bottom: none; }
+
+    .activity-org {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-family: 'DM Sans', sans-serif;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .activity-org {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 12px;
+      text-transform: none;
+    }
+
+    .activity-role {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .activity-role {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+
+    .activity-date {
+      font-size: 11px;
+      color: var(--ink-light);
+      text-align: right;
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .activity-date { text-align: left; }
+
+    /* ── FOOTER ── */
+    .cv-footer {
+      margin: 40px 64px 0;
+      padding: 16px 0 48px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      transition: border-color 0.3s;
+    }
+
+    .footer-text {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--rule);
+      transition: color 0.3s;
+    }
+
+    [data-lang="ar"] .footer-text {
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0;
+      font-size: 12px;
+    }
+
+    /* ── LANG TOGGLE ── */
+    .lang-en { display: block; }
+    .lang-ar { display: none; }
+    [data-lang="ar"] .lang-en { display: none; }
+    [data-lang="ar"] .lang-ar { display: block; }
+    .lang-en-inline { display: inline; }
+    .lang-ar-inline { display: none; }
+    [data-lang="ar"] .lang-en-inline { display: none; }
+    [data-lang="ar"] .lang-ar-inline { display: inline; }
+
+    /* ── PRINT ── */
+    @media print {
+      .toolbar { display: none !important; }
+      .page-outer { padding-top: 0; }
+      html, [data-theme="dark"] { background: white !important; }
+      [data-theme="dark"] {
+        --bg-cv: white;
+        --ink: #111111;
+        --ink-mid: #444444;
+        --ink-light: #888888;
+        --rule: #e0ddd8;
+        --rule-heavy: #111111;
+      }
+      .cv { margin: 0; box-shadow: none; max-width: 100%; }
+      .cv-footer { display: none; }
+    }
+
+    @media (max-width: 680px) {
+      .cv { margin: 8px; }
+      .header { padding: 36px 28px 24px; grid-template-columns: 1fr; }
+      .contact-block { text-align: left !important; }
+      .cv-body { padding: 0 28px 40px; }
+      .entry, .project, .cert-row, .activity-row {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+      }
+      .cv-footer { margin: 24px 28px 0; padding-bottom: 36px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/cv-templates/watermark.css" />
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-actions" style="display:flex;align-items:center;gap:6px;">
+    <button class="tb-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="tb-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+    <div class="tb-divider"></div>
+    <button class="tb-btn" id="btn-theme" onclick="toggleTheme()">
+      <span id="theme-label">Dark</span>
+    </button>
+    <div class="tb-divider"></div>
+    <button class="tb-btn" onclick="downloadHTML()">Download</button>
+    <button class="tb-btn" onclick="window.print()">Print / PDF</button>
+  </div>
+</div>
+
+<div class="page-outer">
+<div class="cv">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div>
+      <div class="name">
+        <span class="lang-en">[Your Full Name]</span>
+        <span class="lang-ar">[اسمك الكامل]</span>
+      </div>
+      <div class="title-line">
+        <span class="lang-en">[Field · Specialization · University · Class of 20XX]</span>
+        <span class="lang-ar">[التخصص · الجامعة · دفعة ٢٠XX]</span>
+      </div>
+    </div>
+    <div class="contact-block">
+      <div>
+        <span class="lang-en">[your.email@university.edu]</span>
+        <span class="lang-ar">[بريدك@جامعة.edu]</span>
+      </div>
+      <div>
+        <span class="lang-en">[+966 5X XXX XXXX]</span>
+        <span class="lang-ar">[٠٥X XXX XXXX]</span>
+      </div>
+      <div>
+        <span class="lang-en">[Riyadh, Saudi Arabia]</span>
+        <span class="lang-ar">[الرياض، المملكة العربية السعودية]</span>
+      </div>
+      <div><a href="#">linkedin.com/in/[handle]</a></div>
+      <div><a href="#">[yoursite.com]</a></div>
+    </div>
+  </header>
+
+  <div class="cv-body">
+
+    <!-- PROFILE -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          <span class="lang-en-inline">Profile</span>
+          <span class="lang-ar-inline">نبذة</span>
+        </span>
+        <div class="section-rule"></div>
+      </div>
+      <p class="summary-text">
+        <span class="lang-en">[Two to three sentences. What you study, what you are drawn to, and what kind of environment you are looking for. Keep it precise — this is the only place for a personal voice.]</span>
+        <span class="lang-ar">[جملتين أو ثلاث. وش تدرس، وش يشدك، وأي بيئة تبحث عنها. هذي هي البس مكان تتكلم فيه عن نفسك بشكل شخصي — خليها دقيقة وواضحة.]</span>
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          <span class="lang-en-inline">Education</span>
+          <span class="lang-ar-inline">التعليم</span>
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">
+          <span class="lang-en">[Sep 2022]<br>[May 2026]<br>[Riyadh, KSA]</span>
+          <span class="lang-ar">[سبتمبر ٢٠٢٢]<br>[مايو ٢٠٢٦]<br>[الرياض]</span>
+        </div>
+        <div>
+          <div class="entry-org">
+            <span class="lang-en">[University Name]</span>
+            <span class="lang-ar">[اسم الجامعة]</span>
+          </div>
+          <div class="entry-role">
+            <span class="lang-en">[Bachelor of Science — Major · Minor if applicable]</span>
+            <span class="lang-ar">[بكالوريوس علوم — التخصص · الفرعي إن وُجد]</span>
+          </div>
+          <ul class="entry-bullets">
+            <li>
+              <span class="lang-en">GPA [X.XX / 4.00] — [Dean's List / Honors if applicable]</span>
+              <span class="lang-ar">المعدل [X.XX / 4.00] — [قائمة العميد / مرتبة الشرف إن وُجد]</span>
+            </li>
+            <li>
+              <span class="lang-en">Relevant coursework: [list key courses here]</span>
+              <span class="lang-ar">مواد ذات صلة: [اذكر أهم المواد هنا]</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          <span class="lang-en-inline">Experience</span>
+          <span class="lang-ar-inline">الخبرات</span>
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">
+          <span class="lang-en">[Jun — Aug 2024]<br>[City, KSA]</span>
+          <span class="lang-ar">[يونيو — أغسطس ٢٠٢٤]<br>[المدينة]</span>
+        </div>
+        <div>
+          <div class="entry-org">
+            <span class="lang-en">[Organization Name]</span>
+            <span class="lang-ar">[اسم الجهة]</span>
+          </div>
+          <div class="entry-role">
+            <span class="lang-en">[Job Title · Internship / Part-time / Freelance]</span>
+            <span class="lang-ar">[المسمى الوظيفي · تدريب / دوام جزئي]</span>
+          </div>
+          <ul class="entry-bullets">
+            <li>
+              <span class="lang-en">[What you did — start with an action verb. Quantify if possible.]</span>
+              <span class="lang-ar">[وش سويت — ابدأ بفعل. حاول تضيف أرقام إن أمكن.]</span>
+            </li>
+            <li>
+              <span class="lang-en">[Second responsibility or outcome]</span>
+              <span class="lang-ar">[مهمة أو نتيجة ثانية]</span>
+            </li>
+            <li>
+              <span class="lang-en">[Third point if applicable]</span>
+              <span class="lang-ar">[نقطة ثالثة إن وُجدت]</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">
+          <span class="lang-en">[Jan — May 2024]<br>[City, KSA]</span>
+          <span class="lang-ar">[يناير — مايو ٢٠٢٤]<br>[المدينة]</span>
+        </div>
+        <div>
+          <div class="entry-org">
+            <span class="lang-en">[Second Organization]</span>
+            <span class="lang-ar">[الجهة الثانية]</span>
+          </div>
+          <div class="entry-role">
+            <span class="lang-en">[Role · Type]</span>
+            <span class="lang-ar">[المسمى · النوع]</span>
+          </div>
+          <ul class="entry-bullets">
+            <li>
+              <span class="lang-en">[Responsibility with outcome]</span>
+              <span class="lang-ar">[مهمة مع نتيجتها]</span>
+            </li>
+            <li>
+              <span class="lang-en">[Second point]</span>
+              <span class="lang-ar">[النقطة الثانية]</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          <span class="lang-en-inline">Projects</span>
+          <span class="lang-ar-inline">المشاريع</span>
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="project">
+        <div class="project-tools-label">
+          <span class="lang-en">[Excel, Python]</span>
+          <span class="lang-ar">[إكسل، بايثون]</span>
+        </div>
+        <div>
+          <div class="project-name">
+            <span class="lang-en">[Project Title]</span>
+            <span class="lang-ar">[اسم المشروع]</span>
+            <a class="project-link" href="#">
+              <span class="lang-en-inline">View</span>
+              <span class="lang-ar-inline">شوفه</span>
+            </a>
+          </div>
+          <div class="project-desc">
+            <span class="lang-en">[One clear sentence. What it is, what it does, why it matters.]</span>
+            <span class="lang-ar">[جملة واضحة. وش هو، وش يسوي، وليش يهم.]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-tools-label">
+          <span class="lang-en">[R, Tableau]</span>
+          <span class="lang-ar">[R، Tableau]</span>
+        </div>
+        <div>
+          <div class="project-name">
+            <span class="lang-en">[Second Project Title]</span>
+            <span class="lang-ar">[اسم المشروع الثاني]</span>
+            <a class="project-link" href="#">
+              <span class="lang-en-inline">View</span>
+              <span class="lang-ar-inline">شوفه</span>
+            </a>
+          </div>
+          <div class="project-desc">
+            <span class="lang-en">[One clear sentence about this project.]</span>
+            <span class="lang-ar">[جملة واضحة عن هذا المشروع.]</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          <span class="lang-en-inline">Skills</span>
+          <span class="lang-ar-inline">المهارات</span>
+        </span>
+        <div class="section-rule"></div>
+      </div>
+      <table class="skills-table">
+        <tr>
+          <td>
+            <span class="lang-en-inline">Technical</span>
+            <span class="lang-ar-inline">تقنية</span>
+          </td>
+          <td>
+            <span class="lang-en">[Excel, Python, SQL, Power BI, Bloomberg Terminal]</span>
+            <span class="lang-ar">[إكسل، بايثون، SQL، Power BI، Bloomberg]</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="lang-en-inline">Domain</span>
+            <span class="lang-ar-inline">تخصصية</span>
+          </td>
+          <td>
+            <span class="lang-en">[Financial Modelling, Valuation, Equity Research, Budgeting, Risk Analysis]</span>
+            <span class="lang-ar">[نمذجة مالية، تقييم، أبحاث أسهم، ميزانيات، تحليل مخاطر]</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="lang-en-inline">Languages</span>
+            <span class="lang-ar-inline">لغات</span>
+          </td>
+          <td>
+            <span class="lang-en">[Arabic — Native · English — Professional]</span>
+            <span class="lang-ar">[العربية — لغة أم · الإنجليزية — احترافية]</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="lang-en-inline">Soft</span>
+            <span class="lang-ar-inline">شخصية</span>
+          </td>
+          <td>
+            <span class="lang-en">[Analytical Thinking, Structured Writing, Presentation, Detail-Oriented]</span>
+            <span class="lang-ar">[تفكير تحليلي، كتابة منظمة، تقديم، دقة في التفاصيل]</span>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          <span class="lang-en-inline">Certifications</span>
+          <span class="lang-ar-inline">الشهادات</span>
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-issuer">
+          <span class="lang-en-inline">Bloomberg</span>
+          <span class="lang-ar-inline">Bloomberg</span>
+        </div>
+        <div class="cert-name">
+          <span class="lang-en-inline">Bloomberg Market Concepts (BMC)</span>
+          <span class="lang-ar-inline">Bloomberg Market Concepts</span>
+        </div>
+        <div class="cert-year">2024</div>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-issuer">
+          <span class="lang-en-inline">CFA Institute</span>
+          <span class="lang-ar-inline">CFA Institute</span>
+        </div>
+        <div class="cert-name">
+          <span class="lang-en-inline">Investment Foundations Certificate</span>
+          <span class="lang-ar-inline">شهادة أساسيات الاستثمار</span>
+        </div>
+        <div class="cert-year">2023</div>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-issuer">
+          <span class="lang-en-inline">[Issuer]</span>
+          <span class="lang-ar-inline">[الجهة]</span>
+        </div>
+        <div class="cert-name">
+          <span class="lang-en-inline">[Certificate Name]</span>
+          <span class="lang-ar-inline">[اسم الشهادة]</span>
+        </div>
+        <div class="cert-year">[20XX]</div>
+      </div>
+
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-title">
+          <span class="lang-en-inline">Activities</span>
+          <span class="lang-ar-inline">الأنشطة</span>
+        </span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="activity-row">
+        <div class="activity-org">
+          <span class="lang-en-inline">[University Club]</span>
+          <span class="lang-ar-inline">[النادي الجامعي]</span>
+        </div>
+        <div class="activity-role">
+          <span class="lang-en-inline">[Role — e.g. Vice President, Finance Club]</span>
+          <span class="lang-ar-inline">[الدور — مثلاً: نائب رئيس، نادي المالية]</span>
+        </div>
+        <div class="activity-date">
+          <span class="lang-en-inline">2023 — Present</span>
+          <span class="lang-ar-inline">٢٠٢٣ — الآن</span>
+        </div>
+      </div>
+
+      <div class="activity-row">
+        <div class="activity-org">
+          <span class="lang-en-inline">[Competition]</span>
+          <span class="lang-ar-inline">[المسابقة]</span>
+        </div>
+        <div class="activity-role">
+          <span class="lang-en-inline">[Participant — Case Competition Name]</span>
+          <span class="lang-ar-inline">[مشارك/ة — اسم المسابقة]</span>
+        </div>
+        <div class="activity-date">2024</div>
+      </div>
+
+      <div class="activity-row">
+        <div class="activity-org">
+          <span class="lang-en-inline">[Volunteer]</span>
+          <span class="lang-ar-inline">[تطوع]</span>
+        </div>
+        <div class="activity-role">
+          <span class="lang-en-inline">[Role · Organization Name]</span>
+          <span class="lang-ar-inline">[الدور · اسم المنظمة]</span>
+        </div>
+        <div class="activity-date">2023</div>
+      </div>
+
+    </section>
+
+  </div><!-- /.cv-body -->
+
+  <!-- FOOTER -->
+  <footer class="cv-footer">
+    <span class="footer-text">
+      <span class="lang-en-inline">References available upon request</span>
+      <span class="lang-ar-inline">المراجع متاحة عند الطلب</span>
+    </span>
+    <span class="footer-text">
+      <span class="lang-en-inline">Curriculum</span>
+      <span class="lang-ar-inline">السيرة الذاتية</span>
+    </span>
+  </footer>
+
+</div><!-- /.cv -->
+</div><!-- /.page-outer -->
+
+<script>
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+    localStorage.setItem('cv-lang', lang);
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    document.getElementById('theme-label').textContent = next === 'dark' ? 'Light' : 'Dark';
+    localStorage.setItem('cv-theme', next);
+  }
+
+  function downloadHTML() {
+    const clone = document.documentElement.cloneNode(true);
+    const tb = clone.querySelector('.toolbar');
+    if (tb) tb.remove();
+    const po = clone.querySelector('.page-outer');
+    if (po) po.style.paddingTop = '0';
+    const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'cv-professional-blueprint.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  (function() {
+    const t = localStorage.getItem('cv-theme');
+    const l = localStorage.getItem('cv-lang');
+    if (t && t !== 'light') {
+      document.documentElement.setAttribute('data-theme', t);
+      document.getElementById('theme-label').textContent = 'Light';
+    }
+    if (l && l !== 'en') setLang(l);
+  })();
+</script>
+
+</body>
+</html>
