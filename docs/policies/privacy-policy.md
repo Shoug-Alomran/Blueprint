@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Effective Date:** [Insert Date]
+**Effective Date:** 3/3/2026
 
 Blueprint by ShougTech respects your privacy.
 
