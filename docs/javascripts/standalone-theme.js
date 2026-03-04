@@ -37,6 +37,17 @@
     return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"></path></svg>';
   }
 
+  function resolveStartProjectHref(ar) {
+    var links = document.querySelectorAll('.md-tabs__link, .md-nav__link');
+    for (var i = 0; i < links.length; i += 1) {
+      var href = links[i].getAttribute('href') || '';
+      if (href.indexOf('start-project') !== -1) {
+        return href;
+      }
+    }
+    return ar ? '/ar/start-project/' : '/start-project/';
+  }
+
   function arabicNavLabelForPath(pathname) {
     var p = normalizeNavPath(pathname);
     var map = [
@@ -76,6 +87,7 @@
 
   function injectHeaderActions() {
     var ar = isArabicPage();
+    var startProjectHref = resolveStartProjectHref(ar);
     var labels = ar ? {
       github: 'ملف GitHub',
       left: 'إخفاء/إظهار القائمة اليسرى',
@@ -105,7 +117,7 @@
       '<button class="header-icon-btn header-toggle-btn" data-sg-toggle="right" type="button" aria-label="' + labels.right + '">' +
         iconSvg('M4 5h16v2H4zm0 6h10v2H4zm0 6h16v2H4z') +
       '</button>',
-      '<a class="header-cta" href="/start-project/">' + labels.cta + '</a>'
+      '<a class="header-cta" href="' + startProjectHref + '">' + labels.cta + '</a>'
     ].join('');
 
     right.parentElement.insertBefore(wrap, right.nextSibling);

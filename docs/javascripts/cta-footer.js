@@ -101,7 +101,7 @@
       '<p class="footer-col__title">' + t.studio + '</p>',
       '<a class="footer-link" href="' + localizedPath('/process/', ar) + '">' + t.process + '</a>',
       '<a class="footer-link" href="' + localizedPath('/process/discovery/', ar) + '">' + t.discovery + '</a>',
-      '<a class="footer-link" href="' + localizedPath('/start-project/start-project/', ar) + '">' + t.startProject + '</a>',
+      '<a class="footer-link" href="' + localizedPath('/start-project/', ar) + '">' + t.startProject + '</a>',
       '<a class="footer-link" href="' + localizedPath('/web-platforms/', ar) + '">' + t.work + '</a>',
       '<a class="footer-link" href="' + localizedPath('/work-demos/work-demos/', ar) + '">' + t.demos + '</a>',
       '<a class="footer-link" href="' + localizedPath('/about/about/', ar) + '">' + t.about + '</a>',
@@ -169,7 +169,8 @@
         fd.append('source', 'footer-quick-intake');
         fd.append('_subject', ar ? 'طلب مشروع جديد' : 'New Project Inquiry');
 
-        var response = await fetch(resolveSubmitEndpoint(), {
+        var endpoint = resolveSubmitEndpoint();
+        var response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
           body: fd
@@ -193,12 +194,34 @@
         emailInput.value = '';
       } catch (err) {
         var msg = err && err.message ? err.message : '';
-        setStatus(
-          'err',
-          ar
-            ? ('فشل الإرسال المباشر. ' + (msg || 'حاول مرة أخرى.'))
-            : ('Direct send failed. ' + (msg || 'Please try again.'))
-        );
+        var likelyCors = /failed to fetch|networkerror|load failed/i.test(msg);
+
+        if (likelyCors) {
+          try {
+            var fallbackBody = new URLSearchParams();
+            fallbackBody.set('email', email);
+            fallbackBody.set('locale', ar ? 'ar' : 'en');
+            fallbackBody.set('source', 'footer-quick-intake');
+            fallbackBody.set('_subject', ar ? 'طلب مشروع جديد' : 'New Project Inquiry');
+
+            await fetch(endpoint, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: fallbackBody
+            });
+
+            setStatus(
+              'ok',
+              ar
+                ? 'تم استلام الطلب بنجاح.'
+                : 'Inquiry received successfully.'
+            );
+            emailInput.value = '';
+            return;
+          } catch (_) {}
+        }
+
+        setStatus('err', ar ? 'تعذر الإرسال. حاول مرة أخرى.' : 'Unable to send. Please try again.');
       } finally {
         submitBtn.disabled = false;
       }

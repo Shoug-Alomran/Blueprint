@@ -1,42 +1,143 @@
 ---
-title: دراسات الحالة
-role: نتائج المشاريع
-scope: أمثلة لمواقع طلابية وأكاديمية
-constraints: وضوح المشكلة والحل
-metrics: جودة الهيكلة وسهولة التصفح
-last_updated: 2026-03-01
+title: الأعمال
+role: المحفظة
+scope: جميع المواقع المبنية تحت Blueprint Studio و ShougTech
+constraints: أوصاف دقيقة، تجميع حسب المستوى، روابط مباشرة
+metrics: وضوح التنقل، المصداقية، نطاق المشاريع
+last_updated: 2026-03-02
 ---
 
-# دراسات الحالة
+# الأعمال
 
-هذي أمثلة توضّح كيف الهيكلة الصح تحل مشاكل التشتت في المحتوى.
+كل موقع أدناه تم بناؤه باستخدام بنية ثابتة (static architecture)، و MkDocs Material، و GitHub Pages، وتصميم تنقل منظم حول الجمهور الذي سيستخدمه فعلياً.
 
-## المشاريع
-
-- [موقع بورتفوليو طالب](student-portfolio.md)
-- [موقع توثيق أكاديمي](academic-documentation.md)
-- [صفحة ورشة أو دورة](workshop-course-page.md)
+تم التنظيم حسب المستوى ليعكس نطاق وتعقيد كل مشروع.
 
 ---
 
-## مواقع منفذة فعلياً
+## المستوى الأول، الحضور الشخصي
 
-المواقع التالية ضمن الأعمال المنفذة فعلياً.
+مواقع حضور رقمي نظيفة وسهلة التنقل بُنيَت للأفراد الذين يحتاجون إلى تنظيم أعمالهم وهويتهم في مكان واحد.
 
-ملاحظة مهمة عن النطاق:
+<div class="card-grid">
 
-- `sillah-app` هو مشروع **Full-Stack**.
-- باقي المواقع في القائمة هي مواقع **Static / Documentation**.
+  <article class="info-card">
+    <h3>الحديقة الرقمية لشوق</h3>
+    <p>مركز شخصي يغطي المقررات الأكاديمية، التطوير المهني، والموارد التقنية المنسقة. مسارات دخول مبنية على الجمهور للطلاب، المحاضرين، وأصحاب العمل.</p>
+    <p><strong>بُني لـ:</strong> شخصي</p>
+    <p><a href="https://www.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
 
-| الموقع | النوع | الرابط |
-| --- | --- | --- |
-| linkedlist | Static | [linkedlist.shoug-tech.com](https://linkedlist.shoug-tech.com) |
-| numerical-analysis | Static | [numerical-analysis.shoug-tech.com](https://numerical-analysis.shoug-tech.com) |
-| operating-systems | Static | [operating-systems.shoug-tech.com](https://operating-systems.shoug-tech.com) |
-| secure-key-exch | Static | [secure-key-exch.shoug-tech.com](https://secure-key-exch.shoug-tech.com) |
-| sillah | Static | [sillah.shoug-tech.com](https://sillah.shoug-tech.com) |
-| sillah-app | Full-Stack | [sillah-app.shoug-tech.com](https://sillah-app.shoug-tech.com) |
-| software-require | Static | [software-require.shoug-tech.com](https://software-require.shoug-tech.com) |
-| www | Static | [www.shoug-tech.com](https://www.shoug-tech.com) |
-| مشروع CS316 للصحة النفسية (نفذته لصديقتي) | Static | [layanalnasser.github.io/CS316-Mental-Health-AI-Project](https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/) |
-| My Garden (نفذته لصديقتي) | Static | [layanalnasser.github.io/My-Garden](https://layanalnasser.github.io/My-Garden/) |
+  <article class="info-card">
+    <h3>Blueprint Studio</h3>
+    <p>موقع الاستوديو نفسه. ثنائي اللغة (العربية + الإنجليزية)، توثيق خدمات منظم، حزم متدرجة، سير العمل، ودراسات حالة.</p>
+    <p><strong>بُني لـ:</strong> أعمال</p>
+    <p><a href="https://blueprint.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>الحديقة الرقمية لليان</h3>
+    <p>حديقة رقمية شخصية لطالبة علوم الحاسب والذكاء الاصطناعي. تغطي الملاحظات الأكاديمية، التطوير المهني، السيرة الذاتية، المشاريع، والموارد المنسقة.</p>
+    <p><strong>بُني لـ:</strong> عميل</p>
+    <p><a href="https://layanalnasser.github.io/My-Garden" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+</div>
+
+---
+
+## المستوى الثاني، توثيق المشاريع
+
+مواقع توثيق أكاديمية منظمة بُنيت للمشاريع الدراسية، والتسليمات النهائية، والتقارير الفنية. كل موقع منظم حول كيفية قراءة المقيمين والمراجعين للعمل الأكاديمي فعلياً.
+
+<div class="card-grid">
+
+  <article class="info-card">
+    <h3>CS210، تحليل القائمة المترابطة وزمن التنفيذ</h3>
+    <p>توثيق لتطبيق قائمة مترابطة بلغة جافا يقارن أربع خوارزميات ترتيب: ترتيب الاختيار، ترتيب الإدراج، ترتيب الدمج، والترتيب السريع، مع تحليل نظري وتجريبي لزمن التنفيذ.</p>
+    <p><strong>المقرر:</strong> CS210 · جامعة الأمير سلطان</p>
+    <p><a href="https://linkedlist.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>SE201، نظام صحة عائلة صلة</h3>
+    <p>توثيق كامل لهندسة البرمجيات لنظام إدارة صحة عائلية وقائي. يغطي الاقتراح، المتطلبات، تصميم UML، النموذج الأولي بلغة جافا، ونتائج الاختبار عبر أربع مراحل.</p>
+    <p><strong>المقرر:</strong> SE201 · جامعة الأمير سلطان</p>
+    <p><a href="https://sillah.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>Math221، التحليل العددي</h3>
+    <p>مقارنة ثلاث طرق لإيجاد الجذور: التنصيف، نيوتن-رافسون، والقاطع، مطبقة في GNU Octave. يشمل المنهجية، جداول النتائج، تحليل التقارب، وتقرير PDF مضمن.</p>
+    <p><strong>المقرر:</strong> Math221 · جامعة الأمير سلطان</p>
+    <p><a href="https://numerical-analysis.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>CS330، مشروع أنظمة التشغيل</h3>
+    <p>مشروع مقرر أنظمة التشغيل على مرحلتين يغطي قياس أداء العمليات في لينكس وتحسين الأداء متعدد الخيوط في جافا. يشمل أدلة الإعداد، خطط التجارب، النتائج، وقسم المراجع.</p>
+    <p><strong>المقرر:</strong> CS330 · جامعة الأمير سلطان</p>
+    <p><a href="https://operating-systems.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>CS102، نظام تسجيل المقررات الدراسية</h3>
+    <p>توثيق لتطبيق وحدة تحكم بلغة جافا يحاكي بيئة إدارة المقررات الجامعية مع وصول قائم على الأدوار للطلاب، المحاضرين، والمسؤولين. يغطي هيكل الفئات، سير العمل، ومرجع الشيفرة.</p>
+    <p><strong>المقرر:</strong> CS102 · جامعة الأمير سلطان</p>
+    <p><a href="https://school-course-enrolment-system.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>CS340، تطبيق ويب قواعد البيانات</h3>
+    <p>توثيق من ست مراحل لمشروع قاعدة بيانات كامل، من النمذجة المفاهيمية ER/EER ورسم الخرائط النمطية العلائقية عبر تنفيذ SQL وتطبيق ويب كامل (full-stack) مع عمليات CRUD. يشمل تحليل الاستدامة والملحق.</p>
+    <p><strong>المقرر:</strong> CS340 · جامعة الأمير سلطان</p>
+    <p><a href="https://database.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>CS285، تبادل المفاتيح الآمن</h3>
+    <p>توثيق لتطبيق تبادل مفاتيح ديفي-هيلمان بلغة جافا، يوضح التشفير بالمفتاح العام عبر قناة غير آمنة. يغطي أسس الرياضيات المتقطعة، مراحل التنفيذ، التحقق من التشفير، وتقرير مضمن.</p>
+    <p><strong>المقرر:</strong> CS285 · جامعة الأمير سلطان</p>
+    <p><a href="https://secure-key-exchange.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+  <article class="info-card">
+    <h3>SE311، تحليل متطلبات البرمجيات</h3>
+    <p>توثيق موسع لهندسة المتطلبات لنظام صلة. يغطي دورة حياة المتطلبات الكاملة عبر ست مراحل: التصور، الاستنباط، التحليل، المواصفات، التحقق، وإدارة المتطلبات، باتباع معايير IEEE 830.</p>
+    <p><strong>المقرر:</strong> SE311 · جامعة الأمير سلطان</p>
+    <p><a href="https://software-requirements-analysis.shoug-tech.com" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+</div>
+
+---
+
+## المستوى الثالث، توثيق الأبحاث
+
+مواقع توثيق بحثية بجودة النشر بُنيت للمشاريع البحثية الجامعية، منظمة للمراجعة الأكاديمية، وقابلية إعادة الإنتاج، والمصداقية المهنية.
+
+<div class="card-grid">
+
+  <article class="info-card">
+    <h3>CS316، مشروع الذكاء الاصطناعي للصحة النفسية</h3>
+    <p>توثيق بحثي لنظام معالجة لغة عربية وتعلم آلي يصنف شدة الاكتئاب والقلق باستخدام تمثيلات التضمين ومصنفات SVM. يشمل المنهجية، النتائج، تحليل الأخطاء، دليل النشر، مسودة ورقة IEEE، وإطار الذكاء الاصطناعي المسؤول.</p>
+    <p><strong>المقرر:</strong> CS316 · جامعة الأمير سلطان</p>
+    <p><strong>بُني لـ:</strong> صديقة</p>
+    <p><a href="https://layanalnasser.github.io/CS316-Mental-Health-AI-Project" target="_blank">زيارة الموقع ←</a></p>
+  </article>
+
+</div>
+
+---
+
+## ملاحظة حول النطاق
+
+مشروع قاعدة البيانات CS340 يوثق تطبيق كامل (full-stack)، موقع التوثيق ثابت، لكن النظام الأساسي يتضمن قاعدة بيانات وواجهة خلفية ويب. Blueprint Studio تبني موقع التوثيق، وليس التطبيق نفسه. هذا التمييز مذكور للشفافية.
+
+---
+
+## عروض الفيديو
+
+شاهد جولات سريعة للتفاعلات الرئيسية لواجهة المستخدم وأنماط السلوك من المشاريع الحديثة.
+
+[فتح صفحة العروض](../work-demos/work-demos.md)
