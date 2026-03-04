@@ -18,7 +18,7 @@
     var ar = isArabicPage();
     var t = ar ? {
       brand: 'بلو برنت',
-      title: 'ابنِ حضور رقمي مرتب',
+      title: 'ابن حضور رقمي مرتب',
       subtitle: 'مواقع ثابتة لبورتفوليو الطلاب، التوثيق الأكاديمي، وصفحات الورش.',
       placeholder: 'اكتب بريدك الإلكتروني',
       cta: 'إرسال',
@@ -35,7 +35,7 @@
       startProject: 'ابدأ المشروع',
       work: 'الأعمال',
       demos: 'العروض',
-      about: 'عنّا',
+      about: 'عنا',
       support: 'الدعم',
       contact: 'تواصل',
       policies: 'السياسات',

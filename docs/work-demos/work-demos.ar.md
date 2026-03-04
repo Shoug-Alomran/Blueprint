@@ -11,12 +11,12 @@ last_updated: 2026-03-04
 
 <div class="card-grid demos-grid">
   <article class="info-card video-card">
-    <h3>تنقّل قابل للطي</h3>
+    <h3>تنقل قابل للطي</h3>
     <p>يوضح سلوك القائمة المتجاوب وكيف تتغير حالتها حسب حجم الشاشة.</p>
     <div class="video-wrap">
       <video controls preload="metadata" autoplay loop muted playsinline title="فيديو عرض التنقل القابل للطي" aria-label="فيديو عرض التنقل القابل للطي">
         <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/collapsing-nav_edited.mp4" type="video/mp4" />
-        متصفحك لا يدعم تشغيل الفيديو المضمّن.
+        متصفحك لا يدعم تشغيل الفيديو المضمن.
       </video>
     </div>
   </article>
@@ -27,7 +27,7 @@ last_updated: 2026-03-04
     <div class="video-wrap">
       <video controls preload="metadata" autoplay loop muted playsinline title="فيديو عرض الوضع الليلي والنهاري" aria-label="فيديو عرض الوضع الليلي والنهاري">
         <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/dark-light-mode_edited.mp4" type="video/mp4" />
-        متصفحك لا يدعم تشغيل الفيديو المضمّن.
+        متصفحك لا يدعم تشغيل الفيديو المضمن.
       </video>
     </div>
   </article>
@@ -38,7 +38,7 @@ last_updated: 2026-03-04
     <div class="video-wrap">
       <video controls preload="metadata" autoplay loop muted playsinline title="فيديو عرض مسار العمل على GitHub" aria-label="فيديو عرض مسار العمل على GitHub">
         <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/github_edited.mp4" type="video/mp4" />
-        متصفحك لا يدعم تشغيل الفيديو المضمّن.
+        متصفحك لا يدعم تشغيل الفيديو المضمن.
       </video>
     </div>
   </article>
@@ -49,7 +49,7 @@ last_updated: 2026-03-04
     <div class="video-wrap">
       <video controls preload="metadata" autoplay loop muted playsinline title="فيديو عرض إعادة توجيه الصفحة" aria-label="فيديو عرض إعادة توجيه الصفحة">
         <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/page-redirect_edited.mp4" type="video/mp4" />
-        متصفحك لا يدعم تشغيل الفيديو المضمّن.
+        متصفحك لا يدعم تشغيل الفيديو المضمن.
       </video>
     </div>
   </article>
@@ -60,7 +60,7 @@ last_updated: 2026-03-04
     <div class="video-wrap">
       <video controls preload="metadata" autoplay loop muted playsinline title="فيديو عرض التبديل بين اللغات" aria-label="فيديو عرض التبديل بين اللغات">
         <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/translation_edited.mp4" type="video/mp4" />
-        متصفحك لا يدعم تشغيل الفيديو المضمّن.
+        متصفحك لا يدعم تشغيل الفيديو المضمن.
       </video>
     </div>
   </article>

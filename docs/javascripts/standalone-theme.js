@@ -67,7 +67,7 @@
       { prefix: '/web-platforms/', label: 'دراسات الحالة' },
       { prefix: '/work-demos/work-demos/', label: 'العروض' },
       { prefix: '/work-demos/', label: 'العروض' },
-      { prefix: '/about/', label: 'عنّا' },
+      { prefix: '/about/', label: 'عنا' },
       { prefix: '/contact/', label: 'تواصل' },
       { prefix: '/policies/terms-of-service/', label: 'الشروط' },
       { prefix: '/policies/privacy-policy/', label: 'الخصوصية' },

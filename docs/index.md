@@ -90,5 +90,5 @@ last_updated: 2026-03-04
 1. Review what’s included in [Packages](packages/packages.md)
 2. See delivery steps in [Process](process/index.md)
 3. Explore outcomes in [Work](web-platforms/index.md)
-4. Begin with [Start Project](start-project/start-project.md) (quick intake)
+4. Begin with [Start Project](start-project/index.md) (quick intake)
 5. Or reach out via [Contact](contact/contact.md)

@@ -284,7 +284,7 @@ last_updated: 2026-03-03
   <div class="bp-intake-page" id="bp-intake-print-root">
     <div class="bp-intake-header">
       <h2>نموذج استقبال المشروع</h2>
-      <p>عبّئ النموذج قبل بدء التنفيذ حتى نثبت النطاق والمدة والمخرجات بشكل واضح.</p>
+      <p>عبئ النموذج قبل بدء التنفيذ حتى نثبت النطاق والمدة والمخرجات بشكل واضح.</p>
       <div class="bp-intake-meta">
         <span>بلو برنت ستوديو</span>
         <span>blueprint@shoug-tech.com</span>
@@ -318,7 +318,7 @@ last_updated: 2026-03-03
           <div class="bp-choice"><input id="svc_website_ar" name="service_type" type="radio" value="Website Package"><label for="svc_website_ar">باقة موقع<small>الباقة 1 أو 2 أو 3</small></label></div>
           <div class="bp-choice"><input id="svc_cv_basic_ar" name="service_type" type="radio" value="CV Basic"><label for="svc_cv_basic_ar">قالب سيرة ذاتية, Basic<small>68 ريال</small></label></div>
           <div class="bp-choice"><input id="svc_cv_pro_ar" name="service_type" type="radio" value="CV Pro"><label for="svc_cv_pro_ar">قالب سيرة ذاتية, Pro<small>95 ريال</small></label></div>
-          <div class="bp-choice"><input id="svc_cv_done_ar" name="service_type" type="radio" value="CV Already Done"><label for="svc_cv_done_ar">سيرة ذاتية جاهزة مسبقًا<small>تنسيق/إعادة بناء</small></label></div>
+          <div class="bp-choice"><input id="svc_cv_done_ar" name="service_type" type="radio" value="CV Already Done"><label for="svc_cv_done_ar">سيرة ذاتية جاهزة مسبقا<small>تنسيق/إعادة بناء</small></label></div>
         </div>
       </section>
 
@@ -331,7 +331,7 @@ last_updated: 2026-03-03
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
           <div class="bp-field"><label>عنوان المشروع / الموقع</label><input name="project_title" type="text"></div>
-          <div class="bp-field"><label>المقرر / القسم (إذا كان أكاديميًا)</label><input name="project_course" type="text"></div>
+          <div class="bp-field"><label>المقرر / القسم (إذا كان أكاديميا)</label><input name="project_course" type="text"></div>
         </div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>وصف المشروع <span class="req">*</span></label><textarea required name="project_desc" placeholder="ما الهدف من الموقع؟ من يستخدمه؟ وما الذي يجب أن يجده؟"></textarea></div>
@@ -359,7 +359,7 @@ last_updated: 2026-03-03
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">جاهزية المحتوى</h3><p class="bp-desc">حالة المواد المتوفرة وما هو الناقص</p></div></div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>الحالة العامة للمحتوى</label><select name="content_status"><option value="">اختر...</option><option>جاهز بالكامل</option><option>جاهز جزئيًا</option><option>مسودة تحتاج ترتيب</option><option>لم يبدأ بعد</option></select></div>
+          <div class="bp-field"><label>الحالة العامة للمحتوى</label><select name="content_status"><option value="">اختر...</option><option>جاهز بالكامل</option><option>جاهز جزئيا</option><option>مسودة تحتاج ترتيب</option><option>لم يبدأ بعد</option></select></div>
         </div>
         <div class="bp-choice-grid bp-cols-3">
           <div class="bp-choice"><input id="cnt_text_ar" name="cnt_text" type="checkbox" value="Written text"><label for="cnt_text_ar">نصوص مكتوبة</label></div>
@@ -370,7 +370,7 @@ last_updated: 2026-03-03
           <div class="bp-choice"><input id="cnt_refs_ar" name="cnt_refs" type="checkbox" value="References"><label for="cnt_refs_ar">مراجع</label></div>
         </div>
         <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>ملاحظات المحتوى</label><textarea name="content_notes" placeholder="ما المفقود؟ ما صيغة الملفات؟ وما الذي سيصل لاحقًا؟"></textarea></div>
+          <div class="bp-field"><label>ملاحظات المحتوى</label><textarea name="content_notes" placeholder="ما المفقود؟ ما صيغة الملفات؟ وما الذي سيصل لاحقا؟"></textarea></div>
         </div>
       </section>
 
@@ -433,7 +433,7 @@ last_updated: 2026-03-03
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
           <div class="bp-field"><label>اسم مستخدم GitHub (إن وجد)</label><input name="github_user" type="text"></div>
-          <div class="bp-field"><label>مستودع موجود مسبقًا (إن وجد)</label><input name="github_repo" type="text"></div>
+          <div class="bp-field"><label>مستودع موجود مسبقا (إن وجد)</label><input name="github_repo" type="text"></div>
         </div>
       </section>
 
@@ -441,11 +441,11 @@ last_updated: 2026-03-03
         <div class="bp-section-label"><span class="bp-num">10</span><div><h3 class="bp-title">الفريق والملاحظات النهائية</h3><p class="bp-desc">تفاصيل التعاون، الإحالة، والمتطلبات الخاصة</p></div></div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>هل المشروع فردي أم جماعي؟</label><select name="is_team"><option value="">اختر...</option><option>فردي</option><option>جماعي</option></select></div>
-          <div class="bp-field"><label>عدد أعضاء الفريق (إن كان جماعيًا)</label><input name="team_count" type="number" min="1" max="20"></div>
+          <div class="bp-field"><label>عدد أعضاء الفريق (إن كان جماعيا)</label><input name="team_count" type="number" min="1" max="20"></div>
         </div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>المشرف / المدرس (إن وجد)</label><input name="supervisor" type="text"></div>
-          <div class="bp-field"><label>كيف تعرفت على Blueprint؟</label><input name="referral" type="text"></div>
+          <div class="bp-field"><label>كيف تعرفت على بلو برنت؟</label><input name="referral" type="text"></div>
         </div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>أسماء أعضاء الفريق وأدوارهم (كل عضو في سطر)</label><textarea name="team_members"></textarea></div>
@@ -454,9 +454,9 @@ last_updated: 2026-03-03
           <div class="bp-field"><label>متطلبات أو قيود خاصة</label><textarea name="special_req"></textarea></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>أي تفاصيل إضافية يجب أن يعرفها فريق Blueprint قبل البدء</label><textarea name="anything_else"></textarea></div>
+          <div class="bp-field"><label>أي تفاصيل إضافية يجب أن يعرفها فريق بلو برنت قبل البدء</label><textarea name="anything_else"></textarea></div>
         </div>
-        <div class="bp-summary">بإرسال النموذج أنت تؤكد صحة البيانات. اعتماد النطاق والسعر النهائي يتم كتابيًا قبل التنفيذ.</div>
+        <div class="bp-summary">بإرسال النموذج أنت تؤكد صحة البيانات. اعتماد النطاق والسعر النهائي يتم كتابيا قبل التنفيذ.</div>
       </section>
 
       <div class="bp-submit">

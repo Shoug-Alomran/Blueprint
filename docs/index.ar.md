@@ -15,9 +15,9 @@ last_updated: 2026-03-04
     <span class="terminal-label">studio://digital-presence</span>
   </div>
   <div class="terminal-body">
-    <h1>حضور رقمي منظم يدوم طويلًا</h1>
+    <h1>حضور رقمي منظم يدوم طويلا</h1>
     <p>
-      يبني Blueprint Studio مواقع ثابتة نظيفة للبورتفوليو، بوابات المقررات،
+      يبني بلو برنت ستوديو مواقع ثابتة نظيفة للبورتفوليو، بوابات المقررات،
       التوثيق، والصفحات المهنية، مع تركيز على الوضوح والسرعة وسهولة الصيانة.
     </p>
     <p class="terminal-command">
@@ -72,7 +72,7 @@ last_updated: 2026-03-04
   </article>
 </div>
 
-## لماذا Blueprint
+## لماذا بلو برنت
 
 - **تنقل منظم** يساعد الزائر يصل بسرعة لما يحتاجه
 - **معمارية ثابتة** تعطي سرعة واستقرار وصيانة أسهل
@@ -92,7 +92,7 @@ last_updated: 2026-03-04
 ## ابدأ هنا
 
 1. راجع [الباقات](packages/packages.md)
-2. تعرّف على [العملية](process/index.md)
+2. تعرف على [العملية](process/index.md)
 3. شاهد أمثلة [الأعمال](web-platforms/index.md)
-4. ابدأ عبر [ابدأ المشروع](start-project/start-project.md)
+4. ابدأ عبر [ابدأ المشروع](start-project/index.md)
 5. أو تواصل معنا من صفحة [التواصل](contact/contact.md)

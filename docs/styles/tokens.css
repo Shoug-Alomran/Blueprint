@@ -21,3 +21,48 @@
   --ring: #2dd4bf;
   --shadow-soft: 0 12px 28px rgba(2, 6, 23, 0.36);
 }
+
+/* Arabic typography tuning to match clean sans look and avoid glyph artifacts */
+html[lang^="ar"],
+[dir="rtl"] {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: auto;
+}
+
+html[lang^="ar"] .md-typeset h1,
+html[lang^="ar"] .md-typeset h2,
+html[lang^="ar"] .md-typeset h3,
+html[lang^="ar"] .md-typeset h4,
+html[lang^="ar"] .md-typeset h5,
+html[lang^="ar"] .md-typeset h6,
+html[lang^="ar"] .md-typeset p,
+html[lang^="ar"] .md-typeset li,
+html[lang^="ar"] .md-typeset a,
+html[lang^="ar"] .md-typeset span,
+[dir="rtl"] .md-typeset h1,
+[dir="rtl"] .md-typeset h2,
+[dir="rtl"] .md-typeset h3,
+[dir="rtl"] .md-typeset h4,
+[dir="rtl"] .md-typeset h5,
+[dir="rtl"] .md-typeset h6,
+[dir="rtl"] .md-typeset p,
+[dir="rtl"] .md-typeset li,
+[dir="rtl"] .md-typeset a,
+[dir="rtl"] .md-typeset span {
+  letter-spacing: 0 !important;
+}
+
+/* Arabic heading size and color alignment (without changing whole-site Arabic font family yet) */
+html[lang^="ar"] .md-typeset h1,
+[dir="rtl"] .md-typeset h1,
+html[lang^="ar"] .md-typeset .terminal-body h1,
+[dir="rtl"] .md-typeset .terminal-body h1,
+html[lang^="ar"] .md-typeset .page-hero__title,
+[dir="rtl"] .md-typeset .page-hero__title {
+  font-family: "Tahoma", "Arial", sans-serif !important;
+  color: var(--md-default-fg-color--light) !important;
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-text-stroke: 0 transparent !important;
+}
