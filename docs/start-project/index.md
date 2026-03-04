@@ -176,14 +176,20 @@ Use this intake form to submit your project details in one pass.
     .bp-intake select,
     .bp-intake textarea {
       width: 100%;
-      border: 1px solid var(--input-border);
-      border-radius: 4px;
-      padding: 0.6rem 0.72rem;
+      border: 2px solid #8aa3b0;
+      border-radius: 10px;
+      padding: 0.72rem 0.85rem;
       font-size: 0.88rem;
       color: var(--ink);
-      background: #ffffff;
+      background: #fdfefe;
+      box-shadow: inset 0 1px 2px rgba(15, 42, 52, 0.08);
       font-family: inherit;
-      transition: border-color 180ms ease, box-shadow 180ms ease;
+      transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .bp-intake input::placeholder,
+    .bp-intake textarea::placeholder {
+      color: #7b8d99;
     }
 
     .bp-intake textarea { min-height: 88px; resize: vertical; }
@@ -192,8 +198,9 @@ Use this intake form to submit your project details in one pass.
     .bp-intake select:focus,
     .bp-intake textarea:focus {
       outline: none;
-      border-color: var(--input-focus);
-      box-shadow: 0 0 0 3px rgba(45 to 212 to 191 to 0.16);
+      border-color: #0f766e;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.2);
     }
 
     .bp-intake .bp-choice-grid {
