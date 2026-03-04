@@ -133,3 +133,11 @@ Publication-ready documentation sites for university research projects — struc
 ## Scope Note
 
 The CS340 database project documents a full-stack application — its documentation site is static, but the underlying system involves a database and web backend. Blueprint Studio builds the documentation website, not the application itself. This distinction is noted for transparency.
+
+---
+
+## Video Demos
+
+See short walkthroughs of key UI interactions and behavior patterns from recent builds.
+
+[Open Demos Page](../work-demos/work-demos.md){ .md-button .md-button--primary }

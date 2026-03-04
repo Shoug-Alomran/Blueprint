@@ -120,8 +120,8 @@ Use this page to determine if Blueprint Studio is the right fit for your project
 
 ## Ready to Start?
 
-1. Review [Packages](packages.md)
-2. See detailed workflow in [Process](process/index.md)
-3. Submit your request via [Contact](contact.md)
+1. Review [Packages](../packages/packages.md)
+2. See detailed workflow in [Process](../process/index.md)
+3. Submit your request via [Contact](../contact/contact.md)
 
 Structured. Predictable. Maintainable.

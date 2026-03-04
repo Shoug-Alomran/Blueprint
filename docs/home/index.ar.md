@@ -20,7 +20,7 @@ last_updated: 2026-03-01
 
 ## البداية
 
-1. راجع [الباقات](packages/packages.md)
-2. شوف [طريقة العمل](process/index.md)
-3. اطلع على [دراسات الحالة](web-platforms/index.md)
-4. تواصل معنا عبر [التواصل](contact/contact.md)
+1. راجع [الباقات](../packages/packages.md)
+2. شوف [طريقة العمل](../process/index.md)
+3. اطلع على [دراسات الحالة](../web-platforms/index.md)
+4. تواصل معنا عبر [التواصل](../contact/contact.md)

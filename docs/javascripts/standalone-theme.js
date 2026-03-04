@@ -54,6 +54,8 @@
       { prefix: '/web-platforms/academic-documentation/', label: 'موقع توثيق أكاديمي' },
       { prefix: '/web-platforms/workshop-course-page/', label: 'صفحة ورشة أو دورة' },
       { prefix: '/web-platforms/', label: 'دراسات الحالة' },
+      { prefix: '/work-demos/work-demos/', label: 'العروض' },
+      { prefix: '/work-demos/', label: 'العروض' },
       { prefix: '/about/', label: 'عنّا' },
       { prefix: '/contact/', label: 'تواصل' },
       { prefix: '/policies/terms-of-service/', label: 'الشروط' },
@@ -200,8 +202,17 @@
         return true;
       });
 
-      if (uniqueChildren.length >= 2) {
-        childMap.set(parentPath, uniqueChildren);
+      var dropdownItems = uniqueChildren.slice();
+      if (parentPath === '/web-platforms/' && uniqueChildren.some(function (entry) { return entry.path.indexOf('/work-demos/') === 0; })) {
+        dropdownItems.unshift({
+          href: parentLink.getAttribute('href') || parentLink.href,
+          label: (parentLink.textContent || '').trim() || 'Work',
+          path: parentPath
+        });
+      }
+
+      if (dropdownItems.length >= 2) {
+        childMap.set(parentPath, dropdownItems);
       }
     });
 
@@ -294,6 +305,13 @@
     });
   }
 
+  function applyPageLayoutOverrides() {
+    var path = normalizeNavPath(window.location.pathname);
+    var isDemosPage = path.indexOf('/work-demos/') === 0 || path === '/work-demos';
+    document.body.classList.toggle('sg-hide-left-sidebar', isDemosPage);
+    document.body.classList.toggle('sg-hide-right-sidebar', isDemosPage);
+  }
+
   function localizeHeaderUI() {
     if (!isArabicPage()) {
       return;
@@ -305,6 +323,16 @@
         var label = arabicNavLabelForPath(url.pathname);
         if (label) {
           link.textContent = label;
+        }
+      } catch (e) {}
+    });
+
+    document.querySelectorAll('.md-tabs__dropdown-link').forEach(function (link) {
+      try {
+        var ddUrl = new URL(link.href, window.location.origin);
+        var ddLabel = arabicNavLabelForPath(ddUrl.pathname);
+        if (ddLabel) {
+          link.textContent = ddLabel;
         }
       } catch (e) {}
     });
@@ -461,6 +489,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     injectHeaderActions();
+    applyPageLayoutOverrides();
     localizeHeaderUI();
     buildTabDropdowns();
     setupTabDropdownInteractions();
@@ -471,6 +500,7 @@
   if (typeof window.document$ !== 'undefined' && window.document$.subscribe) {
     window.document$.subscribe(function () {
       injectHeaderActions();
+      applyPageLayoutOverrides();
       localizeHeaderUI();
       buildTabDropdowns();
       setupTabDropdownInteractions();

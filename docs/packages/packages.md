@@ -248,4 +248,4 @@ Payment is due after final approval and before project handover.
 - Section-to-page conversion is confirmed during scope review.
 
 Not sure which tier fits your project?  
-Reach out via [Contact](contact.md) with your project type, section count, and deadline.
+Reach out via [Contact](../contact/contact.md) with your project type, section count, and deadline.

@@ -60,4 +60,4 @@ Structured inquiries lead to structured results.
 
 ## Start Project Form
 
-Use the full intake form here: [Start Project](start-project.md).
+Use the full intake form here: [Start Project](../start-project/start-project.md).
