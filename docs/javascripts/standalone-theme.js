@@ -336,8 +336,10 @@
         return;
       }
       try {
-        var sectionPath = normalizeNavPath(new URL(sectionLink.href, window.location.origin).pathname);
-        if (sectionPath === '/web-platforms/') {
+        var sectionPath = normalizeNavPath(new URL(sectionLink.href, window.location.href).pathname);
+        var sectionLabelNode = sectionLink.querySelector('.md-ellipsis');
+        var sectionLabel = sectionLabelNode ? (sectionLabelNode.textContent || '').trim() : (sectionLink.textContent || '').trim();
+        if (sectionPath === '/web-platforms/' || sectionLabel === 'Work' || sectionLabel === 'دراسات الحالة') {
           workSection = item;
         }
       } catch (e) {}
@@ -359,8 +361,10 @@
         return;
       }
       try {
-        var childPath = normalizeNavPath(new URL(link.href, window.location.origin).pathname);
-        if (childPath === '/web-platforms/') {
+        var childPath = normalizeNavPath(new URL(link.href, window.location.href).pathname);
+        var childLabelNode = link.querySelector('.md-ellipsis');
+        var childLabel = childLabelNode ? (childLabelNode.textContent || '').trim() : (link.textContent || '').trim();
+        if (childPath === '/web-platforms/' || childLabel === 'Work' || childLabel === 'دراسات الحالة') {
           hasWorkLink = true;
         }
       } catch (e) {}
@@ -378,7 +382,12 @@
 
     var link = document.createElement('a');
     link.className = 'md-nav__link';
-    link.href = sectionLink.getAttribute('href') || sectionLink.href;
+    try {
+      var localizedWorkHref = normalizeNavPath(window.location.pathname).indexOf('/ar/') === 0 ? '/ar/web-platforms/' : '/web-platforms/';
+      link.href = localizedWorkHref;
+    } catch (e) {
+      link.href = sectionLink.getAttribute('href') || sectionLink.href;
+    }
 
     var span = document.createElement('span');
     span.className = 'md-ellipsis';
@@ -573,6 +582,10 @@
     setupTabDropdownInteractions();
     enhancePageHero();
     applyReveal();
+  });
+
+  window.addEventListener('resize', function () {
+    ensureMobileWorkNavLink();
   });
 
   if (typeof window.document$ !== 'undefined' && window.document$.subscribe) {
