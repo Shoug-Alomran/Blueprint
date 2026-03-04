@@ -43,7 +43,7 @@ theme:
 
 nav:
   - Home: index.md
-  - Packages: packages/packages.md
+  - Packages: packages/index.md
   - Process:
       - Overview: process/index.md
       - Intake & Fit Check: process/intake-fit-check.md
@@ -52,14 +52,14 @@ nav:
       - Build: process/build.md
       - Review & Revisions: process/revisions.md
       - Deployment & Handover: process/deployment-handover.md
-  - CV Templates: CV_index/CV_index.md
+  - CV Templates: CV_index/index.md
   - HTML Reports: html-reports/index.md
   - Start Project: start-project/index.md
   - Work:
       - Work: web-platforms/index.md
-      - Demos: work-demos/work-demos.md
-  - About: about/about.md
-  - Contact: contact/contact.md
+      - Demos: work-demos/index.md
+  - About: about/index.md
+  - Contact: contact/index.md
 
 exclude_docs: |
   home/**

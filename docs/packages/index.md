@@ -376,4 +376,4 @@ Payment is due after final approval and before project handover.
  Final timeline depends on content readiness., Delays in feedback may extend delivery., Out-of-scope changes are quoted separately., Hosting and domain registration fees are separate unless stated otherwise., HTML report conversion requires the full document before build begins., Section-to-page conversion is confirmed during scope review.
 
 Not sure which tier fits your project?  
-Reach out via [Contact](../contact/contact.md) with your project type section count and deadline.
+Reach out via [Contact](../contact/index.md) with your project type section count and deadline.

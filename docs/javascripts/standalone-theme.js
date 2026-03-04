@@ -65,7 +65,7 @@
       { prefix: '/web-platforms/academic-documentation/', label: 'موقع توثيق أكاديمي' },
       { prefix: '/web-platforms/workshop-course-page/', label: 'صفحة ورشة أو دورة' },
       { prefix: '/web-platforms/', label: 'دراسات الحالة' },
-      { prefix: '/work-demos/work-demos/', label: 'العروض' },
+      { prefix: '/work-demos/', label: 'العروض' },
       { prefix: '/work-demos/', label: 'العروض' },
       { prefix: '/about/', label: 'عنا' },
       { prefix: '/contact/', label: 'تواصل' },

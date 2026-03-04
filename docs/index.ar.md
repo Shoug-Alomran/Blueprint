@@ -91,8 +91,8 @@ last_updated: 2026-03-04
 
 ## ابدأ هنا
 
-1. راجع [الباقات](packages/packages.md)
+1. راجع [الباقات](packages/index.md)
 2. تعرف على [العملية](process/index.md)
 3. شاهد أمثلة [الأعمال](web-platforms/index.md)
 4. ابدأ عبر [ابدأ المشروع](start-project/index.md)
-5. أو تواصل معنا من صفحة [التواصل](contact/contact.md)
+5. أو تواصل معنا من صفحة [التواصل](contact/index.md)

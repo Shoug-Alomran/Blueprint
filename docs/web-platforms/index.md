@@ -140,4 +140,4 @@ The CS340 database project documents a full-stack application, its documentation
 
 See short walkthroughs of key UI interactions and behavior patterns from recent builds.
 
-[Open Demos Page](../work-demos/work-demos.md){ .md-button .md-button--primary }
+[Open Demos Page](../work-demos/index.md){ .md-button .md-button--primary }

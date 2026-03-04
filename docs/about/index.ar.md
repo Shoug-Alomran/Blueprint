@@ -138,4 +138,4 @@ last_updated: 2026-03-04
 
 الرد خلال يومي عمل. والتواصل بالعربية أو الإنجليزية حسب تفضيلك.
 
-[ابدأ مشروعك →](../start-project/start-project.md)
+[ابدأ مشروعك →](../start-project/index.md)

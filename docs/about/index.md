@@ -132,4 +132,4 @@ Riyadh, Saudi Arabia. Working with clients locally and remotely.
 
 Response within 2 business days. Communication in Arabic or English, your choice.
 
-[Start a project →](../start-project/start-project.md)
+[Start a project →](../start-project/index.md)
