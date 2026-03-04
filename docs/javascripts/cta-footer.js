@@ -124,23 +124,78 @@
     var submitBtn = section.querySelector('.custom-footer__button');
     if (!emailInput || !submitBtn) return;
 
-    function submitEmail() {
+    function resolveSubmitEndpoint() {
+      if (window.BLUEPRINT_INTAKE_ENDPOINT) return window.BLUEPRINT_INTAKE_ENDPOINT;
+      var meta = document.querySelector('meta[name="blueprint-intake-endpoint"]');
+      if (meta && meta.content) return meta.content;
+      return 'https://blueprint-footer-intake-worker.shoug-alomran.workers.dev/submit';
+    }
+
+    function setStatus(type, text) {
+      var statusEl = section.querySelector('.custom-footer__status');
+      if (!statusEl) {
+        statusEl = document.createElement('p');
+        statusEl.className = 'custom-footer__status';
+        section.querySelector('.custom-footer__left').appendChild(statusEl);
+      }
+      statusEl.textContent = text;
+      statusEl.style.margin = '0.55rem 0 0';
+      statusEl.style.fontSize = '0.8rem';
+      statusEl.style.color = type === 'ok' ? '#d9f7ea' : '#ffd6d6';
+    }
+
+    async function submitEmail() {
       if (!emailInput.checkValidity()) {
         emailInput.reportValidity();
         return;
       }
 
-      var email = encodeURIComponent(emailInput.value.trim());
+      var email = emailInput.value.trim();
       if (!email) return;
 
-      var subject = ar ? 'طلب مشروع جديد' : 'New Project Inquiry';
-      var body = ar
-        ? 'البريد الإلكتروني: ' + decodeURIComponent(email)
-        : 'Email: ' + decodeURIComponent(email);
+      submitBtn.disabled = true;
+      setStatus('ok', ar ? 'جاري الإرسال...' : 'Sending...');
 
-      window.location.href = 'mailto:blueprint@shoug-tech.com?subject=' +
-        encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
+      try {
+        var fd = new FormData();
+        fd.append('email', email);
+        fd.append('locale', ar ? 'ar' : 'en');
+        fd.append('source', 'footer-quick-intake');
+        fd.append('_subject', ar ? 'طلب مشروع جديد' : 'New Project Inquiry');
+
+        var response = await fetch(resolveSubmitEndpoint(), {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: fd
+        });
+
+        if (!response.ok) {
+          var errorMsg = 'Failed';
+          try {
+            var errorData = await response.json();
+            if (errorData && errorData.error) errorMsg = String(errorData.error);
+          } catch (_) {
+            try {
+              var errorText = await response.text();
+              if (errorText) errorMsg = errorText;
+            } catch (_) {}
+          }
+          throw new Error(errorMsg);
+        }
+
+        setStatus('ok', ar ? 'تم الإرسال بنجاح.' : 'Sent successfully.');
+        emailInput.value = '';
+      } catch (err) {
+        var msg = err && err.message ? err.message : '';
+        setStatus(
+          'err',
+          ar
+            ? ('فشل الإرسال المباشر. ' + (msg || 'حاول مرة أخرى.'))
+            : ('Direct send failed. ' + (msg || 'Please try again.'))
+        );
+      } finally {
+        submitBtn.disabled = false;
+      }
     }
 
     submitBtn.addEventListener('click', submitEmail);
