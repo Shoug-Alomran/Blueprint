@@ -4,7 +4,7 @@ site_author: Shoug Fawaz Alomran
 site_description: >
   Blueprint is a student-focused digital presence studio under ShougTech.
   We build structured static websites for portfolios, academic documentation, and workshop/course pages.
-copyright: © 2026 Shoug Fawaz Alomran · All rights reserved
+copyright: © 2026 Blueprint · All rights reserved
 
 theme:
   name: material
