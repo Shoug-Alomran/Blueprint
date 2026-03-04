@@ -53,7 +53,7 @@ last_updated: 2026-03-02
     <h3>Template 2 · Pro</h3>
     <p class="cv-template-theme">الثيم: Midnight Grid</p>
     <p>وضع ليلي/نهاري، تحويل عربي/إنجليزي، ودعم التنزيل والطباعة.</p>
-    <p><a href="/cv-templates/temp_2_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 2 (Pro)">شراء</a></p>
+    <p><a href="/cv-templates/temp_2_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 2 (Pro)">شراء</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -64,7 +64,7 @@ last_updated: 2026-03-02
     <h3>Template 3 · Pro</h3>
     <p class="cv-template-theme">الثيم: Editorial Sand</p>
     <p>وضع ليلي/نهاري، تحويل عربي/إنجليزي، ودعم التنزيل والطباعة.</p>
-    <p><a href="/cv-templates/temp_3_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 3 (Pro)">شراء</a></p>
+    <p><a href="/cv-templates/temp_3_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 3 (Pro)">شراء</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -75,7 +75,7 @@ last_updated: 2026-03-02
     <h3>Template 5 · Pro</h3>
     <p class="cv-template-theme">الثيم: Finance Prestige</p>
     <p>وضع ليلي/نهاري، تحويل عربي/إنجليزي، ودعم التنزيل والطباعة.</p>
-    <p><a href="/cv-templates/temp_5_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 5 (Pro)">شراء</a></p>
+    <p><a href="/cv-templates/temp_5_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 5 (Pro)">شراء</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -86,7 +86,7 @@ last_updated: 2026-03-02
     <h3>Template 6 · Pro</h3>
     <p class="cv-template-theme">الثيم: Monochrome Executive</p>
     <p>وضع ليلي/نهاري، تحويل عربي/إنجليزي، ودعم التنزيل والطباعة.</p>
-    <p><a href="/cv-templates/temp_6_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 6 (Pro)">شراء</a></p>
+    <p><a href="/cv-templates/temp_6_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 6 (Pro)">شراء</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -97,7 +97,7 @@ last_updated: 2026-03-02
     <h3>Template 7 · Pro</h3>
     <p class="cv-template-theme">الثيم: Deep Ocean</p>
     <p>وضع ليلي/نهاري، تحويل عربي/إنجليزي، ودعم التنزيل والطباعة.</p>
-    <p><a href="/cv-templates/temp_7_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 7 (Pro)">شراء</a></p>
+    <p><a href="/cv-templates/temp_7_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 7 (Pro)">شراء</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -108,7 +108,7 @@ last_updated: 2026-03-02
     <h3>Template 10 · Pro</h3>
     <p class="cv-template-theme">الثيم: Aurora Violet</p>
     <p>وضع ليلي/نهاري، تحويل عربي/إنجليزي، ودعم التنزيل والطباعة.</p>
-    <p><a href="/cv-templates/temp_10_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 10 (Pro)">شراء</a></p>
+    <p><a href="/cv-templates/temp_10_pro.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 10 (Pro)">شراء</a></p>
   </article>
 
 </div>
@@ -127,7 +127,7 @@ last_updated: 2026-03-02
     <h3>Template 1 · Basic</h3>
     <p class="cv-template-theme">الثيم: Clean Teal</p>
     <p>لغة واحدة، وضع نهاري، مع جاهزية كاملة للطباعة PDF.</p>
-    <p><a href="/cv-templates/temp_1.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 1 (Basic)">شراء</a></p>
+    <p><a href="/cv-templates/temp_1.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 1 (Basic)">شراء</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -138,7 +138,7 @@ last_updated: 2026-03-02
     <h3>Template 4 · Basic</h3>
     <p class="cv-template-theme">الثيم: Classic Navy & Gold</p>
     <p>لغة واحدة، وضع نهاري، مع جاهزية كاملة للطباعة PDF.</p>
-    <p><a href="/cv-templates/temp_4.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 4 (Basic)">شراء</a></p>
+    <p><a href="/cv-templates/temp_4.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 4 (Basic)">شراء</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -149,7 +149,7 @@ last_updated: 2026-03-02
     <h3>Template 8 · Basic</h3>
     <p class="cv-template-theme">الثيم: Professional Mono</p>
     <p>لغة واحدة، وضع نهاري، مع جاهزية كاملة للطباعة PDF.</p>
-    <p><a href="/cv-templates/temp_8.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 8 (Basic)">شراء</a></p>
+    <p><a href="/cv-templates/temp_8.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 8 (Basic)">شراء</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -160,7 +160,7 @@ last_updated: 2026-03-02
     <h3>Template 9 · Basic</h3>
     <p class="cv-template-theme">الثيم: Minimal Ink</p>
     <p>لغة واحدة، وضع نهاري، مع جاهزية كاملة للطباعة PDF.</p>
-    <p><a href="/cv-templates/temp_9.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 9 (Basic)">شراء</a></p>
+    <p><a href="/cv-templates/temp_9.html" target="_blank" rel="noopener">فتح المعاينة</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 9 (Basic)">شراء</a></p>
   </article>
 
 </div>

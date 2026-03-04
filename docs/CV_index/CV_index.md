@@ -53,7 +53,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 2 · Pro</h3>
     <p class="cv-template-theme">Theme: Midnight Grid</p>
     <p>Dark/light mode, Arabic-English toggle, download + print support.</p>
-    <p><a href="/cv-templates/temp_2_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 2 (Pro)">Buy</a></p>
+    <p><a href="/cv-templates/temp_2_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 2 (Pro)">Buy</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -64,7 +64,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 3 · Pro</h3>
     <p class="cv-template-theme">Theme: Editorial Sand</p>
     <p>Dark/light mode, Arabic-English toggle, download + print support.</p>
-    <p><a href="/cv-templates/temp_3_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 3 (Pro)">Buy</a></p>
+    <p><a href="/cv-templates/temp_3_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 3 (Pro)">Buy</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -75,7 +75,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 5 · Pro</h3>
     <p class="cv-template-theme">Theme: Finance Prestige</p>
     <p>Dark/light mode, Arabic-English toggle, download + print support.</p>
-    <p><a href="/cv-templates/temp_5_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 5 (Pro)">Buy</a></p>
+    <p><a href="/cv-templates/temp_5_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 5 (Pro)">Buy</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -86,7 +86,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 6 · Pro</h3>
     <p class="cv-template-theme">Theme: Monochrome Executive</p>
     <p>Dark/light mode, Arabic-English toggle, download + print support.</p>
-    <p><a href="/cv-templates/temp_6_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 6 (Pro)">Buy</a></p>
+    <p><a href="/cv-templates/temp_6_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 6 (Pro)">Buy</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -97,7 +97,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 7 · Pro</h3>
     <p class="cv-template-theme">Theme: Deep Ocean</p>
     <p>Dark/light mode, Arabic-English toggle, download + print support.</p>
-    <p><a href="/cv-templates/temp_7_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 7 (Pro)">Buy</a></p>
+    <p><a href="/cv-templates/temp_7_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 7 (Pro)">Buy</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -108,7 +108,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 10 · Pro</h3>
     <p class="cv-template-theme">Theme: Aurora Violet</p>
     <p>Dark/light mode, Arabic-English toggle, download + print support.</p>
-    <p><a href="/cv-templates/temp_10_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 10 (Pro)">Buy</a></p>
+    <p><a href="/cv-templates/temp_10_pro.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 10 (Pro)">Buy</a></p>
   </article>
 
 </div>
@@ -127,7 +127,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 1 · Basic</h3>
     <p class="cv-template-theme">Theme: Clean Teal</p>
     <p>Single language, light mode, print-ready PDF export.</p>
-    <p><a href="/cv-templates/temp_1.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 1 (Basic)">Buy</a></p>
+    <p><a href="/cv-templates/temp_1.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 1 (Basic)">Buy</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -138,7 +138,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 4 · Basic</h3>
     <p class="cv-template-theme">Theme: Classic Navy & Gold</p>
     <p>Single language, light mode, print-ready PDF export.</p>
-    <p><a href="/cv-templates/temp_4.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 4 (Basic)">Buy</a></p>
+    <p><a href="/cv-templates/temp_4.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 4 (Basic)">Buy</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -149,7 +149,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 8 · Basic</h3>
     <p class="cv-template-theme">Theme: Professional Mono</p>
     <p>Single language, light mode, print-ready PDF export.</p>
-    <p><a href="/cv-templates/temp_8.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 8 (Basic)">Buy</a></p>
+    <p><a href="/cv-templates/temp_8.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 8 (Basic)">Buy</a></p>
   </article>
 
   <article class="info-card cv-template-card">
@@ -160,7 +160,7 @@ Choose a template, preview it, and request purchase.
     <h3>Template 9 · Basic</h3>
     <p class="cv-template-theme">Theme: Minimal Ink</p>
     <p>Single language, light mode, print-ready PDF export.</p>
-    <p><a href="/cv-templates/temp_9.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase — Template 9 (Basic)">Buy</a></p>
+    <p><a href="/cv-templates/temp_9.html" target="_blank" rel="noopener">Open Preview</a> · <a href="mailto:blueprint@shoug-tech.com?subject=CV Template Purchase, Template 9 (Basic)">Buy</a></p>
   </article>
 
 </div>

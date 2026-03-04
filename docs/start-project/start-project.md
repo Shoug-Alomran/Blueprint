@@ -21,11 +21,11 @@ Use this intake form to submit your project details in one pass.
       --bg: #f3f8f8;
       --ink: #1f2937;
       --ink-light: #5f6f7b;
-      --rule: var(--line-soft, rgba(15, 89, 101, 0.2));
-      --input-border: rgba(15, 89, 101, 0.22);
+      --rule: var(--line-soft, rgba(15 to 89 to 101 to 0.2));
+      --input-border: rgba(15 to 89 to 101 to 0.22);
       --input-focus: #0f766e;
       --section-bg: #ffffff;
-      --shadow: var(--shadow-soft, 0 12px 28px rgba(15, 23, 42, 0.12));
+      --shadow: var(--shadow-soft, 0 12px 28px rgba(15 to 23 to 42 to 0.12));
       --required: #c0392b;
       margin-top: 1rem;
       width: 100%;
@@ -37,7 +37,7 @@ Use this intake form to submit your project details in one pass.
       width: 100%;
       max-width: min(100%, 1040px);
       margin: 0 auto;
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(241, 247, 247, 0.95));
+      background: linear-gradient(160deg, rgba(255 to 255 to 255 to 0.99), rgba(241 to 247 to 247 to 0.95));
       border: 1px solid var(--rule);
       border-radius: var(--radius-xl, 1rem);
       overflow: hidden;
@@ -76,7 +76,7 @@ Use this intake form to submit your project details in one pass.
 
     .bp-intake .bp-intake-header p {
       margin: 0.5rem 0 0;
-      color: rgba(255, 255, 255, 0.72);
+      color: rgba(255 to 255 to 255 to 0.72);
       font-size: 0.88rem;
     }
 
@@ -88,7 +88,7 @@ Use this intake form to submit your project details in one pass.
       font-size: 0.7rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(221, 253, 249, 0.82);
+      color: rgba(221 to 253 to 249 to 0.82);
     }
 
     .bp-intake .bp-form {
@@ -99,7 +99,7 @@ Use this intake form to submit your project details in one pass.
     .bp-intake .bp-section {
       border-bottom: 1px solid var(--rule);
       padding: 1.35rem 1.35rem 1.2rem;
-      background: rgba(255, 255, 255, 0.84);
+      background: rgba(255 to 255 to 255 to 0.84);
     }
 
     .bp-intake .bp-section:last-of-type { border-bottom: 0; }
@@ -193,7 +193,7 @@ Use this intake form to submit your project details in one pass.
     .bp-intake textarea:focus {
       outline: none;
       border-color: var(--input-focus);
-      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.16);
+      box-shadow: 0 0 0 3px rgba(45 to 212 to 191 to 0.16);
     }
 
     .bp-intake .bp-choice-grid {
@@ -211,14 +211,14 @@ Use this intake form to submit your project details in one pass.
       display: flex;
       gap: 0.55rem;
       align-items: flex-start;
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(244, 249, 249, 0.95));
+      background: linear-gradient(160deg, rgba(255 to 255 to 255 to 0.99), rgba(244 to 249 to 249 to 0.95));
       transition: border-color 170ms ease, transform 170ms ease, box-shadow 170ms ease;
     }
 
     .bp-intake .bp-choice:hover {
-      border-color: rgba(15, 118, 110, 0.45);
+      border-color: rgba(15 to 118 to 110 to 0.45);
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(12, 42, 52, 0.08);
+      box-shadow: 0 6px 14px rgba(12 to 42 to 52 to 0.08);
     }
 
     .bp-intake .bp-choice input { margin-top: 0.18rem; accent-color: var(--navy); }
@@ -242,7 +242,7 @@ Use this intake form to submit your project details in one pass.
       border: 1px solid var(--rule);
       border-left: 3px solid #0f766e;
       border-radius: 4px;
-      background: rgba(15, 118, 110, 0.06);
+      background: rgba(15 to 118 to 110 to 0.06);
       padding: 0.8rem 0.9rem;
       font-size: 0.82rem;
       color: var(--ink-light);
@@ -253,7 +253,7 @@ Use this intake form to submit your project details in one pass.
     .bp-intake .bp-submit {
       padding: 1rem 1.35rem 0.2rem;
       border-top: 1px solid var(--rule);
-      background: rgba(250, 255, 255, 0.76);
+      background: rgba(250 to 255 to 255 to 0.76);
       display: flex;
       flex-wrap: wrap;
       gap: 0.65rem;
@@ -275,7 +275,7 @@ Use this intake form to submit your project details in one pass.
     }
 
     .bp-intake .bp-btn {
-      border: 1px solid rgba(15, 89, 101, 0.28);
+      border: 1px solid rgba(15 to 89 to 101 to 0.28);
       border-radius: 999px;
       padding: 0.55rem 1rem;
       font-size: 0.75rem;
@@ -283,13 +283,13 @@ Use this intake form to submit your project details in one pass.
       letter-spacing: 0.06em;
       text-transform: uppercase;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255 to 255 to 255 to 0.96);
       color: #0f4a53;
     }
 
     .bp-intake .bp-btn.primary {
       background: var(--bar-gradient, linear-gradient(120deg, #0f2933, #0f3d4a, #115e59));
-      border-color: rgba(15, 89, 101, 0.55);
+      border-color: rgba(15 to 89 to 101 to 0.55);
       color: #fff;
     }
 
@@ -303,15 +303,15 @@ Use this intake form to submit your project details in one pass.
 
     .bp-intake .bp-status.ok {
       display: block;
-      background: rgba(14, 126, 104, 0.12);
-      border: 1px solid rgba(14, 126, 104, 0.28);
+      background: rgba(14 to 126 to 104 to 0.12);
+      border: 1px solid rgba(14 to 126 to 104 to 0.28);
       color: #0f5b4f;
     }
 
     .bp-intake .bp-status.err {
       display: block;
-      background: rgba(186, 43, 43, 0.12);
-      border: 1px solid rgba(186, 43, 43, 0.32);
+      background: rgba(186 to 43 to 43 to 0.12);
+      border: 1px solid rgba(186 to 43 to 43 to 0.32);
       color: #7a1f1f;
     }
 
@@ -390,9 +390,9 @@ Use this intake form to submit your project details in one pass.
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Service Type</h3><p class="bp-desc">Select the service you want to start with</p></div></div>
         <div class="bp-choice-grid bp-cols-2">
-          <div class="bp-choice"><input id="svc_website" name="service_type" type="radio" value="Website Package"><label for="svc_website">Website Package<small>Tier 1, 2, or 3</small></label></div>
-          <div class="bp-choice"><input id="svc_cv_basic" name="service_type" type="radio" value="CV Basic"><label for="svc_cv_basic">CV Template — Basic<small>68 SAR</small></label></div>
-          <div class="bp-choice"><input id="svc_cv_pro" name="service_type" type="radio" value="CV Pro"><label for="svc_cv_pro">CV Template — Pro<small>95 SAR</small></label></div>
+          <div class="bp-choice"><input id="svc_website" name="service_type" type="radio" value="Website Package"><label for="svc_website">Website Package<small>Tier 1 to 2, or 3</small></label></div>
+          <div class="bp-choice"><input id="svc_cv_basic" name="service_type" type="radio" value="CV Basic"><label for="svc_cv_basic">CV Template, Basic<small>68 SAR</small></label></div>
+          <div class="bp-choice"><input id="svc_cv_pro" name="service_type" type="radio" value="CV Pro"><label for="svc_cv_pro">CV Template, Pro<small>95 SAR</small></label></div>
           <div class="bp-choice"><input id="svc_cv_done" name="service_type" type="radio" value="CV Already Done"><label for="svc_cv_done">CV Already Done<small>Formatting/rebuild support</small></label></div>
         </div>
       </section>

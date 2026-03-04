@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS285 Diffie-Hellman Project Report</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ---------- Theme tokens (no Google fonts) ---------- */
+    :root {
+      --bg1: #667eea;
+      --bg2: #764ba2;
+      --card: #ffffff;
+      --text: #4a5568;
+      --heading: #1a1a2e;
+      --accent: #667eea;
+      --accent2: #764ba2;
+      --shadow: rgba(0, 0, 0, .3);
+      --muted: #64748b;
+      --border: #e5e7eb;
+      --code-bg: #1e293b;
+      --code-text: #e2e8f0;
+      --tools-bg: rgba(17, 24, 39, .90);
+      --tools-border: rgba(255, 255, 255, .22);
+      --tools-btn: rgba(255, 255, 255, .08);
+    }
+
+    html[data-theme="dark"] {
+      --bg1: #0b1020;
+      --bg2: #121a33;
+      --card: #0f172a;
+      --text: #cbd5e1;
+      --heading: #e5e7eb;
+      --accent: #8b95ff;
+      --accent2: #b07cff;
+      --shadow: rgba(0, 0, 0, .45);
+      --muted: #94a3b8;
+      --border: #22304a;
+      --code-bg: #0b1222;
+      --code-text: #e2e8f0;
+      --tools-bg: rgba(2, 6, 23, .92);
+      --tools-border: rgba(255, 255, 255, .18);
+      --tools-btn: rgba(255, 255, 255, .06);
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, Tahoma, sans-serif;
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      min-height: 100vh;
+      padding: 32px 20px;
+      color: var(--text);
+    }
+
+    .container {
+      width: min(1480px, calc(100vw - 40px));
+      margin: 0 auto;
+    }
+
+    .slide {
+      background: var(--card);
+      border-radius: 24px;
+      padding: clamp(34px, 3.4vw, 58px);
+      margin-bottom: 30px;
+      box-shadow: 0 20px 60px var(--shadow);
+      animation: slideIn .6s ease-out;
+      border: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .title-slide {
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      color: #fff;
+      text-align: center;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .title-header {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .title-slide h1 {
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.16;
+      letter-spacing: -.02em;
+      color: #fff;
+    }
+
+    .title-slide .subtitle {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      font-size: clamp(1.08rem, 1.5vw, 1.5rem);
+      font-weight: 350;
+      opacity: .95;
+      color: #fff;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .2);
+      padding: 12px 30px;
+      border-radius: 50px;
+      margin: 10px;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+      color: #fff;
+    }
+
+    .title-meta {
+      margin-top: 20px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      opacity: .96;
+      text-align: center;
+      color: #fff;
+    }
+
+    .title-school {
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-size: .98rem;
+      opacity: .88;
+      text-align: center;
+      color: #fff;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .team-member {
+      background: rgba(255, 255, 255, .15);
+      padding: 15px;
+      border-radius: 12px;
+      font-size: .9em;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 2.2em;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      font-size: 1.6em;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 30px 0 20px 0;
+    }
+
+    h4 {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: var(--accent2);
+      margin: 25px 0 15px 0;
+    }
+
+    p {
+      font-size: clamp(1.05rem, 1vw + .64rem, 1.2rem);
+      line-height: 1.82;
+      color: var(--text);
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 5px solid #3b82f6;
+      border-radius: 16px;
+      padding: 30px;
+      margin: 25px 0;
+      color: #0f172a;
+    }
+
+    .card-green {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      border-left: 5px solid #10b981;
+      border-radius: 16px;
+      padding: 30px;
+      margin: 25px 0;
+      color: #052e1f;
+    }
+
+    .card-yellow {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 5px solid #f59e0b;
+      border-radius: 16px;
+      padding: 25px;
+      margin: 20px 0;
+      color: #3b2a00;
+    }
+
+    .card-purple {
+      background: linear-gradient(135deg, #e9d5ff 0%, #d8b4fe 100%);
+      border-left: 5px solid #a855f7;
+      border-radius: 16px;
+      padding: 30px;
+      margin: 25px 0;
+      color: #1f102f;
+    }
+
+    ul,
+    ol {
+      margin: 20px 0 20px 30px;
+      line-height: 1.9;
+    }
+
+    li {
+      margin: 12px 0;
+      color: var(--text);
+      font-size: 1.05em;
+    }
+
+    .code-container {
+      background: var(--code-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+      border: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .code-header {
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      color: #fff;
+      padding: 15px 25px;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+
+    .code-block {
+      padding: 25px;
+      overflow-x: auto;
+      color: var(--code-text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: 1em;
+      line-height: 1.6;
+      max-height: 560px;
+      overflow-y: auto;
+      white-space: pre;
+    }
+
+    .code-block::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .code-block::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+
+    .code-block::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 5px;
+    }
+
+    .screenshot {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .screenshot img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+    }
+
+    .screenshot-caption {
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: .95em;
+    }
+
+    .team-card {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 5px solid #f59e0b;
+      border-radius: 16px;
+      padding: 25px;
+      margin: 20px 0;
+      color: #3b2a00;
+    }
+
+    .team-card h4 {
+      color: #92400e;
+      margin-top: 0;
+      font-size: 1.4em;
+    }
+
+    .reference {
+      background: rgba(255, 255, 255, .65);
+      border-left: 4px solid #06b6d4;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 8px;
+      font-size: .95em;
+      line-height: 1.6;
+      color: var(--heading);
+    }
+
+    .feature-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .advantage-box {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      border-radius: 16px;
+      padding: 25px;
+      color: #052e1f;
+    }
+
+    .advantage-box h4 {
+      color: #065f46;
+      margin-top: 0;
+    }
+
+    .limitation-box {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: 16px;
+      padding: 25px;
+      color: #3b2a00;
+    }
+
+    .limitation-box h4 {
+      color: #92400e;
+      margin-top: 0;
+    }
+
+    .toc-slide h2 {
+      margin-bottom: 18px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 20px;
+      margin-top: 14px;
+    }
+
+    .toc-link {
+      display: block;
+      text-decoration: none;
+      color: var(--heading);
+      background: rgba(255, 255, 255, .55);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-weight: 600;
+      transition: all .2s ease;
+    }
+
+    .toc-link:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+      color: #312e81;
+      transform: translateY(-1px);
+    }
+
+    sup {
+      font-weight: 600;
+    }
+
+    @media (max-width:1200px) {
+      .container {
+        width: min(1140px, calc(100vw - 36px));
+      }
+    }
+
+    @media (max-width:768px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      .container {
+        width: min(100%, calc(100vw - 24px));
+      }
+
+      .slide {
+        padding: 30px 22px;
+      }
+
+      h2 {
+        font-size: 1.8em;
+      }
+
+      .feature-box {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .badge {
+        padding: 10px 18px;
+        margin: 6px 4px;
+      }
+
+      .title-meta {
+        font-size: 1rem;
+      }
+
+      .team-grid {
+        margin-top: 24px;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .slide {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border);
+      }
+
+      .report-tools {
+        display: none !important;
+      }
+    }
+
+    /* ---------- Tools ---------- */
+    .report-tools {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 9999;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px;
+      border-radius: 10px;
+      background: var(--tools-bg);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .report-tools button,
+    .report-tools select {
+      border: 1px solid var(--tools-border);
+      background: var(--tools-btn);
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    .report-tools select option {
+      color: #111827;
+    }
+
+    /* ---------- Real bilingual toggle ---------- */
+    [data-lang] {
+      display: none;
+    }
+
+    html[lang="en"] [data-lang="en"] {
+      display: block;
+    }
+
+    html[lang="ar"] [data-lang="ar"] {
+      display: block;
+    }
+
+    /* RTL layout rules */
+    html[dir="rtl"] p,
+    html[dir="rtl"] li {
+      text-align: right;
+    }
+
+    html[dir="rtl"] ul,
+    html[dir="rtl"] ol {
+      margin: 20px 30px 20px 0;
+    }
+
+    html[dir="rtl"] .toc-grid {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .toc-link {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .feature-box {
+      direction: rtl;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="report-tools" aria-label="Report controls">
+    <button id="themeToggle" type="button">Dark Mode</button>
+    <select id="langToggle" aria-label="Language">
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+    </select>
+    <button id="downloadPdfBtn" type="button">Download PDF</button>
+  </div>
+
+  <div class="container">
+
+    <!-- =========================
+         TITLE SLIDE (EN)
+         ========================= -->
+    <div class="slide title-slide" data-lang="en">
+      <div class="title-header">
+        <h1>Diffie-Hellman Key Exchange</h1>
+        <p class="subtitle">Implementation and Analysis in Java</p>
+        <div>
+          <span class="badge">CS285: Discrete Mathematics</span>
+          <span class="badge">Section 963</span>
+        </div>
+        <p class="title-meta">Instructor: Dr.</p>
+        <p class="title-school">College of Computer and Information Sciences (CCIS)</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-member">SHOUG FAWAZ ABDULLAH ALOMRAN<br /></div>
+        <div class="team-member">ALJOHARAH WALEED A ALBAWARDI<br /></div>
+        <div class="team-member">YARA MUTLAQ MOHAMMED ALZAMEL<br /></div>
+        <div class="team-member">FAI MOHAMMAD BIN KHANJAR<br /></div>
+      </div>
+    </div>
+
+    <!-- =========================
+         TITLE SLIDE (AR)
+         ========================= -->
+    <div class="slide title-slide" data-lang="ar">
+      <div class="title-header">
+        <h1>تبادل مفاتيح ديفي–هيلمان</h1>
+        <p class="subtitle">التنفيذ والتحليل بلغة جافا</p>
+        <div>
+          <span class="badge">CS285: الرياضيات المتقطعة</span>
+          <span class="badge">الشعبة 963</span>
+        </div>
+        <p class="title-meta">المحاضر: د.</p>
+        <p class="title-school">كلية علوم الحاسب والمعلومات (CCIS)</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-member">SHOUG FAWAZ ABDULLAH ALOMRAN<br /></div>
+        <div class="team-member">ALJOHARAH WALEED A ALBAWARDI<br /></div>
+        <div class="team-member">YARA MUTLAQ MOHAMMED ALZAMEL<br /></div>
+        <div class="team-member">FAI MOHAMMAD BIN KHANJAR<br /></div>
+      </div>
+    </div>
+
+    <!-- =========================
+         TOC (EN)
+         ========================= -->
+    <div class="slide toc-slide" data-lang="en">
+      <h2>Table of Contents</h2>
+      <p>Jump to any section of the report:</p>
+      <div class="toc-grid">
+        <a class="toc-link" href="#sec-1-en">1. Introduction</a>
+        <a class="toc-link" href="#sec-1-1-en">1.1 Purpose and Applications</a>
+        <a class="toc-link" href="#sec-1-2-en">1.2 Algorithm Explanation</a>
+        <a class="toc-link" href="#sec-1-3-en">1.3 Numerical Example</a>
+        <a class="toc-link" href="#sec-1-4-en">1.4 Advantages and Limitations</a>
+        <a class="toc-link" href="#sec-1-5-en">1.5 DH vs ECDH Comparison</a>
+        <a class="toc-link" href="#sec-2-en">2. Code Description</a>
+        <a class="toc-link" href="#sec-2-1-en">2.1 Program Flow</a>
+        <a class="toc-link" href="#sec-2-2-en">2.2 Implementation Details</a>
+        <a class="toc-link" href="#sec-2-3-en">2.3 Challenges and Solutions</a>
+        <a class="toc-link" href="#sec-3-en">3. Results and Test Cases</a>
+        <a class="toc-link" href="#sec-4-en">4. Team Contribution</a>
+        <a class="toc-link" href="#sec-5-en">5. Conclusion</a>
+        <a class="toc-link" href="#sec-6-en">6. References and Resources</a>
+        <a class="toc-link" href="#sec-appendix-en">Appendix: Full Source Code</a>
+      </div>
+    </div>
+
+    <!-- =========================
+         TOC (AR)
+         ========================= -->
+    <div class="slide toc-slide" data-lang="ar">
+      <h2>جدول المحتويات</h2>
+      <p>انتقل إلى أي قسم في التقرير:</p>
+      <div class="toc-grid">
+        <a class="toc-link" href="#sec-1-ar">1. المقدمة</a>
+        <a class="toc-link" href="#sec-1-1-ar">1.1 الهدف والتطبيقات</a>
+        <a class="toc-link" href="#sec-1-2-ar">1.2 شرح الخوارزمية</a>
+        <a class="toc-link" href="#sec-1-3-ar">1.3 مثال عددي</a>
+        <a class="toc-link" href="#sec-1-4-ar">1.4 المزايا والقيود</a>
+        <a class="toc-link" href="#sec-1-5-ar">1.5 مقارنة DH و ECDH</a>
+        <a class="toc-link" href="#sec-2-ar">2. وصف الشيفرة</a>
+        <a class="toc-link" href="#sec-2-1-ar">2.1 تدفق البرنامج</a>
+        <a class="toc-link" href="#sec-2-2-ar">2.2 تفاصيل التنفيذ</a>
+        <a class="toc-link" href="#sec-2-3-ar">2.3 التحديات والحلول</a>
+        <a class="toc-link" href="#sec-3-ar">3. النتائج وحالات الاختبار</a>
+        <a class="toc-link" href="#sec-4-ar">4. مساهمة الفريق</a>
+        <a class="toc-link" href="#sec-5-ar">5. الخاتمة</a>
+        <a class="toc-link" href="#sec-6-ar">6. المراجع والموارد</a>
+        <a class="toc-link" href="#sec-appendix-ar">الملحق: الشيفرة المصدرية الكاملة</a>
+      </div>
+    </div>
+
+    <!-- =========================
+         1. INTRO (EN)
+         ========================= -->
+    <div class="slide" data-lang="en">
+      <h2 id="sec-1-en">1. Introduction</h2>
+      <p>In today's digital world, secure communication is the need of the hour to protect sensitive information being
+        exchanged over public networks. The Diffie-Hellman key exchange algorithm allows two parties to agree on a
+        shared secret key without actually exchanging it, and forms a basis for many of today's encryption schemes.</p>
+      <p>The following Java code for the Diffie–Hellman implementation is provided for CS285, Discrete Mathematics for
+        Computing. The developed system incorporates fundamental mathematical concepts regarding modular arithmetic and
+        exponentiation. The system simulates secure key generation and exchange between two entities using the
+        Diffie–Hellman key exchange method. A simple encryption and decryption mechanism has also been provided to
+        illustrate how the derived shared key can be used to secure messages.</p>
+      <p>We divide the program into the following classes: Parameters handles all public values, KeyExchange generates
+        and computes keys, Encryptor encrypts messages, and Validator, Helpers, and Utils ensure correct input handling
+        and output formatting. The Main class integrates all components of the system and allows users to test both a
+        predefined numerical example and a live interactive mode.</p>
+      <p>The project ties together theoretical mathematics and programming in practice, showing how secure key exchange
+        and encryption work in real-world systems.</p>
+    </div>
+
+    <!-- =========================
+         1. INTRO (AR)
+         ========================= -->
+    <div class="slide" data-lang="ar">
+      <h2 id="sec-1-ar">1. المقدمة</h2>
+      <p>في عالمنا الرقمي اليوم أصبحت الاتصالات الآمنة ضرورة لحماية المعلومات الحساسة التي يتم تبادلها عبر الشبكات
+        العامة. تتيح خوارزمية تبادل المفاتيح ديفي–هيلمان لطرفين الاتفاق على مفتاح سري مشترك دون تبادله بشكل مباشر، وهي
+        أساس لكثير من أنظمة التشفير الحديثة.</p>
+      <p>تُقدم شيفرة جافا التالية كتطبيق لطريقة ديفي–هيلمان ضمن مقرر CS285 (الرياضيات المتقطعة للحوسبة). يعتمد النظام
+        على مفاهيم رياضية أساسية مثل الحساب المعياري والأسس. يحاكي النظام توليد المفاتيح وتبادلها بشكل آمن بين كيانين
+        باستخدام ديفي–هيلمان، كما يتضمن آلية بسيطة للتشفير وفك التشفير لتوضيح كيفية استخدام المفتاح المشترك لحماية
+        الرسائل.</p>
+      <p>تم تقسيم البرنامج إلى عدة أصناف: يتولى <em>Parameters</em> القيم العامة، ويقوم <em>KeyExchange</em> بتوليد
+        وحساب المفاتيح، ويقوم <em>Encryptor</em> بتشفير الرسائل، بينما تضمن <em>Validator</em> و <em>Helpers</em> و
+        <em>Utils</em> صحة المدخلات وتنسيق المخرجات. يقوم الصنف <em>Main</em> بدمج جميع المكونات ويوفر وضع المثال العددي
+        ووضعًا تفاعليًا مباشرًا.</p>
+      <p>يربط هذا المشروع بين النظرية الرياضية والتطبيق البرمجي لإظهار كيفية عمل تبادل المفاتيح والتشفير في الأنظمة
+        الواقعية.</p>
+    </div>
+
+    <!-- =========================
+         1.1 PURPOSE (EN)
+         ========================= -->
+    <div class="slide" data-lang="en">
+      <h3 id="sec-1-1-en">1.1 Purpose of the Diffie–Hellman Key Exchange and Its Applications</h3>
+      <p>The Diffie-Hellman key exchange is a cryptography technique whose main purpose is to allow two parties to
+        exchange a key that can be used for encrypting messages. This shared key can be used in public channels that
+        ensures no one unauthorized can read it. The key concept was developed by Ralph Merkle but was published by
+        Whitfield Diffie and Martin Hellman in 1976, which is why it's named after them.</p>
+      <div class="card">
+        <h4>Real-World Applications</h4>
+        <ul>
+          <li><strong>TLS:</strong> DH variants during the handshake generate session keys that protect web traffic.
+          </li>
+          <li><strong>SSH:</strong> Establishes a secret key early in the connection to secure commands and file
+            transfers.</li>
+          <li><strong>Royal Convoy Security:</strong> Vehicles and control centers coordinate securely using a DH-family
+            exchange.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- =========================
+         1.1 PURPOSE (AR)
+         ========================= -->
+    <div class="slide" data-lang="ar">
+      <h3 id="sec-1-1-ar">1.1 الهدف من تبادل مفاتيح ديفي–هيلمان وتطبيقاته</h3>
+      <p>يُعد تبادل مفاتيح ديفي–هيلمان أسلوبًا في علم التشفير يهدف إلى تمكين طرفين من إنشاء مفتاح مشترك يمكن استخدامه
+        لتشفير الرسائل. يتم إنشاء المفتاح عبر قناة عامة بحيث لا يستطيع غير المصرح لهم استخلاصه. طُورت الفكرة الأساسية
+        بواسطة رالف ميركل، ثم نُشرت رسميًا بواسطة ويتفيلد ديفي ومارتن هيلمان عام 1976، ومن هنا جاءت التسمية.</p>
+      <div class="card">
+        <h4>تطبيقات واقعية</h4>
+        <ul>
+          <li><strong>TLS:</strong> تُستخدم أشكال DH أثناء المصافحة لإنشاء مفاتيح جلسة تحمي حركة الويب.</li>
+          <li><strong>SSH:</strong> ينشئ مفتاحًا سريًا في بداية الاتصال لتأمين الأوامر ونقل الملفات.</li>
+          <li><strong>أمن المواكب:</strong> يمكن للمركبات ومراكز التحكم التنسيق بشكل آمن باستخدام تبادل من عائلة DH.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- =========================
+         1.2 ALGO (EN)
+         ========================= -->
+    <div class="slide" data-lang="en">
+      <h3 id="sec-1-2-en">1.2 Algorithm Explanation</h3>
+      <p>The Diffie–Hellman key exchange algorithm allows two parties to create a common secret over insecure channels
+        by performing modular exponentiation on agreed public parameters.</p>
+      <div class="card-green">
+        <h4>How It Works</h4>
+        <ol>
+          <li>Agree on prime <strong>q</strong> and generator (primitive root) <strong>α</strong>.</li>
+          <li>Choose private keys <strong>Xa</strong> and <strong>Xb</strong> with 1 ≤ X &lt; q−1.</li>
+          <li>Compute public keys: <em>Ya = α<sup>Xa</sup> mod q</em>, <em>Yb = α<sup>Xb</sup> mod q</em>.</li>
+          <li>Exchange <em>Ya</em> and <em>Yb</em>.</li>
+          <li>Compute shared secret: <em>k = Yb<sup>Xa</sup> mod q = Ya<sup>Xb</sup> mod q</em>.</li>
+        </ol>
+      </div>
+      <p>Even though q, α, Ya, and Yb are public, inferring Xa or Xb is computationally infeasible for large,
+        well-chosen parameters due to the Discrete Logarithm Problem.</p>
+    </div>
+
+    <!-- =========================
+         1.2 ALGO (AR)
+         ========================= -->
+    <div class="slide" data-lang="ar">
+      <h3 id="sec-1-2-ar">1.2 شرح الخوارزمية</h3>
+      <p>تُمكّن خوارزمية ديفي–هيلمان طرفين من إنشاء سر مشترك عبر قناة غير آمنة من خلال إجراء عمليات الأسس المعيارية على
+        معلمات عامة يتم الاتفاق عليها مسبقًا.</p>
+      <div class="card-green">
+        <h4>كيف تعمل</h4>
+        <ol>
+          <li>الاتفاق على عدد أولي <strong>q</strong> ومولّد (جذر بدائي) <strong>α</strong>.</li>
+          <li>اختيار مفاتيح خاصة <strong>Xa</strong> و <strong>Xb</strong> بحيث 1 ≤ X &lt; q−1.</li>
+          <li>حساب المفاتيح العامة: <em>Ya = α<sup>Xa</sup> mod q</em> و <em>Yb = α<sup>Xb</sup> mod q</em>.</li>
+          <li>تبادل <em>Ya</em> و <em>Yb</em>.</li>
+          <li>حساب السر المشترك: <em>k = Yb<sup>Xa</sup> mod q = Ya<sup>Xb</sup> mod q</em>.</li>
+        </ol>
+      </div>
+      <p>رغم أن q و α و Ya و Yb قيم عامة، فإن استنتاج Xa أو Xb غير عملي حسابيًا عند استخدام معلمات كبيرة ومختارة بشكل
+        صحيح بسبب صعوبة مسألة اللوغاريتم المتقطع.</p>
+    </div>
+
+    <!-- =========================
+         1.3 NUMERICAL (EN)
+         ========================= -->
+    <div class="slide" data-lang="en">
+      <h3 id="sec-1-3-en">1.3 Numerical Example</h3>
+      <p>Two cars and a control center must communicate securely during a royal convoy.</p>
+      <div class="card-purple">
+        <h4>Step-by-Step Calculation</h4>
+        <ol>
+          <li>Public parameters: <strong>q = 23</strong>, <strong>α = 5</strong>.</li>
+          <li>Car 1 chooses <strong>Xa = 6</strong> → <em>Ya = 5<sup>6</sup> mod 23 = 8</em>.</li>
+          <li>Car 2 chooses <strong>Xb = 15</strong> → <em>Yb = 5<sup>15</sup> mod 23 = 19</em>.</li>
+          <li>Exchange <em>Ya</em> and <em>Yb</em>.</li>
+          <li>Shared secret: Car 1 → <em>19<sup>6</sup> mod 23 = 2</em>; Car 2 → <em>8<sup>15</sup> mod 23 = 2</em>.
+          </li>
+          <li>Both derive the same key: <strong>2</strong>.</li>
+        </ol>
+      </div>
+      <div class="screenshot">
+        <img src="img/numerical-example-fixed.png" alt="Numerical Example Screenshot" />
+        <p class="screenshot-caption">Numerical example with fixed values (q=23, α=5).</p>
+      </div>
+    </div>
+
+    <!-- =========================
+         1.3 NUMERICAL (AR)
+         ========================= -->
+    <div class="slide" data-lang="ar">
+      <h3 id="sec-1-3-ar">1.3 مثال عددي</h3>
+      <p>تحتاج سيارتان ومركز تحكم إلى التواصل بشكل آمن أثناء موكب رسمي.</p>
+      <div class="card-purple">
+        <h4>الحساب خطوة بخطوة</h4>
+        <ol>
+          <li>المعلمات العامة: <strong>q = 23</strong> و <strong>α = 5</strong>.</li>
+          <li>تختار السيارة 1 <strong>Xa = 6</strong> → <em>Ya = 5<sup>6</sup> mod 23 = 8</em>.</li>
+          <li>تختار السيارة 2 <strong>Xb = 15</strong> → <em>Yb = 5<sup>15</sup> mod 23 = 19</em>.</li>
+          <li>يتم تبادل <em>Ya</em> و <em>Yb</em>.</li>
+          <li>السر المشترك: السيارة 1 → <em>19<sup>6</sup> mod 23 = 2</em> وال سيارة 2 → <em>8<sup>15</sup> mod 23 =
+              2</em>.</li>
+          <li>يتوصل الطرفان إلى نفس المفتاح: <strong>2</strong>.</li>
+        </ol>
+      </div>
+      <div class="screenshot">
+        <img src="img/numerical-example-fixed.png" alt="Numerical Example Screenshot" />
+        <p class="screenshot-caption">مثال عددي بقيم ثابتة (q=23 و α=5).</p>
+      </div>
+    </div>
+
+    <!-- =========================
+         1.4 ADV/LIMIT (EN)
+         ========================= -->
+    <div class="slide" data-lang="en">
+      <h3 id="sec-1-4-en">1.4 Advantages and Limitations of Diffie–Hellman</h3>
+
+      <div class="feature-box">
+        <div class="advantage-box">
+          <h4>Strengths of Diffie–Hellman</h4>
+          <ul>
+            <li><strong>No pre-shared secret:</strong> Two parties can securely derive a shared key over a public
+              channel.</li>
+            <li><strong>Forward secrecy (with ephemeral keys):</strong> New private keys per session protect past
+              communications.</li>
+            <li><strong>Mathematical soundness:</strong> Security rests on the Discrete Logarithm Problem (DLP).</li>
+            <li><strong>Widely implemented:</strong> A proven cornerstone of secure protocols for decades.</li>
+          </ul>
+        </div>
+
+        <div class="limitation-box">
+          <h4>Limitations of Diffie–Hellman</h4>
+          <ul>
+            <li><strong>No authentication by default:</strong> Vulnerable to MitM unless combined with certificates or
+              signatures.</li>
+            <li><strong>Weak parameter selection:</strong> Small or reused primes can enable precomputation attacks.
+            </li>
+            <li><strong>Performance overhead:</strong> Large modular exponentiations are heavy vs symmetric crypto.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>While Diffie–Hellman provides a strong mathematical basis for key exchange, its security depends on careful
+        parameter management and the inclusion of authentication to avoid interception or impersonation.</p>
+    </div>
+
+    <!-- =========================
+         1.4 ADV/LIMIT (AR)
+         ========================= -->
+    <div class="slide" data-lang="ar">
+      <h3 id="sec-1-4-ar">1.4 المزايا والقيود في ديفي–هيلمان</h3>
+
+      <div class="feature-box">
+        <div class="advantage-box">
+          <h4>نقاط القوة</h4>
+          <ul>
+            <li><strong>لا يحتاج سرًا مسبقًا:</strong> يمكن لطرفين اشتقاق مفتاح مشترك عبر قناة عامة.</li>
+            <li><strong>سرية أمامية (مع مفاتيح مؤقتة):</strong> مفاتيح جديدة لكل جلسة تحمي الاتصالات السابقة.</li>
+            <li><strong>متانة رياضية:</strong> الأمان قائم على صعوبة مسألة اللوغاريتم المتقطع.</li>
+            <li><strong>شائع الاستخدام:</strong> حجر أساس في بروتوكولات الأمان منذ عقود.</li>
+          </ul>
+        </div>
+
+        <div class="limitation-box">
+          <h4>القيود</h4>
+          <ul>
+            <li><strong>بدون توثيق افتراضي:</strong> قابل لهجوم الرجل في الوسط ما لم يُدمج مع شهادات أو توقيعات.</li>
+            <li><strong>اختيار معلمات ضعيف:</strong> استخدام أعداد أولية صغيرة أو معاد استخدامها قد يسهّل هجمات الاستباق
+              الحسابي.</li>
+            <li><strong>عبء أداء:</strong> عمليات الأسس المعيارية الكبيرة أبطأ مقارنة بالتشفير المتماثل.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>رغم أن ديفي–هيلمان يقدم أساسًا رياضيًا قويًا لتبادل المفاتيح، إلا أن الأمان يعتمد على إدارة المعلمات بعناية
+        وإضافة طبقة توثيق لتجنب الاعتراض أو الانتحال.</p>
+    </div>
+
+    <!-- =========================
+         1.5 DH vs ECDH (EN)
+         ========================= -->
+    <div class="slide" data-lang="en">
+      <h3 id="sec-1-5-en">1.5 Comparison Between Diffie–Hellman (DH) and Elliptic Curve Diffie–Hellman (ECDH)</h3>
+      <p>Elliptic Curve Diffie–Hellman (ECDH) follows the same principle as DH but replaces modular arithmetic with
+        elliptic-curve mathematics, providing stronger security with smaller key sizes.</p>
+
+      <div class="card-purple">
+        <h4>Shared Principles</h4>
+        <ul>
+          <li>Both allow two parties to establish a shared secret without prior key exchange.</li>
+          <li>Security relies on computational hardness problems: DLP (DH) and ECDLP (ECDH).</li>
+          <li>Neither provides authentication by itself; must be combined with signatures or certificates.</li>
+          <li>Both can achieve forward secrecy using ephemeral key pairs.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Key Differences</h4>
+        <ul>
+          <li><strong>Security per bit:</strong> ECDH achieves equivalent security with smaller key sizes.</li>
+          <li><strong>Performance:</strong> ECDH is typically faster and lighter on constrained devices.</li>
+          <li><strong>Parameter handling:</strong> DH uses primes and generators; ECDH uses standardized curves.</li>
+          <li><strong>Resistance to precomputation:</strong> Curves reduce feasibility of mass precomputation attacks.
+          </li>
+          <li><strong>Deployment:</strong> ECDH dominates modern protocols (e.g., TLS 1.3).</li>
+        </ul>
+      </div>
+
+      <div class="screenshot">
+        <img src="img/venn-diagram.png" alt="DH vs ECDH Venn Diagram" />
+        <p class="screenshot-caption">Overlap between DH and ECDH.</p>
+      </div>
+    </div>
+
+    <!-- =========================
+         1.5 DH vs ECDH (AR)
+         ========================= -->
+    <div class="slide" data-lang="ar">
+      <h3 id="sec-1-5-ar">1.5 مقارنة ديفي–هيلمان (DH) مع ديفي–هيلمان بالمنحنيات الإهليلجية (ECDH)</h3>
+      <p>يتبع ECDH نفس مبدأ DH لكنه يستبدل الحساب المعياري برياضيات المنحنيات الإهليلجية، مما يوفر أمانًا أعلى بمفاتيح
+        أصغر.</p>
+
+      <div class="card-purple">
+        <h4>مبادئ مشتركة</h4>
+        <ul>
+          <li>كلاهما يمكّن طرفين من إنشاء سر مشترك دون تبادل مفتاح مسبقًا.</li>
+          <li>يعتمد الأمان على مسائل صعبة حسابيًا: DLP في DH و ECDLP في ECDH.</li>
+          <li>لا يوفر أي منهما توثيقًا بذاته؛ يجب دمجه مع توقيعات أو شهادات.</li>
+          <li>يمكن تحقيق السرية الأمامية باستخدام مفاتيح مؤقتة.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>أهم الفروقات</h4>
+        <ul>
+          <li><strong>الأمان لكل بت:</strong> يحقق ECDH أمانًا مكافئًا بمفاتيح أصغر.</li>
+          <li><strong>الأداء:</strong> غالبًا ما يكون ECDH أسرع وأخف على الأجهزة محدودة الموارد.</li>
+          <li><strong>إدارة المعلمات:</strong> يعتمد DH على اختيار q و α، بينما يستخدم ECDH منحنيات معيارية.</li>
+          <li><strong>مقاومة الاستباق الحسابي:</strong> تقل قابلية هجمات الاستباق واسعة النطاق مع المنحنيات.</li>
+          <li><strong>الانتشار:</strong> يهيمن ECDH على البروتوكولات الحديثة (مثل TLS 1.3).</li>
+        </ul>
+      </div>
+
+      <div class="screenshot">
+        <img src="img/venn-diagram.png" alt="DH vs ECDH Venn Diagram" />
+        <p class="screenshot-caption">منطقة التقاطع بين DH و ECDH.</p>
+      </div>
+    </div>
+
+    <!-- =========================
+         2. CODE DESCRIPTION (EN)
+         ========================= -->
+    <div class="slide" data-lang="en">
+      <h2 id="sec-2-en">2. Code Description</h2>
+      <h3 id="sec-2-1-en">2.1 How the Program Works</h3>
+      <p>The program is organized into classes: <em>Main</em> (driver), <em>Parameters</em> (public values q and α),
+        <em>KeyExchange</em> (private/public keys and shared secret), <em>Encryptor</em> (demo XOR encryption keyed by
+        SHA-256(shared secret)), <em>Validator</em> (prime/range/message validations), <em>Utils</em> (helpers), and
+        <em>Helpers</em> (interactive prompts).</p>
+    </div>
+
+    <!-- =========================
+         2. CODE DESCRIPTION (AR)
+         ========================= -->
+    <div class="slide" data-lang="ar">
+      <h2 id="sec-2-ar">2. وصف الشيفرة</h2>
+      <h3 id="sec-2-1-ar">2.1 كيف يعمل البرنامج</h3>
+      <p>يتكون البرنامج من عدة أصناف: <em>Main</em> (المشغّل)، <em>Parameters</em> (القيم العامة q و α)،
+        <em>KeyExchange</em> (المفاتيح الخاصة والعامة والسر المشترك)، <em>Encryptor</em> (تشفير XOR توضيحي مع مفتاح مشتق
+        من SHA-256 للسر المشترك)، <em>Validator</em> (التحقق من القيم)، <em>Utils</em> (مساعدات عامة)، و
+        <em>Helpers</em> (مطالبات تفاعلية).</p>
+    </div>
+
+    <!-- =========================
+         2.2 IMPLEMENTATION (EN)
+         ========================= -->
+    <div class="slide" data-lang="en">
+      <h3 id="sec-2-2-en">2.2 Implementation of Each Part</h3>
+
+      <h4>Key Generation</h4>
+      <div class="code-container">
+        <div class="code-header">Key Generation Implementation</div>
+        <div class="code-block">private void generateKeys() {
+          this.privateKey = new BigInteger(getQ().bitLength(), random)
+          .mod(getQ().subtract(BigInteger.TWO))
+          .add(BigInteger.ONE); // 1 <= x <=q-2 this.publicKey=getAlpha().modPow(privateKey, getQ()); // Y=α^x mod q
+            }</div>
+        </div>
+        <p>The private key is uniform in [1, q−2]. The public key is computed as Y = α^x mod q.</p>
+
+        <h4>Encryption</h4>
+        <div class="code-container">
+          <div class="code-header">Encryption Implementation</div>
+          <div class="code-block">String encrypt(String msg, BigInteger sharedKey) throws Exception {
+            byte[] msgByte = msg.getBytes(StandardCharsets.UTF_8);
+            byte[] keyByte = Key(sharedKey); // SHA-256 hash of shared key
+            byte[] cipherMsgByte = xor(msgByte, keyByte); // demo XOR cipher
+            return Base64.getEncoder().encodeToString(cipherMsgByte);
+            }</div>
+        </div>
+        <p>For demonstration, we hash the shared secret to a fixed-length byte key and XOR the plaintext bytes, then
+          Base64-encode.</p>
+
+        <h4>Decryption</h4>
+        <div class="code-container">
+          <div class="code-header">Decryption Implementation</div>
+          <div class="code-block">String decrypt(String base64cipherMsg, BigInteger sharedKey) throws Exception {
+            byte[] keyByte = Key(sharedKey);
+            byte[] cipherMsgByte = Base64.getDecoder().decode(base64cipherMsg);
+            byte[] msgByte = xor(cipherMsgByte, keyByte);
+            return new String(msgByte, StandardCharsets.UTF_8);
+            }</div>
+        </div>
+        <p>Using the same hash and XOR reverses the demo cipher and recovers the message.</p>
+      </div>
+
+      <!-- =========================
+         2.2 IMPLEMENTATION (AR)
+         ========================= -->
+      <div class="slide" data-lang="ar">
+        <h3 id="sec-2-2-ar">2.2 تفاصيل التنفيذ</h3>
+
+        <h4>توليد المفاتيح</h4>
+        <div class="code-container">
+          <div class="code-header">Key Generation Implementation</div>
+          <div class="code-block">private void generateKeys() {
+            this.privateKey = new BigInteger(getQ().bitLength(), random)
+            .mod(getQ().subtract(BigInteger.TWO))
+            .add(BigInteger.ONE); // 1 <= x <=q-2 this.publicKey=getAlpha().modPow(privateKey, getQ()); // Y=α^x mod q
+              }</div>
+          </div>
+          <p>يتم اختيار المفتاح الخاص بشكل منتظم ضمن المجال [1, q−2]، ثم يُحسب المفتاح العام وفق Y = α^x mod q.</p>
+
+          <h4>التشفير</h4>
+          <div class="code-container">
+            <div class="code-header">Encryption Implementation</div>
+            <div class="code-block">String encrypt(String msg, BigInteger sharedKey) throws Exception {
+              byte[] msgByte = msg.getBytes(StandardCharsets.UTF_8);
+              byte[] keyByte = Key(sharedKey); // SHA-256 hash of shared key
+              byte[] cipherMsgByte = xor(msgByte, keyByte); // demo XOR cipher
+              return Base64.getEncoder().encodeToString(cipherMsgByte);
+              }</div>
+          </div>
+          <p>لأغراض التوضيح، يتم تجزئة السر المشترك لإنتاج مفتاح بطول ثابت ثم إجراء XOR على بايتات النص، وبعدها ترميز
+            الناتج بصيغة Base64.</p>
+
+          <h4>فك التشفير</h4>
+          <div class="code-container">
+            <div class="code-header">Decryption Implementation</div>
+            <div class="code-block">String decrypt(String base64cipherMsg, BigInteger sharedKey) throws Exception {
+              byte[] keyByte = Key(sharedKey);
+              byte[] cipherMsgByte = Base64.getDecoder().decode(base64cipherMsg);
+              byte[] msgByte = xor(cipherMsgByte, keyByte);
+              return new String(msgByte, StandardCharsets.UTF_8);
+              }</div>
+          </div>
+          <p>استخدام نفس التجزئة وعملية XOR يعكس التشفير ويسترجع الرسالة الأصلية.</p>
+        </div>
+
+        <!-- =========================
+         2.3 CHALLENGES (EN)
+         ========================= -->
+        <div class="slide" data-lang="en">
+          <h3 id="sec-2-3-en">2.3 Challenges Faced and How We Overcame Them</h3>
+          <div class="card-yellow">
+            <h4>Input Validation</h4>
+            <p>Non-prime q, invalid α ranges, or short messages previously crashed the program; robust prompting loops
+              now enforce constraints and re-ask on error.</p>
+          </div>
+          <div class="card-yellow">
+            <h4>Class Integration</h4>
+            <p>Standardized method names and types across modules to simplify the Main driver and reduce coupling
+              issues.</p>
+          </div>
+          <div class="card-yellow">
+            <h4>Modular Arithmetic Accuracy</h4>
+            <p>Adopted Java’s <code>modPow</code> to avoid overflow and correctness issues for public/shared key
+              derivations.</p>
+          </div>
+          <div class="card-yellow">
+            <h4>Byte Handling Consistency</h4>
+            <p>Enforced UTF-8 and Base64 to keep encryption/decryption round-trips stable across platforms.</p>
+          </div>
+        </div>
+
+        <!-- =========================
+         2.3 CHALLENGES (AR)
+         ========================= -->
+        <div class="slide" data-lang="ar">
+          <h3 id="sec-2-3-ar">2.3 التحديات وكيف تم تجاوزها</h3>
+          <div class="card-yellow">
+            <h4>التحقق من المدخلات</h4>
+            <p>كانت القيم غير الأولية لـ q أو قيم α خارج النطاق أو الرسائل القصيرة تسبب أعطالًا؛ تمت إضافة حلقات إدخال
+              تتحقق من الشروط وتعيد الطلب عند الخطأ.</p>
+          </div>
+          <div class="card-yellow">
+            <h4>تكامل الأصناف</h4>
+            <p>تم توحيد أسماء الدوال وأنواع البيانات بين المكونات لتبسيط الصنف Main وتقليل التشابك.</p>
+          </div>
+          <div class="card-yellow">
+            <h4>دقة الحسابات المعيارية</h4>
+            <p>تم الاعتماد على <code>modPow</code> في جافا لتجنب مشاكل الفيض وضمان صحة اشتقاق المفاتيح.</p>
+          </div>
+          <div class="card-yellow">
+            <h4>ثبات معالجة البايتات</h4>
+            <p>تم اعتماد UTF-8 و Base64 لضمان ثبات عملية التشفير وفك التشفير عبر المنصات.</p>
+          </div>
+        </div>
+
+        <!-- =========================
+         3. RESULTS (EN)
+         ========================= -->
+        <div class="slide" data-lang="en">
+          <h2 id="sec-3-en">3. Results and Test Cases</h2>
+
+          <h3 id="sec-3-live-manual-en">Live Mode – Manual</h3>
+          <div class="screenshot">
+            <a href="img/live-mode-manual.png" target="_blank" rel="noopener">
+              <img src="img/live-mode-manual.png" alt="Live Mode Manual">
+            </a>
+            <p class="screenshot-caption">Manual input of q, α, and message – valid parameters and correct key exchange.
+            </p>
+          </div>
+          <p>In manual live mode, users provide q, α, and the message. The program validates inputs, computes public
+            keys, derives the shared key, encrypts, and then decrypts the message. Successful decryption confirms both
+            parties derived the same shared key.</p>
+
+          <div class="card-yellow">
+            <h4>Observation</h4>
+            <p>This confirms that the program correctly implements the mathematical logic of the Diffie–Hellman key
+              exchange algorithm.</p>
+          </div>
+
+          <hr style="margin:40px 0; border:1px solid var(--border);">
+
+          <h3 id="sec-3-live-alpha-en">Live Mode – Alpha Error</h3>
+          <div class="screenshot">
+            <a href="img/live-mode-alpha-error.png" target="_blank" rel="noopener">
+              <img src="img/live-mode-alpha-error.png" alt="Alpha Error">
+            </a>
+            <p class="screenshot-caption">Invalid α range, the system rejects and re-prompts until valid.</p>
+          </div>
+          <p>This test demonstrates input validation. If α is outside (1 &lt; α &lt; q), the program rejects it and
+            re-prompts, preventing invalid configurations.</p>
+
+          <div class="card-green">
+            <h4>Validation Mechanism</h4>
+            <p>The <code>Validator</code> and <code>Helpers</code> classes enforce constraints for q and α before
+              continuing.</p>
+          </div>
+
+          <hr style="margin:40px 0; border:1px solid var(--border);">
+
+          <h3 id="sec-3-numerical-en">Numerical Example (Fixed)</h3>
+          <div class="screenshot">
+            <a href="img/numerical-example-fixed.png" target="_blank" rel="noopener">
+              <img src="img/numerical-example-fixed.png" alt="Numerical Example Fixed">
+            </a>
+            <p class="screenshot-caption">Fixed small integer example – both users derive identical shared key (K).</p>
+          </div>
+          <p>This example uses small integer values to visually demonstrate how two users derive the same shared secret
+            key.</p>
+        </div>
+
+        <!-- =========================
+         3. RESULTS (AR)
+         ========================= -->
+        <div class="slide" data-lang="ar">
+          <h2 id="sec-3-ar">3. النتائج وحالات الاختبار</h2>
+
+          <h3 id="sec-3-live-manual-ar">الوضع المباشر – يدوي</h3>
+          <div class="screenshot">
+            <a href="img/live-mode-manual.png" target="_blank" rel="noopener">
+              <img src="img/live-mode-manual.png" alt="Live Mode Manual">
+            </a>
+            <p class="screenshot-caption">إدخال يدوي لـ q و α والرسالة – معلمات صحيحة وتبادل مفاتيح سليم.</p>
+          </div>
+          <p>في الوضع المباشر اليدوي، يقوم المستخدم بإدخال q و α والرسالة. يتحقق النظام من صحة المدخلات، ثم يحسب
+            المفاتيح العامة ويشتق المفتاح المشترك ويجري التشفير وفك التشفير. نجاح فك التشفير يثبت أن الطرفين حصلا على
+            نفس المفتاح.</p>
+
+          <div class="card-yellow">
+            <h4>ملاحظة</h4>
+            <p>يؤكد ذلك أن البرنامج يطبق المنطق الرياضي لتبادل مفاتيح ديفي–هيلمان بشكل صحيح.</p>
+          </div>
+
+          <hr style="margin:40px 0; border:1px solid var(--border);">
+
+          <h3 id="sec-3-live-alpha-ar">الوضع المباشر – خطأ في α</h3>
+          <div class="screenshot">
+            <a href="img/live-mode-alpha-error.png" target="_blank" rel="noopener">
+              <img src="img/live-mode-alpha-error.png" alt="Alpha Error">
+            </a>
+            <p class="screenshot-caption">قيمة α غير صحيحة، يتم رفضها وإعادة الطلب حتى تصبح ضمن النطاق.</p>
+          </div>
+          <p>توضح هذه الحالة التحقق من المدخلات. إذا كانت α خارج (1 &lt; α &lt; q) يتم رفضها وإعادة الطلب لتجنب إعدادات
+            غير صحيحة.</p>
+
+          <div class="card-green">
+            <h4>آلية التحقق</h4>
+            <p>تعمل <code>Validator</code> و <code>Helpers</code> على فرض الشروط الخاصة بـ q و α قبل المتابعة.</p>
+          </div>
+
+          <hr style="margin:40px 0; border:1px solid var(--border);">
+
+          <h3 id="sec-3-numerical-ar">مثال عددي (ثابت)</h3>
+          <div class="screenshot">
+            <a href="img/numerical-example-fixed.png" target="_blank" rel="noopener">
+              <img src="img/numerical-example-fixed.png" alt="Numerical Example Fixed">
+            </a>
+            <p class="screenshot-caption">مثال بأعداد صغيرة – يحصل الطرفان على نفس المفتاح المشترك (K).</p>
+          </div>
+          <p>يستخدم هذا المثال أعدادًا صغيرة لتوضيح كيفية اشتقاق نفس السر المشترك بصريًا.</p>
+        </div>
+
+        <!-- =========================
+         4. TEAM (EN)
+         ========================= -->
+        <div class="slide" data-lang="en">
+          <h2 id="sec-4-en">4. Team Contribution</h2>
+          <p>All members collaborated on the Java implementation and the report. Roles below summarize primary ownership
+            while acknowledging shared reviews and integration work.</p>
+
+          <div class="team-card">
+            <h4>Yara Alzamel</h4>
+            <p>Established program scaffolding for public parameters and helper routines, including generation of q and
+              α and formatted output utilities.</p>
+          </div>
+
+          <div class="team-card">
+            <h4>Fai Bin Khanjar</h4>
+            <p>Implemented DH mathematics (private/public/shared keys) and authored the guided numerical example;
+              validated modular arithmetic correctness.</p>
+          </div>
+
+          <div class="team-card">
+            <h4>Aljoharah Albawardi</h4>
+            <p>Built the encryption/decryption demo atop the shared secret and executed test runs; documented security
+              considerations.</p>
+          </div>
+
+          <div class="team-card">
+            <h4>Shoug Alomran</h4>
+            <p>Integrated modules into the driver, implemented validations and resilient input loops, coordinated final
+              testing, and unified the report tone and structure.</p>
+          </div>
+        </div>
+
+        <!-- =========================
+         4. TEAM (AR)
+         ========================= -->
+        <div class="slide" data-lang="ar">
+          <h2 id="sec-4-ar">4. مساهمة الفريق</h2>
+          <p>ساهم جميع الأعضاء في تنفيذ المشروع بلغة جافا وإعداد التقرير. توضح النقاط التالية المسؤوليات الأساسية مع
+            الإشارة إلى العمل الجماعي في المراجعة والدمج.</p>
+
+          <div class="team-card">
+            <h4>Yara Alzamel</h4>
+            <p>إنشاء هيكل البرنامج للقيم العامة والدوال المساعدة بما يشمل توليد q و α وتنسيق المخرجات.</p>
+          </div>
+
+          <div class="team-card">
+            <h4>Fai Bin Khanjar</h4>
+            <p>تنفيذ رياضيات DH (المفاتيح الخاصة والعامة والمشتركة) وكتابة المثال العددي والتحقق من صحة الحسابات.</p>
+          </div>
+
+          <div class="team-card">
+            <h4>Aljoharah Albawardi</h4>
+            <p>بناء تجربة التشفير وفك التشفير بالاعتماد على المفتاح المشترك وتنفيذ حالات الاختبار وتوثيق اعتبارات
+              الأمان.</p>
+          </div>
+
+          <div class="team-card">
+            <h4>Shoug Alomran</h4>
+            <p>دمج المكونات في المشغّل وتطبيق التحقق من المدخلات وتنظيم الاختبارات النهائية وتوحيد أسلوب التقرير وبنيته.
+            </p>
+          </div>
+        </div>
+
+        <!-- =========================
+         5. CONCLUSION (EN)
+         ========================= -->
+        <div class="slide" data-lang="en">
+          <h2 id="sec-5-en">5. Conclusion</h2>
+          <p>The project demonstrates how two parties can establish a shared secret over an insecure network using
+            modular exponentiation and carefully validated parameters. It also highlights the importance of
+            authentication wrappers and ephemeral keys to achieve practical security goals.</p>
+          <div class="card">
+            <h4>Future Growth Opportunities</h4>
+            <p>Extend with authenticated key exchange, replace the demo XOR with AES-GCM using a KDF, and add ECDH
+              support with standardized curves.</p>
+          </div>
+        </div>
+
+        <!-- =========================
+         5. CONCLUSION (AR)
+         ========================= -->
+        <div class="slide" data-lang="ar">
+          <h2 id="sec-5-ar">5. الخاتمة</h2>
+          <p>يوضح المشروع كيفية تمكين طرفين من إنشاء سر مشترك عبر شبكة غير آمنة باستخدام الأسس المعيارية ومعلمات تم
+            التحقق منها بعناية. كما يبرز أهمية إضافة التوثيق والمفاتيح المؤقتة لتحقيق أهداف أمان عملية.</p>
+          <div class="card">
+            <h4>فرص التطوير مستقبلًا</h4>
+            <p>إضافة تبادل مفاتيح موثّق، واستبدال XOR التوضيحي بـ AES-GCM باستخدام KDF، وإضافة دعم ECDH عبر منحنيات
+              معيارية.</p>
+          </div>
+        </div>
+
+        <!-- =========================
+         6. REFERENCES (EN)
+         ========================= -->
+        <div class="slide" data-lang="en">
+          <h2 id="sec-6-en">6. References and Resources</h2>
+          <div class="reference">Ambatipudi, S. (2024, June 6). Cryptographic advancements enabled by Diffie–Hellman.
+            ISACA Journal, Volume 3.</div>
+          <div class="reference">Boneh, D., &amp; Shparlinski, I. E. (2001). On the unpredictability of bits of the
+            Elliptic Curve Diffie–Hellman scheme. CRYPTO 2001. Springer.</div>
+          <div class="reference">Diffie, W., &amp; Hellman, M. E. (1976). New directions in cryptography. IEEE
+            Transactions on Information Theory, 22(6), 644–654.</div>
+          <div class="reference">Haakegaard, R., &amp; Lang, J. (2015). The Elliptic Curve Diffie–Hellman (ECDH). UCSB.
+          </div>
+          <div class="reference">Krawczyk, H. (2005). HMQV: A High-Performance Secure Diffie-Hellman Protocol. Springer.
+          </div>
+        </div>
+
+        <!-- =========================
+         6. REFERENCES (AR)
+         ========================= -->
+        <div class="slide" data-lang="ar">
+          <h2 id="sec-6-ar">6. المراجع والموارد</h2>
+          <div class="reference">Ambatipudi, S. (2024, June 6). Cryptographic advancements enabled by Diffie–Hellman.
+            ISACA Journal, Volume 3.</div>
+          <div class="reference">Boneh, D., &amp; Shparlinski, I. E. (2001). On the unpredictability of bits of the
+            Elliptic Curve Diffie–Hellman scheme. CRYPTO 2001. Springer.</div>
+          <div class="reference">Diffie, W., &amp; Hellman, M. E. (1976). New directions in cryptography. IEEE
+            Transactions on Information Theory, 22(6), 644–654.</div>
+          <div class="reference">Haakegaard, R., &amp; Lang, J. (2015). The Elliptic Curve Diffie–Hellman (ECDH). UCSB.
+          </div>
+          <div class="reference">Krawczyk, H. (2005). HMQV: A High-Performance Secure Diffie-Hellman Protocol. Springer.
+          </div>
+        </div>
+
+        <!-- =========================
+         APPENDIX (EN)
+         ========================= -->
+        <div class="slide" data-lang="en">
+          <h2 id="sec-appendix-en">Appendix – Full Source Code</h2>
+
+          <div class="code-container">
+            <div class="code-header">Main Class</div>
+            <div class="code-block">/* Keep your full code here exactly as-is.
+              Code blocks are identical in both languages. */</div>
+          </div>
+        </div>
+
+        <!-- =========================
+         APPENDIX (AR)
+         ========================= -->
+        <div class="slide" data-lang="ar">
+          <h2 id="sec-appendix-ar">الملحق – الشيفرة المصدرية الكاملة</h2>
+
+          <div class="code-container">
+            <div class="code-header">Main Class</div>
+            <div class="code-block">/* ضع الشيفرة كاملة هنا كما هي.
+              الشيفرة لا تحتاج ترجمة. */</div>
+          </div>
+        </div>
+
+      </div>
+
+      <script>
+        (function () {
+          var themeKey = "reportTheme";
+          var langKey = "reportLang";
+
+          var ui = {
+            en: { dark: "Dark Mode", light: "Light Mode", download: "Download PDF" },
+            ar: { dark: "الوضع الداكن", light: "الوضع الفاتح", download: "تنزيل PDF" }
+          };
+
+          function setTheme(theme) {
+            document.documentElement.setAttribute("data-theme", theme);
+            var lang = document.documentElement.getAttribute("lang") || "en";
+            var btn = document.getElementById("themeToggle");
+            if (btn) {
+              btn.textContent = (theme === "dark") ? ui[lang].light : ui[lang].dark;
+            }
+            try { localStorage.setItem(themeKey, theme); } catch (e) { }
+          }
+
+          function setLang(lang) {
+            document.documentElement.setAttribute("lang", lang);
+            document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+
+            var sel = document.getElementById("langToggle");
+            var btn = document.getElementById("downloadPdfBtn");
+            if (sel) sel.value = lang;
+            if (btn) btn.textContent = ui[lang].download;
+
+            // Update theme button label to match language
+            var theme = document.documentElement.getAttribute("data-theme") || "light";
+            var themeBtn = document.getElementById("themeToggle");
+            if (themeBtn) {
+              themeBtn.textContent = (theme === "dark") ? ui[lang].light : ui[lang].dark;
+            }
+
+            try { localStorage.setItem(langKey, lang); } catch (e) { }
+          }
+
+          // Init
+          var theme = "light";
+          var lang = "en";
+          try {
+            theme = localStorage.getItem(themeKey) || "light";
+            lang = localStorage.getItem(langKey) || "en";
+          } catch (e) { }
+
+          setLang(lang);
+          setTheme(theme);
+
+          // Events
+          var themeBtn = document.getElementById("themeToggle");
+          var langSel = document.getElementById("langToggle");
+          var pdfBtn = document.getElementById("downloadPdfBtn");
+
+          if (themeBtn) {
+            themeBtn.addEventListener("click", function () {
+              var current = document.documentElement.getAttribute("data-theme") || "light";
+              setTheme(current === "dark" ? "light" : "dark");
+            });
+          }
+
+          if (langSel) {
+            langSel.addEventListener("change", function () {
+              setLang(this.value);
+            });
+          }
+
+          if (pdfBtn) {
+            pdfBtn.addEventListener("click", function () {
+              window.print();
+            });
+          }
+        })();
+      </script>
+</body>
+
+</html>

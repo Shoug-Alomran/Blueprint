@@ -1,6 +1,6 @@
 # Start Here
 
-Use this page to determine if Blueprint Studio is the right fit for your project — and how we move from concept to launch.
+Use this page to determine if Blueprint Studio is the right fit for your project, and how we move from concept to launch.
 
 ---
 

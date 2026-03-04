@@ -53,6 +53,7 @@ nav:
       - Review & Revisions: process/revisions.md
       - Deployment & Handover: process/deployment-handover.md
   - CV Templates: CV_index/CV_index.md
+  - HTML Reports: html-reports/index.md
   - Start Project: start-project/start-project.md
   - Work:
       - Work: web-platforms/index.md
@@ -98,6 +99,8 @@ plugins:
           name: العربية
           build: true
           site_name: "بلو برنت"
+          nav_translations:
+            HTML Reports: تقارير HTML
           theme:
             language: ar
 

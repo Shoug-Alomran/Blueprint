@@ -68,8 +68,8 @@ The approved build is published to production, validated across devices, and tra
 
 Handover requires both conditions to be met:
 
-1. **Final approval** — all included revision rounds completed and client sign-off confirmed  
-2. **Payment confirmation** — full payment received before repository access or source files are transferred  
+1. **Final approval**, all included revision rounds completed and client sign-off confirmed  
+2. **Payment confirmation**, full payment received before repository access or source files are transferred  
 
 ---
 
@@ -146,8 +146,8 @@ The approved build is published to production, validated across devices, and tra
 
 Handover requires both conditions to be met:
 
-1. **Final approval** — all included revision rounds completed and client sign-off confirmed  
-2. **Payment confirmation** — full payment received before repository access or source files are transferred  
+1. **Final approval**, all included revision rounds completed and client sign-off confirmed  
+2. **Payment confirmation**, full payment received before repository access or source files are transferred  
 
 ---
 
