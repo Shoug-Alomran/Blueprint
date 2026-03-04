@@ -100,7 +100,23 @@ plugins:
           build: true
           site_name: "بلو برنت"
           nav_translations:
+            Home: الرئيسية
+            Packages: الباقات
+            Process: العملية
+            Overview: نظرة عامة
+            Intake & Fit Check: التقييم المبدئي
+            Discovery: الاكتشاف
+            Structure & Sitemap: الهيكل وخريطة الموقع
+            Build: البناء
+            Review & Revisions: المراجعة والتعديلات
+            Deployment & Handover: النشر والتسليم
+            CV Templates: قوالب السيرة الذاتية
             HTML Reports: تقارير HTML
+            Start Project: ابدأ المشروع
+            Work: الأعمال
+            Demos: العروض
+            About: من نحن
+            Contact: تواصل
           theme:
             language: ar
 
