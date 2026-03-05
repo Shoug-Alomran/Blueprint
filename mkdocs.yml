@@ -67,6 +67,7 @@ exclude_docs: |
   infrastructure/**
   systems/**
   templates/**
+  *.ar.md
 
 markdown_extensions:
   - admonition
@@ -83,42 +84,6 @@ markdown_extensions:
 
 plugins:
   - search
-  - i18n:
-      docs_structure: suffix
-      fallback_to_default: true
-      reconfigure_material: true
-      languages:
-        - locale: en
-          name: English
-          default: true
-          build: true
-          site_name: "Blueprint"
-          theme:
-            language: en
-        - locale: ar
-          name: العربية
-          build: true
-          site_name: "بلو برنت"
-          nav_translations:
-            Home: الرئيسية
-            Packages: الباقات
-            Process: العملية
-            Overview: نظرة عامة
-            Intake & Fit Check: التقييم المبدئي
-            Discovery: الاكتشاف
-            Structure & Sitemap: الهيكل وخريطة الموقع
-            Build: البناء
-            Review & Revisions: المراجعة والتعديلات
-            Deployment & Handover: النشر والتسليم
-            CV Templates: قوالب السيرة الذاتية
-            HTML Reports: تقارير HTML
-            Start Project: ابدأ المشروع
-            Work: الأعمال
-            Demos: العروض
-            About: من نحن
-            Contact: تواصل
-          theme:
-            language: ar
 
 validation:
   nav:

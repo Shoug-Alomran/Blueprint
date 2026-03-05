@@ -279,14 +279,14 @@ last_updated: 2026-03-03
       <h2>نموذج استقبال المشروع</h2>
       <p>عبئ النموذج قبل بدء التنفيذ حتى نثبت النطاق والمدة والمخرجات بشكل واضح.</p>
       <div class="bp-intake-meta">
-        <span>بلو برنت ستوديو</span>
+        <span>برينت ستوديو</span>
         <span>blueprint@shoug-tech.com</span>
         <span>blueprint.shoug-tech.com</span>
       </div>
     </div>
 
     <form class="bp-form" id="bp-intake-form" novalidate>
-      <input type="hidden" name="_subject" value="بلو برنت Intake Form Submission">
+      <input type="hidden" name="_subject" value="برينت Intake Form Submission">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
 
@@ -438,7 +438,7 @@ last_updated: 2026-03-03
         </div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>المشرف / المدرس (إن وجد)</label><input name="supervisor" type="text"></div>
-          <div class="bp-field"><label>كيف تعرفت على بلو برنت؟</label><input name="referral" type="text"></div>
+          <div class="bp-field"><label>كيف تعرفت على برينت؟</label><input name="referral" type="text"></div>
         </div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>أسماء أعضاء الفريق وأدوارهم (كل عضو في سطر)</label><textarea name="team_members"></textarea></div>
@@ -447,16 +447,16 @@ last_updated: 2026-03-03
           <div class="bp-field"><label>متطلبات أو قيود خاصة</label><textarea name="special_req"></textarea></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>أي تفاصيل إضافية يجب أن يعرفها فريق بلو برنت قبل البدء</label><textarea name="anything_else"></textarea></div>
+          <div class="bp-field"><label>أي تفاصيل إضافية يجب أن يعرفها فريق برينت قبل البدء</label><textarea name="anything_else"></textarea></div>
         </div>
         <div class="bp-summary">بإرسال النموذج أنت تؤكد صحة البيانات. اعتماد النطاق والسعر النهائي يتم كتابيا قبل التنفيذ.</div>
       </section>
 
       <div class="bp-submit">
-        <p class="bp-submit-note">تقدر تحمل نسخة PDF، أو ترسل النموذج مباشرة إلى بلو برنت.</p>
+        <p class="bp-submit-note">تقدر تحمل نسخة PDF، أو ترسل النموذج مباشرة إلى برينت.</p>
         <div class="bp-actions">
           <button class="bp-btn" type="button" onclick="bpIntakeExportPDF()">تحميل PDF</button>
-          <button class="bp-btn primary" type="submit">إرسال إلى بلو برنت</button>
+          <button class="bp-btn primary" type="submit">إرسال إلى برينت</button>
         </div>
       </div>
       <div class="bp-status" id="bp-intake-status"></div>
@@ -484,7 +484,7 @@ last_updated: 2026-03-03
           if (!value || key.charAt(0) === '_') return;
           lines.push(key + ': ' + value);
         });
-        var subject = 'نموذج استقبال مشروع بلو برنت';
+        var subject = 'نموذج استقبال مشروع برينت';
         var body = lines.join('\n');
         return 'mailto:blueprint@shoug-tech.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       }
@@ -511,7 +511,7 @@ last_updated: 2026-03-03
             throw new Error('Failed to send');
           }
 
-          setStatus('ok', 'تم الإرسال بنجاح. سيصل نموذجك مباشرة إلى بريد بلو برنت.');
+          setStatus('ok', 'تم الإرسال بنجاح. سيصل نموذجك مباشرة إلى بريد برينت.');
           form.reset();
         } catch (err) {
           var mailtoUrl = buildFallbackMailto(fd);
