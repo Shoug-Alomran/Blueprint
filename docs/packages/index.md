@@ -35,7 +35,7 @@ Structured static websites designed for professional presence academic documenta
 
   <article class="info-card">
     <h3>Tier 3, Research Documentation</h3>
-    <p><strong>1100 SAR</strong><br>Delivery: 7–10 working days</p>
+    <p><strong>1400 SAR</strong><br>Delivery: 7–10 working days</p>
     <p>Publication-ready research documentation and structured technical presentation.</p>
   </article>
 
