@@ -73,7 +73,10 @@ last_updated: 2026-03-04
 </div>
 
 ## Why Blueprint Works
- **Structured navigation** so people find what they need fast, **Static-first architecture** for speed, stability, and low maintenance, **Clean presentation** that feels professional (not “student template”), **Easy handover** so you can update content without breaking the site  
+ - **Structured navigation** so people find what they need fast
+ - **Static-first architecture** for speed, stability, and low maintenance
+ - **Clean presentation** that feels professional (not “student template”)
+ - **Easy handover** so you can update content without breaking the site  
 
 ## Scope Boundaries
 
