@@ -235,4 +235,4 @@ Some PDFs are text based and convert cleanly.
 
 Others contain scanned pages or embedded images which require extraction before the report can be structured.
 
-Blueprint ensures the final HTML report remains **accurate readable and structured for long-term publishing.**
+Blueprint ensures the final HTML report remains **accurate, readable and structured for long-term publishing.**
