@@ -123,7 +123,7 @@ Publication-ready documentation sites for university research projects, structur
     <p>Research documentation for an Arabic NLP and machine learning system that classifies depression and anxiety severity using embedding-based representations and SVM classifiers. Includes methodology, results, error analysis, deployment guide, IEEE paper draft, and responsible AI framework.</p>
     <p><strong>Course:</strong> CS316 · Prince Sultan University</p>
     <p><strong>Built for:</strong> Client</p>
-    <p><a href="https://layanalnasser.github.io/CS316-Mental-Health-AI-Project" target="_blank">Visit Site →</a></p>
+    <p><a href="https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/" target="_blank">Visit Site →</a></p>
   </article>
 
 </div>
