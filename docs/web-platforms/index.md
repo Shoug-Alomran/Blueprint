@@ -39,7 +39,7 @@ Clean, navigable digital presence sites built for individuals who need their wor
     <h3>Layan's Digital Garden</h3>
     <p>Personal digital garden for a Computer Science and AI student. Covers academic notes, career development, CV, projects, and curated resources.</p>
     <p><strong>Built for:</strong> Client</p>
-    <p><a href="https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/" target="_blank">Visit Site →</a></p>
+    <p><a href="https://layanalnasser.github.io/My-Garden/" target="_blank">Visit Site →</a></p>
   </article>
 
 </div>
