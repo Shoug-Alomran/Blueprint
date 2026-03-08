@@ -562,7 +562,13 @@ Use this intake form to submit your project details in one pass.
     (function () {
       var form = document.getElementById('bp-intake-form');
       var statusEl = document.getElementById('bp-intake-status');
-      var endpoint = 'https://formsubmit.co/ajax/blueprint@shoug-tech.com';
+      function resolveEmailEndpoint() {
+        if (window.BLUEPRINT_EMAIL_ENDPOINT) return window.BLUEPRINT_EMAIL_ENDPOINT;
+        var meta = document.querySelector('meta[name="blueprint-email-endpoint"]');
+        if (meta && meta.content) return meta.content;
+        if (window.BLUEPRINT_INTAKE_ENDPOINT) return window.BLUEPRINT_INTAKE_ENDPOINT;
+        return 'https://blueprint-footer-intake-worker.shoug-alomran.workers.dev/submit';
+      }
 
       function setStatus(type, msg) {
         statusEl.className = 'bp-status ' + type;
@@ -596,14 +602,24 @@ Use this intake form to submit your project details in one pass.
         setStatus('ok', 'Sending...');
 
         try {
-          var resp = await fetch(endpoint, {
+          var resp = await fetch(resolveEmailEndpoint(), {
             method: 'POST',
             headers: { 'Accept': 'application/json' },
             body: fd
           });
 
           if (!resp.ok) {
-            throw new Error('Failed to send');
+            var errorMsg = 'Failed to send';
+            try {
+              var errorData = await resp.json();
+              if (errorData && errorData.error) errorMsg = String(errorData.error);
+            } catch (_) {
+              try {
+                var errorText = await resp.text();
+                if (errorText) errorMsg = errorText;
+              } catch (_) {}
+            }
+            throw new Error(errorMsg);
           }
 
           setStatus('ok', 'Submitted successfully. Blueprint will receive your intake form directly by email.');
