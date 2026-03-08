@@ -39,7 +39,7 @@ last_updated: 2026-03-02
     <h3>الحديقة الرقمية لليان</h3>
     <p>حديقة رقمية شخصية لطالبة علوم الحاسب والذكاء الاصطناعي. تغطي الملاحظات الأكاديمية، التطوير المهني، السيرة الذاتية، المشاريع، والموارد المنسقة.</p>
     <p><strong>بني لـ:</strong> عميل</p>
-    <p><a href="https://layanalnasser.github.io/My-Garden" target="_blank">زيارة الموقع ←</a></p>
+    <p><a href="https://layanalnasser.github.io/CS316-Mental-Health-AI-Project/" target="_blank">زيارة الموقع ←</a></p>
   </article>
 
 </div>
