@@ -1,5 +1,6 @@
 ---
 title: Demos
+description: Watch Blueprint interface and website demos showing navigation, theme behavior, layout interactions, and report presentation examples.
 role: Portfolio
 scope: Video walkthroughs of key UI behaviors
 last_updated: 2026-03-04

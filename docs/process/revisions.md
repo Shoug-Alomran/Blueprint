@@ -1,5 +1,6 @@
 ---
 title: Review & Revisions
+description: Review how Blueprint handles website feedback, revision rounds, scope boundaries, and quality checks before final launch.
 role: Refinement
 scope: Structured feedback and implementation within agreed scope
 constraints: Revision rounds per tier, scope boundaries enforced

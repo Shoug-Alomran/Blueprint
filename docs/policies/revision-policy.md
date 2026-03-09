@@ -1,3 +1,9 @@
+---
+title: Revision Policy
+description: Learn how Blueprint handles revision rounds, scope limits, additional requests, and approval boundaries during website delivery.
+last_updated: 2026-03-09
+---
+
 # Revision Policy
 
 To maintain efficiency, fairness, and predictable delivery, all projects include a limited number of revision rounds as defined in the agreed package.

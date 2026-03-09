@@ -1,5 +1,6 @@
 ---
 title: Process
+description: Review Blueprint's six-stage website delivery process from intake and discovery through build, revisions, deployment, and handover.
 role: Delivery Workflow
 scope: End-to-end static website production process
 constraints: Scope control, quality checks, predictable handover

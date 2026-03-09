@@ -1,5 +1,6 @@
 ---
 title: Build
+description: Explore Blueprint's website build stage covering responsive layout implementation, content integration, and HTML report deliverables.
 role: Site Implementation
 scope: Layout, content, and deliverable production
 constraints: Approved structure, submitted content, confirmed add-ons

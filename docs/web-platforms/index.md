@@ -1,5 +1,6 @@
 ---
 title: Work
+description: Explore Blueprint website work examples across portfolios, documentation websites, and workshop or course pages.
 role: Portfolio
 scope: All sites built under Blueprint Studio and ShougTech
 constraints: Accurate descriptions, tier-grouped, live links

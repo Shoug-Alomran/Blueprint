@@ -1,5 +1,6 @@
 ---
 title: Copyright
+description: Review copyright terms for Blueprint source work, client-provided assets, reuse rights, and published website materials.
 role: Legal Notice
 scope: Intellectual property and usage terms
 constraints: Clear ownership boundaries, defined usage rights

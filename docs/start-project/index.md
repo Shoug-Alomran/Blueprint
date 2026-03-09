@@ -1,5 +1,6 @@
 ---
 title: Start Project
+description: Start a Blueprint website project by reviewing fit requirements, delivery boundaries, and the intake path for new static website work.
 role: Project Intake
 scope: Structured intake and scope confirmation
 constraints: Clear inputs, realistic timelines, static-site delivery boundaries
@@ -35,7 +36,7 @@ Use this intake form to submit your project details in one pass.
 
     .bp-intake .bp-intake-page {
       width: 100%;
-      max-width: min(100%, 1040px);
+      max-width: 100%;
       margin: 0 auto;
       background: linear-gradient(160deg, rgba(255, 255, 255, 0.99), rgba(241, 247, 247, 0.95));
       border: 1px solid var(--rule);
@@ -47,12 +48,12 @@ Use this intake form to submit your project details in one pass.
     body.sg-hide-left-sidebar .bp-intake .bp-intake-page,
     body.sg-hide-right-sidebar .bp-intake .bp-intake-page,
     body.sg-hide-left-sidebar.sg-hide-right-sidebar .bp-intake .bp-intake-page {
-      max-width: min(100%, 1320px);
+      max-width: 100%;
     }
 
     .bp-intake .bp-intake-header {
       background: var(--bar-gradient, linear-gradient(120deg, #0f2933, #0f3d4a, #115e59));
-      padding: 28px 30px 24px;
+      padding: clamp(1.65rem, 2.2vw, 2.4rem) clamp(1.55rem, 2.6vw, 2.6rem) clamp(1.4rem, 2vw, 2rem);
       position: relative;
       text-align: start;
     }
@@ -72,26 +73,27 @@ Use this intake form to submit your project details in one pass.
       padding: 0 !important;
       border: 0 !important;
       color: #f6fffd !important;
-      font-size: 1.95rem;
-      font-weight: 800;
-      line-height: 1.2;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 900;
+      line-height: 1.06;
       letter-spacing: 0;
+      text-wrap: balance;
     }
 
     .bp-intake .bp-intake-header p {
-      margin: 0.5rem 0 0;
+      margin: 0.7rem 0 0;
       color: rgba(240, 255, 252, 0.92);
-      font-size: 1.02rem;
-      line-height: 1.7;
-      max-width: 74ch;
+      font-size: clamp(1rem, 1.2vw, 1.2rem);
+      line-height: 1.55;
+      max-width: 56ch;
     }
 
     .bp-intake .bp-intake-meta {
-      margin-top: 0.85rem;
+      margin-top: 1rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.9rem;
-      font-size: 0.84rem;
+      gap: 0.95rem 1.25rem;
+      font-size: 0.86rem;
       letter-spacing: 0;
       text-transform: uppercase;
       color: rgba(225, 252, 247, 0.95);
@@ -99,12 +101,12 @@ Use this intake form to submit your project details in one pass.
 
     .bp-intake .bp-form {
       background: transparent;
-      padding: 0 0 1.2rem;
+      padding: 0 0 1.5rem;
     }
 
     .bp-intake .bp-section {
       border-bottom: 1px solid var(--rule);
-      padding: 1.35rem 1.35rem 1.2rem;
+      padding: clamp(1.35rem, 1.8vw, 1.8rem) clamp(1.35rem, 2.2vw, 2rem) clamp(1.2rem, 1.7vw, 1.6rem);
       background: rgba(255, 255, 255, 0.84);
     }
 
@@ -146,8 +148,8 @@ Use this intake form to submit your project details in one pass.
 
     .bp-intake .bp-row {
       display: grid;
-      gap: 0.8rem;
-      margin-bottom: 0.8rem;
+      gap: clamp(0.8rem, 1.2vw, 1rem);
+      margin-bottom: clamp(0.85rem, 1.2vw, 1rem);
     }
 
     .bp-intake .bp-cols-1 { grid-template-columns: 1fr; }
@@ -184,8 +186,8 @@ Use this intake form to submit your project details in one pass.
       width: 100%;
       border: 2px solid #8aa3b0;
       border-radius: 10px;
-      padding: 0.72rem 0.85rem;
-      font-size: 0.88rem;
+      padding: 0.82rem 0.95rem;
+      font-size: 0.95rem;
       color: var(--ink);
       background: #fdfefe;
       box-shadow: inset 0 1px 2px rgba(15, 42, 52, 0.08);
@@ -198,7 +200,7 @@ Use this intake form to submit your project details in one pass.
       color: #7b8d99;
     }
 
-    .bp-intake textarea { min-height: 88px; resize: vertical; }
+    .bp-intake textarea { min-height: 108px; resize: vertical; }
 
     .bp-intake input:focus,
     .bp-intake select:focus,

@@ -1,5 +1,6 @@
 ---
 title: Intake & Fit Check
+description: Learn how Blueprint qualifies projects, confirms scope, and decides whether a portfolio, documentation site, or workshop page is a good fit.
 role: Project Qualification
 scope: Confirm project type, tier, and scope before work begins
 constraints: Clear requirements, realistic timeline, aligned expectations

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% set meta = page.meta if page and page.meta else {} %}
+  {% set meta_description = meta.description if meta.description else config.site_description %}
+  {% set page_title = page.title if page and page.title else config.site_name %}
+  {% set canonical_url = page.canonical_url if page and page.canonical_url else config.site_url %}
+  {% set social_image = config.site_url ~ 'assets/logo.png' %}
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ meta_description }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:image" content="{{ social_image }}">
+  <meta property="og:type" content="{% if page and page.is_homepage %}website{% else %}article{% endif %}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ meta_description }}">
+  <meta name="twitter:image" content="{{ social_image }}">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{% if page and page.is_homepage %}WebSite{% else %}WebPage{% endif %}",
+      "name": {{ page_title|tojson }},
+      "description": {{ meta_description|trim|tojson }},
+      "url": {{ canonical_url|tojson }},
+      "publisher": {
+        "@type": "Organization",
+        "name": {{ config.site_name|tojson }},
+        "url": {{ config.site_url|tojson }},
+        "logo": {
+          "@type": "ImageObject",
+          "url": {{ social_image|tojson }}
+        }
+      }
+    }
+  </script>
+{% endblock %}

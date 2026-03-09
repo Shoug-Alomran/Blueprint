@@ -1,5 +1,6 @@
 ---
 title: Structure & Sitemap
+description: Understand how Blueprint plans website information architecture, navigation, page hierarchy, and sitemap approval before implementation.
 role: Navigation Design
 scope: Page hierarchy and navigation flow approval
 constraints: Approved before visual work begins

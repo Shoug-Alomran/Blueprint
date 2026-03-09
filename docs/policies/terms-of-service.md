@@ -1,3 +1,9 @@
+---
+title: Terms of Service
+description: Review Blueprint's terms of service for project scope, delivery limits, client responsibilities, payments, and handover conditions.
+last_updated: 2026-03-09
+---
+
 # Terms of Service
 
 **Effective Date:** 1/3/2026

@@ -1,5 +1,6 @@
 ---
 title: Start Project
+description: Submit detailed Blueprint project information including goals, content, timeline, scope, and required deliverables for review.
 role: Project Intake
 scope: Structured intake and scope confirmation
 constraints: Clear inputs, realistic timelines, static-site delivery boundaries

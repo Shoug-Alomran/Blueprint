@@ -1,5 +1,6 @@
 ---
 title: About
+description: Learn about Blueprint, its static-first service model, delivery principles, and the kinds of website projects it supports.
 role: Studio Positioning
 scope: Service philosophy and fit
 constraints: Clarity, professionalism, defined boundaries

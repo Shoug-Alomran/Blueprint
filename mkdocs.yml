@@ -8,6 +8,7 @@ copyright: © 2026 Blueprint · All rights reserved
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/google.png
   features:

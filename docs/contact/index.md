@@ -1,5 +1,6 @@
 ---
 title: Contact
+description: Contact Blueprint for portfolio websites, academic documentation sites, HTML reports, and other static website inquiries.
 role: Project Intake
 scope: Service inquiries and fit checks
 constraints: Clear requirements, aligned scope, realistic timeline

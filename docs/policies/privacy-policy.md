@@ -1,3 +1,9 @@
+---
+title: Privacy Policy
+description: Read Blueprint's privacy policy covering inquiry data, processing systems, communication handling, and deletion requests.
+last_updated: 2026-03-09
+---
+
 # Privacy Policy
 
 **Effective Date:** 3/3/2026

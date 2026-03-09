@@ -11,6 +11,14 @@
   --brand-3: #115e59;
   --brand-4: #0f766e;
   --bar-gradient: linear-gradient(120deg, #0f2933, #0f3d4a, #115e59);
+  --layout-shell-max: 110rem;
+  --layout-gutter: clamp(0.9rem, 1.4vw, 1.5rem);
+  --layout-edge-padding: clamp(0.85rem, 1.8vw, 1.6rem);
+  --layout-sidebar-width: clamp(12.5rem, 14vw, 16rem);
+  --content-inline-offset: clamp(1.15rem, 2vw, 1.6rem);
+  --content-measure: clamp(56rem, 78vw, 96rem);
+  --content-wide-max: 82rem;
+  --table-max: 90rem;
 }
 
 [data-md-color-scheme="slate"] {

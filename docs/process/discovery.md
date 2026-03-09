@@ -1,5 +1,6 @@
 ---
 title: Discovery
+description: See how Blueprint defines goals, audience, content readiness, and page requirements before website structure and build work begins.
 role: Scope Definition
 scope: Define goals, audience, content, and structure direction
 constraints: Content readiness, scope clarity, audience alignment

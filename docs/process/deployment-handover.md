@@ -1,5 +1,6 @@
 ---
 title: Deployment & Handover
+description: See Blueprint's deployment and handover process for publishing, final checks, ownership transfer, and post-launch delivery assets.
 role: Production Launch
 scope: Final deployment, validation, payment, and ownership transfer
 constraints: Final approval and payment required before handover

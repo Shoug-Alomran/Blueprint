@@ -1,5 +1,6 @@
 ---
 title: HTML Reports
+description: See how Blueprint converts PDFs and structured documents into searchable, navigable HTML reports with examples and delivery details.
 role: Product
 scope: Converting structured documents into navigable HTML reports
 constraints: clarity readability structured navigation

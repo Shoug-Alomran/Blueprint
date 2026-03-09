@@ -1,5 +1,6 @@
 ---
 title: Packages
+description: Compare Blueprint website packages, add-ons, pricing tiers, CV templates, and HTML report options for static website projects.
 role: Service Offerings
 scope: Static website packages and add-ons
 constraints: Clear scope predictable delivery maintainable structure

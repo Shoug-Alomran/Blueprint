@@ -1,3 +1,9 @@
+---
+title: Content Responsibility
+description: Understand client and studio responsibilities for the accuracy, ownership, and approval of content published on Blueprint websites.
+last_updated: 2026-03-09
+---
+
 # Content Responsibility Policy
 
 Clients are solely responsible for all content provided for their project.

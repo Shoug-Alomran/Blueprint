@@ -1,3 +1,13 @@
+---
+title: Start Here
+description: Get oriented with Blueprint's packages, process, work examples, and starting points for new static website projects.
+role: Orientation
+scope: Fast path into the site for first-time visitors
+constraints: Clear next steps, low-friction discovery
+metrics: navigation efficiency, page progression, visitor clarity
+last_updated: 2026-03-09
+---
+
 # Start Here
 
 Use this page to determine if Blueprint Studio is the right fit for your project, and how we move from concept to launch.

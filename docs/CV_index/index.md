@@ -1,5 +1,6 @@
 ---
 title: CV Templates
+description: Browse Blueprint CV website templates, preview layouts, compare Basic and Pro options, and request template purchase or integration.
 role: Template Catalog
 scope: CV template options and purchase flow
 constraints: Private preview hosting, controlled file access
