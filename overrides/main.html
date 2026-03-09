@@ -5,8 +5,14 @@
   {% set meta = page.meta if page and page.meta else {} %}
   {% set meta_description = meta.description if meta.description else config.site_description %}
   {% set page_title = page.title if page and page.title else config.site_name %}
-  {% set canonical_url = page.canonical_url if page and page.canonical_url else config.site_url %}
+  {% set redirect_to = meta.redirect_to if meta.redirect_to else "" %}
+  {% set canonical_url = redirect_to if redirect_to else (page.canonical_url if page and page.canonical_url else config.site_url) %}
   {% set social_image = config.site_url ~ 'assets/logo.png' %}
+  {% if redirect_to %}
+  <meta http-equiv="refresh" content="0; url={{ redirect_to }}">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="{{ redirect_to }}">
+  {% endif %}
   <meta property="og:site_name" content="{{ config.site_name }}">
   <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ meta_description }}">
