@@ -106,4 +106,5 @@ extra:
 
 extra_javascript:
   - javascripts/cta-footer.js
+  - javascripts/cv-purchase.js
   - javascripts/standalone-theme.js

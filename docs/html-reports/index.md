@@ -23,7 +23,7 @@ Instead of sending someone a 40-page PDF you can share a **structured web report
 
 <article class="info-card">
 <h3>Structured Sections</h3>
-<p>Content is reorganized into clear sections with headings anchors and internal navigation.</p>
+<p>Content is reorganized into clear sections with headings, anchors and internal navigation.</p>
 </article>
 
 <article class="info-card">

@@ -47,7 +47,7 @@ Structured static websites designed for professional presence academic documenta
 ## How Blueprint Defines Structure
 
 **Section**  
-A top-level navigation item in your website (Overview Methodology Results Contact).
+A top-level navigation item in your website (Overview, Methodology, Results, Contact).
 
 **Page**  
 A standalone content page inside a section.
