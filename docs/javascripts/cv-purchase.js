@@ -98,18 +98,41 @@
     }
   }
 
-  document.addEventListener("click", function (event) {
-    var link = event.target.closest("a[data-cv-buy]");
-    if (!link) {
+  function bindPurchaseLink(link) {
+    if (!link || link.dataset.cvPurchaseBound === "true") {
       return;
     }
 
-    event.preventDefault();
+    link.dataset.cvPurchaseBound = "true";
+    link.addEventListener(
+      "click",
+      function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (typeof event.stopImmediatePropagation === "function") {
+          event.stopImmediatePropagation();
+        }
 
-    if (link.getAttribute("aria-disabled") === "true") {
-      return;
+        if (link.getAttribute("aria-disabled") === "true") {
+          return;
+        }
+
+        handlePurchase(link);
+      },
+      true
+    );
+  }
+
+  function bindAllPurchaseLinks() {
+    var links = document.querySelectorAll("a[data-cv-buy]");
+    for (var i = 0; i < links.length; i += 1) {
+      bindPurchaseLink(links[i]);
     }
+  }
 
-    handlePurchase(link);
-  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bindAllPurchaseLinks);
+  } else {
+    bindAllPurchaseLinks();
+  }
 })();
