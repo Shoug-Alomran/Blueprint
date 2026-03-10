@@ -43,7 +43,8 @@
       privacy: 'الخصوصية',
       content: 'مسؤولية المحتوى',
       revision: 'سياسة المراجعات',
-      copyright: 'حقوق النشر'
+      copyright: 'حقوق النشر',
+      licenseTitle: 'رخصة العمل الحر'
     } : {
       brand: 'Blueprint',
       title: 'Build a Structured Digital Presence',
@@ -71,7 +72,8 @@
       privacy: 'Privacy',
       content: 'Content Responsibility',
       revision: 'Revision Policy',
-      copyright: 'Copyright'
+      copyright: 'Copyright',
+      licenseTitle: 'Freelance License'
     };
 
     var section = document.createElement('section');
@@ -82,9 +84,11 @@
       '<p class="custom-footer__brand">' + t.brand + '</p>',
       '<h2 class="custom-footer__title">' + t.title + '</h2>',
       '<p class="custom-footer__subtitle">' + t.subtitle + '</p>',
+      '<div class="custom-footer__action-row">',
       '<div class="custom-footer__form">',
       '<input class="custom-footer__input" type="email" inputmode="email" autocomplete="email" required placeholder="' + t.placeholder + '" aria-label="' + t.placeholder + '">',
       '<button class="custom-footer__button" type="button">' + t.cta + '</button>',
+      '</div>',
       '</div>',
       '<p class="custom-footer__note">' + t.note + '</p>',
       '</div>',
@@ -119,6 +123,9 @@
       '<a class="footer-link" href="' + localizedPath('/policies/content-responsibility/', ar) + '">' + t.content + '</a>',
       '<a class="footer-link" href="' + localizedPath('/policies/revision-policy/', ar) + '">' + t.revision + '</a>',
       '<a class="footer-link" href="' + localizedPath('/policies/copyright/', ar) + '">' + t.copyright + '</a>',
+      '</div>',
+      '<div class="custom-footer__license" aria-label="' + t.licenseTitle + '">',
+      '<img class="custom-footer__license-image" src="/assets/certificate-licence-number.png" alt="' + t.licenseTitle + '" loading="lazy" decoding="async">',
       '</div>',
       '</div>',
       '</div>'
