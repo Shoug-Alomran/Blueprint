@@ -1,0 +1,31 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07141B"/>
+  <rect x="48" y="48" width="1184" height="624" rx="28" fill="url(#bg)"/>
+  <circle cx="181" cy="188" r="26" fill="#2DD4BF"/>
+  <circle cx="395" cy="328" r="26" fill="#F59E0B"/>
+  <circle cx="665" cy="232" r="26" fill="#2DD4BF"/>
+  <circle cx="932" cy="362" r="26" fill="#60A5FA"/>
+  <circle cx="1080" cy="220" r="26" fill="#2DD4BF"/>
+  <path d="M207 188H320C352 188 378 214 378 246V271" stroke="#D7E4E8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M421 328H561C593 328 619 302 619 270V258" stroke="#D7E4E8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M691 232H844C876 232 902 258 902 290V305" stroke="#D7E4E8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M958 362H1030C1062 362 1088 336 1088 304V246" stroke="#D7E4E8" stroke-width="10" stroke-linecap="round"/>
+  <rect x="116" y="456" width="1048" height="120" rx="28" fill="#081C24" fill-opacity="0.72" stroke="#D7E4E8" stroke-opacity="0.16"/>
+  <rect x="152" y="494" width="220" height="20" rx="10" fill="#F8FAFC"/>
+  <rect x="152" y="528" width="140" height="14" rx="7" fill="#90A8B1"/>
+  <rect x="440" y="494" width="220" height="20" rx="10" fill="#F8FAFC"/>
+  <rect x="440" y="528" width="140" height="14" rx="7" fill="#90A8B1"/>
+  <rect x="728" y="494" width="220" height="20" rx="10" fill="#F8FAFC"/>
+  <rect x="728" y="528" width="140" height="14" rx="7" fill="#90A8B1"/>
+  <path d="M590 358C590 313.265 626.265 277 671 277H751C795.735 277 832 313.265 832 358C832 402.735 795.735 439 751 439H671C626.265 439 590 402.735 590 358Z" fill="#081C24" stroke="#D7E4E8" stroke-opacity="0.24"/>
+  <path d="M690 323L744 358L690 393V323Z" fill="#F8FAFC"/>
+  <text x="116" y="116" fill="#8AA3AD" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0.18em">BLUEPRINT DEMO</text>
+  <text x="116" y="216" fill="#F8FAFC" font-family="Manrope, Arial, sans-serif" font-size="68" font-weight="800">GitHub Flow</text>
+  <text x="116" y="268" fill="#B6C8CE" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="600">Branch. Review. Publish.</text>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="76" x2="1186" y2="672" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102B35"/>
+      <stop offset="1" stop-color="#101A2E"/>
+    </linearGradient>
+  </defs>
+</svg>

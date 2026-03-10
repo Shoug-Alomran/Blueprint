@@ -1,0 +1,27 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07141B"/>
+  <rect x="48" y="48" width="1184" height="624" rx="28" fill="url(#bg)"/>
+  <rect x="116" y="158" width="384" height="326" rx="30" fill="#F8FAFC"/>
+  <rect x="780" y="158" width="384" height="326" rx="30" fill="#F8FAFC"/>
+  <rect x="160" y="214" width="248" height="26" rx="13" fill="#0F172A"/>
+  <rect x="160" y="262" width="182" height="16" rx="8" fill="#7A919B"/>
+  <rect x="160" y="298" width="204" height="16" rx="8" fill="#7A919B"/>
+  <rect x="160" y="372" width="152" height="48" rx="24" fill="#0F766E"/>
+  <rect x="824" y="214" width="248" height="26" rx="13" fill="#0F172A"/>
+  <rect x="824" y="262" width="182" height="16" rx="8" fill="#7A919B"/>
+  <rect x="824" y="298" width="204" height="16" rx="8" fill="#7A919B"/>
+  <rect x="824" y="372" width="152" height="48" rx="24" fill="#F59E0B"/>
+  <path d="M574 319C574 274.265 610.265 238 655 238H735C779.735 238 816 274.265 816 319C816 363.735 779.735 400 735 400H655C610.265 400 574 363.735 574 319Z" fill="#081C24" stroke="#D7E4E8" stroke-opacity="0.24"/>
+  <path d="M652 319H736" stroke="#F8FAFC" stroke-width="12" stroke-linecap="round"/>
+  <path d="M706 286L744 319L706 352" stroke="#F8FAFC" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="116" y="530" width="518" height="18" rx="9" fill="#B6C8CE"/>
+  <rect x="116" y="566" width="410" height="18" rx="9" fill="#8AA3AD"/>
+  <text x="116" y="114" fill="#8AA3AD" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0.18em">BLUEPRINT DEMO</text>
+  <text x="116" y="624" fill="#07141B" font-family="Manrope, Arial, sans-serif" font-size="64" font-weight="800">Page Redirect</text>
+  <defs>
+    <linearGradient id="bg" x1="82" y1="74" x2="1200" y2="670" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7F6FF"/>
+      <stop offset="1" stop-color="#FFF1D6"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,25 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07141B"/>
+  <rect x="48" y="48" width="1184" height="624" rx="28" fill="url(#bg)"/>
+  <rect x="122" y="156" width="430" height="360" rx="32" fill="#F8FAFC"/>
+  <rect x="728" y="156" width="430" height="360" rx="32" fill="#F8FAFC" fill-opacity="0.1" stroke="#D7E4E8" stroke-opacity="0.26" stroke-width="2"/>
+  <text x="174" y="270" fill="#0F172A" font-family="Manrope, Arial, sans-serif" font-size="68" font-weight="800">EN</text>
+  <text x="782" y="270" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="68" font-weight="800">AR</text>
+  <rect x="174" y="308" width="240" height="20" rx="10" fill="#7A919B"/>
+  <rect x="174" y="346" width="198" height="20" rx="10" fill="#7A919B"/>
+  <rect x="782" y="308" width="240" height="20" rx="10" fill="#D7E4E8" fill-opacity="0.7"/>
+  <rect x="782" y="346" width="198" height="20" rx="10" fill="#D7E4E8" fill-opacity="0.7"/>
+  <path d="M582 334C582 289.265 618.265 253 663 253H743C787.735 253 824 289.265 824 334C824 378.735 787.735 415 743 415H663C618.265 415 582 378.735 582 334Z" fill="#081C24" stroke="#D7E4E8" stroke-opacity="0.24"/>
+  <path d="M655 334H751" stroke="#F8FAFC" stroke-width="12" stroke-linecap="round"/>
+  <path d="M721 301L759 334L721 367" stroke="#F8FAFC" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1036" cy="496" r="132" fill="#2DD4BF" fill-opacity="0.16"/>
+  <circle cx="926" cy="144" r="88" fill="#60A5FA" fill-opacity="0.2"/>
+  <text x="116" y="114" fill="#8AA3AD" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0.18em">BLUEPRINT DEMO</text>
+  <text x="116" y="614" fill="#F8FAFC" font-family="Manrope, Arial, sans-serif" font-size="64" font-weight="800">Translation Toggle</text>
+  <defs>
+    <linearGradient id="bg" x1="82" y1="76" x2="1200" y2="670" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#112232"/>
+      <stop offset="1" stop-color="#0E403A"/>
+    </linearGradient>
+  </defs>
+</svg>
