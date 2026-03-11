@@ -34,8 +34,8 @@
   margin: 0 !important;
   width: 100% !important;
   max-width: none !important;
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
+  padding-left: 0.6rem !important;
+  padding-right: 0.6rem !important;
 }
 
 .md-header__inner.md-grid,
@@ -49,35 +49,36 @@
 
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  height: 1.65rem !important;
+  height: 1.45rem !important;
   width: auto !important;
   max-width: none !important;
   filter: none !important;
 }
 
 .md-header__button.md-logo {
-  padding: 0.1rem !important;
+  padding: 0.05rem !important;
   border-radius: 0.4rem;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
-  margin-inline-end: 0.3rem;
+  margin-inline-end: 0.24rem;
 }
 
 .md-header__title {
   font-weight: 700;
   letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 
 .md-header__topic:first-child {
-  font-size: 1.04rem;
+  font-size: 0.96rem;
 }
 
 .md-tabs__link {
   border-radius: 999px;
-  padding: 0.28rem 0.64rem;
+  padding: 0.18rem 0.52rem;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
 }
 
 .md-tabs__list {
@@ -254,14 +255,14 @@
 .header-actions {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-left: 0.4rem;
+  gap: 0.32rem;
+  margin-left: 0.32rem;
 }
 
 .header-icon-btn,
 .header-cta {
-  height: 1.95rem;
-  width: 1.95rem;
+  height: 1.72rem;
+  width: 1.72rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -273,8 +274,8 @@
 }
 
 .header-icon-btn svg {
-  width: 1rem;
-  height: 1rem;
+  width: 0.9rem;
+  height: 0.9rem;
   fill: #fff;
 }
 
@@ -285,15 +286,15 @@
 
 .header-cta {
   width: auto;
-  padding: 0 0.72rem;
+  padding: 0 0.6rem;
   color: #fff !important;
   text-decoration: none !important;
   font-weight: 800;
-  font-size: 0.72rem;
+  font-size: 0.66rem;
 }
 
 .header-cta--left {
-  margin-inline-start: 0.55rem;
+  margin-inline-start: 0.42rem;
   align-self: center;
   flex-shrink: 0;
 }
@@ -306,29 +307,29 @@
 
 [dir="rtl"] .header-actions {
   margin-left: 0;
-  margin-right: 0.4rem;
+  margin-right: 0.32rem;
 }
 
 [dir="rtl"] .header-cta--left {
   margin-inline-start: 0;
-  margin-inline-end: 0.55rem;
+  margin-inline-end: 0.42rem;
 }
 
 @media (min-width: 76.25em) {
   .md-header__title {
-    margin-inline-end: 0.35rem !important;
+    margin-inline-end: 0.26rem !important;
   }
 
   .md-header__topic:first-child {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 
   .md-search {
-    max-width: 16rem;
+    max-width: 14rem;
   }
 
   .md-search__form {
-    min-width: 13rem;
+    min-width: 11.5rem;
   }
 }
 
