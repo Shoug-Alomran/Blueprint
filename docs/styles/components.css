@@ -559,7 +559,29 @@
   }
 
   .md-typeset .cv-template-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(17.5rem, 82vw);
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 0 0 0.85rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .md-typeset .cv-template-grid::-webkit-scrollbar {
+    height: 0.38rem;
+  }
+
+  .md-typeset .cv-template-grid::-webkit-scrollbar-thumb {
+    background: rgba(15, 94, 89, 0.35);
+    border-radius: 999px;
+  }
+
+  .md-typeset .cv-template-card {
+    min-height: 100%;
+    scroll-snap-align: start;
   }
 }
 
