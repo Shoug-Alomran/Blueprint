@@ -664,3 +664,159 @@
     grid-template-columns: 1fr;
   }
 }
+
+.md-typeset .purchase-thankyou {
+  margin: 1rem 0 2rem;
+}
+
+.md-typeset .purchase-thankyou__hero {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(680px 240px at 100% 0%, rgba(45, 212, 191, 0.22), transparent 60%),
+    linear-gradient(135deg, rgba(10, 31, 42, 0.98), rgba(12, 74, 78, 0.94) 58%, rgba(17, 94, 89, 0.92));
+  color: #effcfb;
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.18);
+}
+
+.md-typeset .purchase-thankyou__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+  padding: 0.34rem 0.7rem;
+  border: 1px solid rgba(153, 246, 228, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(236, 253, 250, 0.92);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.md-typeset .purchase-thankyou__hero h1 {
+  margin: 0;
+  max-width: 13ch;
+  color: #ffffff;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.md-typeset .purchase-thankyou__lead {
+  margin: 1rem 0 0;
+  max-width: 58ch;
+  color: rgba(236, 253, 250, 0.9);
+  font-size: clamp(1rem, 1.25vw, 1.14rem);
+  line-height: 1.65;
+}
+
+.md-typeset .purchase-thankyou__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.md-typeset .purchase-thankyou__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.85rem;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid rgba(226, 232, 240, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc !important;
+  text-decoration: none !important;
+  font-weight: 800;
+  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.md-typeset .purchase-thankyou__button:hover,
+.md-typeset .purchase-thankyou__button:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.md-typeset .purchase-thankyou__button--primary {
+  background: #f8fafc;
+  border-color: #f8fafc;
+  color: #0f3d4a !important;
+}
+
+.md-typeset .purchase-thankyou__button--primary:hover,
+.md-typeset .purchase-thankyou__button--primary:focus-visible {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.md-typeset .purchase-thankyou__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.md-typeset .purchase-thankyou__card {
+  height: 100%;
+  padding: 1.15rem 1.2rem;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 1.1rem;
+  background:
+    radial-gradient(480px 180px at 100% 0%, rgba(45, 212, 191, 0.08), transparent 58%),
+    linear-gradient(165deg, rgba(255, 255, 255, 0.99), rgba(242, 247, 248, 0.96));
+  box-shadow: var(--shadow-soft);
+}
+
+.md-typeset .purchase-thankyou__card h2 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+  color: var(--brand-2);
+}
+
+.md-typeset .purchase-thankyou__card p,
+.md-typeset .purchase-thankyou__card li {
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+.md-typeset .purchase-thankyou__card ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .purchase-thankyou__hero {
+  border-color: rgba(45, 212, 191, 0.24);
+  box-shadow: none;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .purchase-thankyou__card {
+  border-color: rgba(45, 212, 191, 0.16);
+  background:
+    radial-gradient(480px 180px at 100% 0%, rgba(45, 212, 191, 0.08), transparent 58%),
+    linear-gradient(165deg, rgba(10, 18, 28, 0.98), rgba(15, 23, 42, 0.96));
+}
+
+[data-md-color-scheme="slate"] .md-typeset .purchase-thankyou__card h2,
+[data-md-color-scheme="slate"] .md-typeset .purchase-thankyou__card p,
+[data-md-color-scheme="slate"] .md-typeset .purchase-thankyou__card li {
+  color: #e6fbfa;
+}
+
+@media (max-width: 50rem) {
+  .md-typeset .purchase-thankyou__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset .purchase-thankyou__hero h1 {
+    max-width: none;
+  }
+}
