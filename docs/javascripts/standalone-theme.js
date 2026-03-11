@@ -101,8 +101,17 @@
     };
 
     var right = document.querySelector('.md-header__option');
-    if (!right || right.parentElement.querySelector('.header-actions')) {
+    var titleWrap = document.querySelector('.md-header__title');
+    if (!right || !titleWrap || right.parentElement.querySelector('.header-actions')) {
       return;
+    }
+
+    if (!document.querySelector('.header-cta--left')) {
+      var leftCta = document.createElement('a');
+      leftCta.className = 'header-cta header-cta--left';
+      leftCta.href = startProjectHref;
+      leftCta.textContent = labels.cta;
+      titleWrap.insertAdjacentElement('afterend', leftCta);
     }
 
     var wrap = document.createElement('div');
@@ -112,12 +121,11 @@
         iconSvg('M12 .5C5.65.5.5 5.66.5 12.02c0 5.08 3.29 9.38 7.86 10.9.58.11.79-.25.79-.56 0-.27-.01-1.01-.02-1.98-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.28-1.71-1.28-1.71-1.04-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.02 1.76 2.68 1.25 3.34.95.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.03 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.57.23 2.74.11 3.03.74.81 1.19 1.84 1.19 3.1 0 4.41-2.69 5.39-5.26 5.67.41.36.77 1.06.77 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A11.53 11.53 0 0 0 23.5 12C23.5 5.66 18.35.5 12 .5z') +
       '</a>',
       '<button class="header-icon-btn header-toggle-btn" data-sg-toggle="left" type="button" aria-label="' + labels.left + '">' +
-        iconSvg('M3 5h18v2H3zm0 6h12v2H3zm0 6h18v2H3z') +
+        iconSvg('M3 5h6v14H3zm8 0h10v2H11zm0 6h10v2H11zm0 6h10v2H11z') +
       '</button>',
       '<button class="header-icon-btn header-toggle-btn" data-sg-toggle="right" type="button" aria-label="' + labels.right + '">' +
-        iconSvg('M4 5h16v2H4zm0 6h10v2H4zm0 6h16v2H4z') +
-      '</button>',
-      '<a class="header-cta" href="' + startProjectHref + '">' + labels.cta + '</a>'
+        iconSvg('M15 5h6v14h-6zM3 5h10v2H3zm0 6h10v2H3zm0 6h10v2H3z') +
+      '</button>'
     ].join('');
 
     right.parentElement.insertBefore(wrap, right.nextSibling);
@@ -318,10 +326,49 @@
   }
 
   function applyPageLayoutOverrides() {
-    var path = normalizeNavPath(window.location.pathname);
-    var isDemosPage = path.indexOf('/work-demos/') === 0 || path === '/work-demos';
-    document.body.classList.toggle('sg-hide-left-sidebar', isDemosPage);
-    document.body.classList.toggle('sg-hide-right-sidebar', isDemosPage);
+    var currentPath = normalizeNavPath(window.location.pathname);
+    var primaryRoot = document.querySelector('.md-sidebar--primary .md-nav--primary > .md-nav__list');
+    var shouldHideLeft =
+      currentPath === '/cart/' ||
+      currentPath === '/cart' ||
+      currentPath === '/checkout/' ||
+      currentPath === '/checkout';
+    var shouldHideRight =
+      currentPath === '/products/' ||
+      currentPath === '/products' ||
+      currentPath === '/start-project/' ||
+      currentPath === '/start-project' ||
+      currentPath === '/cart/' ||
+      currentPath === '/cart' ||
+      currentPath === '/checkout/' ||
+      currentPath === '/checkout';
+
+    if (!shouldHideLeft && primaryRoot) {
+      var activeTopLevel = primaryRoot.querySelector(':scope > .md-nav__item--active');
+      if (activeTopLevel) {
+        var parentLink = activeTopLevel.querySelector(':scope > .md-nav__container > a.md-nav__link, :scope > a.md-nav__link');
+        var parentPath = '';
+        var childPaths = new Set();
+
+        try {
+          parentPath = parentLink ? normalizeNavPath(new URL(parentLink.href, window.location.origin).pathname) : '';
+        } catch (e) {}
+
+        activeTopLevel.querySelectorAll(':scope > .md-nav > .md-nav__list > .md-nav__item > .md-nav__container > a.md-nav__link, :scope > .md-nav > .md-nav__list > .md-nav__item > a.md-nav__link').forEach(function (childLink) {
+          try {
+            var childPath = normalizeNavPath(new URL(childLink.href, window.location.origin).pathname);
+            if (childPath && childPath !== parentPath) {
+              childPaths.add(childPath);
+            }
+          } catch (e) {}
+        });
+
+        shouldHideLeft = childPaths.size === 0;
+      }
+    }
+
+    document.body.classList.toggle('sg-hide-left-sidebar', shouldHideLeft);
+    document.body.classList.toggle('sg-hide-right-sidebar', shouldHideRight);
   }
 
   function ensureMobileWorkNavLink() {

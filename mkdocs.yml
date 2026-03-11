@@ -44,21 +44,22 @@ theme:
 
 nav:
   - Home: index.md
-  - Packages: packages/index.md
-  - Process:
-      - Overview: process/index.md
+  - Products: products/index.md
+  - Services & Pricing: packages/index.md
+  - How It Works:
+      - Process Overview: process/index.md
       - Intake & Fit Check: process/intake-fit-check.md
       - Discovery: process/discovery.md
       - Structure & Sitemap: process/structure-sitemap.md
       - Build: process/build.md
       - Review & Revisions: process/revisions.md
       - Deployment & Handover: process/deployment-handover.md
-  - CV Templates: CV_index/index.md
-  - HTML Reports: html-reports/index.md
-  - Start Project: start-project/index.md
-  - Work:
-      - Work: web-platforms/index.md
-      - Demos: work-demos/index.md
+  - CV Template Shop: CV_index/index.md
+  - HTML Report Conversion: html-reports/index.md
+  - Start a Project: start-project/index.md
+  - Portfolio:
+      - Client Work: web-platforms/index.md
+      - Feature Demos: work-demos/index.md
   - About: about/index.md
   - Contact: contact/index.md
 
@@ -106,5 +107,6 @@ extra:
 
 extra_javascript:
   - javascripts/cta-footer.js
+  - assets/storefront.js
   - javascripts/cv-purchase.js
   - javascripts/standalone-theme.js

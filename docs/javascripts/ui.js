@@ -1,4 +1,13 @@
 (function () {
+  function normalizePath(path) {
+    return (path || "/").replace(/\/$/, "") || "/";
+  }
+
+  function shouldAutoHideSidePanels() {
+    var path = normalizePath(window.location.pathname);
+    return path === "/products" || path.indexOf("/start-project") === 0;
+  }
+
   function createEl(tag, className, html) {
     var el = document.createElement(tag);
     if (className) {
@@ -141,6 +150,9 @@
         document.body.classList.remove("drawer-open");
         navDrawer.classList.remove("open");
         tocDrawer.classList.remove("open");
+        if (shouldAutoHideSidePanels()) {
+          document.body.classList.add("hide-left-nav", "hide-right-toc");
+        }
       }
     }
 
@@ -239,21 +251,24 @@
       '</section>' +
       '<section class="footer-links-grid">' +
       '<div class="link-panel">' +
-      '<h4>Services</h4>' +
-      '<a href="/services/">Portfolio Websites</a>' +
-      '<a href="/services/">Academic Documentation</a>' +
-      '<a href="/services/">Workshop Pages</a>' +
+      '<h4>Products</h4>' +
+      '<a href="/products/">All Products</a>' +
+      '<a href="/packages/">Services & Pricing</a>' +
+      '<a href="/CV_index/">CV Template Shop</a>' +
+      '<a href="/html-reports/">HTML Report Conversion</a>' +
       '</div>' +
       '<div class="link-panel">' +
       '<h4>Studio</h4>' +
-      '<a href="/process/">Process</a>' +
-      '<a href="/web-platforms/">Case Studies</a>' +
+      '<a href="/process/">How It Works</a>' +
+      '<a href="/start-project/">Start a Project</a>' +
+      '<a href="/web-platforms/">Client Work</a>' +
+      '<a href="/work-demos/">Feature Demos</a>' +
       '<a href="/about/">About</a>' +
       '</div>' +
       '<div class="link-panel">' +
       '<h4>Support</h4>' +
       '<a href="/contact/">Contact</a>' +
-      '<a href="/services/">Scope</a>' +
+      '<a href="/packages/#what-is-not-included">Scope</a>' +
       '<a href="/process/">Delivery Flow</a>' +
       '</div>' +
       '</section>' +

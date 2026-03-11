@@ -539,6 +539,7 @@ Use this intake form to submit your project details in one pass.
         <p class="bp-submit-note">Choose one: download as PDF for your records, or send directly to Blueprint.</p>
         <div class="bp-actions">
           <button class="bp-btn" type="button" onclick="bpIntakeExportPDF()">Download PDF</button>
+          <button class="bp-btn" type="button" onclick="bpIntakeAddToCart()">Add to Cart</button>
           <button class="bp-btn primary" type="submit">Send to Blueprint</button>
         </div>
       </div>
@@ -565,6 +566,159 @@ Use this intake form to submit your project details in one pass.
 
       window.bpIntakeExportPDF = function () {
         window.print();
+      };
+
+      function addCartItem(item) {
+        if (typeof window.cartAdd !== 'function') {
+          throw new Error('Storefront cart is not available.');
+        }
+        window.cartAdd(item);
+      }
+
+      function getTierItem(fd) {
+        var tier = fd.get('tier');
+        var titles = {
+          'Tier 1': 'Tier 1, Personal Presence',
+          'Tier 2': 'Tier 2, Project Documentation',
+          'Tier 3': 'Tier 3, Research Documentation'
+        };
+        var prices = {
+          'Tier 1': 600,
+          'Tier 2': 950,
+          'Tier 3': 1400
+        };
+
+        if (!tier || !prices[tier]) {
+          return null;
+        }
+
+        return {
+          id: 'website-' + tier.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+          title: titles[tier],
+          option: 'Website Package',
+          price: prices[tier],
+          qty: 1,
+          href: '/packages/'
+        };
+      }
+
+      function getServiceItem(fd) {
+        var serviceType = fd.get('service_type');
+
+        if (serviceType === 'Website Package') {
+          return getTierItem(fd);
+        }
+
+        if (serviceType === 'CV Basic') {
+          return {
+            id: 'cv-basic-self-setup',
+            title: 'CV Template, Basic',
+            option: 'Self Setup',
+            price: 68,
+            qty: 1,
+            href: '/products/'
+          };
+        }
+
+        if (serviceType === 'CV Pro') {
+          return {
+            id: 'cv-pro-self-setup',
+            title: 'CV Template, Pro',
+            option: 'Self Setup',
+            price: 95,
+            qty: 1,
+            href: '/products/'
+          };
+        }
+
+        return null;
+      }
+
+      function getAddonItems(fd) {
+        var items = [];
+
+        if (fd.get('ao_bilingual')) {
+          items.push({
+            id: 'addon-bilingual-setup',
+            title: 'Bilingual Setup (Arabic + English)',
+            option: 'Add-On',
+            price: 300,
+            qty: 1,
+            href: '/packages/'
+          });
+        }
+
+        if (fd.get('ao_domain')) {
+          items.push({
+            id: 'addon-custom-domain',
+            title: 'Custom Domain Setup',
+            option: 'Add-On',
+            price: 250,
+            qty: 1,
+            href: '/packages/'
+          });
+        }
+
+        if (fd.get('ao_priority')) {
+          items.push({
+            id: 'addon-priority-delivery',
+            title: 'Priority Delivery',
+            option: 'Add-On',
+            price: 200,
+            qty: 1,
+            href: '/packages/'
+          });
+        }
+
+        if (fd.get('ao_monthly')) {
+          items.push({
+            id: 'addon-monthly-maintenance',
+            title: 'Monthly Maintenance',
+            option: 'Add-On',
+            price: 50,
+            qty: 1,
+            href: '/packages/'
+          });
+        }
+
+        var extraSections = Number(fd.get('extra_sections') || 0);
+        if (fd.get('ao_extra') && extraSections > 0) {
+          items.push({
+            id: 'addon-additional-section',
+            title: 'Additional Section',
+            option: 'Add-On',
+            price: 150,
+            qty: extraSections,
+            href: '/packages/'
+          });
+        }
+
+        return items;
+      }
+
+      window.bpIntakeAddToCart = function () {
+        var fd = new FormData(form);
+        var serviceItem = getServiceItem(fd);
+        var addonItems = getAddonItems(fd);
+        var items = [];
+
+        if (serviceItem) {
+          items.push(serviceItem);
+        }
+
+        items = items.concat(addonItems);
+
+        if (!items.length) {
+          setStatus('err', 'Select a supported service or priced add-on first, then add it to cart.');
+          return;
+        }
+
+        try {
+          items.forEach(addCartItem);
+          setStatus('ok', 'Added to cart. You can continue building the order or open the cart.');
+        } catch (error) {
+          setStatus('err', 'Cart is unavailable on this page.');
+        }
       };
 
       function buildFallbackMailto(fd) {
