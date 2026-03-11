@@ -1133,10 +1133,14 @@
     var lead = document.querySelector(".purchase-thankyou__lead");
     var nextCard = document.querySelector(".purchase-thankyou__card");
     if (lead) {
+      var contactLabel =
+        order.contactPreference === "WhatsApp"
+          ? "the WhatsApp number you submitted"
+          : "the email address you submitted";
       lead.textContent =
-        "Blueprint has received your order successfully. A confirmation will be sent to " +
-        order.email +
-        " after the worker finishes processing.";
+        "Blueprint has received your order successfully. We will review the order and continue using " +
+        contactLabel +
+        ".";
     }
     if (nextCard) {
       var summary = document.createElement("p");
@@ -1247,8 +1251,8 @@
       '[data-md-color-scheme="slate"] .bp-storefront-price,[data-md-color-scheme="slate"] .bp-storefront-total,[data-md-color-scheme="slate"] .bp-storefront-line__side strong,[data-md-color-scheme="slate"] .bp-storefront-summary-line strong{color:#7ce9d9}' +
       '[data-md-color-scheme="slate"] .bp-storefront-link{border-color:rgba(94,234,212,.26);color:#dffcf8 !important;background:linear-gradient(180deg,rgba(45,212,191,.12),rgba(13,148,136,.2));box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}' +
       '[data-md-color-scheme="slate"] .bp-storefront-link:hover,[data-md-color-scheme="slate"] .bp-storefront-link:focus-visible{color:#ffffff !important;background:linear-gradient(180deg,rgba(45,212,191,.18),rgba(20,184,166,.28));box-shadow:0 10px 24px rgba(2,6,23,.28),inset 0 1px 0 rgba(255,255,255,.1)}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-link--primary,[data-md-color-scheme="slate"] .bp-storefront-button--primary{background:linear-gradient(135deg,#0f766e,#14b8a6);border-color:rgba(94,234,212,.2);color:#041412 !important;box-shadow:0 14px 30px rgba(8,145,128,.28)}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-link--primary:hover,[data-md-color-scheme="slate"] .bp-storefront-link--primary:focus-visible,[data-md-color-scheme="slate"] .bp-storefront-button--primary:hover,[data-md-color-scheme="slate"] .bp-storefront-button--primary:focus-visible{background:linear-gradient(135deg,#2dd4bf,#5eead4);color:#03110f !important}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-link--primary,[data-md-color-scheme="slate"] .bp-storefront-button--primary{background:linear-gradient(135deg,#0f766e,#14b8a6);border-color:rgba(94,234,212,.2);color:#f0fdfa !important;box-shadow:0 14px 30px rgba(8,145,128,.28);text-shadow:0 1px 1px rgba(3,18,15,.28)}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-link--primary:hover,[data-md-color-scheme="slate"] .bp-storefront-link--primary:focus-visible,[data-md-color-scheme="slate"] .bp-storefront-button--primary:hover,[data-md-color-scheme="slate"] .bp-storefront-button--primary:focus-visible{background:linear-gradient(135deg,#2dd4bf,#5eead4);color:#03211d !important}' +
       '[data-md-color-scheme="slate"] .bp-storefront-button,[data-md-color-scheme="slate"] .bp-storefront-select,[data-md-color-scheme="slate"] .bp-storefront-form input,[data-md-color-scheme="slate"] .bp-storefront-form textarea,[data-md-color-scheme="slate"] .bp-storefront-qty input{border-color:rgba(94,234,212,.22);background:rgba(12,24,34,.92);color:#ecfeff}' +
       '[data-md-color-scheme="slate"] .bp-storefront-button--muted{background:rgba(45,212,191,.1);color:#dffcf8}' +
       '[data-md-color-scheme="slate"] .bp-storefront-select{background:linear-gradient(180deg,rgba(12,24,34,.96),rgba(8,19,28,.96))}' +
