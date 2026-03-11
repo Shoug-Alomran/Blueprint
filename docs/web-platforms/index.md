@@ -45,6 +45,8 @@ Clean, navigable digital presence sites built for individuals who need their wor
 
 </div>
 
+> Note: Shoug's Digital Garden was translated with the support of artificial intelligence. Blueprint Studio is translated by freelance translators working with Blueprint.
+
 ---
 
 ## Tier 2, Project Documentation
