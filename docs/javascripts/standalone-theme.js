@@ -541,6 +541,79 @@
     subList.insertBefore(li, subList.firstChild);
   }
 
+  function ensureMobileProductsNavLink() {
+    document.querySelectorAll('.sg-injected-products-link').forEach(function (node) {
+      node.remove();
+    });
+
+    if (!window.matchMedia('(max-width: 76.234375em)').matches) {
+      return;
+    }
+
+    var primaryList = document.querySelector('.md-sidebar--primary .md-nav--primary > .md-nav__list');
+    if (!primaryList) {
+      return;
+    }
+
+    var productsSection = null;
+    primaryList.querySelectorAll(':scope > .md-nav__item').forEach(function (item) {
+      if (productsSection) {
+        return;
+      }
+      var sectionLink = item.querySelector(':scope > .md-nav__container > a.md-nav__link, :scope > a.md-nav__link');
+      if (!sectionLink) {
+        return;
+      }
+      try {
+        var sectionPath = normalizeNavPath(new URL(sectionLink.href, window.location.href).pathname);
+        if (sectionPath === '/products/') {
+          productsSection = item;
+        }
+      } catch (e) {}
+    });
+
+    if (!productsSection) {
+      return;
+    }
+
+    var subList = productsSection.querySelector(':scope > .md-nav > .md-nav__list');
+    if (!subList) {
+      return;
+    }
+
+    var hasOverviewLink = false;
+    subList.querySelectorAll(':scope > .md-nav__item > a.md-nav__link').forEach(function (link) {
+      if (hasOverviewLink) {
+        return;
+      }
+      try {
+        var childPath = normalizeNavPath(new URL(link.href, window.location.href).pathname);
+        if (childPath === '/products/') {
+          hasOverviewLink = true;
+        }
+      } catch (e) {}
+    });
+
+    if (hasOverviewLink) {
+      return;
+    }
+
+    var li = document.createElement('li');
+    li.className = 'md-nav__item sg-injected-products-link';
+
+    var link = document.createElement('a');
+    link.className = 'md-nav__link';
+    link.href = normalizeNavPath(window.location.pathname).indexOf('/ar/') === 0 ? '/ar/products/' : '/products/';
+
+    var span = document.createElement('span');
+    span.className = 'md-ellipsis';
+    span.textContent = isArabicPage() ? 'كل المنتجات' : 'All Products';
+    link.appendChild(span);
+
+    li.appendChild(link);
+    subList.insertBefore(li, subList.firstChild);
+  }
+
   function localizeHeaderUI() {
     if (!isArabicPage()) {
       return;
@@ -721,6 +794,7 @@
     applyPageLayoutOverrides();
     localizeHeaderUI();
     relabelProductsChildLinks();
+    ensureMobileProductsNavLink();
     ensureMobileWorkNavLink();
     buildTabDropdowns();
     setupTabDropdownInteractions();
@@ -729,6 +803,7 @@
   });
 
   window.addEventListener('resize', function () {
+    ensureMobileProductsNavLink();
     ensureMobileWorkNavLink();
   });
 
@@ -738,6 +813,7 @@
       applyPageLayoutOverrides();
       localizeHeaderUI();
       relabelProductsChildLinks();
+      ensureMobileProductsNavLink();
       ensureMobileWorkNavLink();
       buildTabDropdowns();
       setupTabDropdownInteractions();
