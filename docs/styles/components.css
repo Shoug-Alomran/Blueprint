@@ -667,9 +667,15 @@
 
 .md-typeset .purchase-thankyou {
   margin: 1rem 0 2rem;
+  width: 100%;
+  max-width: none;
 }
 
 .md-typeset .purchase-thankyou__hero {
+  display: block;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
   position: relative;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -701,7 +707,7 @@
 
 .md-typeset .purchase-thankyou__hero h1 {
   margin: 0;
-  max-width: 13ch;
+  max-width: 18ch;
   color: #ffffff;
   font-size: clamp(2.2rem, 5vw, 4.2rem);
   line-height: 0.96;
@@ -711,7 +717,7 @@
 
 .md-typeset .purchase-thankyou__lead {
   margin: 1rem 0 0;
-  max-width: 58ch;
+  max-width: 72ch;
   color: rgba(236, 253, 250, 0.9);
   font-size: clamp(1rem, 1.25vw, 1.14rem);
   line-height: 1.65;
@@ -760,11 +766,15 @@
 
 .md-typeset .purchase-thankyou__grid {
   display: grid;
+  width: 100%;
+  max-width: none;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .md-typeset .purchase-thankyou__card {
+  width: 100%;
+  min-width: 0;
   height: 100%;
   padding: 1.15rem 1.2rem;
   border: 1px solid rgba(15, 118, 110, 0.16);

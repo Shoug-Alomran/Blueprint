@@ -331,6 +331,8 @@
     var shouldHideLeft =
       currentPath === '/cart/' ||
       currentPath === '/cart' ||
+      currentPath === '/thank-you/' ||
+      currentPath === '/thank-you' ||
       currentPath === '/checkout/' ||
       currentPath === '/checkout';
     var shouldHideRight =
@@ -340,6 +342,8 @@
       currentPath === '/start-project' ||
       currentPath === '/cart/' ||
       currentPath === '/cart' ||
+      currentPath === '/thank-you/' ||
+      currentPath === '/thank-you' ||
       currentPath === '/checkout/' ||
       currentPath === '/checkout';
 
