@@ -330,6 +330,110 @@ Use this intake form to submit your project details in one pass.
       color: #7a1f1f;
     }
 
+    [data-md-color-scheme="slate"] .bp-intake {
+      --ink: #e6fbfa;
+      --ink-light: #b6d7d5;
+      --rule: rgba(45, 212, 191, 0.16);
+      --input-border: rgba(94, 234, 212, 0.18);
+      --input-focus: #2dd4bf;
+      --shadow: 0 18px 40px rgba(2, 6, 23, 0.38);
+      --required: #fda4af;
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-intake-page {
+      background: linear-gradient(160deg, rgba(9, 18, 30, 0.98), rgba(12, 24, 36, 0.96));
+      border-color: rgba(45, 212, 191, 0.18);
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-section {
+      background: rgba(7, 18, 27, 0.78);
+      border-bottom-color: rgba(45, 212, 191, 0.12);
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-title,
+    [data-md-color-scheme="slate"] .bp-intake label,
+    [data-md-color-scheme="slate"] .bp-intake .bp-choice label,
+    [data-md-color-scheme="slate"] .bp-intake .bp-submit-note {
+      color: #def7f5;
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-desc,
+    [data-md-color-scheme="slate"] .bp-intake .bp-choice small,
+    [data-md-color-scheme="slate"] .bp-intake .bp-summary {
+      color: #b6d7d5;
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake input[type="text"],
+    [data-md-color-scheme="slate"] .bp-intake input[type="email"],
+    [data-md-color-scheme="slate"] .bp-intake input[type="tel"],
+    [data-md-color-scheme="slate"] .bp-intake input[type="number"],
+    [data-md-color-scheme="slate"] .bp-intake input[type="date"],
+    [data-md-color-scheme="slate"] .bp-intake select,
+    [data-md-color-scheme="slate"] .bp-intake textarea {
+      border-color: rgba(94, 234, 212, 0.22);
+      background: rgba(10, 23, 33, 0.94);
+      color: #effcfb;
+      box-shadow: inset 0 1px 2px rgba(2, 6, 23, 0.28);
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake input::placeholder,
+    [data-md-color-scheme="slate"] .bp-intake textarea::placeholder {
+      color: #86a8a6;
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake input:focus,
+    [data-md-color-scheme="slate"] .bp-intake select:focus,
+    [data-md-color-scheme="slate"] .bp-intake textarea:focus {
+      background: rgba(12, 28, 40, 0.98);
+      box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.18);
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-choice {
+      border-color: rgba(94, 234, 212, 0.16);
+      background: linear-gradient(160deg, rgba(8, 20, 30, 0.96), rgba(10, 24, 35, 0.94));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-choice:hover {
+      border-color: rgba(94, 234, 212, 0.34);
+      box-shadow: 0 10px 24px rgba(2, 6, 23, 0.24);
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-choice input {
+      accent-color: #2dd4bf;
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-summary,
+    [data-md-color-scheme="slate"] .bp-intake .bp-submit {
+      border-color: rgba(45, 212, 191, 0.14);
+      background: rgba(8, 20, 30, 0.7);
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-btn {
+      border-color: rgba(94, 234, 212, 0.24);
+      background: rgba(12, 28, 40, 0.92);
+      color: #def7f5;
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-btn.primary {
+      background: linear-gradient(135deg, #0f766e, #14b8a6);
+      border-color: rgba(94, 234, 212, 0.24);
+      color: #f0fdfa;
+      box-shadow: 0 14px 28px rgba(8, 145, 128, 0.22);
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-status.ok {
+      background: rgba(20, 184, 166, 0.12);
+      border-color: rgba(45, 212, 191, 0.24);
+      color: #a7f3d0;
+    }
+
+    [data-md-color-scheme="slate"] .bp-intake .bp-status.err {
+      background: rgba(239, 68, 68, 0.14);
+      border-color: rgba(248, 113, 113, 0.24);
+      color: #fecaca;
+    }
+
     @media (max-width: 900px) {
       .bp-intake .bp-cols-2,
       .bp-intake .bp-cols-3,
@@ -390,12 +494,12 @@ Use this intake form to submit your project details in one pass.
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">1</span><div><h3 class="bp-title">Client Information</h3><p class="bp-desc">Core contact and communication details</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Full Name <span class="req">*</span></label><input required name="client_name" type="text"></div>
-          <div class="bp-field"><label>Email Address <span class="req">*</span></label><input required name="client_email" type="email"></div>
+          <div class="bp-field"><label>Full Name <span class="req">*</span></label><input required name="client_name" type="text" placeholder="For example: Shoug Alomran"></div>
+          <div class="bp-field"><label>Email Address <span class="req">*</span></label><input required name="client_email" type="email" placeholder="For example: name@example.com"></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Phone / WhatsApp</label><input name="client_phone" type="tel"></div>
-          <div class="bp-field"><label>University / Organization (if applicable)</label><input name="client_org" type="text"></div>
+          <div class="bp-field"><label>Phone / WhatsApp</label><input name="client_phone" type="tel" placeholder="For example: +966 5X XXX XXXX"></div>
+          <div class="bp-field"><label>University / Organization (if applicable)</label><input name="client_org" type="text" placeholder="For example: Prince Sultan University"></div>
         </div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>Preferred Communication Language</label><select name="client_lang"><option value="">Select...</option><option>English</option><option>Arabic</option><option>Both</option></select></div>
@@ -405,32 +509,33 @@ Use this intake form to submit your project details in one pass.
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Website Tier & Project Brief</h3><p class="bp-desc">Tier selection and project fundamentals</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Tier 1<small>Personal Presence</small></label></div>
-          <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Tier 2<small>Growth Site</small></label></div>
-          <div class="bp-choice"><input id="tier3" name="tier" type="radio" value="Tier 3"><label for="tier3">Tier 3<small>Advanced Build</small></label></div>
+          <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Tier 1<small>Personal Presence · 600 SAR</small></label></div>
+          <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Tier 2<small>Growth Site · 950 SAR</small></label></div>
+          <div class="bp-choice"><input id="tier3" name="tier" type="radio" value="Tier 3"><label for="tier3">Tier 3<small>Advanced Build · 1400 SAR</small></label></div>
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Project / Website Title</label><input name="project_title" type="text"></div>
-          <div class="bp-field"><label>Course / Department (if academic)</label><input name="project_course" type="text"></div>
+          <div class="bp-field"><label>Project / Website Title</label><input name="project_title" type="text" placeholder="For example: Senior Design Project Showcase"></div>
+          <div class="bp-field"><label>Course / Department (if academic)</label><input name="project_course" type="text" placeholder="For example: CS 499 / Computer Science"></div>
         </div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>Project Description <span class="req">*</span></label><textarea required name="project_desc" placeholder="What is this site for, who uses it, and what should they find?"></textarea></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Target Audience</label><input name="audience" type="text"></div>
-          <div class="bp-field"><label>Primary Goal of the Site</label><input name="goal" type="text"></div>
+          <div class="bp-field"><label>Target Audience</label><input name="audience" type="text" placeholder="For example: instructors, recruiters, classmates, clients"></div>
+          <div class="bp-field"><label>Primary Goal of the Site</label><input name="goal" type="text" placeholder="For example: present the project clearly and collect interest"></div>
         </div>
       </section>
 
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">3</span><div><h3 class="bp-title">Structure Planning</h3><p class="bp-desc">Sections, page depth, and navigation expectations</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Estimated Number of Sections <span class="req">*</span></label><input required name="section_count" type="number" min="1" max="40"></div>
-          <div class="bp-field"><label>Estimated Pages per Section</label><input name="pages_per_section" type="number" min="1" max="30"></div>
+          <div class="bp-field"><label>Estimated Number of Sections <span class="req">*</span></label><input required name="section_count" type="number" min="1" max="40" placeholder="For example: 6"></div>
+          <div class="bp-field"><label>Estimated Pages per Section</label><input name="pages_per_section" type="number" min="1" max="30" placeholder="For example: 2"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Sections List</label><textarea name="sections_list" placeholder="One section per line"></textarea></div>
+          <div class="bp-field"><label>Sections List <span class="req">*</span></label><textarea required name="sections_list" placeholder="For example: Home&#10;About&#10;Services&#10;Portfolio&#10;Contact"></textarea></div>
         </div>
+        <div class="bp-summary">A section means one main top navigation item, for example: Home, About, Services, Portfolio, or Contact.</div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>Navigation Notes</label><textarea name="nav_notes" placeholder="Grouping, ordering, and preferred naming (optional)"></textarea></div>
         </div>
@@ -450,20 +555,20 @@ Use this intake form to submit your project details in one pass.
           <div class="bp-choice"><input id="cnt_refs" name="cnt_refs" type="checkbox" value="References"><label for="cnt_refs">References</label></div>
         </div>
         <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Content Notes</label><textarea name="content_notes" placeholder="What is missing, what format assets are in, and what is still coming"></textarea></div>
+          <div class="bp-field"><label>Content Notes</label><textarea name="content_notes" placeholder="For example: final screenshots are ready, team bios are still being written, and the logo is available as SVG"></textarea></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">Report Integration</h3><p class="bp-desc">How reports or documents should appear in the final delivery</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">Report Options</h3><p class="bp-desc">Choose how your report or document should be shown</p></div></div>
         <div class="bp-choice-grid bp-cols-2">
-          <div class="bp-choice"><input id="rep_none" name="rep_none" type="checkbox" value="Not applicable"><label for="rep_none">Not Applicable</label></div>
-          <div class="bp-choice"><input id="rep_pdf" name="rep_pdf" type="checkbox" value="Embedded PDF"><label for="rep_pdf">Embedded PDF</label></div>
-          <div class="bp-choice"><input id="rep_hosted" name="rep_hosted" type="checkbox" value="HTML Hosted"><label for="rep_hosted">HTML Hosted</label></div>
-          <div class="bp-choice"><input id="rep_download" name="rep_download" type="checkbox" value="HTML Standalone"><label for="rep_download">HTML Standalone</label></div>
+          <div class="bp-choice"><input id="rep_none" name="rep_none" type="checkbox" value="No report needed"><label for="rep_none">No report needed</label></div>
+          <div class="bp-choice"><input id="rep_pdf" name="rep_pdf" type="checkbox" value="Show PDF on the site"><label for="rep_pdf">Show PDF on the site</label></div>
+          <div class="bp-choice"><input id="rep_hosted" name="rep_hosted" type="checkbox" value="Open report as a html page"><label for="rep_hosted">Open report as a html page</label></div>
+          <div class="bp-choice"><input id="rep_download" name="rep_download" type="checkbox" value="Let visitors download the html version"><label for="rep_download">Let visitors download the html version</label></div>
         </div>
         <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Report Notes</label><textarea name="report_notes" placeholder="For example: Word doc to convert, report already final, hosting preference"></textarea></div>
+          <div class="bp-field"><label>Report Notes</label><textarea name="report_notes" placeholder="For example: I have a final Word file, I want it visible on the site, and I also want a download option"></textarea></div>
         </div>
       </section>
 
@@ -473,13 +578,13 @@ Use this intake form to submit your project details in one pass.
           <div class="bp-choice"><input id="ao_bilingual" name="ao_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual">Bilingual Setup<small>300 SAR</small></label></div>
           <div class="bp-choice"><input id="ao_domain" name="ao_domain" type="checkbox" value="Custom Domain"><label for="ao_domain">Custom Domain Setup<small>250 SAR</small></label></div>
           <div class="bp-choice"><input id="ao_priority" name="ao_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority">Priority Delivery<small>200 SAR</small></label></div>
-          <div class="bp-choice"><input id="ao_monthly" name="ao_monthly" type="checkbox" value="Monthly Maintenance"><label for="ao_monthly">Monthly Maintenance</label></div>
+          <div class="bp-choice"><input id="ao_monthly" name="ao_monthly" type="checkbox" value="Monthly Maintenance"><label for="ao_monthly">Monthly Maintenance<small>50 SAR</small></label></div>
           <div class="bp-choice"><input id="ao_daily" name="ao_daily" type="checkbox" value="Daily Maintenance"><label for="ao_daily">Daily Maintenance</label></div>
-          <div class="bp-choice"><input id="ao_extra" name="ao_extra" type="checkbox" value="Extra Sections"><label for="ao_extra">Extra Sections</label></div>
+          <div class="bp-choice"><input id="ao_extra" name="ao_extra" type="checkbox" value="Extra Sections"><label for="ao_extra">Extra Sections<small>150 SAR per section</small></label></div>
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Custom Domain Name (if applicable)</label><input name="custom_domain" type="text" placeholder="example.com"></div>
-          <div class="bp-field"><label>Number of Extra Sections (if applicable)</label><input name="extra_sections" type="number" min="1" max="20"></div>
+          <div class="bp-field"><label>Custom Domain Name (if applicable)</label><input name="custom_domain" type="text" placeholder="For example: myproject.com"></div>
+          <div class="bp-field"><label>Number of Extra Sections (if applicable)</label><input name="extra_sections" type="number" min="1" max="20" placeholder="For example: 3"></div>
         </div>
       </section>
 
@@ -493,27 +598,31 @@ Use this intake form to submit your project details in one pass.
           <div class="bp-field"><label>Deadline Context</label><textarea name="deadline_notes" placeholder="Course submission, event launch, exam date, or other context"></textarea></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Color Direction</label><input name="color_dir" type="text" placeholder="Minimal, vibrant, neutral, premium, etc."></div>
-          <div class="bp-field"><label>Brand Colors (hex or description)</label><input name="brand_colors" type="text" placeholder="#0f3d4a, #5eead4"></div>
+          <div class="bp-field"><label>Color Direction</label><input name="color_dir" type="text" placeholder="For example: minimal, academic, modern, premium"></div>
+          <div class="bp-field"><label>Brand Colors (hex or description)</label><input name="brand_colors" type="text" placeholder="For example: #0f3d4a, #5eead4, white"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Reference Sites</label><textarea name="references" placeholder="URLs or short descriptions of sites you like"></textarea></div>
+          <div class="bp-field"><label>Reference Sites</label><textarea name="references" placeholder="For example: https://example.com for structure, a clean portfolio layout, and a docs-style sidebar"></textarea></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>GitHub / Portfolio Link</label><input name="portfolio_link" type="text"></div>
-          <div class="bp-field"><label>Design Notes</label><input name="design_notes" type="text" placeholder="Fonts, layout style, and things to avoid"></div>
+          <div class="bp-field"><label>GitHub / Portfolio Link</label><input name="portfolio_link" type="text" placeholder="For example: https://github.com/username/project"></div>
+          <div class="bp-field"><label>Design Notes</label><input name="design_notes" type="text" placeholder="For example: clean typography, no heavy animations, avoid bright red"></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">8</span><div><h3 class="bp-title">Domain & Repository</h3><p class="bp-desc">Publishing method and existing repo details</p></div></div>
-        <div class="bp-choice-grid bp-cols-2">
-          <div class="bp-choice"><input id="domain_free" name="domain_type" type="radio" value="Free GitHub Pages"><label for="domain_free">Free GitHub Pages</label></div>
-          <div class="bp-choice"><input id="domain_custom" name="domain_type" type="radio" value="Custom Domain"><label for="domain_custom">Custom Domain</label></div>
+        <div class="bp-section-label"><span class="bp-num">8</span><div><h3 class="bp-title">Website Address & Repository</h3><p class="bp-desc">Choose how you want the site address to work</p></div></div>
+        <div class="bp-choice-grid bp-cols-3">
+          <div class="bp-choice"><input id="domain_free" name="domain_type" type="radio" value="Free GitHub Pages"><label for="domain_free"><strong>Free GitHub Pages</strong><small>Uses a GitHub web address, for example: username.github.io/project-name</small></label></div>
+          <div class="bp-choice"><input id="domain_custom" name="domain_type" type="radio" value="Custom Domain"><label for="domain_custom"><strong>Custom Domain</strong><small>Uses your own domain, for example: myproject.com</small></label></div>
+          <div class="bp-choice"><input id="domain_subdomain" name="domain_type" type="radio" value="ShougTech Subdomain"><label for="domain_subdomain"><strong>Subdomain on shoug-tech.com</strong><small>Uses a website address under my domain, for example: mylife.shoug-tech.com</small></label></div>
+        </div>
+        <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
+          <div class="bp-field"><label>Preferred Website Address</label><input name="preferred_site_address" type="text" placeholder="For example: username.github.io/project-name, mylife.shoug-tech.com, or myproject.com"></div>
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>GitHub Username (if you have one)</label><input name="github_user" type="text"></div>
-          <div class="bp-field"><label>Existing Repository (if applicable)</label><input name="github_repo" type="text"></div>
+          <div class="bp-field"><label>GitHub Username (if you have one)</label><input name="github_user" type="text" placeholder="For example: shougalomran"></div>
+          <div class="bp-field"><label>Existing Repository (if applicable)</label><input name="github_repo" type="text" placeholder="For example: senior-design-site"></div>
         </div>
       </section>
 
@@ -524,23 +633,23 @@ Use this intake form to submit your project details in one pass.
           <div class="bp-field"><label>Number of Team Members (if team)</label><input name="team_count" type="number" min="1" max="20"></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Supervisor / Instructor (if applicable)</label><input name="supervisor" type="text"></div>
-          <div class="bp-field"><label>How Did You Hear About Blueprint?</label><input name="referral" type="text"></div>
+          <div class="bp-field"><label>Supervisor / Instructor (if applicable)</label><input name="supervisor" type="text" placeholder="For example: Dr. Ahmed Alharbi"></div>
+          <div class="bp-field"><label>How Did You Hear About Blueprint?</label><input name="referral" type="text" placeholder="For example: Instagram, friend, university group chat"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Team Members (names and roles, one per line)</label><textarea name="team_members"></textarea></div>
+          <div class="bp-field"><label>Team Members (names and roles, one per line)</label><textarea name="team_members" placeholder="For example: Sara - UI design&#10;Omar - backend&#10;Lama - content review"></textarea></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Special Requirements or Constraints</label><textarea name="special_req"></textarea></div>
+          <div class="bp-field"><label>Special Requirements or Constraints</label><textarea name="special_req" placeholder="For example: must be bilingual, ready before final presentation, and easy to update after delivery"></textarea></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Anything Else Blueprint Should Know Before the Project Begins</label><textarea name="anything_else"></textarea></div>
+          <div class="bp-field"><label>Anything Else Blueprint Should Know Before the Project Begins</label><textarea name="anything_else" placeholder="For example: the client wants a simple handoff, and final content will be approved one week before launch"></textarea></div>
         </div>
         <div class="bp-summary">By submitting, you confirm details are accurate. Final scope and pricing are confirmed in writing before implementation.</div>
       </section>
 
       <div class="bp-submit">
-        <p class="bp-submit-note">Choose one: download as PDF for your records, or send directly to Blueprint.</p>
+        <p class="bp-submit-note">Choose one: download as PDF for your records, add to cart if you want to continue shopping, or send directly to Blueprint.</p>
         <div class="bp-actions">
           <button class="bp-btn" type="button" onclick="bpIntakeExportPDF()">Download PDF</button>
           <button class="bp-btn" type="button" onclick="bpIntakeAddToCart()">Add to Cart</button>
