@@ -38,6 +38,11 @@
   padding-right: 0.6rem !important;
 }
 
+.md-header__inner {
+  display: flex !important;
+  align-items: center !important;
+}
+
 .md-header__inner.md-grid,
 .md-tabs__inner.md-grid,
 .md-header .md-grid,
@@ -65,13 +70,28 @@
 }
 
 .md-header__title {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
   font-weight: 700;
   letter-spacing: -0.01em;
-  line-height: 1.1;
+  line-height: 1;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.md-header__ellipsis {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 1.45rem;
 }
 
 .md-header__topic:first-child {
+  display: inline-flex;
+  align-items: center;
   font-size: 0.96rem;
+  line-height: 1;
+  margin: 0 !important;
 }
 
 .md-tabs__link {
