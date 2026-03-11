@@ -389,17 +389,7 @@ Use this intake form to submit your project details in one pass.
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Service Type</h3><p class="bp-desc">Select the service you want to start with</p></div></div>
-        <div class="bp-choice-grid bp-cols-2">
-          <div class="bp-choice"><input id="svc_website" name="service_type" type="radio" value="Website Package"><label for="svc_website">Website Package<small>Tier 1 to 2, or 3</small></label></div>
-          <div class="bp-choice"><input id="svc_cv_basic" name="service_type" type="radio" value="CV Basic"><label for="svc_cv_basic">CV Template, Basic<small>68 SAR</small></label></div>
-          <div class="bp-choice"><input id="svc_cv_pro" name="service_type" type="radio" value="CV Pro"><label for="svc_cv_pro">CV Template, Pro<small>95 SAR</small></label></div>
-          <div class="bp-choice"><input id="svc_cv_done" name="service_type" type="radio" value="CV Already Done"><label for="svc_cv_done">CV Already Done<small>Formatting/rebuild support</small></label></div>
-        </div>
-      </section>
-
-      <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">3</span><div><h3 class="bp-title">Website Tier & Project Brief</h3><p class="bp-desc">Tier selection and project fundamentals</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Website Tier & Project Brief</h3><p class="bp-desc">Tier selection and project fundamentals</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
           <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Tier 1<small>Personal Presence</small></label></div>
           <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Tier 2<small>Growth Site</small></label></div>
@@ -419,7 +409,7 @@ Use this intake form to submit your project details in one pass.
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">4</span><div><h3 class="bp-title">Structure Planning</h3><p class="bp-desc">Sections, page depth, and navigation expectations</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">3</span><div><h3 class="bp-title">Structure Planning</h3><p class="bp-desc">Sections, page depth, and navigation expectations</p></div></div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>Estimated Number of Sections <span class="req">*</span></label><input required name="section_count" type="number" min="1" max="40"></div>
           <div class="bp-field"><label>Estimated Pages per Section</label><input name="pages_per_section" type="number" min="1" max="30"></div>
@@ -433,7 +423,7 @@ Use this intake form to submit your project details in one pass.
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">Content Readiness</h3><p class="bp-desc">Current status of source material and missing items</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">4</span><div><h3 class="bp-title">Content Readiness</h3><p class="bp-desc">Current status of source material and missing items</p></div></div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label>Overall Content Status</label><select name="content_status"><option value="">Select...</option><option>Ready now</option><option>Partially ready</option><option>Draft exists, needs cleanup</option><option>Not started yet</option></select></div>
         </div>
@@ -451,7 +441,7 @@ Use this intake form to submit your project details in one pass.
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">6</span><div><h3 class="bp-title">Report Integration</h3><p class="bp-desc">How reports or documents should appear in the final delivery</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">5</span><div><h3 class="bp-title">Report Integration</h3><p class="bp-desc">How reports or documents should appear in the final delivery</p></div></div>
         <div class="bp-choice-grid bp-cols-2">
           <div class="bp-choice"><input id="rep_none" name="rep_none" type="checkbox" value="Not applicable"><label for="rep_none">Not Applicable</label></div>
           <div class="bp-choice"><input id="rep_pdf" name="rep_pdf" type="checkbox" value="Embedded PDF"><label for="rep_pdf">Embedded PDF</label></div>
@@ -464,7 +454,7 @@ Use this intake form to submit your project details in one pass.
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">7</span><div><h3 class="bp-title">Add-Ons</h3><p class="bp-desc">Optional extras and scope extensions</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">6</span><div><h3 class="bp-title">Add-Ons</h3><p class="bp-desc">Optional extras and scope extensions</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
           <div class="bp-choice"><input id="ao_bilingual" name="ao_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual">Bilingual Setup<small>300 SAR</small></label></div>
           <div class="bp-choice"><input id="ao_domain" name="ao_domain" type="checkbox" value="Custom Domain"><label for="ao_domain">Custom Domain Setup<small>250 SAR</small></label></div>
@@ -480,7 +470,7 @@ Use this intake form to submit your project details in one pass.
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">8</span><div><h3 class="bp-title">Timeline & Design Direction</h3><p class="bp-desc">Deadline context and creative preferences</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">7</span><div><h3 class="bp-title">Timeline & Design Direction</h3><p class="bp-desc">Deadline context and creative preferences</p></div></div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>Target Launch / Submission Date <span class="req">*</span></label><input required name="deadline" type="date"></div>
           <div class="bp-field"><label>Is This Deadline Fixed?</label><select name="deadline_flex"><option value="">Select...</option><option>Fixed</option><option>Flexible</option><option>Prefer earlier if possible</option></select></div>
@@ -502,7 +492,7 @@ Use this intake form to submit your project details in one pass.
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">9</span><div><h3 class="bp-title">Domain & Repository</h3><p class="bp-desc">Publishing method and existing repo details</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">8</span><div><h3 class="bp-title">Domain & Repository</h3><p class="bp-desc">Publishing method and existing repo details</p></div></div>
         <div class="bp-choice-grid bp-cols-2">
           <div class="bp-choice"><input id="domain_free" name="domain_type" type="radio" value="Free GitHub Pages"><label for="domain_free">Free GitHub Pages</label></div>
           <div class="bp-choice"><input id="domain_custom" name="domain_type" type="radio" value="Custom Domain"><label for="domain_custom">Custom Domain</label></div>
@@ -514,7 +504,7 @@ Use this intake form to submit your project details in one pass.
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">10</span><div><h3 class="bp-title">Team & Final Notes</h3><p class="bp-desc">Collaboration setup, referrals, and special constraints</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">9</span><div><h3 class="bp-title">Team & Final Notes</h3><p class="bp-desc">Collaboration setup, referrals, and special constraints</p></div></div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label>Solo or Team Project?</label><select name="is_team"><option value="">Select...</option><option>Solo</option><option>Team</option></select></div>
           <div class="bp-field"><label>Number of Team Members (if team)</label><input name="team_count" type="number" min="1" max="20"></div>
@@ -575,7 +565,51 @@ Use this intake form to submit your project details in one pass.
         window.cartAdd(item);
       }
 
-      function getTierItem(fd) {
+      function pushSummaryLine(lines, label, value) {
+        var text = String(value || '').trim();
+        if (!text) return;
+        lines.push(label + ': ' + text.replace(/\s+/g, ' '));
+      }
+
+      function getCheckedValues(fd, names) {
+        return names
+          .map(function (name) {
+            return String(fd.get(name) || '').trim();
+          })
+          .filter(Boolean);
+      }
+
+      function buildProjectMeta(fd) {
+        var lines = [];
+        var contentAssets = getCheckedValues(fd, ['cnt_text', 'cnt_images', 'cnt_report', 'cnt_code', 'cnt_data', 'cnt_refs']);
+        var reportNeeds = getCheckedValues(fd, ['rep_none', 'rep_pdf', 'rep_hosted', 'rep_download']);
+        var summary = String(fd.get('project_desc') || '').trim().replace(/\s+/g, ' ');
+        var briefId = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
+
+        pushSummaryLine(lines, 'Project', fd.get('project_title'));
+        pushSummaryLine(lines, 'Tier', fd.get('tier'));
+        pushSummaryLine(lines, 'Audience', fd.get('audience'));
+        pushSummaryLine(lines, 'Goal', fd.get('goal'));
+        pushSummaryLine(lines, 'Summary', summary.length > 180 ? summary.slice(0, 177) + '...' : summary);
+        pushSummaryLine(lines, 'Sections', fd.get('section_count'));
+        pushSummaryLine(lines, 'Pages per section', fd.get('pages_per_section'));
+        pushSummaryLine(lines, 'Content status', fd.get('content_status'));
+        if (contentAssets.length) pushSummaryLine(lines, 'Provided assets', contentAssets.join(', '));
+        if (reportNeeds.length) pushSummaryLine(lines, 'Report needs', reportNeeds.join(', '));
+        pushSummaryLine(lines, 'Launch date', fd.get('deadline'));
+        pushSummaryLine(lines, 'Deadline flexibility', fd.get('deadline_flex'));
+        pushSummaryLine(lines, 'Domain', fd.get('domain_type'));
+        pushSummaryLine(lines, 'Design direction', fd.get('color_dir'));
+        pushSummaryLine(lines, 'Language', fd.get('client_lang'));
+
+        return {
+          briefId: briefId,
+          source: 'start-project',
+          projectSummary: lines
+        };
+      }
+
+      function getTierItem(fd, projectMeta) {
         var tier = fd.get('tier');
         var titles = {
           'Tier 1': 'Tier 1, Personal Presence',
@@ -593,103 +627,77 @@ Use this intake form to submit your project details in one pass.
         }
 
         return {
-          id: 'website-' + tier.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+          id: 'start-project-website-' + tier.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + projectMeta.briefId,
           title: titles[tier],
           option: 'Website Package',
           price: prices[tier],
           qty: 1,
-          href: '/packages/'
+          href: '',
+          meta: projectMeta
         };
       }
 
-      function getServiceItem(fd) {
-        var serviceType = fd.get('service_type');
-
-        if (serviceType === 'Website Package') {
-          return getTierItem(fd);
-        }
-
-        if (serviceType === 'CV Basic') {
-          return {
-            id: 'cv-basic-self-setup',
-            title: 'CV Template, Basic',
-            option: 'Self Setup',
-            price: 68,
-            qty: 1,
-            href: '/products/'
-          };
-        }
-
-        if (serviceType === 'CV Pro') {
-          return {
-            id: 'cv-pro-self-setup',
-            title: 'CV Template, Pro',
-            option: 'Self Setup',
-            price: 95,
-            qty: 1,
-            href: '/products/'
-          };
-        }
-
-        return null;
-      }
-
-      function getAddonItems(fd) {
+      function getAddonItems(fd, projectMeta) {
         var items = [];
 
         if (fd.get('ao_bilingual')) {
           items.push({
-            id: 'addon-bilingual-setup',
+            id: 'start-project-addon-bilingual-setup-' + projectMeta.briefId,
             title: 'Bilingual Setup (Arabic + English)',
             option: 'Add-On',
             price: 300,
             qty: 1,
-            href: '/packages/'
+            href: '',
+            meta: projectMeta
           });
         }
 
         if (fd.get('ao_domain')) {
           items.push({
-            id: 'addon-custom-domain',
+            id: 'start-project-addon-custom-domain-' + projectMeta.briefId,
             title: 'Custom Domain Setup',
             option: 'Add-On',
             price: 250,
             qty: 1,
-            href: '/packages/'
+            href: '',
+            meta: projectMeta
           });
         }
 
         if (fd.get('ao_priority')) {
           items.push({
-            id: 'addon-priority-delivery',
+            id: 'start-project-addon-priority-delivery-' + projectMeta.briefId,
             title: 'Priority Delivery',
             option: 'Add-On',
             price: 200,
             qty: 1,
-            href: '/packages/'
+            href: '',
+            meta: projectMeta
           });
         }
 
         if (fd.get('ao_monthly')) {
           items.push({
-            id: 'addon-monthly-maintenance',
+            id: 'start-project-addon-monthly-maintenance-' + projectMeta.briefId,
             title: 'Monthly Maintenance',
             option: 'Add-On',
             price: 50,
             qty: 1,
-            href: '/packages/'
+            href: '',
+            meta: projectMeta
           });
         }
 
         var extraSections = Number(fd.get('extra_sections') || 0);
         if (fd.get('ao_extra') && extraSections > 0) {
           items.push({
-            id: 'addon-additional-section',
+            id: 'start-project-addon-additional-section-' + projectMeta.briefId,
             title: 'Additional Section',
             option: 'Add-On',
             price: 150,
             qty: extraSections,
-            href: '/packages/'
+            href: '',
+            meta: projectMeta
           });
         }
 
@@ -698,8 +706,9 @@ Use this intake form to submit your project details in one pass.
 
       window.bpIntakeAddToCart = function () {
         var fd = new FormData(form);
-        var serviceItem = getServiceItem(fd);
-        var addonItems = getAddonItems(fd);
+        var projectMeta = buildProjectMeta(fd);
+        var serviceItem = getTierItem(fd, projectMeta);
+        var addonItems = getAddonItems(fd, projectMeta);
         var items = [];
 
         if (serviceItem) {
@@ -709,7 +718,7 @@ Use this intake form to submit your project details in one pass.
         items = items.concat(addonItems);
 
         if (!items.length) {
-          setStatus('err', 'Select a supported service or priced add-on first, then add it to cart.');
+          setStatus('err', 'Select a website tier or priced add-on first, then add it to cart.');
           return;
         }
 

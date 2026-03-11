@@ -171,6 +171,13 @@
     return JSON.parse(JSON.stringify(data));
   }
 
+  function getProjectSummary(item) {
+    if (!item || !item.meta || !Array.isArray(item.meta.projectSummary)) {
+      return [];
+    }
+    return item.meta.projectSummary.filter(Boolean);
+  }
+
   function cartLoad() {
     var cart = parseJson(window.localStorage.getItem(CART_STORAGE_KEY), {
       items: []
@@ -831,6 +838,7 @@
     cart.items.forEach(function (item) {
       var row = document.createElement("article");
       row.className = "bp-storefront-line";
+      var summaryLines = getProjectSummary(item);
       row.innerHTML =
         '<div class="bp-storefront-line__main">' +
         "<h2>" +
@@ -850,6 +858,34 @@
         '"></label>' +
         '<button type="button" class="bp-storefront-remove">Remove</button>' +
         "</div>";
+
+      var main = row.querySelector(".bp-storefront-line__main");
+      if (summaryLines.length) {
+        var toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "bp-storefront-inline-link bp-storefront-inline-link--button";
+        toggle.textContent = "View product";
+
+        var summaryBox = document.createElement("div");
+        summaryBox.className = "bp-storefront-item-summary";
+        summaryBox.hidden = true;
+
+        summaryLines.forEach(function (line) {
+          var entry = document.createElement("p");
+          entry.textContent = line;
+          summaryBox.appendChild(entry);
+        });
+
+        toggle.addEventListener("click", function () {
+          summaryBox.hidden = !summaryBox.hidden;
+          toggle.textContent = summaryBox.hidden ? "View product" : "Hide summary";
+        });
+
+        var toggleWrap = document.createElement("p");
+        toggleWrap.appendChild(toggle);
+        main.appendChild(toggleWrap);
+        main.appendChild(summaryBox);
+      }
 
       row.querySelector("input").addEventListener("change", function (event) {
         cartUpdateQty(item.id, event.target.value);
@@ -897,7 +933,7 @@
   function buildOrderSummary(items) {
     return items
       .map(function (item) {
-        return (
+        var line = (
           item.title +
           " | " +
           (item.option || "Standard") +
@@ -906,6 +942,11 @@
           " | " +
           formatSAR(Number(item.price) * Number(item.qty))
         );
+        var summary = getProjectSummary(item);
+        if (summary.length) {
+          line += "\n  Project summary:\n  - " + summary.join("\n  - ");
+        }
+        return line;
       })
       .join("\n");
   }
@@ -976,6 +1017,18 @@
         formatSAR(Number(item.price) * Number(item.qty)) +
         "</strong>";
       summary.appendChild(line);
+
+      var projectSummary = getProjectSummary(item);
+      if (projectSummary.length) {
+        var detail = document.createElement("div");
+        detail.className = "bp-storefront-summary-detail";
+        projectSummary.forEach(function (entry) {
+          var detailLine = document.createElement("p");
+          detailLine.textContent = entry;
+          detail.appendChild(detailLine);
+        });
+        summary.appendChild(detail);
+      }
     });
 
     var totalLine = document.createElement("div");
@@ -1161,11 +1214,15 @@
       ".bp-storefront-line{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}" +
       ".bp-storefront-line__main p{margin:.2rem 0 0}" +
       ".bp-storefront-line__side{display:grid;gap:.55rem;justify-items:end;min-width:9rem}" +
+      ".bp-storefront-item-summary{margin-top:.2rem;padding:.75rem .85rem;border:1px solid rgba(15,94,89,.14);border-radius:.8rem;background:rgba(15,94,89,.04)}" +
+      ".bp-storefront-item-summary p{margin:.15rem 0;color:#334e68}" +
       ".bp-storefront-qty{display:grid;gap:.25rem;font-size:.92rem}" +
       ".bp-storefront-qty input{width:5rem;padding:.45rem .55rem;border:1px solid rgba(15,94,89,.26);border-radius:.65rem}" +
       ".bp-storefront-remove{background:none;border:none;color:#9f1239;font:inherit;cursor:pointer;text-decoration:underline;padding:0}" +
       ".bp-storefront-total{font-size:1.6rem;font-weight:800}" +
       ".bp-storefront-summary-line{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-bottom:1px solid rgba(15,94,89,.12)}" +
+      ".bp-storefront-summary-detail{padding:.15rem 0 .85rem;color:#486581;font-size:.95rem}" +
+      ".bp-storefront-summary-detail p{margin:.15rem 0}" +
       ".bp-storefront-summary-line--total{border-bottom:none;padding-top:.8rem;font-size:1.05rem}" +
       ".bp-storefront-form{display:grid;gap:.85rem}" +
       ".bp-storefront-form label{display:grid;gap:.35rem;font-weight:600}" +
@@ -1176,6 +1233,7 @@
       ".bp-storefront-choice input{margin:0}" +
       ".bp-storefront-helper,.bp-storefront-status{margin:0;color:#486581}" +
       ".bp-storefront-inline-link{color:#0f5e59}" +
+      ".bp-storefront-inline-link--button{padding:0;border:none;background:none;font:inherit;cursor:pointer;text-decoration:underline}" +
       ".bp-storefront-preview{display:block;position:relative;overflow:hidden;border-radius:.85rem;border:1px solid rgba(15,94,89,.18);background:#fff;aspect-ratio:3/4;text-decoration:none}" +
       ".bp-storefront-preview iframe{width:100%;height:100%;border:0;pointer-events:none;background:#fff}" +
       ".bp-storefront-preview__label{position:absolute;right:.6rem;bottom:.6rem;padding:.35rem .55rem;border-radius:999px;background:rgba(15,94,89,.88);color:#fff;font-size:.8rem;font-weight:700}" +
