@@ -223,6 +223,13 @@
       });
 
       var dropdownItems = uniqueChildren.slice();
+      if (parentPath === '/products/') {
+        dropdownItems.unshift({
+          href: parentLink.getAttribute('href') || parentLink.href,
+          label: isArabicPage() ? 'كل المنتجات' : 'All Products',
+          path: parentPath
+        });
+      }
       if (parentPath === '/web-platforms/' && uniqueChildren.some(function (entry) { return entry.path.indexOf('/work-demos/') === 0; })) {
         dropdownItems.unshift({
           href: parentLink.getAttribute('href') || parentLink.href,
@@ -274,6 +281,20 @@
     });
   }
 
+  function relabelProductsChildLinks() {
+    var label = isArabicPage() ? 'كل المنتجات' : 'All Products';
+    document.querySelectorAll('.md-sidebar--primary .md-nav__link').forEach(function (link) {
+      var href = link.getAttribute('href') || link.href || '';
+      if (normalizeNavPath(new URL(href, window.location.origin).pathname) !== '/products/') {
+        return;
+      }
+      if (link.closest('.md-nav--secondary')) {
+        return;
+      }
+      link.textContent = label;
+    });
+  }
+
   function setupTabDropdownInteractions() {
     var tabs = document.querySelector('.md-tabs__list');
     if (!tabs || tabs.dataset.dropdownBound === 'true') {
@@ -281,11 +302,61 @@
     }
     tabs.dataset.dropdownBound = 'true';
 
+    function positionDropdown(item) {
+      if (!item) {
+        return;
+      }
+      var menu = item.querySelector(':scope > .md-tabs__dropdown');
+      var link = item.querySelector(':scope > .md-tabs__link');
+      if (!menu || !link) {
+        return;
+      }
+
+      var linkRect = link.getBoundingClientRect();
+      var width = Math.max(menu.scrollWidth || 0, linkRect.width, 248);
+      var maxLeft = window.innerWidth - width - 8;
+      var left = Math.min(Math.max(linkRect.left, 8), Math.max(8, maxLeft));
+
+      menu.style.position = 'fixed';
+      menu.style.top = Math.max(8, Math.round(linkRect.bottom + 6)) + 'px';
+      menu.style.left = Math.round(left) + 'px';
+      menu.style.right = 'auto';
+      menu.style.minWidth = Math.round(width) + 'px';
+    }
+
+    function positionOpenDropdowns() {
+      tabs.querySelectorAll('.md-tabs__item--has-dropdown.is-open').forEach(function (item) {
+        positionDropdown(item);
+      });
+    }
+
     function closeAllDropdowns() {
       tabs.querySelectorAll('.md-tabs__item--has-dropdown.is-open').forEach(function (item) {
         item.classList.remove('is-open');
       });
     }
+
+    function isDesktopTabs() {
+      return !window.matchMedia('(max-width: 76.234375em)').matches;
+    }
+
+    tabs.querySelectorAll('.md-tabs__item--has-dropdown').forEach(function (item) {
+      item.addEventListener('mouseenter', function () {
+        if (!isDesktopTabs()) {
+          return;
+        }
+        closeAllDropdowns();
+        item.classList.add('is-open');
+        positionDropdown(item);
+      });
+
+      item.addEventListener('mouseleave', function () {
+        if (!isDesktopTabs()) {
+          return;
+        }
+        item.classList.remove('is-open');
+      });
+    });
 
     tabs.addEventListener('click', function (event) {
       var link = event.target.closest('.md-tabs__item--has-dropdown > .md-tabs__link');
@@ -293,7 +364,7 @@
         return;
       }
 
-      if (window.matchMedia('(max-width: 76.234375em)').matches) {
+      if (!isDesktopTabs()) {
         return;
       }
 
@@ -302,13 +373,21 @@
         return;
       }
 
+      var clickedCaret = !!event.target.closest('.tabs-caret');
+      if (!clickedCaret) {
+        closeAllDropdowns();
+        return;
+      }
+
       if (!item.classList.contains('is-open')) {
         event.preventDefault();
         closeAllDropdowns();
         item.classList.add('is-open');
+        positionDropdown(item);
         return;
       }
 
+      event.preventDefault();
       item.classList.remove('is-open');
     });
 
@@ -323,6 +402,9 @@
         closeAllDropdowns();
       }
     });
+
+    window.addEventListener('resize', positionOpenDropdowns);
+    window.addEventListener('scroll', positionOpenDropdowns, { passive: true });
   }
 
   function applyPageLayoutOverrides() {
@@ -336,8 +418,6 @@
       currentPath === '/checkout/' ||
       currentPath === '/checkout';
     var shouldHideRight =
-      currentPath === '/products/' ||
-      currentPath === '/products' ||
       currentPath === '/start-project/' ||
       currentPath === '/start-project' ||
       currentPath === '/cart/' ||
@@ -640,6 +720,7 @@
     injectHeaderActions();
     applyPageLayoutOverrides();
     localizeHeaderUI();
+    relabelProductsChildLinks();
     ensureMobileWorkNavLink();
     buildTabDropdowns();
     setupTabDropdownInteractions();
@@ -656,6 +737,7 @@
       injectHeaderActions();
       applyPageLayoutOverrides();
       localizeHeaderUI();
+      relabelProductsChildLinks();
       ensureMobileWorkNavLink();
       buildTabDropdowns();
       setupTabDropdownInteractions();

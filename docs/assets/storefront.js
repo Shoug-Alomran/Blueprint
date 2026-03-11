@@ -403,6 +403,11 @@
     }
   }
 
+  function startWebsiteProject(item) {
+    cartAdd(item);
+    window.location.assign("/start-project/");
+  }
+
   function startBuyNow(item) {
     setBuyNowItem(item);
     window.location.assign(PATHS.checkout + "?mode=buynow");
@@ -594,6 +599,112 @@
     return wrapper;
   }
 
+  function createWebsiteProductCard(product, kind) {
+    var card = document.createElement("article");
+    card.className = "bp-storefront-card bp-storefront-card--product";
+    card.innerHTML =
+      "<h3>" +
+      product.title +
+      "</h3>" +
+      '<p class="bp-storefront-price">' +
+      formatSAR(product.price) +
+      "</p>" +
+      "<p>" +
+      product.summary +
+      "</p>" +
+      '<div class="bp-storefront-actions"></div>';
+
+    var actions = card.querySelector(".bp-storefront-actions");
+    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
+    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+
+    addButton.addEventListener("click", function () {
+      addItemAndStay(createSimpleProductItem(product, kind), addButton);
+    });
+
+    buyButton.addEventListener("click", function () {
+      startWebsiteProject(createSimpleProductItem(product, kind));
+    });
+
+    actions.appendChild(addButton);
+    actions.appendChild(buyButton);
+    return card;
+  }
+
+  function createStorefrontCvCard(meta) {
+    var href = meta && meta.href ? meta.href : PATHS.cvIndex;
+    var title = meta && meta.title ? meta.title : "CV Template";
+    var tier = meta && meta.tier ? meta.tier : "";
+    var card = document.createElement("article");
+    card.className = "bp-storefront-card bp-storefront-card--cv";
+    card.innerHTML =
+      '<a class="bp-storefront-preview" href="' +
+      href +
+      '" target="_blank" rel="noopener">' +
+      '<iframe src="' +
+      href +
+      '" loading="lazy" title="' +
+      title +
+      ' preview"></iframe>' +
+      '<span class="bp-storefront-preview__label">Open Preview</span>' +
+      "</a>" +
+      "<h3>" +
+      title +
+      (tier ? " · " + tier : "") +
+      "</h3>" +
+      '<div class="bp-storefront-actions bp-storefront-actions--stack"></div>';
+
+    var actions = card.querySelector(".bp-storefront-actions");
+    var select = createSelect([
+      {
+        value: "self",
+        label: "Self Setup · " + formatSAR(CV_PRICING[tier || "Basic"].self)
+      },
+      {
+        value: "blueprint",
+        label: "Blueprint Setup · " + formatSAR(CV_PRICING[tier || "Basic"].blueprint)
+      }
+    ]);
+    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
+    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+
+    addButton.addEventListener("click", function () {
+      addItemAndStay(createCvItem(meta, select.value), addButton);
+    });
+
+    buyButton.addEventListener("click", function () {
+      startBuyNow(createCvItem(meta, select.value));
+    });
+
+    var buttonRow = document.createElement("div");
+    buttonRow.className = "bp-storefront-actions bp-storefront-actions--pair";
+
+    actions.appendChild(select);
+    buttonRow.appendChild(addButton);
+    buttonRow.appendChild(buyButton);
+    actions.appendChild(buttonRow);
+    return card;
+  }
+
+  function createWebsiteActionRow(product, kind) {
+    var actions = document.createElement("div");
+    actions.className = "bp-storefront-actions";
+    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
+    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+
+    addButton.addEventListener("click", function () {
+      addItemAndStay(createSimpleProductItem(product, kind), addButton);
+    });
+
+    buyButton.addEventListener("click", function () {
+      startWebsiteProject(createSimpleProductItem(product, kind));
+    });
+
+    actions.appendChild(addButton);
+    actions.appendChild(buyButton);
+    return actions;
+  }
+
   function renderProductsPage(root) {
     var wrapper = document.createElement("div");
     wrapper.className = "bp-storefront-page";
@@ -611,7 +722,78 @@
       return section;
     }
 
-    function createProductCard(product, kind) {
+    var tiersSection = createSection(
+      "Website Tiers",
+      "Choose the website package that fits your project."
+    );
+    var tiersGrid = document.createElement("div");
+    tiersGrid.className = "bp-storefront-card-grid";
+    WEBSITE_TIERS.forEach(function (tier) {
+      tiersGrid.appendChild(createWebsiteProductCard(tier, "website-tier"));
+    });
+    tiersSection.appendChild(tiersGrid);
+    wrapper.appendChild(tiersSection);
+
+    var addonsSection = createSection(
+      "Website Add-Ons",
+      "Optional add-ons for your website order."
+    );
+    var addonsGrid = document.createElement("div");
+    addonsGrid.className = "bp-storefront-card-grid";
+    WEBSITE_ADDONS.forEach(function (addon) {
+      addonsGrid.appendChild(createWebsiteProductCard(addon, "website-addon"));
+    });
+    addonsSection.appendChild(addonsGrid);
+    wrapper.appendChild(addonsSection);
+
+    var reportsSection = createSection(
+      "HTML Report Conversion",
+      "Base service with optional add-ons."
+    );
+    var reportCard = createHtmlReportOrderCard();
+    reportsSection.appendChild(reportCard);
+    wrapper.appendChild(reportsSection);
+
+    var cvSection = createSection(
+      "CV Templates"
+    );
+    var cvGrid = document.createElement("div");
+    cvGrid.className = "bp-storefront-card-grid bp-storefront-card-grid--cv";
+    Object.keys(CV_PRODUCTS).forEach(function (href) {
+      var meta = CV_PRODUCTS[href];
+      cvGrid.appendChild(
+        createStorefrontCvCard({
+          id: meta.id,
+          title: meta.title,
+          tier: meta.tier,
+          href: href
+        })
+      );
+    });
+    cvSection.appendChild(cvGrid);
+    wrapper.appendChild(cvSection);
+
+    root.replaceChildren(wrapper);
+  }
+
+  function renderCustomWebsitesPage(root) {
+    var wrapper = document.createElement("div");
+    wrapper.className = "bp-storefront-page";
+
+    function createSection(title, description) {
+      var section = document.createElement("section");
+      section.className = "bp-products-section";
+      section.innerHTML = '<div class="bp-products-section__head"><h2>' + title + "</h2></div>";
+      if (description) {
+        section.querySelector(".bp-products-section__head").insertAdjacentHTML(
+          "beforeend",
+          "<p>" + description + "</p>"
+        );
+      }
+      return section;
+    }
+
+    function createWebsiteCard(product, kind) {
       var card = document.createElement("article");
       card.className = "bp-storefront-card bp-storefront-card--product";
       card.innerHTML =
@@ -626,106 +808,38 @@
         "</p>" +
         '<div class="bp-storefront-actions"></div>';
 
-      var actions = card.querySelector(".bp-storefront-actions");
-      var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
-      var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
-
-      addButton.addEventListener("click", function () {
-        addItemAndStay(createSimpleProductItem(product, kind), addButton);
-      });
-
-      buyButton.addEventListener("click", function () {
-        startBuyNow(createSimpleProductItem(product, kind));
-      });
-
-      actions.appendChild(addButton);
-      actions.appendChild(buyButton);
+      card.querySelector(".bp-storefront-actions").replaceWith(createWebsiteActionRow(product, kind));
       return card;
     }
 
-    function createCvCard(meta) {
-      var href = meta && meta.href ? meta.href : PATHS.cvIndex;
-      var title = meta && meta.title ? meta.title : "CV Template";
-      var tier = meta && meta.tier ? meta.tier : "";
-      var card = document.createElement("article");
-      card.className = "bp-storefront-card bp-storefront-card--cv";
-      card.innerHTML =
-        '<a class="bp-storefront-preview" href="' +
-        href +
-        '" target="_blank" rel="noopener">' +
-        '<iframe src="' +
-        href +
-        '" loading="lazy" title="' +
-        title +
-        ' preview"></iframe>' +
-        '<span class="bp-storefront-preview__label">Open Preview</span>' +
-        "</a>" +
-        "<h3>" +
-        title +
-        (tier ? " · " + tier : "") +
-        "</h3>" +
-        '<div class="bp-storefront-actions bp-storefront-actions--stack"></div>';
-
-      var actions = card.querySelector(".bp-storefront-actions");
-      var select = createSelect([
-        {
-          value: "self",
-          label: "Self Setup · " + formatSAR(CV_PRICING[tier || "Basic"].self)
-        },
-        {
-          value: "blueprint",
-          label: "Blueprint Setup · " + formatSAR(CV_PRICING[tier || "Basic"].blueprint)
-        }
-      ]);
-      var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
-      var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
-
-      addButton.addEventListener("click", function () {
-        addItemAndStay(createCvItem(meta, select.value), addButton);
-      });
-
-      buyButton.addEventListener("click", function () {
-        startBuyNow(createCvItem(meta, select.value));
-      });
-
-      var buttonRow = document.createElement("div");
-      buttonRow.className = "bp-storefront-actions bp-storefront-actions--pair";
-
-      actions.appendChild(select);
-      buttonRow.appendChild(addButton);
-      buttonRow.appendChild(buyButton);
-      actions.appendChild(buttonRow);
-      return card;
-    }
-
-    var tiersSection = createSection(
-      "Website Tiers",
-      "Choose the website package that fits your project."
+    var packageSection = createSection(
+      "Website Packages",
+      "Buy a package directly from this page or add it to your cart for later."
     );
-    var tiersGrid = document.createElement("div");
-    tiersGrid.className = "bp-storefront-card-grid";
+    var packageGrid = document.createElement("div");
+    packageGrid.className = "bp-storefront-card-grid";
     WEBSITE_TIERS.forEach(function (tier) {
-      tiersGrid.appendChild(createProductCard(tier, "website-tier"));
+      packageGrid.appendChild(createWebsiteCard(tier, "website-tier"));
     });
-    tiersSection.appendChild(tiersGrid);
-    wrapper.appendChild(tiersSection);
+    packageSection.appendChild(packageGrid);
+    wrapper.appendChild(packageSection);
 
     var addonsSection = createSection(
       "Website Add-Ons",
-      "Optional add-ons for your website order."
+      "Add optional extras to your order before you continue to Start Project."
     );
     var addonsGrid = document.createElement("div");
     addonsGrid.className = "bp-storefront-card-grid";
     WEBSITE_ADDONS.forEach(function (addon) {
-      addonsGrid.appendChild(createProductCard(addon, "website-addon"));
+      addonsGrid.appendChild(createWebsiteCard(addon, "website-addon"));
     });
     addonsSection.appendChild(addonsGrid);
     wrapper.appendChild(addonsSection);
 
-    var reportsSection = createSection(
-      "HTML Report Conversion",
-      "Base service with optional add-ons."
-    );
+    root.replaceChildren(wrapper);
+  }
+
+  function createHtmlReportOrderCard() {
     var reportCard = document.createElement("div");
     reportCard.className = "bp-storefront-card bp-storefront-card--product";
     reportCard.innerHTML =
@@ -789,29 +903,104 @@
     actions.appendChild(addButton);
     actions.appendChild(buyButton);
     syncSummary();
-    reportsSection.appendChild(reportCard);
-    wrapper.appendChild(reportsSection);
+    return reportCard;
+  }
 
-    var cvSection = createSection(
-      "CV Templates"
-    );
-    var cvGrid = document.createElement("div");
-    cvGrid.className = "bp-storefront-card-grid bp-storefront-card-grid--cv";
-    Object.keys(CV_PRODUCTS).forEach(function (href) {
-      var meta = CV_PRODUCTS[href];
-      cvGrid.appendChild(
-        createCvCard({
-          id: meta.id,
-          title: meta.title,
-          tier: meta.tier,
-          href: href
-        })
-      );
+  function enhanceCustomWebsitesPage() {
+    if (normalizePath(window.location.pathname) !== "/custom-websites/") {
+      return;
+    }
+
+    var productById = {};
+    WEBSITE_TIERS.forEach(function (tier) {
+      productById[tier.id] = { product: tier, kind: "website-tier" };
     });
-    cvSection.appendChild(cvGrid);
-    wrapper.appendChild(cvSection);
+    WEBSITE_ADDONS.forEach(function (addon) {
+      productById[addon.id] = { product: addon, kind: "website-addon" };
+    });
 
-    root.replaceChildren(wrapper);
+    document.querySelectorAll("[data-bp-custom-websites-order]").forEach(function (slot) {
+      if (slot.dataset.bpStorefrontReady === "true") {
+        return;
+      }
+      var key = slot.getAttribute("data-bp-custom-websites-order") || "";
+      var entry = productById[key];
+      if (!entry) {
+        return;
+      }
+      slot.dataset.bpStorefrontReady = "true";
+      var links = slot.querySelectorAll("a");
+      if (links.length >= 2) {
+        links[0].addEventListener("click", function (event) {
+          event.preventDefault();
+          addItemAndStay(createSimpleProductItem(entry.product, entry.kind), links[0]);
+        });
+        links[1].addEventListener("click", function (event) {
+          event.preventDefault();
+          startWebsiteProject(createSimpleProductItem(entry.product, entry.kind));
+        });
+        return;
+      }
+      slot.replaceChildren(createWebsiteActionRow(entry.product, entry.kind));
+    });
+
+    document.querySelectorAll(".hero-card").forEach(function (card) {
+      if (card.querySelector(".bp-storefront-actions")) {
+        return;
+      }
+
+      var heading = card.querySelector("h3");
+      if (!heading) {
+        return;
+      }
+
+      var text = (heading.textContent || "").trim();
+      var product = null;
+      var kind = "";
+
+      WEBSITE_TIERS.forEach(function (tier) {
+        if (!product && text.indexOf(tier.title.split(",")[0]) !== -1) {
+          product = tier;
+          kind = "website-tier";
+        }
+      });
+
+      WEBSITE_ADDONS.forEach(function (addon) {
+        if (!product && text.indexOf(addon.title.split(" (")[0]) !== -1) {
+          product = addon;
+          kind = "website-addon";
+        }
+      });
+
+      if (!product) {
+        return;
+      }
+      card.appendChild(createWebsiteActionRow(product, kind));
+    });
+  }
+
+  function enhanceHtmlReportsPage() {
+    if (normalizePath(window.location.pathname) !== normalizePath(PATHS.htmlReports)) {
+      return;
+    }
+
+    if (document.querySelector("[data-bp-html-report-card]")) {
+      return;
+    }
+
+    var anchor = document.querySelector(".md-typeset h2, .md-typeset hr");
+    var card = createHtmlReportOrderCard();
+    card.setAttribute("data-bp-html-report-card", "true");
+
+    if (anchor) {
+      anchor.insertAdjacentElement("beforebegin", card);
+      return;
+    }
+
+    var typeset = document.querySelector(".md-typeset");
+    if (typeset) {
+      typeset.appendChild(card);
+    }
   }
 
   function renderCartPage(root) {
@@ -1189,6 +1378,9 @@
     style.id = "bp-storefront-styles";
     style.textContent =
       ".bp-storefront-inline{display:inline-flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-left:.45rem}" +
+      ".cv-template-card .bp-storefront-inline{display:grid;width:100%;gap:.75rem;margin:.75rem 0 0}" +
+      ".cv-template-card .bp-storefront-inline .bp-storefront-select{width:100%;min-width:0}" +
+      ".cv-template-card .bp-storefront-inline .bp-storefront-button{flex:1 1 0;min-width:0}" +
       ".bp-storefront-select{min-width:13rem;max-width:100%;padding:.55rem .7rem;border:1px solid rgba(15,94,89,.26);border-radius:.7rem;background:#fff;color:#12343b}" +
       ".bp-storefront-button{border:1px solid rgba(15,94,89,.28);border-radius:.7rem;padding:.6rem .9rem;background:#fff;color:#12343b;font:inherit;font-weight:700;cursor:pointer}" +
       ".bp-storefront-button--primary{background:#0f5e59;color:#fff;border-color:#0f5e59}" +
@@ -1272,11 +1464,54 @@
 
   function renderRoots() {
     var productsRoot = document.querySelector("[data-bp-products-root]");
+    var productsTiersRoot = document.querySelector("[data-bp-products-tiers-root]");
+    var productsAddonsRoot = document.querySelector("[data-bp-products-addons-root]");
+    var productsReportsRoot = document.querySelector("[data-bp-products-reports-root]");
+    var productsCvRoot = document.querySelector("[data-bp-products-cv-root]");
+    var customWebsitesRoot = document.querySelector("[data-bp-custom-websites-root]");
     var cartRoot = document.querySelector("[data-bp-cart-root]");
     var checkoutRoot = document.querySelector("[data-bp-checkout-root]");
 
     if (productsRoot) {
       renderProductsPage(productsRoot);
+    }
+    if (productsTiersRoot) {
+      var tiersGrid = document.createElement("div");
+      tiersGrid.className = "bp-storefront-card-grid";
+      WEBSITE_TIERS.forEach(function (tier) {
+        tiersGrid.appendChild(createWebsiteProductCard(tier, "website-tier"));
+      });
+      productsTiersRoot.replaceChildren(tiersGrid);
+    }
+    if (productsAddonsRoot) {
+      var addonsGrid = document.createElement("div");
+      addonsGrid.className = "bp-storefront-card-grid";
+      WEBSITE_ADDONS.forEach(function (addon) {
+        addonsGrid.appendChild(createWebsiteProductCard(addon, "website-addon"));
+      });
+      productsAddonsRoot.replaceChildren(addonsGrid);
+    }
+    if (productsReportsRoot) {
+      productsReportsRoot.replaceChildren(createHtmlReportOrderCard());
+    }
+    if (productsCvRoot) {
+      var cvGrid = document.createElement("div");
+      cvGrid.className = "bp-storefront-card-grid bp-storefront-card-grid--cv";
+      Object.keys(CV_PRODUCTS).forEach(function (href) {
+        var meta = CV_PRODUCTS[href];
+        cvGrid.appendChild(
+          createStorefrontCvCard({
+            id: meta.id,
+            title: meta.title,
+            tier: meta.tier,
+            href: href
+          })
+        );
+      });
+      productsCvRoot.replaceChildren(cvGrid);
+    }
+    if (customWebsitesRoot) {
+      renderCustomWebsitesPage(customWebsitesRoot);
     }
     if (cartRoot) {
       renderCartPage(cartRoot);
@@ -1290,6 +1525,8 @@
     injectStyles();
     enhanceCatalogBuyLinks();
     enhanceStandaloneTemplatePage();
+    enhanceCustomWebsitesPage();
+    enhanceHtmlReportsPage();
     renderRoots();
     mountCartIndicator();
     enhanceThankYouPage();
@@ -1307,5 +1544,11 @@
     document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
+  }
+
+  if (typeof window.document$ !== "undefined" && window.document$.subscribe) {
+    window.document$.subscribe(function () {
+      init();
+    });
   }
 })();

@@ -44,7 +44,11 @@ theme:
 
 nav:
   - Home: index.md
-  - Products: products/index.md
+  - Products:
+      - All Products: products/index.md
+      - Custom Websites: custom-websites/index.md
+      - CV Templates: CV_index/index.md
+      - HTML Report Conversions: html-reports/index.md
   - Services & Pricing: packages/index.md
   - How It Works:
       - Process Overview: process/index.md
@@ -54,8 +58,6 @@ nav:
       - Build: process/build.md
       - Review & Revisions: process/revisions.md
       - Deployment & Handover: process/deployment-handover.md
-  - CV Template Shop: CV_index/index.md
-  - HTML Report Conversion: html-reports/index.md
   - Start a Project: start-project/index.md
   - Portfolio:
       - Client Work: web-platforms/index.md

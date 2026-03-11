@@ -7,6 +7,16 @@
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.24) !important;
 }
 
+.md-header {
+  position: relative;
+  z-index: 40;
+}
+
+.md-tabs {
+  position: relative;
+  z-index: 45;
+}
+
 [data-md-color-scheme="slate"] .md-header,
 [data-md-color-scheme="slate"] .md-tabs {
   background: var(--bar-gradient) !important;
@@ -118,6 +128,12 @@
   position: relative;
 }
 
+.md-tabs__item--has-dropdown:hover,
+.md-tabs__item--has-dropdown.is-open,
+.md-tabs__item--has-dropdown:focus-within {
+  z-index: 180;
+}
+
 .md-tabs__item--has-dropdown > .md-tabs__link {
   display: inline-flex;
   align-items: center;
@@ -138,10 +154,10 @@
 
 .md-tabs__dropdown {
   position: absolute;
-  top: calc(100% + 0.45rem);
+  top: calc(100% - 1.1rem);
   left: 0;
   min-width: 15.5rem;
-  padding: 0.36rem;
+  padding: 1.15rem 0.36rem 0.36rem;
   border-radius: 0.78rem;
   border: 1px solid rgba(173, 242, 234, 0.3);
   background: rgba(8, 26, 32, 0.96);
@@ -151,13 +167,13 @@
   visibility: hidden;
   transform: translateY(6px);
   transition: opacity 140ms ease, transform 140ms ease, visibility 140ms ease;
-  z-index: 20;
+  z-index: 120;
 }
 
 .md-tabs__dropdown::before {
   content: "";
   position: absolute;
-  top: -0.34rem;
+  top: 0.56rem;
   left: 1.3rem;
   width: 0.68rem;
   height: 0.68rem;
@@ -213,8 +229,15 @@
 @media (min-width: 76.25em) {
   .md-tabs,
   .md-tabs__inner {
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
+    overflow: visible !important;
+  }
+
+  .md-tabs__list {
+    contain: none !important;
+    padding-bottom: 0.18rem;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
     overscroll-behavior-x: contain;
     overscroll-behavior-y: none;
     touch-action: pan-x;
@@ -222,25 +245,20 @@
     scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
   }
 
-  .md-tabs__list {
-    contain: none !important;
-    padding-bottom: 0.18rem;
-  }
-
-  .md-tabs__inner::-webkit-scrollbar {
+  .md-tabs__list::-webkit-scrollbar {
     height: 0.4rem;
   }
 
-  .md-tabs__inner::-webkit-scrollbar-track {
+  .md-tabs__list::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  .md-tabs__inner::-webkit-scrollbar-thumb {
+  .md-tabs__list::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.24);
     border-radius: 999px;
   }
 
-  .md-tabs__inner::-webkit-scrollbar-thumb:hover {
+  .md-tabs__list::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.34);
   }
 }

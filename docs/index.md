@@ -91,8 +91,8 @@ last_updated: 2026-03-04
 
 ## Start Here
 
-1. Review what’s included in [Packages](packages/index.md)
-2. See delivery steps in [Process](process/index.md)
-3. Explore outcomes in [Work](web-platforms/index.md)
-4. Begin with [Start Project](start-project/index.md) (quick intake)
-5. Or reach out via [Contact](contact/index.md)
+1. Browse [All Products](products/index.md) to see everything Blueprint offers
+2. Open [Custom Websites](custom-websites/index.md), [CV Templates](CV_index/index.md), or [HTML Report Conversions](html-reports/index.md) for the product you need
+3. Review [Services & Pricing](packages/index.md) and [How It Works](process/index.md)
+4. Explore delivered examples in [Portfolio](web-platforms/index.md)
+5. Start with [Start Project](start-project/index.md) or reach out through [Contact](contact/index.md)
