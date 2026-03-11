@@ -1,6 +1,7 @@
 ---
 title: Thank You
 description: Blueprint has received your storefront order request.
+robots: noindex,follow
 hide:
   - navigation
   - toc

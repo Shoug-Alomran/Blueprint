@@ -36,7 +36,7 @@ last_updated: 2026-03-10
   "description": "يوضح آلية العمل في GitHub من التعديل إلى الرفع والنشر بشكل منظم.",
   "contentUrl": "https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/github_edited.mp4",
   "thumbnailUrl": "https://blueprint.shoug-tech.com/assets/images/video-thumbnails/github-flow-poster.svg",
-  "uploadDate": "2026-03-04",
+  "uploadDate": "2026-03-04T00:00:00+03:00",
   "inLanguage": "ar",
   "url": "https://blueprint.shoug-tech.com/ar/work-demos/github-flow/"
 }

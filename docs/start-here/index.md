@@ -6,6 +6,7 @@ scope: Fast path into the site for first-time visitors
 constraints: Clear next steps, low-friction discovery
 metrics: navigation efficiency, page progression, visitor clarity
 last_updated: 2026-03-09
+robots: noindex,follow
 ---
 
 # Start Here

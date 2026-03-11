@@ -89,6 +89,9 @@ markdown_extensions:
 plugins:
   - search
 
+hooks:
+  - hooks/sitemap_filter.py
+
 validation:
   nav:
     omitted_files: ignore

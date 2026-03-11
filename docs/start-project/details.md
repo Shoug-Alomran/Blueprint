@@ -6,6 +6,7 @@ scope: Structured intake and scope confirmation
 constraints: Clear inputs, realistic timelines, static-site delivery boundaries
 metrics: form completion quality, submission rate, kickoff speed
 last_updated: 2026-03-03
+robots: noindex,follow
 ---
 
 # Start Project
