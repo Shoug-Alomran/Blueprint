@@ -45,7 +45,7 @@
         return href;
       }
     }
-    return ar ? '/ar/start-project/' : '/start-project/';
+    return '/start-project/';
   }
 
   function arabicNavLabelForPath(pathname) {
@@ -55,10 +55,10 @@
       { prefix: '/start-project/', label: 'ابدأ المشروع' },
       { prefix: '/CV_index/', label: 'قوالب السيرة الذاتية' },
       { prefix: '/cv_index/', label: 'قوالب السيرة الذاتية' },
-      { prefix: '/process/discovery-content-checklist/', label: 'اكتشاف المتطلبات' },
+      { prefix: '/process/discovery/', label: 'اكتشاف المتطلبات' },
       { prefix: '/process/structure-sitemap/', label: 'الهيكلة وخريطة الموقع' },
-      { prefix: '/process/first-build/', label: 'النسخة الأولى' },
-      { prefix: '/process/revision-rounds/', label: 'جولات المراجعة' },
+      { prefix: '/process/build/', label: 'النسخة الأولى' },
+      { prefix: '/process/revisions/', label: 'جولات المراجعة' },
       { prefix: '/process/deployment-handover/', label: 'النشر والتسليم' },
       { prefix: '/process/', label: 'العملية' },
       { prefix: '/web-platforms/student-portfolio/', label: 'موقع بورتفوليو طالب' },
@@ -526,8 +526,7 @@
     var link = document.createElement('a');
     link.className = 'md-nav__link';
     try {
-      var localizedWorkHref = normalizeNavPath(window.location.pathname).indexOf('/ar/') === 0 ? '/ar/web-platforms/' : '/web-platforms/';
-      link.href = localizedWorkHref;
+      link.href = '/web-platforms/';
     } catch (e) {
       link.href = sectionLink.getAttribute('href') || sectionLink.href;
     }
