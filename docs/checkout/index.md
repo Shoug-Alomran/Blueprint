@@ -1,7 +1,6 @@
 ---
 title: Checkout
 description: Submit a Blueprint storefront order from the static site using the Cloudflare checkout worker.
-robots: noindex,follow
 hide:
   - toc
 ---

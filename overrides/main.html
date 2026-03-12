@@ -50,7 +50,6 @@
   {% set social_image = config.site_url ~ 'assets/logo.png' %}
   {% if redirect_to %}
   <meta http-equiv="refresh" content="0; url={{ redirect_to }}">
-  <meta name="robots" content="noindex,follow">
   {% elif robots_content %}
   <meta name="robots" content="{{ robots_content }}">
   {% endif %}

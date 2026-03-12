@@ -12,9 +12,8 @@ _excluded_urls: set[str] = set()
 
 def on_page_context(context, page, config, nav):
     meta = getattr(page, "meta", {}) or {}
-    robots = str(meta.get("robots", "")).lower()
 
-    if meta.get("redirect_to") or "noindex" in robots:
+    if meta.get("redirect_to"):
         page_url = getattr(page, "canonical_url", "") or f"{config.site_url}{page.url}"
         _excluded_urls.add(page_url.rstrip("/"))
 

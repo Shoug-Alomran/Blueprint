@@ -1,7 +1,6 @@
 ---
 title: Cart
 description: Review storefront items saved locally in the browser before checkout.
-robots: noindex,follow
 hide:
   - toc
 ---
