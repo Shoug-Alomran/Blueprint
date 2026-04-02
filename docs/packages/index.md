@@ -135,9 +135,10 @@ Conversion rate is confirmed in writing during scope review before build begins.
     <h3>Best For</h3>
     <ul>
       <li>CS projects and capstones</li>
-      <li>structured engineering reports</li>
+      <li>structured engineering and medical student reports</li>
       <li>academic documentation websites</li>
-      <li>technical project submissions</li>
+      <li>technical, lab, and clinical project submissions</li>
+      <li>student research and final-year documentation</li>
     </ul>
   </article>
 
@@ -178,9 +179,10 @@ Conversion rate is confirmed in writing during scope review before build begins.
     <h3>Best For</h3>
     <ul>
       <li>AI / ML research projects</li>
-      <li>multi-phase studies</li>
+      <li>multi-phase academic, medical, and scientific studies</li>
       <li>publication-ready documentation</li>
-      <li>research portfolios</li>
+      <li>research portfolios for students and researchers</li>
+      <li>thesis, clinical, and lab-based documentation</li>
     </ul>
   </article>
 
