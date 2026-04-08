@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,19 +9,25 @@
   <style>
     /* ─── Variables ─────────────────────────────────────────── */
     :root {
-      --accent:   #1a6b6b;
-      --text:     #1c1c1c;
-      --muted:    #555;
-      --rule:     #d8d8d8;
-      --bg:       #ffffff;
-      --font:     -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      --page-w:   210mm;
-      --page-h:   297mm;
-      --pad:      18mm;
+      --accent: #1a6b6b;
+      --text: #1c1c1c;
+      --muted: #555;
+      --rule: #d8d8d8;
+      --bg: #ffffff;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --page-w: 210mm;
+      --page-h: 297mm;
+      --pad: 18mm;
     }
 
     /* ─── Reset ─────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     /* ─── Base ───────────────────────────────────────────────── */
     body {
@@ -38,7 +45,7 @@
       margin: 32px auto;
       padding: var(--pad);
       background: var(--bg);
-      box-shadow: 0 4px 40px rgba(0,0,0,.12);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, .12);
     }
 
     /* ─── Links ──────────────────────────────────────────────── */
@@ -46,7 +53,10 @@
       color: inherit;
       text-decoration: none;
     }
-    a:hover { text-decoration: underline; }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     /* ─── Header ─────────────────────────────────────────────── */
     header {
@@ -88,6 +98,7 @@
     .contact-line a {
       color: var(--muted);
     }
+
     .contact-line a:hover {
       color: var(--accent);
       text-decoration: underline;
@@ -123,7 +134,10 @@
     .entry {
       margin-bottom: 12px;
     }
-    .entry:last-child { margin-bottom: 0; }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
 
     .entry-header {
       display: flex;
@@ -159,6 +173,7 @@
       margin-top: 5px;
       padding-left: 15px;
     }
+
     .entry ul li {
       margin-bottom: 3px;
       font-size: 9pt;
@@ -169,7 +184,10 @@
     .project-entry {
       margin-bottom: 10px;
     }
-    .project-entry:last-child { margin-bottom: 0; }
+
+    .project-entry:last-child {
+      margin-bottom: 0;
+    }
 
     .project-name {
       font-weight: 600;
@@ -178,7 +196,10 @@
     .project-name a {
       color: var(--accent);
     }
-    .project-name a:hover { text-decoration: underline; }
+
+    .project-name a:hover {
+      text-decoration: underline;
+    }
 
     .project-desc {
       font-size: 9pt;
@@ -227,12 +248,31 @@
       margin-bottom: 6px;
       font-size: 9pt;
     }
-    .compact-entry:last-child { margin-bottom: 0; }
 
-    .compact-left { display: flex; flex-direction: column; }
-    .compact-name { font-weight: 600; }
-    .compact-sub  { font-size: 8.5pt; color: var(--muted); }
-    .compact-date { font-size: 8.5pt; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+    .compact-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .compact-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .compact-name {
+      font-weight: 600;
+    }
+
+    .compact-sub {
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    .compact-date {
+      font-size: 8.5pt;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
     /* ─── Print ──────────────────────────────────────────────── */
     @media print {
@@ -254,7 +294,9 @@
         text-decoration: none !important;
       }
 
-      section { page-break-inside: avoid; }
+      section {
+        page-break-inside: avoid;
+      }
     }
 
     @page {
@@ -264,284 +306,290 @@
   </style>
   <link rel="stylesheet" href="/cv-templates/watermark.css" />
 </head>
+
 <body>
 
-<div class="page">
+  <div class="page">
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        1. HEADER
   ══════════════════════════════════════ -->
-  <header>
-    <div class="name">[Your Full Name]</div>
-    <div class="title">[Job Title / Field, e.g. Software Engineer · Full-Stack]</div>
-    <div class="contact-line">
-      <a href="mailto:[your.email@example.com]">[your.email@example.com]</a>
-      <span class="sep">|</span>
-      <span>[+1 (555) 000-0000]</span>
-      <span class="sep">|</span>
-      <span>[City, Country]</span>
-      <span class="sep">|</span>
-      <a href="https://linkedin.com/in/[yourhandle]" target="_blank">linkedin.com/in/[yourhandle]</a>
-      <span class="sep">|</span>
-      <a href="https://[yourwebsite.com]" target="_blank">[yourwebsite.com]</a>
-    </div>
-  </header>
+    <header>
+      <div class="name">[Your Full Name]</div>
+      <div class="title">[Job Title / Field, e.g. Software Engineer · Full-Stack]</div>
+      <div class="contact-line">
+        <a href="mailto:[your.email@example.com]">[your.email@example.com]</a>
+        <span class="sep">|</span>
+        <span>[+1 (555) 000-0000]</span>
+        <span class="sep">|</span>
+        <span>[City, Country]</span>
+        <span class="sep">|</span>
+        <a href="https://linkedin.com/in/[yourhandle]" target="_blank">linkedin.com/in/[yourhandle]</a>
+        <span class="sep">|</span>
+        <a href="https://[yourwebsite.com]" target="_blank">[yourwebsite.com]</a>
+      </div>
+    </header>
 
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        2. SUMMARY
   ══════════════════════════════════════ -->
-  <section class="summary">
-    <hr class="section-rule" />
-    <div class="section-title">Summary</div>
-    <p>
-      [Write 2–3 sentences here. Describe who you are professionally, your core strengths,
-      and what kind of role or impact you're seeking. Example: Results-driven software engineer
-      with 5 years of experience building scalable web applications. Passionate about clean code,
-      user experience, and cross-functional collaboration. Seeking a senior role where I can lead
-      product-focused engineering teams.]
-    </p>
-  </section>
+    <section class="summary">
+      <hr class="section-rule" />
+      <div class="section-title">Summary</div>
+      <p>
+        [Write 2–3 sentences here. Describe who you are professionally, your core strengths,
+        and what kind of role or impact you're seeking. Example: Results-driven software engineer
+        with 5 years of experience building scalable web applications. Passionate about clean code,
+        user experience, and cross-functional collaboration. Seeking a senior role where I can lead
+        product-focused engineering teams.]
+      </p>
+    </section>
 
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        3. EDUCATION
   ══════════════════════════════════════ -->
-  <section>
-    <hr class="section-rule" />
-    <div class="section-title">Education</div>
+    <section>
+      <hr class="section-rule" />
+      <div class="section-title">Education</div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">[Degree Name, e.g. BSc Computer Science]</span>
-        <span class="entry-date">[Month YYYY] – [Month YYYY]</span>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">[Degree Name, e.g. BSc Computer Science]</span>
+          <span class="entry-date">[Month YYYY] – [Month YYYY]</span>
+        </div>
+        <div class="entry-sub">[University / Institution Name] · [City, Country]</div>
+        <div class="entry-meta">[Optional: GPA 3.9/4.0 · Relevant coursework: Algorithms, Distributed Systems, ML]</div>
       </div>
-      <div class="entry-sub">[University / Institution Name] · [City, Country]</div>
-      <div class="entry-meta">[Optional: GPA 3.9/4.0 · Relevant coursework: Algorithms, Distributed Systems, ML]</div>
-    </div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">[Second Degree or High School Diploma]</span>
-        <span class="entry-date">[Month YYYY] – [Month YYYY]</span>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">[Second Degree or High School Diploma]</span>
+          <span class="entry-date">[Month YYYY] – [Month YYYY]</span>
+        </div>
+        <div class="entry-sub">[Institution Name] · [City, Country]</div>
       </div>
-      <div class="entry-sub">[Institution Name] · [City, Country]</div>
-    </div>
 
-  </section>
+    </section>
 
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        4. EXPERIENCE
   ══════════════════════════════════════ -->
-  <section>
-    <hr class="section-rule" />
-    <div class="section-title">Experience</div>
+    <section>
+      <hr class="section-rule" />
+      <div class="section-title">Experience</div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">[Job Title, e.g. Senior Software Engineer]</span>
-        <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">[Job Title, e.g. Senior Software Engineer]</span>
+          <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+        </div>
+        <div class="entry-sub">[Company Name] · [City, Country or Remote]</div>
+        <ul>
+          <li>[Describe a key achievement or responsibility. Use numbers where possible, e.g. Reduced API latency by 40%
+            by refactoring the caching layer.]</li>
+          <li>[Another accomplishment. What did you build, lead, or improve? What was the impact?]</li>
+          <li>[Optional third bullet, tools, scope, or cross-functional work worth highlighting.]</li>
+        </ul>
       </div>
-      <div class="entry-sub">[Company Name] · [City, Country or Remote]</div>
-      <ul>
-        <li>[Describe a key achievement or responsibility. Use numbers where possible, e.g. Reduced API latency by 40% by refactoring the caching layer.]</li>
-        <li>[Another accomplishment. What did you build, lead, or improve? What was the impact?]</li>
-        <li>[Optional third bullet, tools, scope, or cross-functional work worth highlighting.]</li>
-      </ul>
-    </div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">[Job Title, e.g. Frontend Developer]</span>
-        <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">[Job Title, e.g. Frontend Developer]</span>
+          <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+        </div>
+        <div class="entry-sub">[Company Name] · [City, Country or Remote]</div>
+        <ul>
+          <li>[Key achievement or responsibility. What did you own or deliver?]</li>
+          <li>[Another accomplishment with measurable outcome if possible.]</li>
+          <li>[Optional: mention stack, team size, or notable collaboration.]</li>
+        </ul>
       </div>
-      <div class="entry-sub">[Company Name] · [City, Country or Remote]</div>
-      <ul>
-        <li>[Key achievement or responsibility. What did you own or deliver?]</li>
-        <li>[Another accomplishment with measurable outcome if possible.]</li>
-        <li>[Optional: mention stack, team size, or notable collaboration.]</li>
-      </ul>
-    </div>
 
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-title">[Internship or Earlier Role Title]</span>
-        <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">[Internship or Earlier Role Title]</span>
+          <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+        </div>
+        <div class="entry-sub">[Company Name] · [City, Country]</div>
+        <ul>
+          <li>[What did you contribute? Even junior roles should show initiative and results.]</li>
+          <li>[Any tools, technologies, or processes you worked with.]</li>
+        </ul>
       </div>
-      <div class="entry-sub">[Company Name] · [City, Country]</div>
-      <ul>
-        <li>[What did you contribute? Even junior roles should show initiative and results.]</li>
-        <li>[Any tools, technologies, or processes you worked with.]</li>
-      </ul>
-    </div>
 
-  </section>
+    </section>
 
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        5. PROJECTS
   ══════════════════════════════════════ -->
-  <section>
-    <hr class="section-rule" />
-    <div class="section-title">Projects</div>
+    <section>
+      <hr class="section-rule" />
+      <div class="section-title">Projects</div>
 
-    <div class="project-entry">
-      <div class="entry-header">
-        <span class="project-name">
-          <a href="https://[project-link.com]" target="_blank">[Project Name]</a>
-        </span>
-        <span class="entry-date">[Year]</span>
+      <div class="project-entry">
+        <div class="entry-header">
+          <span class="project-name">
+            <a href="https://[project-link.com]" target="_blank">[Project Name]</a>
+          </span>
+          <span class="entry-date">[Year]</span>
+        </div>
+        <div class="project-desc">[One-line description, what it does and who it's for. E.g. A real-time collaborative
+          note-taking app for distributed teams.]</div>
+        <div class="project-tech">Tools: [React, Node.js, PostgreSQL, WebSockets]</div>
       </div>
-      <div class="project-desc">[One-line description, what it does and who it's for. E.g. A real-time collaborative note-taking app for distributed teams.]</div>
-      <div class="project-tech">Tools: [React, Node.js, PostgreSQL, WebSockets]</div>
-    </div>
 
-    <div class="project-entry">
-      <div class="entry-header">
-        <span class="project-name">[Project Name, no link]</span>
-        <span class="entry-date">[Year]</span>
+      <div class="project-entry">
+        <div class="entry-header">
+          <span class="project-name">[Project Name, no link]</span>
+          <span class="entry-date">[Year]</span>
+        </div>
+        <div class="project-desc">[Brief description of the project's purpose and your role in it.]</div>
+        <div class="project-tech">Tools: [Python, TensorFlow, Pandas, Matplotlib]</div>
       </div>
-      <div class="project-desc">[Brief description of the project's purpose and your role in it.]</div>
-      <div class="project-tech">Tools: [Python, TensorFlow, Pandas, Matplotlib]</div>
-    </div>
 
-    <div class="project-entry">
-      <div class="entry-header">
-        <span class="project-name">
-          <a href="https://[github.com/yourhandle/project]" target="_blank">[Open-Source Contribution or Side Project]</a>
-        </span>
-        <span class="entry-date">[Year]</span>
+      <div class="project-entry">
+        <div class="entry-header">
+          <span class="project-name">
+            <a href="https://[github.com/yourhandle/project]" target="_blank">[Open-Source Contribution or Side
+              Project]</a>
+          </span>
+          <span class="entry-date">[Year]</span>
+        </div>
+        <div class="project-desc">[What you contributed or built. Mention stars, users, or scale if relevant.]</div>
+        <div class="project-tech">Tools: [Go, Docker, Kubernetes]</div>
       </div>
-      <div class="project-desc">[What you contributed or built. Mention stars, users, or scale if relevant.]</div>
-      <div class="project-tech">Tools: [Go, Docker, Kubernetes]</div>
-    </div>
 
-  </section>
+    </section>
 
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        6. SKILLS
   ══════════════════════════════════════ -->
-  <section>
-    <hr class="section-rule" />
-    <div class="section-title">Skills</div>
+    <section>
+      <hr class="section-rule" />
+      <div class="section-title">Skills</div>
 
-    <div class="skills-grid">
-      <div class="skill-row">
-        <span class="skill-category">Technical</span>
-        <span class="skill-list">[JavaScript, TypeScript, Python, SQL, HTML/CSS, REST APIs, GraphQL]</span>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-category">Technical</span>
+          <span class="skill-list">[JavaScript, TypeScript, Python, SQL, HTML/CSS, REST APIs, GraphQL]</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Frameworks</span>
+          <span class="skill-list">[React, Next.js, Node.js, Express, Django, FastAPI]</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Tools & Platforms</span>
+          <span class="skill-list">[Git, Docker, AWS, Figma, Linux, Jira, Notion]</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">Soft Skills</span>
+          <span class="skill-list">[Technical writing, cross-functional communication, mentorship, agile
+            collaboration]</span>
+        </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-category">Frameworks</span>
-        <span class="skill-list">[React, Next.js, Node.js, Express, Django, FastAPI]</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">Tools & Platforms</span>
-        <span class="skill-list">[Git, Docker, AWS, Figma, Linux, Jira, Notion]</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">Soft Skills</span>
-        <span class="skill-list">[Technical writing, cross-functional communication, mentorship, agile collaboration]</span>
-      </div>
-    </div>
 
-  </section>
+    </section>
 
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        7. CERTIFICATIONS
   ══════════════════════════════════════ -->
-  <section>
-    <hr class="section-rule" />
-    <div class="section-title">Certifications</div>
+    <section>
+      <hr class="section-rule" />
+      <div class="section-title">Certifications</div>
 
-    <div class="compact-entry">
-      <div class="compact-left">
-        <span class="compact-name">[Certification Name, e.g. AWS Certified Solutions Architect]</span>
-        <span class="compact-sub">[Issuing Organization, e.g. Amazon Web Services]</span>
+      <div class="compact-entry">
+        <div class="compact-left">
+          <span class="compact-name">[Certification Name, e.g. AWS Certified Solutions Architect]</span>
+          <span class="compact-sub">[Issuing Organization, e.g. Amazon Web Services]</span>
+        </div>
+        <span class="compact-date">[Mon YYYY]</span>
       </div>
-      <span class="compact-date">[Mon YYYY]</span>
-    </div>
 
-    <div class="compact-entry">
-      <div class="compact-left">
-        <span class="compact-name">[Certification Name]</span>
-        <span class="compact-sub">[Issuing Organization]</span>
+      <div class="compact-entry">
+        <div class="compact-left">
+          <span class="compact-name">[Certification Name]</span>
+          <span class="compact-sub">[Issuing Organization]</span>
+        </div>
+        <span class="compact-date">[Mon YYYY]</span>
       </div>
-      <span class="compact-date">[Mon YYYY]</span>
-    </div>
 
-    <div class="compact-entry">
-      <div class="compact-left">
-        <span class="compact-name">[Certification Name]</span>
-        <span class="compact-sub">[Issuing Organization]</span>
+      <div class="compact-entry">
+        <div class="compact-left">
+          <span class="compact-name">[Certification Name]</span>
+          <span class="compact-sub">[Issuing Organization]</span>
+        </div>
+        <span class="compact-date">[Mon YYYY]</span>
       </div>
-      <span class="compact-date">[Mon YYYY]</span>
-    </div>
 
-  </section>
+    </section>
 
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        8. LANGUAGES
   ══════════════════════════════════════ -->
-  <section>
-    <hr class="section-rule" />
-    <div class="section-title">Languages</div>
+    <section>
+      <hr class="section-rule" />
+      <div class="section-title">Languages</div>
 
-    <div class="skills-grid">
-      <div class="skill-row">
-        <span class="skill-category">[English]</span>
-        <span class="skill-list">[Native / Full professional proficiency]</span>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-category">[English]</span>
+          <span class="skill-list">[Native / Full professional proficiency]</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">[Spanish]</span>
+          <span class="skill-list">[Professional working proficiency (B2)]</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-category">[French]</span>
+          <span class="skill-list">[Elementary proficiency (A2)]</span>
+        </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-category">[Spanish]</span>
-        <span class="skill-list">[Professional working proficiency (B2)]</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-category">[French]</span>
-        <span class="skill-list">[Elementary proficiency (A2)]</span>
-      </div>
-    </div>
 
-  </section>
+    </section>
 
 
-  <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════════════
        9. ACTIVITIES & VOLUNTEER WORK
   ══════════════════════════════════════ -->
-  <section>
-    <hr class="section-rule" />
-    <div class="section-title">Activities &amp; Volunteer Work</div>
+    <section>
+      <hr class="section-rule" />
+      <div class="section-title">Activities &amp; Volunteer Work</div>
 
-    <div class="compact-entry">
-      <div class="compact-left">
-        <span class="compact-name">[Role, e.g. Coding Workshop Instructor]</span>
-        <span class="compact-sub">[Organization, e.g. Code.org / Local Youth Center]</span>
+      <div class="compact-entry">
+        <div class="compact-left">
+          <span class="compact-name">[Role, e.g. Coding Workshop Instructor]</span>
+          <span class="compact-sub">[Organization, e.g. Code.org / Local Youth Center]</span>
+        </div>
+        <span class="compact-date">[Mon YYYY] – [Present]</span>
       </div>
-      <span class="compact-date">[Mon YYYY] – [Present]</span>
-    </div>
 
-    <div class="compact-entry">
-      <div class="compact-left">
-        <span class="compact-name">[Role, e.g. Event Organizer]</span>
-        <span class="compact-sub">[Organization, e.g. [City] Tech Meetup]</span>
+      <div class="compact-entry">
+        <div class="compact-left">
+          <span class="compact-name">[Role, e.g. Event Organizer]</span>
+          <span class="compact-sub">[Organization, e.g. [City] Tech Meetup]</span>
+        </div>
+        <span class="compact-date">[Mon YYYY] – [Mon YYYY]</span>
       </div>
-      <span class="compact-date">[Mon YYYY] – [Mon YYYY]</span>
-    </div>
 
-    <div class="compact-entry">
-      <div class="compact-left">
-        <span class="compact-name">[Role, e.g. Open Source Contributor]</span>
-        <span class="compact-sub">[Project or Organization Name]</span>
+      <div class="compact-entry">
+        <div class="compact-left">
+          <span class="compact-name">[Role, e.g. Open Source Contributor]</span>
+          <span class="compact-sub">[Project or Organization Name]</span>
+        </div>
+        <span class="compact-date">[Mon YYYY] – [Present]</span>
       </div>
-      <span class="compact-date">[Mon YYYY] – [Present]</span>
-    </div>
 
-  </section>
+    </section>
 
 
-</div><!-- /.page -->
+  </div><!-- /.page -->
 </body>
+
 </html>

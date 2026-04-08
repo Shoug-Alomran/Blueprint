@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>[Your Name], CV</title>
   <script src="/assets/storefront.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
 
   <style>
     /* ─── TOKENS ─────────────────────────────── */
     :root {
-      --bg:          #0d1117;
-      --page-bg:     #0d1117;
-      --header-bg:   #161b22;
-      --border:      #21262d;
-      --border-mid:  #30363d;
+      --bg: #0d1117;
+      --page-bg: #0d1117;
+      --header-bg: #161b22;
+      --border: #21262d;
+      --border-mid: #30363d;
 
-      --ink:         #e6edf3;
-      --ink-mid:     #8b949e;
-      --ink-soft:    #484f58;
+      --ink: #e6edf3;
+      --ink-mid: #8b949e;
+      --ink-soft: #484f58;
 
-      --green:       #3fb950;
-      --green-dim:   #1a7f37;
-      --amber:       #e3b341;
-      --blue:        #58a6ff;
-      --pink:        #f778ba;
-      --purple:      #bc8cff;
-      --cyan:        #76e3ea;
+      --green: #3fb950;
+      --green-dim: #1a7f37;
+      --amber: #e3b341;
+      --blue: #58a6ff;
+      --pink: #f778ba;
+      --purple: #bc8cff;
+      --cyan: #76e3ea;
 
-      --accent-dim:  rgba(63,185,80,.09);
-      --shadow:      rgba(0,0,0,.6);
+      --accent-dim: rgba(63, 185, 80, .09);
+      --shadow: rgba(0, 0, 0, .6);
 
-      --font-mono:   'JetBrains Mono', 'Fira Code', monospace;
-      --font-body:   'DM Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --font-body: 'DM Sans', system-ui, sans-serif;
 
       --pad-h: 22mm;
       --pad-v: 16mm;
     }
 
     /* ─── RESET ──────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       background: var(--bg);
@@ -86,11 +95,13 @@
     .page::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
       width: 3px;
       background: linear-gradient(180deg,
-        var(--green) 0%, var(--cyan) 30%,
-        var(--blue) 55%, var(--purple) 80%, var(--pink) 100%);
+          var(--green) 0%, var(--cyan) 30%,
+          var(--blue) 55%, var(--purple) 80%, var(--pink) 100%);
       opacity: .75;
     }
 
@@ -99,10 +110,8 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        0deg, transparent, transparent 3px,
-        rgba(255,255,255,.013) 3px, rgba(255,255,255,.013) 4px
-      );
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px,
+          rgba(255, 255, 255, .013) 3px, rgba(255, 255, 255, .013) 4px);
       pointer-events: none;
     }
 
@@ -121,21 +130,51 @@
       gap: 5px;
       margin-bottom: 9px;
     }
-    .dot   { width: 7px; height: 7px; border-radius: 50%; }
-    .dot-r { background: #ff5f57; }
-    .dot-y { background: #febc2e; }
-    .dot-g { background: #28c840; }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    .dot-r {
+      background: #ff5f57;
+    }
+
+    .dot-y {
+      background: #febc2e;
+    }
+
+    .dot-g {
+      background: #28c840;
+    }
+
     .term-path {
       font-family: var(--font-mono);
       font-size: 6.5pt;
       color: var(--ink-soft);
       margin-left: 6px;
     }
-    .p-user { color: var(--green); }
-    .p-at   { color: var(--ink-soft); }
-    .p-host { color: var(--blue); }
-    .p-sep  { color: var(--ink-soft); }
-    .p-dir  { color: var(--amber); }
+
+    .p-user {
+      color: var(--green);
+    }
+
+    .p-at {
+      color: var(--ink-soft);
+    }
+
+    .p-host {
+      color: var(--blue);
+    }
+
+    .p-sep {
+      color: var(--ink-soft);
+    }
+
+    .p-dir {
+      color: var(--amber);
+    }
 
     /* name */
     .name-row {
@@ -144,6 +183,7 @@
       gap: 7px;
       margin-bottom: 2px;
     }
+
     .name-prompt {
       font-family: var(--font-mono);
       font-size: 12pt;
@@ -152,6 +192,7 @@
       flex-shrink: 0;
       opacity: .75;
     }
+
     .name-main {
       font-family: var(--font-mono);
       font-size: 28pt;
@@ -160,6 +201,7 @@
       letter-spacing: -1.5px;
       line-height: 1;
     }
+
     .cursor {
       display: inline-block;
       width: 3px;
@@ -169,7 +211,18 @@
       vertical-align: text-bottom;
       animation: blink 1.1s step-end infinite;
     }
-    @keyframes blink { 0%,100% { opacity:1 } 50% { opacity:0 } }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
+    }
 
     /* job title */
     .job-title {
@@ -179,8 +232,14 @@
       color: var(--ink-mid);
       margin-bottom: 11px;
     }
-    .c-slash { color: var(--ink-soft); }
-    .c-str   { color: var(--amber); }
+
+    .c-slash {
+      color: var(--ink-soft);
+    }
+
+    .c-str {
+      color: var(--amber);
+    }
 
     /* contact bar */
     .contact-bar {
@@ -191,17 +250,36 @@
       font-size: 6.8pt;
       color: var(--ink-soft);
     }
-    .contact-bar .sep { margin: 0 6px; color: var(--border-mid); }
-    .contact-bar .lbl { color: var(--ink-soft); margin-right: 1px; font-size: 6.3pt; }
-    .contact-bar a    { color: var(--blue); text-decoration: none; }
-    .contact-bar a:hover { color: var(--green); text-decoration: underline; }
+
+    .contact-bar .sep {
+      margin: 0 6px;
+      color: var(--border-mid);
+    }
+
+    .contact-bar .lbl {
+      color: var(--ink-soft);
+      margin-right: 1px;
+      font-size: 6.3pt;
+    }
+
+    .contact-bar a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .contact-bar a:hover {
+      color: var(--green);
+      text-decoration: underline;
+    }
 
     /* ─── BODY AREA ──────────────────────────── */
     .body {
       padding: calc(var(--pad-v) * .85) var(--pad-h) var(--pad-v) var(--pad-h);
     }
 
-    section { margin-bottom: 15px; }
+    section {
+      margin-bottom: 15px;
+    }
 
     .section-head {
       display: flex;
@@ -209,6 +287,7 @@
       gap: 7px;
       margin-bottom: 8px;
     }
+
     .section-hash {
       font-family: var(--font-mono);
       font-size: 8.5pt;
@@ -216,6 +295,7 @@
       color: var(--purple);
       flex-shrink: 0;
     }
+
     .section-label {
       font-family: var(--font-mono);
       font-size: 7pt;
@@ -225,7 +305,12 @@
       color: var(--ink-mid);
       white-space: nowrap;
     }
-    .section-rule { flex: 1; height: 1px; background: var(--border); }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
 
     /* summary */
     .summary p {
@@ -240,8 +325,13 @@
     }
 
     /* entries */
-    .entry { margin-bottom: 10px; }
-    .entry:last-child { margin-bottom: 0; }
+    .entry {
+      margin-bottom: 10px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
 
     .entry-top {
       display: flex;
@@ -250,6 +340,7 @@
       gap: 12px;
       width: 100%;
     }
+
     .entry-title {
       font-family: var(--font-mono);
       font-weight: 500;
@@ -261,6 +352,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
     .entry-date {
       font-family: var(--font-mono);
       font-size: 7pt;
@@ -269,6 +361,7 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
+
     .entry-sub {
       font-family: var(--font-body);
       font-size: 8pt;
@@ -276,15 +369,24 @@
       margin-top: 1px;
       margin-bottom: 3px;
     }
-    .co { color: var(--blue); }
 
-    .entry ul { padding-left: 13px; margin-top: 3px; list-style: none; }
+    .co {
+      color: var(--blue);
+    }
+
+    .entry ul {
+      padding-left: 13px;
+      margin-top: 3px;
+      list-style: none;
+    }
+
     .entry ul li {
       font-size: 8.5pt;
       color: var(--ink-mid);
       margin-bottom: 2px;
       position: relative;
     }
+
     .entry ul li::before {
       content: '›';
       position: absolute;
@@ -294,8 +396,13 @@
     }
 
     /* projects */
-    .project-entry { margin-bottom: 9px; }
-    .project-entry:last-child { margin-bottom: 0; }
+    .project-entry {
+      margin-bottom: 9px;
+    }
+
+    .project-entry:last-child {
+      margin-bottom: 0;
+    }
 
     .proj-top {
       display: flex;
@@ -304,6 +411,7 @@
       gap: 12px;
       width: 100%;
     }
+
     .project-name {
       font-family: var(--font-mono);
       font-weight: 500;
@@ -315,15 +423,27 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .project-name a { color: var(--blue); text-decoration: none; }
-    .project-name a:hover { color: var(--cyan); text-decoration: underline; }
+
+    .project-name a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .project-name a:hover {
+      color: var(--cyan);
+      text-decoration: underline;
+    }
 
     .project-desc {
       font-size: 8pt;
       color: var(--ink-mid);
       margin-top: 2px;
     }
-    .tags { margin-top: 3px; }
+
+    .tags {
+      margin-top: 3px;
+    }
+
     .tag {
       display: inline-block;
       font-family: var(--font-mono);
@@ -339,8 +459,19 @@
     }
 
     /* skills */
-    .skills-grid { display: flex; flex-direction: column; gap: 4px; }
-    .skill-row   { display: flex; gap: 10px; align-items: baseline; font-size: 8.5pt; }
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .skill-row {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 8.5pt;
+    }
+
     .skill-cat {
       font-family: var(--font-mono);
       font-weight: 500;
@@ -349,9 +480,22 @@
       min-width: 92px;
       flex-shrink: 0;
     }
-    .skill-cat::before { content: '['; color: var(--ink-soft); }
-    .skill-cat::after  { content: ']'; color: var(--ink-soft); }
-    .skill-list { font-family: var(--font-body); font-weight: 300; color: var(--ink-mid); }
+
+    .skill-cat::before {
+      content: '[';
+      color: var(--ink-soft);
+    }
+
+    .skill-cat::after {
+      content: ']';
+      color: var(--ink-soft);
+    }
+
+    .skill-list {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--ink-mid);
+    }
 
     /* compact rows */
     .compact-entry {
@@ -361,296 +505,363 @@
       gap: 8px;
       margin-bottom: 5px;
     }
-    .compact-entry:last-child { margin-bottom: 0; }
-    .compact-left  { display: flex; flex-direction: column; }
-    .compact-name  { font-family: var(--font-mono); font-weight: 500; font-size: 7.5pt; color: var(--amber); }
-    .compact-sub   { font-size: 7.5pt; color: var(--ink-soft); margin-top: 1px; }
-    .compact-date  { font-family: var(--font-mono); font-size: 7pt; color: var(--ink-soft); white-space: nowrap; flex-shrink: 0; }
+
+    .compact-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .compact-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .compact-name {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 7.5pt;
+      color: var(--amber);
+    }
+
+    .compact-sub {
+      font-size: 7.5pt;
+      color: var(--ink-soft);
+      margin-top: 1px;
+    }
+
+    .compact-date {
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      color: var(--ink-soft);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
     /* ─── PRINT ──────────────────────────────── */
     @media print {
-      body { background: var(--page-bg); }
-      body::before { display: none; }
-      .page-scaler { width: 100% !important; transform: none !important; margin: 0 !important; }
-      .page { width: 100%; min-height: unset; margin: 0; box-shadow: none; }
-      .page::after { display: none; }
-      .cursor { display: none; }
-      a { color: inherit !important; text-decoration: none !important; }
-      section { page-break-inside: avoid; }
+      body {
+        background: var(--page-bg);
+      }
+
+      body::before {
+        display: none;
+      }
+
+      .page-scaler {
+        width: 100% !important;
+        transform: none !important;
+        margin: 0 !important;
+      }
+
+      .page {
+        width: 100%;
+        min-height: unset;
+        margin: 0;
+        box-shadow: none;
+      }
+
+      .page::after {
+        display: none;
+      }
+
+      .cursor {
+        display: none;
+      }
+
+      a {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+
+      section {
+        page-break-inside: avoid;
+      }
     }
-    @page { size: A4; margin: 0; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
   </style>
   <link rel="stylesheet" href="/cv-templates/watermark.css" />
 </head>
 
 <body>
   <div class="page-scaler" id="page-scaler">
-  <div class="page">
+    <div class="page">
 
-    <!-- ── HEADER ── -->
-    <header>
-      <div class="term-bar">
-        <span class="dot dot-r"></span>
-        <span class="dot dot-y"></span>
-        <span class="dot dot-g"></span>
-        <span class="term-path">
-          <span class="p-user">user</span><span class="p-at">@</span><span class="p-host">dev-machine</span><span class="p-sep">:</span><span class="p-dir">~/resume</span><span class="p-sep"> $ cat cv.md</span>
-        </span>
-      </div>
-
-      <div class="name-row">
-        <span class="name-prompt">▸</span>
-        <span class="name-main">[YourName]</span><span class="cursor"></span>
-      </div>
-
-      <div class="job-title">
-        <span class="c-slash">// </span><span class="c-str">[Job Title · Field · Specialisation]</span>
-      </div>
-
-      <div class="contact-bar">
-        <span class="lbl">email:</span><a href="mailto:[your@email.com]">[your@email.com]</a>
-        <span class="sep">·</span>
-        <span class="lbl">tel:</span><span>[+966 5X XXX XXXX]</span>
-        <span class="sep">·</span>
-        <span>[City, Country]</span>
-        <span class="sep">·</span>
-        <span class="lbl">gh:</span><a href="https://github.com/[yourhandle]" target="_blank">github.com/[yourhandle]</a>
-        <span class="sep">·</span>
-        <span class="lbl">li:</span><a href="https://linkedin.com/in/[yourhandle]" target="_blank">linkedin.com/in/[yourhandle]</a>
-        <span class="sep">·</span>
-        <span class="lbl">www:</span><a href="https://[yourwebsite.com]" target="_blank">[yourwebsite.com]</a>
-      </div>
-    </header>
-
-    <div class="body">
-
-      <!-- ABOUT -->
-      <section>
-        <div class="section-head">
-          <span class="section-hash">##</span>
-          <span class="section-label">About</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="summary">
-          <p>[2–3 sentence summary. Who you are, what you build, what drives you. Example: Full-stack engineer obsessed with clean architecture and fast UIs. 5 years shipping production code in fintech and devtools. Looking for a team that values craft, autonomy, and real impact.]</p>
-        </div>
-      </section>
-
-      <!-- EXPERIENCE -->
-      <section>
-        <div class="section-head">
-          <span class="section-hash">##</span>
-          <span class="section-label">Experience</span>
-          <span class="section-rule"></span>
+      <!-- ── HEADER ── -->
+      <header>
+        <div class="term-bar">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="term-path">
+            <span class="p-user">user</span><span class="p-at">@</span><span class="p-host">dev-machine</span><span
+              class="p-sep">:</span><span class="p-dir">~/resume</span><span class="p-sep"> $ cat cv.md</span>
+          </span>
         </div>
 
-        <div class="entry">
-          <div class="entry-top">
-            <span class="entry-title">[Job Title, e.g. Senior Software Engineer]</span>
-            <span class="entry-date">[Mon YYYY] – present</span>
-          </div>
-          <div class="entry-sub">
-            <span class="co">[Company Name]</span> · [City or Remote]
-          </div>
-          <ul>
-            <li>[Key win with numbers, e.g. Cut build time 60% migrating CI to Turborepo + esbuild.]</li>
-            <li>[What you architected, owned, or led. Be specific about scope and stack.]</li>
-            <li>[Cross-team impact, code review culture, mentorship, or process improvement.]</li>
-          </ul>
+        <div class="name-row">
+          <span class="name-prompt">▸</span>
+          <span class="name-main">[YourName]</span><span class="cursor"></span>
         </div>
 
-        <div class="entry">
-          <div class="entry-top">
-            <span class="entry-title">[Job Title]</span>
-            <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
-          </div>
-          <div class="entry-sub">
-            <span class="co">[Company Name]</span> · [City or Remote]
-          </div>
-          <ul>
-            <li>[Achievement or responsibility with context.]</li>
-            <li>[Another outcome, quantify where possible.]</li>
-          </ul>
+        <div class="job-title">
+          <span class="c-slash">// </span><span class="c-str">[Job Title · Field · Specialisation]</span>
         </div>
 
-        <div class="entry">
-          <div class="entry-top">
-            <span class="entry-title">[Internship or Earlier Role]</span>
-            <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
-          </div>
-          <div class="entry-sub">
-            <span class="co">[Company Name]</span> · [City]
-          </div>
-          <ul>
-            <li>[What you shipped or learned.]</li>
-            <li>[Stack, tools, or methodologies.]</li>
-          </ul>
+        <div class="contact-bar">
+          <span class="lbl">email:</span><a href="mailto:[your@email.com]">[your@email.com]</a>
+          <span class="sep">·</span>
+          <span class="lbl">tel:</span><span>[+966 5X XXX XXXX]</span>
+          <span class="sep">·</span>
+          <span>[City, Country]</span>
+          <span class="sep">·</span>
+          <span class="lbl">gh:</span><a href="https://github.com/[yourhandle]"
+            target="_blank">github.com/[yourhandle]</a>
+          <span class="sep">·</span>
+          <span class="lbl">li:</span><a href="https://linkedin.com/in/[yourhandle]"
+            target="_blank">linkedin.com/in/[yourhandle]</a>
+          <span class="sep">·</span>
+          <span class="lbl">www:</span><a href="https://[yourwebsite.com]" target="_blank">[yourwebsite.com]</a>
         </div>
-      </section>
+      </header>
 
-      <!-- PROJECTS -->
-      <section>
-        <div class="section-head">
-          <span class="section-hash">##</span>
-          <span class="section-label">Projects</span>
-          <span class="section-rule"></span>
-        </div>
+      <div class="body">
 
-        <div class="project-entry">
-          <div class="proj-top">
-            <span class="project-name">
-              <a href="https://github.com/[yourhandle/project-one]" target="_blank">[project-one]</a>
-            </span>
-            <span class="entry-date">[Year]</span>
+        <!-- ABOUT -->
+        <section>
+          <div class="section-head">
+            <span class="section-hash">##</span>
+            <span class="section-label">About</span>
+            <span class="section-rule"></span>
           </div>
-          <div class="project-desc">[One-liner: what problem it solves and who uses it.]</div>
-          <div class="tags">
-            <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">[add]</span>
+          <div class="summary">
+            <p>[2–3 sentence summary. Who you are, what you build, what drives you. Example: Full-stack engineer
+              obsessed with clean architecture and fast UIs. 5 years shipping production code in fintech and devtools.
+              Looking for a team that values craft, autonomy, and real impact.]</p>
           </div>
-        </div>
+        </section>
 
-        <div class="project-entry">
-          <div class="proj-top">
-            <span class="project-name">
-              <a href="https://github.com/[yourhandle/project-two]" target="_blank">[project-two]</a>
-            </span>
-            <span class="entry-date">[Year]</span>
+        <!-- EXPERIENCE -->
+        <section>
+          <div class="section-head">
+            <span class="section-hash">##</span>
+            <span class="section-label">Experience</span>
+            <span class="section-rule"></span>
           </div>
-          <div class="project-desc">[What it does. Scale, stars, or users if notable.]</div>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">[add]</span>
-          </div>
-        </div>
 
-        <div class="project-entry">
-          <div class="proj-top">
-            <span class="project-name">[project-three, no link]</span>
-            <span class="entry-date">[Year]</span>
+          <div class="entry">
+            <div class="entry-top">
+              <span class="entry-title">[Job Title, e.g. Senior Software Engineer]</span>
+              <span class="entry-date">[Mon YYYY] – present</span>
+            </div>
+            <div class="entry-sub">
+              <span class="co">[Company Name]</span> · [City or Remote]
+            </div>
+            <ul>
+              <li>[Key win with numbers, e.g. Cut build time 60% migrating CI to Turborepo + esbuild.]</li>
+              <li>[What you architected, owned, or led. Be specific about scope and stack.]</li>
+              <li>[Cross-team impact, code review culture, mentorship, or process improvement.]</li>
+            </ul>
           </div>
-          <div class="project-desc">[Brief description. What tech decisions are you proud of?]</div>
-          <div class="tags">
-            <span class="tag">Go</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">[add]</span>
-          </div>
-        </div>
-      </section>
 
-      <!-- EDUCATION -->
-      <section>
-        <div class="section-head">
-          <span class="section-hash">##</span>
-          <span class="section-label">Education</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="entry">
-          <div class="entry-top">
-            <span class="entry-title">[Degree, e.g. BSc Computer Science]</span>
-            <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+          <div class="entry">
+            <div class="entry-top">
+              <span class="entry-title">[Job Title]</span>
+              <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+            </div>
+            <div class="entry-sub">
+              <span class="co">[Company Name]</span> · [City or Remote]
+            </div>
+            <ul>
+              <li>[Achievement or responsibility with context.]</li>
+              <li>[Another outcome, quantify where possible.]</li>
+            </ul>
           </div>
-          <div class="entry-sub">
-            <span class="co">[University Name]</span> · [City, Country]
-          </div>
-          <div class="entry-sub">[Optional: GPA 3.9/4.0 · Coursework: Algorithms, OS, Distributed Systems, Compilers]</div>
-        </div>
-      </section>
 
-      <!-- SKILLS -->
-      <section>
-        <div class="section-head">
-          <span class="section-hash">##</span>
-          <span class="section-label">Skills</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-row">
-            <span class="skill-cat">Languages</span>
-            <span class="skill-list">[TypeScript, Python, Go, Rust, SQL, Bash]</span>
+          <div class="entry">
+            <div class="entry-top">
+              <span class="entry-title">[Internship or Earlier Role]</span>
+              <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+            </div>
+            <div class="entry-sub">
+              <span class="co">[Company Name]</span> · [City]
+            </div>
+            <ul>
+              <li>[What you shipped or learned.]</li>
+              <li>[Stack, tools, or methodologies.]</li>
+            </ul>
           </div>
-          <div class="skill-row">
-            <span class="skill-cat">Frontend</span>
-            <span class="skill-list">[React, Next.js, Vite, TailwindCSS, WebSockets]</span>
-          </div>
-          <div class="skill-row">
-            <span class="skill-cat">Backend</span>
-            <span class="skill-list">[Node.js, FastAPI, PostgreSQL, Redis, GraphQL]</span>
-          </div>
-          <div class="skill-row">
-            <span class="skill-cat">Infra / DevOps</span>
-            <span class="skill-list">[Docker, Kubernetes, AWS, GitHub Actions, Terraform]</span>
-          </div>
-          <div class="skill-row">
-            <span class="skill-cat">Soft Skills</span>
-            <span class="skill-list">[Code review, technical writing, system design, agile/scrum]</span>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- CERTIFICATIONS -->
-      <section>
-        <div class="section-head">
-          <span class="section-hash">##</span>
-          <span class="section-label">Certifications</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="compact-entry">
-          <div class="compact-left">
-            <span class="compact-name">[e.g. AWS Certified Solutions Architect, Associate]</span>
-            <span class="compact-sub">[Issuing Organisation]</span>
+        <!-- PROJECTS -->
+        <section>
+          <div class="section-head">
+            <span class="section-hash">##</span>
+            <span class="section-label">Projects</span>
+            <span class="section-rule"></span>
           </div>
-          <span class="compact-date">[Mon YYYY]</span>
-        </div>
-        <div class="compact-entry">
-          <div class="compact-left">
-            <span class="compact-name">[Certification Name]</span>
-            <span class="compact-sub">[Issuing Organisation]</span>
-          </div>
-          <span class="compact-date">[Mon YYYY]</span>
-        </div>
-      </section>
 
-      <!-- LANGUAGES -->
-      <section>
-        <div class="section-head">
-          <span class="section-hash">##</span>
-          <span class="section-label">Languages</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-row">
-            <span class="skill-cat">[Arabic]</span>
-            <span class="skill-list">[Native]</span>
+          <div class="project-entry">
+            <div class="proj-top">
+              <span class="project-name">
+                <a href="https://github.com/[yourhandle/project-one]" target="_blank">[project-one]</a>
+              </span>
+              <span class="entry-date">[Year]</span>
+            </div>
+            <div class="project-desc">[One-liner: what problem it solves and who uses it.]</div>
+            <div class="tags">
+              <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span
+                class="tag">[add]</span>
+            </div>
           </div>
-          <div class="skill-row">
-            <span class="skill-cat">[English]</span>
-            <span class="skill-list">[Professional, B2/C1]</span>
-          </div>
-        </div>
-      </section>
 
-      <!-- ACTIVITIES -->
-      <section>
-        <div class="section-head">
-          <span class="section-hash">##</span>
-          <span class="section-label">Activities &amp; Volunteer</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="compact-entry">
-          <div class="compact-left">
-            <span class="compact-name">[Role, e.g. Hackathon Mentor / Open-Source Contributor]</span>
-            <span class="compact-sub">[Organisation or Project]</span>
+          <div class="project-entry">
+            <div class="proj-top">
+              <span class="project-name">
+                <a href="https://github.com/[yourhandle/project-two]" target="_blank">[project-two]</a>
+              </span>
+              <span class="entry-date">[Year]</span>
+            </div>
+            <div class="project-desc">[What it does. Scale, stars, or users if notable.]</div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span
+                class="tag">[add]</span>
+            </div>
           </div>
-          <span class="compact-date">[Mon YYYY] – present</span>
-        </div>
-        <div class="compact-entry">
-          <div class="compact-left">
-            <span class="compact-name">[Role, e.g. Tech Talk Speaker]</span>
-            <span class="compact-sub">[Event or Organisation]</span>
-          </div>
-          <span class="compact-date">[Mon YYYY]</span>
-        </div>
-      </section>
 
-    </div><!-- /.body -->
-  </div><!-- /.page -->
+          <div class="project-entry">
+            <div class="proj-top">
+              <span class="project-name">[project-three, no link]</span>
+              <span class="entry-date">[Year]</span>
+            </div>
+            <div class="project-desc">[Brief description. What tech decisions are you proud of?]</div>
+            <div class="tags">
+              <span class="tag">Go</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span
+                class="tag">[add]</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section>
+          <div class="section-head">
+            <span class="section-hash">##</span>
+            <span class="section-label">Education</span>
+            <span class="section-rule"></span>
+          </div>
+          <div class="entry">
+            <div class="entry-top">
+              <span class="entry-title">[Degree, e.g. BSc Computer Science]</span>
+              <span class="entry-date">[Mon YYYY] – [Mon YYYY]</span>
+            </div>
+            <div class="entry-sub">
+              <span class="co">[University Name]</span> · [City, Country]
+            </div>
+            <div class="entry-sub">[Optional: GPA 3.9/4.0 · Coursework: Algorithms, OS, Distributed Systems, Compilers]
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+          <div class="section-head">
+            <span class="section-hash">##</span>
+            <span class="section-label">Skills</span>
+            <span class="section-rule"></span>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-row">
+              <span class="skill-cat">Languages</span>
+              <span class="skill-list">[TypeScript, Python, Go, Rust, SQL, Bash]</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-cat">Frontend</span>
+              <span class="skill-list">[React, Next.js, Vite, TailwindCSS, WebSockets]</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-cat">Backend</span>
+              <span class="skill-list">[Node.js, FastAPI, PostgreSQL, Redis, GraphQL]</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-cat">Infra / DevOps</span>
+              <span class="skill-list">[Docker, Kubernetes, AWS, GitHub Actions, Terraform]</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-cat">Soft Skills</span>
+              <span class="skill-list">[Code review, technical writing, system design, agile/scrum]</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section>
+          <div class="section-head">
+            <span class="section-hash">##</span>
+            <span class="section-label">Certifications</span>
+            <span class="section-rule"></span>
+          </div>
+          <div class="compact-entry">
+            <div class="compact-left">
+              <span class="compact-name">[e.g. AWS Certified Solutions Architect, Associate]</span>
+              <span class="compact-sub">[Issuing Organisation]</span>
+            </div>
+            <span class="compact-date">[Mon YYYY]</span>
+          </div>
+          <div class="compact-entry">
+            <div class="compact-left">
+              <span class="compact-name">[Certification Name]</span>
+              <span class="compact-sub">[Issuing Organisation]</span>
+            </div>
+            <span class="compact-date">[Mon YYYY]</span>
+          </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section>
+          <div class="section-head">
+            <span class="section-hash">##</span>
+            <span class="section-label">Languages</span>
+            <span class="section-rule"></span>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-row">
+              <span class="skill-cat">[Arabic]</span>
+              <span class="skill-list">[Native]</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-cat">[English]</span>
+              <span class="skill-list">[Professional, B2/C1]</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ACTIVITIES -->
+        <section>
+          <div class="section-head">
+            <span class="section-hash">##</span>
+            <span class="section-label">Activities &amp; Volunteer</span>
+            <span class="section-rule"></span>
+          </div>
+          <div class="compact-entry">
+            <div class="compact-left">
+              <span class="compact-name">[Role, e.g. Hackathon Mentor / Open-Source Contributor]</span>
+              <span class="compact-sub">[Organisation or Project]</span>
+            </div>
+            <span class="compact-date">[Mon YYYY] – present</span>
+          </div>
+          <div class="compact-entry">
+            <div class="compact-left">
+              <span class="compact-name">[Role, e.g. Tech Talk Speaker]</span>
+              <span class="compact-sub">[Event or Organisation]</span>
+            </div>
+            <span class="compact-date">[Mon YYYY]</span>
+          </div>
+        </section>
+
+      </div><!-- /.body -->
+    </div><!-- /.page -->
   </div><!-- /.page-scaler -->
 
   <script>
@@ -658,15 +869,15 @@
     (function () {
       var A4_PX = 794;
       function scale() {
-        var s   = document.getElementById('page-scaler');
+        var s = document.getElementById('page-scaler');
         if (!s) return;
-        var vw  = window.innerWidth;
+        var vw = window.innerWidth;
         var pad = vw < 900 ? 16 : 40;
-        var r   = Math.min(1, (vw - pad * 2) / A4_PX);
-        s.style.transform       = 'scale(' + r + ')';
+        var r = Math.min(1, (vw - pad * 2) / A4_PX);
+        s.style.transform = 'scale(' + r + ')';
         s.style.transformOrigin = 'top center';
-        s.style.marginTop       = '24px';
-        s.style.marginBottom    = ((s.offsetHeight * r - s.offsetHeight) + 48) + 'px';
+        s.style.marginTop = '24px';
+        s.style.marginBottom = ((s.offsetHeight * r - s.offsetHeight) + 48) + 'px';
       }
       window.addEventListener('resize', scale);
       document.addEventListener('DOMContentLoaded', scale);
@@ -674,4 +885,5 @@
     }());
   </script>
 </body>
+
 </html>

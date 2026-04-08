@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light" data-lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Template, Professional</title>
   <script src="/assets/storefront.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Tajawal:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --bg-page: #f0ede8;
@@ -18,7 +21,7 @@
       --rule-heavy: #111111;
       --toolbar-bg: #111111;
       --toolbar-text: #f0ede8;
-      --shadow: 0 2px 48px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06);
+      --shadow: 0 2px 48px rgba(0, 0, 0, 0.10), 0 1px 3px rgba(0, 0, 0, 0.06);
       --tag-bg: #f5f3ef;
     }
 
@@ -33,11 +36,15 @@
       --rule-heavy: #f0ede8;
       --toolbar-bg: #0c0c0c;
       --toolbar-text: #f0ede8;
-      --shadow: 0 2px 48px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.3);
+      --shadow: 0 2px 48px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.3);
       --tag-bg: #1e1e1e;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html {
       background: var(--bg-page);
@@ -54,7 +61,9 @@
     /* ── TOOLBAR ── */
     .toolbar {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       background: var(--toolbar-bg);
       padding: 10px 28px;
@@ -67,7 +76,7 @@
 
     .tb-btn {
       padding: 6px 16px;
-      border: 1px solid rgba(240,237,232,0.2);
+      border: 1px solid rgba(240, 237, 232, 0.2);
       border-radius: 2px;
       background: transparent;
       color: var(--toolbar-text);
@@ -81,8 +90,8 @@
     }
 
     .tb-btn:hover {
-      background: rgba(240,237,232,0.1);
-      border-color: rgba(240,237,232,0.5);
+      background: rgba(240, 237, 232, 0.1);
+      border-color: rgba(240, 237, 232, 0.5);
     }
 
     .tb-btn.active {
@@ -94,7 +103,7 @@
     .tb-divider {
       width: 1px;
       height: 20px;
-      background: rgba(240,237,232,0.15);
+      background: rgba(240, 237, 232, 0.15);
       margin: 0 4px;
     }
 
@@ -136,7 +145,9 @@
       transition: border-color 0.3s;
     }
 
-    [data-lang="ar"] .header { direction: rtl; }
+    [data-lang="ar"] .header {
+      direction: rtl;
+    }
 
     .name {
       font-family: 'Cormorant Garamond', serif;
@@ -192,7 +203,9 @@
       transition: color 0.2s;
     }
 
-    .contact-block a:hover { color: var(--ink); }
+    .contact-block a:hover {
+      color: var(--ink);
+    }
 
     /* ── BODY ── */
     .cv-body {
@@ -211,7 +224,9 @@
       margin-bottom: 20px;
     }
 
-    [data-lang="ar"] .section-header { flex-direction: row-reverse; }
+    [data-lang="ar"] .section-header {
+      flex-direction: row-reverse;
+    }
 
     .section-title {
       font-family: 'DM Sans', sans-serif;
@@ -456,7 +471,9 @@
       transition: border-color 0.3s;
     }
 
-    .skills-table tr:last-child { border-bottom: none; }
+    .skills-table tr:last-child {
+      border-bottom: none;
+    }
 
     .skills-table td {
       padding: 10px 0;
@@ -477,7 +494,9 @@
       font-family: 'DM Sans', sans-serif;
     }
 
-    [data-lang="ar"] .skills-table { direction: rtl; }
+    [data-lang="ar"] .skills-table {
+      direction: rtl;
+    }
 
     [data-lang="ar"] .skills-table td:first-child {
       font-family: 'Tajawal', sans-serif;
@@ -508,7 +527,9 @@
       grid-template-columns: auto 1fr 140px;
     }
 
-    .cert-row:last-child { border-bottom: none; }
+    .cert-row:last-child {
+      border-bottom: none;
+    }
 
     .cert-issuer {
       font-size: 10px;
@@ -544,7 +565,9 @@
       transition: color 0.3s;
     }
 
-    [data-lang="ar"] .cert-year { text-align: left; }
+    [data-lang="ar"] .cert-year {
+      text-align: left;
+    }
 
     /* ── ACTIVITIES ── */
     .activity-row {
@@ -562,7 +585,9 @@
       grid-template-columns: auto 1fr 140px;
     }
 
-    .activity-row:last-child { border-bottom: none; }
+    .activity-row:last-child {
+      border-bottom: none;
+    }
 
     .activity-org {
       font-size: 10px;
@@ -599,7 +624,9 @@
       transition: color 0.3s;
     }
 
-    [data-lang="ar"] .activity-date { text-align: left; }
+    [data-lang="ar"] .activity-date {
+      text-align: left;
+    }
 
     /* ── FOOTER ── */
     .cv-footer {
@@ -626,20 +653,53 @@
     }
 
     /* ── LANG TOGGLE ── */
-    .lang-en { display: block; }
-    .lang-ar { display: none; }
-    [data-lang="ar"] .lang-en { display: none; }
-    [data-lang="ar"] .lang-ar { display: block; }
-    .lang-en-inline { display: inline; }
-    .lang-ar-inline { display: none; }
-    [data-lang="ar"] .lang-en-inline { display: none; }
-    [data-lang="ar"] .lang-ar-inline { display: inline; }
+    .lang-en {
+      display: block;
+    }
+
+    .lang-ar {
+      display: none;
+    }
+
+    [data-lang="ar"] .lang-en {
+      display: none;
+    }
+
+    [data-lang="ar"] .lang-ar {
+      display: block;
+    }
+
+    .lang-en-inline {
+      display: inline;
+    }
+
+    .lang-ar-inline {
+      display: none;
+    }
+
+    [data-lang="ar"] .lang-en-inline {
+      display: none;
+    }
+
+    [data-lang="ar"] .lang-ar-inline {
+      display: inline;
+    }
 
     /* ── PRINT ── */
     @media print {
-      .toolbar { display: none !important; }
-      .page-outer { padding-top: 0; }
-      html, [data-theme="dark"] { background: white !important; }
+      .toolbar {
+        display: none !important;
+      }
+
+      .page-outer {
+        padding-top: 0;
+      }
+
+      html,
+      [data-theme="dark"] {
+        background: white !important;
+      }
+
       [data-theme="dark"] {
         --bg-cv: white;
         --ink: #111111;
@@ -648,464 +708,496 @@
         --rule: #e0ddd8;
         --rule-heavy: #111111;
       }
-      .cv { margin: 0; box-shadow: none; max-width: 100%; }
-      .cv-footer { display: none; }
+
+      .cv {
+        margin: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+
+      .cv-footer {
+        display: none;
+      }
     }
 
     @media (max-width: 680px) {
-      .cv { margin: 8px; }
-      .header { padding: 36px 28px 24px; grid-template-columns: 1fr; }
-      .contact-block { text-align: left !important; }
-      .cv-body { padding: 0 28px 40px; }
-      .entry, .project, .cert-row, .activity-row {
+      .cv {
+        margin: 8px;
+      }
+
+      .header {
+        padding: 36px 28px 24px;
+        grid-template-columns: 1fr;
+      }
+
+      .contact-block {
+        text-align: left !important;
+      }
+
+      .cv-body {
+        padding: 0 28px 40px;
+      }
+
+      .entry,
+      .project,
+      .cert-row,
+      .activity-row {
         grid-template-columns: 1fr;
         gap: 4px 0;
       }
-      .cv-footer { margin: 24px 28px 0; padding-bottom: 36px; }
+
+      .cv-footer {
+        margin: 24px 28px 0;
+        padding-bottom: 36px;
+      }
     }
   </style>
   <link rel="stylesheet" href="/cv-templates/watermark.css" />
 </head>
+
 <body>
 
-<!-- TOOLBAR -->
-<div class="toolbar">
-  <div class="toolbar-actions" style="display:flex;align-items:center;gap:6px;">
-    <button class="tb-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="tb-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
-    <div class="tb-divider"></div>
-    <button class="tb-btn" id="btn-theme" onclick="toggleTheme()">
-      <span id="theme-label">Dark</span>
-    </button>
-    <div class="tb-divider"></div>
-    <button class="tb-btn" onclick="downloadHTML()">Download</button>
-    <button class="tb-btn" onclick="window.print()">Print / PDF</button>
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="toolbar-actions" style="display:flex;align-items:center;gap:6px;">
+      <button class="tb-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="tb-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+      <div class="tb-divider"></div>
+      <button class="tb-btn" id="btn-theme" onclick="toggleTheme()">
+        <span id="theme-label">Dark</span>
+      </button>
+      <div class="tb-divider"></div>
+      <button class="tb-btn" onclick="downloadHTML()">Download</button>
+      <button class="tb-btn" onclick="window.print()">Print / PDF</button>
+    </div>
   </div>
-</div>
 
-<div class="page-outer">
-<div class="cv">
+  <div class="page-outer">
+    <div class="cv">
 
-  <!-- HEADER -->
-  <header class="header">
-    <div>
-      <div class="name">
-        <span class="lang-en">[Your Full Name]</span>
-        <span class="lang-ar">[اسمك الكامل]</span>
-      </div>
-      <div class="title-line">
-        <span class="lang-en">[Field · Specialization · University · Class of 20XX]</span>
-        <span class="lang-ar">[التخصص · الجامعة · دفعة ٢٠XX]</span>
-      </div>
-    </div>
-    <div class="contact-block">
-      <div>
-        <span class="lang-en">[your.email@university.edu]</span>
-        <span class="lang-ar">[بريدك@جامعة.edu]</span>
-      </div>
-      <div>
-        <span class="lang-en">[+966 5X XXX XXXX]</span>
-        <span class="lang-ar">[٠٥X XXX XXXX]</span>
-      </div>
-      <div>
-        <span class="lang-en">[Riyadh, Saudi Arabia]</span>
-        <span class="lang-ar">[الرياض، المملكة العربية السعودية]</span>
-      </div>
-      <div><a href="#">linkedin.com/in/[handle]</a></div>
-      <div><a href="#">[yoursite.com]</a></div>
-    </div>
-  </header>
-
-  <div class="cv-body">
-
-    <!-- PROFILE -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-title">
-          <span class="lang-en-inline">Profile</span>
-          <span class="lang-ar-inline">نبذة</span>
-        </span>
-        <div class="section-rule"></div>
-      </div>
-      <p class="summary-text">
-        <span class="lang-en">[Two to three sentences. What you study, what you are drawn to, and what kind of environment you are looking for. Keep it precise, this is the only place for a personal voice.]</span>
-        <span class="lang-ar">[جملتين أو ثلاث. وش تدرس، وش يشدك، وأي بيئة تبحث عنها. هذي هي البس مكان تتكلم فيه عن نفسك بشكل شخصي, خليها دقيقة وواضحة.]</span>
-      </p>
-    </section>
-
-    <!-- EDUCATION -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-title">
-          <span class="lang-en-inline">Education</span>
-          <span class="lang-ar-inline">التعليم</span>
-        </span>
-        <div class="section-rule"></div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-date">
-          <span class="lang-en">[Sep 2022]<br>[May 2026]<br>[Riyadh, KSA]</span>
-          <span class="lang-ar">[سبتمبر ٢٠٢٢]<br>[مايو ٢٠٢٦]<br>[الرياض]</span>
-        </div>
+      <!-- HEADER -->
+      <header class="header">
         <div>
-          <div class="entry-org">
-            <span class="lang-en">[University Name]</span>
-            <span class="lang-ar">[اسم الجامعة]</span>
+          <div class="name">
+            <span class="lang-en">[Your Full Name]</span>
+            <span class="lang-ar">[اسمك الكامل]</span>
           </div>
-          <div class="entry-role">
-            <span class="lang-en">[Bachelor of Science, Major · Minor if applicable]</span>
-            <span class="lang-ar">[بكالوريوس علوم, التخصص · الفرعي إن وجد]</span>
+          <div class="title-line">
+            <span class="lang-en">[Field · Specialization · University · Class of 20XX]</span>
+            <span class="lang-ar">[التخصص · الجامعة · دفعة ٢٠XX]</span>
           </div>
-          <ul class="entry-bullets">
-            <li>
-              <span class="lang-en">GPA [X.XX / 4.00], [Dean's List / Honors if applicable]</span>
-              <span class="lang-ar">المعدل [X.XX / 4.00], [قائمة العميد / مرتبة الشرف إن وجد]</span>
-            </li>
-            <li>
-              <span class="lang-en">Relevant coursework: [list key courses here]</span>
-              <span class="lang-ar">مواد ذات صلة: [اذكر أهم المواد هنا]</span>
-            </li>
-          </ul>
         </div>
-      </div>
+        <div class="contact-block">
+          <div>
+            <span class="lang-en">[your.email@university.edu]</span>
+            <span class="lang-ar">[بريدك@جامعة.edu]</span>
+          </div>
+          <div>
+            <span class="lang-en">[+966 5X XXX XXXX]</span>
+            <span class="lang-ar">[٠٥X XXX XXXX]</span>
+          </div>
+          <div>
+            <span class="lang-en">[Riyadh, Saudi Arabia]</span>
+            <span class="lang-ar">[الرياض، المملكة العربية السعودية]</span>
+          </div>
+          <div><a href="#">linkedin.com/in/[handle]</a></div>
+          <div><a href="#">[yoursite.com]</a></div>
+        </div>
+      </header>
 
-    </section>
+      <div class="cv-body">
 
-    <!-- EXPERIENCE -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-title">
-          <span class="lang-en-inline">Experience</span>
-          <span class="lang-ar-inline">الخبرات</span>
+        <!-- PROFILE -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">
+              <span class="lang-en-inline">Profile</span>
+              <span class="lang-ar-inline">نبذة</span>
+            </span>
+            <div class="section-rule"></div>
+          </div>
+          <p class="summary-text">
+            <span class="lang-en">[Two to three sentences. What you study, what you are drawn to, and what kind of
+              environment you are looking for. Keep it precise, this is the only place for a personal voice.]</span>
+            <span class="lang-ar">[جملتين أو ثلاث. وش تدرس، وش يشدك، وأي بيئة تبحث عنها. هذي هي البس مكان تتكلم فيه عن
+              نفسك بشكل شخصي, خليها دقيقة وواضحة.]</span>
+          </p>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">
+              <span class="lang-en-inline">Education</span>
+              <span class="lang-ar-inline">التعليم</span>
+            </span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">
+              <span class="lang-en">[Sep 2022]<br>[May 2026]<br>[Riyadh, KSA]</span>
+              <span class="lang-ar">[سبتمبر ٢٠٢٢]<br>[مايو ٢٠٢٦]<br>[الرياض]</span>
+            </div>
+            <div>
+              <div class="entry-org">
+                <span class="lang-en">[University Name]</span>
+                <span class="lang-ar">[اسم الجامعة]</span>
+              </div>
+              <div class="entry-role">
+                <span class="lang-en">[Bachelor of Science, Major · Minor if applicable]</span>
+                <span class="lang-ar">[بكالوريوس علوم, التخصص · الفرعي إن وجد]</span>
+              </div>
+              <ul class="entry-bullets">
+                <li>
+                  <span class="lang-en">GPA [X.XX / 4.00], [Dean's List / Honors if applicable]</span>
+                  <span class="lang-ar">المعدل [X.XX / 4.00], [قائمة العميد / مرتبة الشرف إن وجد]</span>
+                </li>
+                <li>
+                  <span class="lang-en">Relevant coursework: [list key courses here]</span>
+                  <span class="lang-ar">مواد ذات صلة: [اذكر أهم المواد هنا]</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">
+              <span class="lang-en-inline">Experience</span>
+              <span class="lang-ar-inline">الخبرات</span>
+            </span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">
+              <span class="lang-en">[Jun, Aug 2024]<br>[City, KSA]</span>
+              <span class="lang-ar">[يونيو, أغسطس ٢٠٢٤]<br>[المدينة]</span>
+            </div>
+            <div>
+              <div class="entry-org">
+                <span class="lang-en">[Organization Name]</span>
+                <span class="lang-ar">[اسم الجهة]</span>
+              </div>
+              <div class="entry-role">
+                <span class="lang-en">[Job Title · Internship / Part-time / Freelance]</span>
+                <span class="lang-ar">[المسمى الوظيفي · تدريب / دوام جزئي]</span>
+              </div>
+              <ul class="entry-bullets">
+                <li>
+                  <span class="lang-en">[What you did, start with an action verb. Quantify if possible.]</span>
+                  <span class="lang-ar">[وش سويت, ابدأ بفعل. حاول تضيف أرقام إن أمكن.]</span>
+                </li>
+                <li>
+                  <span class="lang-en">[Second responsibility or outcome]</span>
+                  <span class="lang-ar">[مهمة أو نتيجة ثانية]</span>
+                </li>
+                <li>
+                  <span class="lang-en">[Third point if applicable]</span>
+                  <span class="lang-ar">[نقطة ثالثة إن وجدت]</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-date">
+              <span class="lang-en">[Jan, May 2024]<br>[City, KSA]</span>
+              <span class="lang-ar">[يناير, مايو ٢٠٢٤]<br>[المدينة]</span>
+            </div>
+            <div>
+              <div class="entry-org">
+                <span class="lang-en">[Second Organization]</span>
+                <span class="lang-ar">[الجهة الثانية]</span>
+              </div>
+              <div class="entry-role">
+                <span class="lang-en">[Role · Type]</span>
+                <span class="lang-ar">[المسمى · النوع]</span>
+              </div>
+              <ul class="entry-bullets">
+                <li>
+                  <span class="lang-en">[Responsibility with outcome]</span>
+                  <span class="lang-ar">[مهمة مع نتيجتها]</span>
+                </li>
+                <li>
+                  <span class="lang-en">[Second point]</span>
+                  <span class="lang-ar">[النقطة الثانية]</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">
+              <span class="lang-en-inline">Projects</span>
+              <span class="lang-ar-inline">المشاريع</span>
+            </span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="project">
+            <div class="project-tools-label">
+              <span class="lang-en">[Excel, Python]</span>
+              <span class="lang-ar">[إكسل، بايثون]</span>
+            </div>
+            <div>
+              <div class="project-name">
+                <span class="lang-en">[Project Title]</span>
+                <span class="lang-ar">[اسم المشروع]</span>
+                <a class="project-link" href="#">
+                  <span class="lang-en-inline">View</span>
+                  <span class="lang-ar-inline">شوفه</span>
+                </a>
+              </div>
+              <div class="project-desc">
+                <span class="lang-en">[One clear sentence. What it is, what it does, why it matters.]</span>
+                <span class="lang-ar">[جملة واضحة. وش هو، وش يسوي، وليش يهم.]</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-tools-label">
+              <span class="lang-en">[R, Tableau]</span>
+              <span class="lang-ar">[R، Tableau]</span>
+            </div>
+            <div>
+              <div class="project-name">
+                <span class="lang-en">[Second Project Title]</span>
+                <span class="lang-ar">[اسم المشروع الثاني]</span>
+                <a class="project-link" href="#">
+                  <span class="lang-en-inline">View</span>
+                  <span class="lang-ar-inline">شوفه</span>
+                </a>
+              </div>
+              <div class="project-desc">
+                <span class="lang-en">[One clear sentence about this project.]</span>
+                <span class="lang-ar">[جملة واضحة عن هذا المشروع.]</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">
+              <span class="lang-en-inline">Skills</span>
+              <span class="lang-ar-inline">المهارات</span>
+            </span>
+            <div class="section-rule"></div>
+          </div>
+          <table class="skills-table">
+            <tr>
+              <td>
+                <span class="lang-en-inline">Technical</span>
+                <span class="lang-ar-inline">تقنية</span>
+              </td>
+              <td>
+                <span class="lang-en">[Excel, Python, SQL, Power BI, Bloomberg Terminal]</span>
+                <span class="lang-ar">[إكسل، بايثون، SQL، Power BI، Bloomberg]</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="lang-en-inline">Domain</span>
+                <span class="lang-ar-inline">تخصصية</span>
+              </td>
+              <td>
+                <span class="lang-en">[Financial Modelling, Valuation, Equity Research, Budgeting, Risk Analysis]</span>
+                <span class="lang-ar">[نمذجة مالية، تقييم، أبحاث أسهم، ميزانيات، تحليل مخاطر]</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="lang-en-inline">Languages</span>
+                <span class="lang-ar-inline">لغات</span>
+              </td>
+              <td>
+                <span class="lang-en">[Arabic, Native · English, Professional]</span>
+                <span class="lang-ar">[العربية, لغة أم · الإنجليزية, احترافية]</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="lang-en-inline">Soft</span>
+                <span class="lang-ar-inline">شخصية</span>
+              </td>
+              <td>
+                <span class="lang-en">[Analytical Thinking, Structured Writing, Presentation, Detail-Oriented]</span>
+                <span class="lang-ar">[تفكير تحليلي، كتابة منظمة، تقديم، دقة في التفاصيل]</span>
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">
+              <span class="lang-en-inline">Certifications</span>
+              <span class="lang-ar-inline">الشهادات</span>
+            </span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="cert-row">
+            <div class="cert-issuer">
+              <span class="lang-en-inline">Bloomberg</span>
+              <span class="lang-ar-inline">Bloomberg</span>
+            </div>
+            <div class="cert-name">
+              <span class="lang-en-inline">Bloomberg Market Concepts (BMC)</span>
+              <span class="lang-ar-inline">Bloomberg Market Concepts</span>
+            </div>
+            <div class="cert-year">2024</div>
+          </div>
+
+          <div class="cert-row">
+            <div class="cert-issuer">
+              <span class="lang-en-inline">CFA Institute</span>
+              <span class="lang-ar-inline">CFA Institute</span>
+            </div>
+            <div class="cert-name">
+              <span class="lang-en-inline">Investment Foundations Certificate</span>
+              <span class="lang-ar-inline">شهادة أساسيات الاستثمار</span>
+            </div>
+            <div class="cert-year">2023</div>
+          </div>
+
+          <div class="cert-row">
+            <div class="cert-issuer">
+              <span class="lang-en-inline">[Issuer]</span>
+              <span class="lang-ar-inline">[الجهة]</span>
+            </div>
+            <div class="cert-name">
+              <span class="lang-en-inline">[Certificate Name]</span>
+              <span class="lang-ar-inline">[اسم الشهادة]</span>
+            </div>
+            <div class="cert-year">[20XX]</div>
+          </div>
+
+        </section>
+
+        <!-- ACTIVITIES -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">
+              <span class="lang-en-inline">Activities</span>
+              <span class="lang-ar-inline">الأنشطة</span>
+            </span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="activity-row">
+            <div class="activity-org">
+              <span class="lang-en-inline">[University Club]</span>
+              <span class="lang-ar-inline">[النادي الجامعي]</span>
+            </div>
+            <div class="activity-role">
+              <span class="lang-en-inline">[Role, e.g. Vice President, Finance Club]</span>
+              <span class="lang-ar-inline">[الدور, مثلا: نائب رئيس، نادي المالية]</span>
+            </div>
+            <div class="activity-date">
+              <span class="lang-en-inline">2023, Present</span>
+              <span class="lang-ar-inline">٢٠٢٣, الآن</span>
+            </div>
+          </div>
+
+          <div class="activity-row">
+            <div class="activity-org">
+              <span class="lang-en-inline">[Competition]</span>
+              <span class="lang-ar-inline">[المسابقة]</span>
+            </div>
+            <div class="activity-role">
+              <span class="lang-en-inline">[Participant, Case Competition Name]</span>
+              <span class="lang-ar-inline">[مشارك/ة, اسم المسابقة]</span>
+            </div>
+            <div class="activity-date">2024</div>
+          </div>
+
+          <div class="activity-row">
+            <div class="activity-org">
+              <span class="lang-en-inline">[Volunteer]</span>
+              <span class="lang-ar-inline">[تطوع]</span>
+            </div>
+            <div class="activity-role">
+              <span class="lang-en-inline">[Role · Organization Name]</span>
+              <span class="lang-ar-inline">[الدور · اسم المنظمة]</span>
+            </div>
+            <div class="activity-date">2023</div>
+          </div>
+
+        </section>
+
+      </div><!-- /.cv-body -->
+
+      <!-- FOOTER -->
+      <footer class="cv-footer">
+        <span class="footer-text">
+          <span class="lang-en-inline">References available upon request</span>
+          <span class="lang-ar-inline">المراجع متاحة عند الطلب</span>
         </span>
-        <div class="section-rule"></div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-date">
-          <span class="lang-en">[Jun, Aug 2024]<br>[City, KSA]</span>
-          <span class="lang-ar">[يونيو, أغسطس ٢٠٢٤]<br>[المدينة]</span>
-        </div>
-        <div>
-          <div class="entry-org">
-            <span class="lang-en">[Organization Name]</span>
-            <span class="lang-ar">[اسم الجهة]</span>
-          </div>
-          <div class="entry-role">
-            <span class="lang-en">[Job Title · Internship / Part-time / Freelance]</span>
-            <span class="lang-ar">[المسمى الوظيفي · تدريب / دوام جزئي]</span>
-          </div>
-          <ul class="entry-bullets">
-            <li>
-              <span class="lang-en">[What you did, start with an action verb. Quantify if possible.]</span>
-              <span class="lang-ar">[وش سويت, ابدأ بفعل. حاول تضيف أرقام إن أمكن.]</span>
-            </li>
-            <li>
-              <span class="lang-en">[Second responsibility or outcome]</span>
-              <span class="lang-ar">[مهمة أو نتيجة ثانية]</span>
-            </li>
-            <li>
-              <span class="lang-en">[Third point if applicable]</span>
-              <span class="lang-ar">[نقطة ثالثة إن وجدت]</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-date">
-          <span class="lang-en">[Jan, May 2024]<br>[City, KSA]</span>
-          <span class="lang-ar">[يناير, مايو ٢٠٢٤]<br>[المدينة]</span>
-        </div>
-        <div>
-          <div class="entry-org">
-            <span class="lang-en">[Second Organization]</span>
-            <span class="lang-ar">[الجهة الثانية]</span>
-          </div>
-          <div class="entry-role">
-            <span class="lang-en">[Role · Type]</span>
-            <span class="lang-ar">[المسمى · النوع]</span>
-          </div>
-          <ul class="entry-bullets">
-            <li>
-              <span class="lang-en">[Responsibility with outcome]</span>
-              <span class="lang-ar">[مهمة مع نتيجتها]</span>
-            </li>
-            <li>
-              <span class="lang-en">[Second point]</span>
-              <span class="lang-ar">[النقطة الثانية]</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-title">
-          <span class="lang-en-inline">Projects</span>
-          <span class="lang-ar-inline">المشاريع</span>
+        <span class="footer-text">
+          <span class="lang-en-inline">Curriculum</span>
+          <span class="lang-ar-inline">السيرة الذاتية</span>
         </span>
-        <div class="section-rule"></div>
-      </div>
+      </footer>
 
-      <div class="project">
-        <div class="project-tools-label">
-          <span class="lang-en">[Excel, Python]</span>
-          <span class="lang-ar">[إكسل، بايثون]</span>
-        </div>
-        <div>
-          <div class="project-name">
-            <span class="lang-en">[Project Title]</span>
-            <span class="lang-ar">[اسم المشروع]</span>
-            <a class="project-link" href="#">
-              <span class="lang-en-inline">View</span>
-              <span class="lang-ar-inline">شوفه</span>
-            </a>
-          </div>
-          <div class="project-desc">
-            <span class="lang-en">[One clear sentence. What it is, what it does, why it matters.]</span>
-            <span class="lang-ar">[جملة واضحة. وش هو، وش يسوي، وليش يهم.]</span>
-          </div>
-        </div>
-      </div>
+    </div><!-- /.cv -->
+  </div><!-- /.page-outer -->
 
-      <div class="project">
-        <div class="project-tools-label">
-          <span class="lang-en">[R, Tableau]</span>
-          <span class="lang-ar">[R، Tableau]</span>
-        </div>
-        <div>
-          <div class="project-name">
-            <span class="lang-en">[Second Project Title]</span>
-            <span class="lang-ar">[اسم المشروع الثاني]</span>
-            <a class="project-link" href="#">
-              <span class="lang-en-inline">View</span>
-              <span class="lang-ar-inline">شوفه</span>
-            </a>
-          </div>
-          <div class="project-desc">
-            <span class="lang-en">[One clear sentence about this project.]</span>
-            <span class="lang-ar">[جملة واضحة عن هذا المشروع.]</span>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-title">
-          <span class="lang-en-inline">Skills</span>
-          <span class="lang-ar-inline">المهارات</span>
-        </span>
-        <div class="section-rule"></div>
-      </div>
-      <table class="skills-table">
-        <tr>
-          <td>
-            <span class="lang-en-inline">Technical</span>
-            <span class="lang-ar-inline">تقنية</span>
-          </td>
-          <td>
-            <span class="lang-en">[Excel, Python, SQL, Power BI, Bloomberg Terminal]</span>
-            <span class="lang-ar">[إكسل، بايثون، SQL، Power BI، Bloomberg]</span>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="lang-en-inline">Domain</span>
-            <span class="lang-ar-inline">تخصصية</span>
-          </td>
-          <td>
-            <span class="lang-en">[Financial Modelling, Valuation, Equity Research, Budgeting, Risk Analysis]</span>
-            <span class="lang-ar">[نمذجة مالية، تقييم، أبحاث أسهم، ميزانيات، تحليل مخاطر]</span>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="lang-en-inline">Languages</span>
-            <span class="lang-ar-inline">لغات</span>
-          </td>
-          <td>
-            <span class="lang-en">[Arabic, Native · English, Professional]</span>
-            <span class="lang-ar">[العربية, لغة أم · الإنجليزية, احترافية]</span>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="lang-en-inline">Soft</span>
-            <span class="lang-ar-inline">شخصية</span>
-          </td>
-          <td>
-            <span class="lang-en">[Analytical Thinking, Structured Writing, Presentation, Detail-Oriented]</span>
-            <span class="lang-ar">[تفكير تحليلي، كتابة منظمة، تقديم، دقة في التفاصيل]</span>
-          </td>
-        </tr>
-      </table>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-title">
-          <span class="lang-en-inline">Certifications</span>
-          <span class="lang-ar-inline">الشهادات</span>
-        </span>
-        <div class="section-rule"></div>
-      </div>
-
-      <div class="cert-row">
-        <div class="cert-issuer">
-          <span class="lang-en-inline">Bloomberg</span>
-          <span class="lang-ar-inline">Bloomberg</span>
-        </div>
-        <div class="cert-name">
-          <span class="lang-en-inline">Bloomberg Market Concepts (BMC)</span>
-          <span class="lang-ar-inline">Bloomberg Market Concepts</span>
-        </div>
-        <div class="cert-year">2024</div>
-      </div>
-
-      <div class="cert-row">
-        <div class="cert-issuer">
-          <span class="lang-en-inline">CFA Institute</span>
-          <span class="lang-ar-inline">CFA Institute</span>
-        </div>
-        <div class="cert-name">
-          <span class="lang-en-inline">Investment Foundations Certificate</span>
-          <span class="lang-ar-inline">شهادة أساسيات الاستثمار</span>
-        </div>
-        <div class="cert-year">2023</div>
-      </div>
-
-      <div class="cert-row">
-        <div class="cert-issuer">
-          <span class="lang-en-inline">[Issuer]</span>
-          <span class="lang-ar-inline">[الجهة]</span>
-        </div>
-        <div class="cert-name">
-          <span class="lang-en-inline">[Certificate Name]</span>
-          <span class="lang-ar-inline">[اسم الشهادة]</span>
-        </div>
-        <div class="cert-year">[20XX]</div>
-      </div>
-
-    </section>
-
-    <!-- ACTIVITIES -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-title">
-          <span class="lang-en-inline">Activities</span>
-          <span class="lang-ar-inline">الأنشطة</span>
-        </span>
-        <div class="section-rule"></div>
-      </div>
-
-      <div class="activity-row">
-        <div class="activity-org">
-          <span class="lang-en-inline">[University Club]</span>
-          <span class="lang-ar-inline">[النادي الجامعي]</span>
-        </div>
-        <div class="activity-role">
-          <span class="lang-en-inline">[Role, e.g. Vice President, Finance Club]</span>
-          <span class="lang-ar-inline">[الدور, مثلا: نائب رئيس، نادي المالية]</span>
-        </div>
-        <div class="activity-date">
-          <span class="lang-en-inline">2023, Present</span>
-          <span class="lang-ar-inline">٢٠٢٣, الآن</span>
-        </div>
-      </div>
-
-      <div class="activity-row">
-        <div class="activity-org">
-          <span class="lang-en-inline">[Competition]</span>
-          <span class="lang-ar-inline">[المسابقة]</span>
-        </div>
-        <div class="activity-role">
-          <span class="lang-en-inline">[Participant, Case Competition Name]</span>
-          <span class="lang-ar-inline">[مشارك/ة, اسم المسابقة]</span>
-        </div>
-        <div class="activity-date">2024</div>
-      </div>
-
-      <div class="activity-row">
-        <div class="activity-org">
-          <span class="lang-en-inline">[Volunteer]</span>
-          <span class="lang-ar-inline">[تطوع]</span>
-        </div>
-        <div class="activity-role">
-          <span class="lang-en-inline">[Role · Organization Name]</span>
-          <span class="lang-ar-inline">[الدور · اسم المنظمة]</span>
-        </div>
-        <div class="activity-date">2023</div>
-      </div>
-
-    </section>
-
-  </div><!-- /.cv-body -->
-
-  <!-- FOOTER -->
-  <footer class="cv-footer">
-    <span class="footer-text">
-      <span class="lang-en-inline">References available upon request</span>
-      <span class="lang-ar-inline">المراجع متاحة عند الطلب</span>
-    </span>
-    <span class="footer-text">
-      <span class="lang-en-inline">Curriculum</span>
-      <span class="lang-ar-inline">السيرة الذاتية</span>
-    </span>
-  </footer>
-
-</div><!-- /.cv -->
-</div><!-- /.page-outer -->
-
-<script>
-  function setLang(lang) {
-    document.documentElement.setAttribute('data-lang', lang);
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
-    localStorage.setItem('cv-lang', lang);
-  }
-
-  function toggleTheme() {
-    const html = document.documentElement;
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    document.getElementById('theme-label').textContent = next === 'dark' ? 'Light' : 'Dark';
-    localStorage.setItem('cv-theme', next);
-  }
-
-  function downloadHTML() {
-    const clone = document.documentElement.cloneNode(true);
-    const tb = clone.querySelector('.toolbar');
-    if (tb) tb.remove();
-    const po = clone.querySelector('.page-outer');
-    if (po) po.style.paddingTop = '0';
-    const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'cv-professional-blueprint.html';
-    a.click();
-    URL.revokeObjectURL(a.href);
-  }
-
-  (function() {
-    const t = localStorage.getItem('cv-theme');
-    const l = localStorage.getItem('cv-lang');
-    if (t && t !== 'light') {
-      document.documentElement.setAttribute('data-theme', t);
-      document.getElementById('theme-label').textContent = 'Light';
+  <script>
+    function setLang(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+      localStorage.setItem('cv-lang', lang);
     }
-    if (l && l !== 'en') setLang(l);
-  })();
-</script>
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('theme-label').textContent = next === 'dark' ? 'Light' : 'Dark';
+      localStorage.setItem('cv-theme', next);
+    }
+
+    function downloadHTML() {
+      const clone = document.documentElement.cloneNode(true);
+      const tb = clone.querySelector('.toolbar');
+      if (tb) tb.remove();
+      const po = clone.querySelector('.page-outer');
+      if (po) po.style.paddingTop = '0';
+      const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'cv-professional-blueprint.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    (function () {
+      const t = localStorage.getItem('cv-theme');
+      const l = localStorage.getItem('cv-lang');
+      if (t && t !== 'light') {
+        document.documentElement.setAttribute('data-theme', t);
+        document.getElementById('theme-label').textContent = 'Light';
+      }
+      if (l && l !== 'en') setLang(l);
+    })();
+  </script>
 
 </body>
+
 </html>

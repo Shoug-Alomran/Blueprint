@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[YOUR NAME], CV</title>
   <script src="/assets/storefront.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --navy: #0d1f3c;
@@ -36,7 +39,7 @@
       max-width: var(--page-width);
       margin: 48px auto;
       padding: 72px 80px;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.18), 0 1px 4px rgba(0, 0, 0, 0.08);
       position: relative;
     }
 
@@ -285,7 +288,8 @@
       gap: 10px 40px;
     }
 
-    .cert-item, .lang-item {
+    .cert-item,
+    .lang-item {
       font-size: 14px;
       color: var(--ink-light);
       line-height: 1.7;
@@ -293,11 +297,13 @@
       justify-content: space-between;
     }
 
-    .cert-name, .lang-name {
+    .cert-name,
+    .lang-name {
       color: var(--ink);
     }
 
-    .cert-date, .lang-level {
+    .cert-date,
+    .lang-level {
       color: var(--ink-light);
       font-style: italic;
       font-size: 13px;
@@ -349,29 +355,64 @@
 
     /* ── PRINT ── */
     @media print {
-      html { background: white; }
+      html {
+        background: white;
+      }
+
       body {
         margin: 0;
         padding: 56px 64px;
         box-shadow: none;
         max-width: 100%;
       }
-      body::before { display: none; }
-      a { color: inherit; border: none !important; }
-      .cv-footer { display: none; }
+
+      body::before {
+        display: none;
+      }
+
+      a {
+        color: inherit;
+        border: none !important;
+      }
+
+      .cv-footer {
+        display: none;
+      }
     }
 
     @media (max-width: 680px) {
-      body { padding: 40px 28px; margin: 0; }
-      .header-top { flex-direction: column; gap: 16px; }
-      .contact-block { text-align: left; }
-      .entry { grid-template-columns: 1fr; }
-      .entry-meta { text-align: left; margin-bottom: 4px; }
-      .skills-grid, .two-col { grid-template-columns: 1fr; }
+      body {
+        padding: 40px 28px;
+        margin: 0;
+      }
+
+      .header-top {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .contact-block {
+        text-align: left;
+      }
+
+      .entry {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-meta {
+        text-align: left;
+        margin-bottom: 4px;
+      }
+
+      .skills-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   <link rel="stylesheet" href="/cv-templates/watermark.css" />
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -384,7 +425,8 @@
       <div class="contact-block">
         <div>[your.email@university.edu] <span class="contact-divider">·</span> [+966 5X XXX XXXX]</div>
         <div>[City, Country]</div>
-        <div><a href="#">linkedin.com/in/[yourhandle]</a> <span class="contact-divider">·</span> <a href="#">[yoursite.com]</a></div>
+        <div><a href="#">linkedin.com/in/[yourhandle]</a> <span class="contact-divider">·</span> <a
+            href="#">[yoursite.com]</a></div>
       </div>
     </div>
   </header>
@@ -395,7 +437,9 @@
       <span class="section-title">Profile</span>
       <div class="section-rule"></div>
     </div>
-    <p>[Finance student with a focus on [investment analysis / corporate finance / financial modelling]. Seeking opportunities to apply quantitative and analytical skills in [internship / graduate role / research]. Known for [attention to detail / clear communication / structured thinking].]</p>
+    <p>[Finance student with a focus on [investment analysis / corporate finance / financial modelling]. Seeking
+      opportunities to apply quantitative and analytical skills in [internship / graduate role / research]. Known for
+      [attention to detail / clear communication / structured thinking].]</p>
   </section>
 
   <!-- EDUCATION -->
@@ -474,7 +518,8 @@
         <span class="project-name">[Project Title, e.g. Portfolio Optimization Model]</span>
         <a class="project-link" href="#">View Project →</a>
       </div>
-      <div class="project-desc">[Built a mean-variance optimization model to construct an efficient frontier for a 10-asset portfolio using historical return data from [source].]</div>
+      <div class="project-desc">[Built a mean-variance optimization model to construct an efficient frontier for a
+        10-asset portfolio using historical return data from [source].]</div>
       <div class="project-tools">Tools: [Excel, Python, Bloomberg Terminal]</div>
     </div>
 
@@ -483,7 +528,8 @@
         <span class="project-name">[Second Project Title]</span>
         <a class="project-link" href="#">View Project →</a>
       </div>
-      <div class="project-desc">[One clear sentence describing the project, what it analyzed or produced, and why it matters.]</div>
+      <div class="project-desc">[One clear sentence describing the project, what it analyzed or produced, and why it
+        matters.]</div>
       <div class="project-tools">Tools: [R, Tableau, Excel]</div>
     </div>
 
@@ -568,4 +614,5 @@
   </footer>
 
 </body>
+
 </html>
