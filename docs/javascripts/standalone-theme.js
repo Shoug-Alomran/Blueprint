@@ -262,27 +262,41 @@
 
     var drawerTitle = primaryNav.querySelector(':scope > .md-nav__title, :scope > label.md-nav__title');
     var activeTopLevel = primaryList.querySelector(':scope > .md-nav__item--active');
-    if (drawerTitle && activeTopLevel) {
-      var activeParentLink = activeTopLevel.querySelector(':scope > .md-nav__container > a.md-nav__link, :scope > a.md-nav__link');
+    var insertionAnchor = drawerTitle;
+    if (drawerTitle) {
+      var activeParentLink = activeTopLevel
+        ? activeTopLevel.querySelector(':scope > .md-nav__container > a.md-nav__link, :scope > a.md-nav__link')
+        : null;
+      var activePageNode = primaryNav.querySelector('.md-nav__link--active .md-ellipsis');
+      var activePageLabel = activePageNode ? (activePageNode.textContent || '').trim() : '';
+      var activeLabel = '';
+
       if (activeParentLink) {
         var activeLabelNode = activeParentLink.querySelector('.md-ellipsis');
-        var activeLabel = activeLabelNode ? (activeLabelNode.textContent || '').trim() : (activeParentLink.textContent || '').trim();
+        activeLabel = activeLabelNode ? (activeLabelNode.textContent || '').trim() : (activeParentLink.textContent || '').trim();
+      } else {
+        activeLabel = activePageLabel;
+      }
+
+      if (activeLabel) {
+        var backHref = activeParentLink ? (activeParentLink.getAttribute('href') || activeParentLink.href) : '/';
         var context = document.createElement('div');
         context.className = 'sg-mobile-section-context';
         context.innerHTML =
-          '<a class="sg-mobile-section-context__back" href="' + (activeParentLink.getAttribute('href') || activeParentLink.href) + '" aria-label="' + (isArabicPage() ? 'الرجوع إلى القسم' : 'Back to section') + '">' +
+          '<a class="sg-mobile-section-context__back" href="' + backHref + '" aria-label="' + (isArabicPage() ? 'الرجوع إلى القسم' : 'Back to section') + '">' +
             iconSvg('M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z') +
           '</a>' +
           '<div class="sg-mobile-section-context__body">' +
-            '<span class="sg-mobile-section-context__eyebrow">' + (isArabicPage() ? 'القسم الحالي' : 'Current section') + '</span>' +
+            '<span class="sg-mobile-section-context__eyebrow">' + (activePageLabel && activePageLabel !== activeLabel ? activePageLabel : (isArabicPage() ? 'القسم الحالي' : 'Current section')) + '</span>' +
             '<span class="sg-mobile-section-context__title">' + activeLabel + '</span>' +
           '</div>';
         drawerTitle.insertAdjacentElement('afterend', context);
+        insertionAnchor = context;
       }
     }
 
-    if (drawerTitle) {
-      drawerTitle.insertAdjacentElement('afterend', quickNav);
+    if (insertionAnchor) {
+      insertionAnchor.insertAdjacentElement('afterend', quickNav);
     } else {
       primaryNav.insertBefore(quickNav, primaryList);
     }
