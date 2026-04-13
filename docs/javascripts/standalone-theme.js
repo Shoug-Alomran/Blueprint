@@ -175,6 +175,106 @@
     });
   }
 
+  function makeHeaderTitleGoHome() {
+    var titleWrap = document.querySelector('.md-header__title');
+    var logoLink = document.querySelector('.md-header__button.md-logo');
+    if (!titleWrap || !logoLink || titleWrap.dataset.homeBound === 'true') {
+      return;
+    }
+
+    var homeHref = logoLink.getAttribute('href') || '/';
+    titleWrap.dataset.homeBound = 'true';
+    titleWrap.classList.add('sg-home-title');
+    titleWrap.setAttribute('role', 'link');
+    titleWrap.setAttribute('tabindex', '0');
+    titleWrap.setAttribute('aria-label', isArabicPage() ? 'العودة إلى الصفحة الرئيسية' : 'Go to home page');
+
+    function goHome() {
+      window.location.href = homeHref;
+    }
+
+    titleWrap.addEventListener('click', function (event) {
+      if (event.target.closest('a, button, input, label')) {
+        return;
+      }
+      goHome();
+    });
+
+    titleWrap.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        goHome();
+      }
+    });
+  }
+
+  function enhanceMobileDrawerNav() {
+    var drawerToggle = document.querySelector('#__drawer');
+    var primaryNav = document.querySelector('.md-sidebar--primary .md-nav--primary');
+    var primaryList = primaryNav ? primaryNav.querySelector(':scope > .md-nav__list') : null;
+    if (!drawerToggle || !primaryNav || !primaryList) {
+      return;
+    }
+
+    primaryNav.querySelectorAll('.sg-mobile-quick-nav').forEach(function (node) {
+      node.remove();
+    });
+
+    if (!window.matchMedia('(max-width: 76.234375em)').matches) {
+      return;
+    }
+
+    var quickNav = document.createElement('nav');
+    quickNav.className = 'sg-mobile-quick-nav';
+    quickNav.setAttribute('aria-label', isArabicPage() ? 'روابط أقسام الموقع' : 'Site sections');
+
+    function addQuickLink(href, label, active) {
+      if (!href || !label) {
+        return;
+      }
+      var link = document.createElement('a');
+      link.className = 'sg-mobile-quick-nav__link';
+      if (active) {
+        link.classList.add('is-active');
+      }
+      link.href = href;
+      link.textContent = label;
+      quickNav.appendChild(link);
+    }
+
+    primaryList.querySelectorAll(':scope > .md-nav__item').forEach(function (item) {
+      var link = item.querySelector(':scope > .md-nav__container > a.md-nav__link, :scope > a.md-nav__link');
+      if (!link) {
+        return;
+      }
+
+      var labelNode = link.querySelector('.md-ellipsis');
+      var label = labelNode ? (labelNode.textContent || '').trim() : (link.textContent || '').trim();
+      addQuickLink(
+        link.getAttribute('href') || link.href,
+        label,
+        item.classList.contains('md-nav__item--active')
+      );
+    });
+
+    var drawerTitle = primaryNav.querySelector(':scope > .md-nav__title, :scope > label.md-nav__title');
+    if (drawerTitle) {
+      drawerTitle.insertAdjacentElement('afterend', quickNav);
+    } else {
+      primaryNav.insertBefore(quickNav, primaryList);
+    }
+
+    primaryNav.querySelectorAll('a.md-nav__link, .sg-mobile-quick-nav__link').forEach(function (link) {
+      if (link.dataset.drawerCloseBound === 'true') {
+        return;
+      }
+      link.dataset.drawerCloseBound = 'true';
+      link.addEventListener('click', function () {
+        drawerToggle.checked = false;
+      });
+    });
+  }
+
   function buildTabDropdowns() {
     var tabs = document.querySelector('.md-tabs__list');
     var primaryRoot = document.querySelector('.md-sidebar--primary .md-nav--primary > .md-nav__list');
@@ -790,11 +890,13 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     injectHeaderActions();
+    makeHeaderTitleGoHome();
     applyPageLayoutOverrides();
     localizeHeaderUI();
     relabelProductsChildLinks();
     ensureMobileProductsNavLink();
     ensureMobileWorkNavLink();
+    enhanceMobileDrawerNav();
     buildTabDropdowns();
     setupTabDropdownInteractions();
     enhancePageHero();
@@ -804,16 +906,19 @@
   window.addEventListener('resize', function () {
     ensureMobileProductsNavLink();
     ensureMobileWorkNavLink();
+    enhanceMobileDrawerNav();
   });
 
   if (typeof window.document$ !== 'undefined' && window.document$.subscribe) {
     window.document$.subscribe(function () {
       injectHeaderActions();
+      makeHeaderTitleGoHome();
       applyPageLayoutOverrides();
       localizeHeaderUI();
       relabelProductsChildLinks();
       ensureMobileProductsNavLink();
       ensureMobileWorkNavLink();
+      enhanceMobileDrawerNav();
       buildTabDropdowns();
       setupTabDropdownInteractions();
       enhancePageHero();
