@@ -109,13 +109,14 @@
     markActiveLinks(sectionPills);
     markActiveLinks(tocPills);
 
-    var overlay = createEl("div", "drawer-overlay");
-    overlay.addEventListener("click", function () {
+    function closeDrawers() {
       document.body.classList.remove("drawer-open");
-      document.querySelectorAll(".mobile-drawer").forEach(function (drawer) {
-        drawer.classList.remove("open");
-      });
-    });
+      navDrawer.classList.remove("open");
+      tocDrawer.classList.remove("open");
+    }
+
+    var overlay = createEl("div", "drawer-overlay");
+    overlay.addEventListener("click", closeDrawers);
     document.body.appendChild(overlay);
 
     var navDrawer = createEl("aside", "mobile-drawer left", "<h3>Site Map</h3>");
@@ -132,24 +133,36 @@
     markActiveLinks(navDrawerList);
     markActiveLinks(tocDrawerList);
 
+    [navDrawer, tocDrawer].forEach(function (drawer) {
+      drawer.addEventListener("click", function (event) {
+        if (event.target.closest("a[href]")) {
+          closeDrawers();
+        }
+      });
+    });
+
     function openDrawer(which) {
-      document.body.classList.add("drawer-open");
-      if (which === "nav") {
-        navDrawer.classList.add("open");
-        tocDrawer.classList.remove("open");
-      } else {
-        tocDrawer.classList.add("open");
-        navDrawer.classList.remove("open");
+      var targetDrawer = which === "nav" ? navDrawer : tocDrawer;
+      var otherDrawer = which === "nav" ? tocDrawer : navDrawer;
+      var targetIsOpen =
+        document.body.classList.contains("drawer-open") &&
+        targetDrawer.classList.contains("open");
+
+      if (targetIsOpen) {
+        closeDrawers();
+        return;
       }
+
+      document.body.classList.add("drawer-open");
+      targetDrawer.classList.add("open");
+      otherDrawer.classList.remove("open");
     }
 
     function syncLayoutForViewport() {
       if (window.matchMedia("(max-width: 991.98px)").matches) {
         document.body.classList.remove("hide-left-nav", "hide-right-toc");
       } else {
-        document.body.classList.remove("drawer-open");
-        navDrawer.classList.remove("open");
-        tocDrawer.classList.remove("open");
+        closeDrawers();
         if (shouldAutoHideSidePanels()) {
           document.body.classList.add("hide-left-nav", "hide-right-toc");
         }
@@ -158,6 +171,12 @@
 
     syncLayoutForViewport();
     window.addEventListener("resize", syncLayoutForViewport);
+    window.addEventListener("pageshow", closeDrawers);
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeDrawers();
+      }
+    });
 
     document.addEventListener("click", function (event) {
       var button = event.target.closest("[data-dashboard-action]");
@@ -193,6 +212,10 @@
       var icon = createEl("span", "brand-icon");
       icon.setAttribute("aria-hidden", "true");
       brand.prepend(icon);
+    }
+
+    if (brand.tagName === "A") {
+      brand.setAttribute("href", "/");
     }
 
     if (navbar.querySelector(".dashboard-tools")) {

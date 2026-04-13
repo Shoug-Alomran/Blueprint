@@ -421,11 +421,16 @@
   box-shadow: 0 14px 30px rgba(12, 25, 35, 0.18);
 }
 
-.md-typeset .video-preview-frame img {
+.md-typeset .video-preview-frame img,
+.md-typeset .video-preview-frame video {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.md-typeset .video-preview-frame video {
+  background: #0f172a;
 }
 
 .md-typeset .video-preview-play {
