@@ -219,6 +219,9 @@
     primaryNav.querySelectorAll('.sg-mobile-quick-nav').forEach(function (node) {
       node.remove();
     });
+    primaryNav.querySelectorAll('.sg-mobile-section-context').forEach(function (node) {
+      node.remove();
+    });
 
     if (!window.matchMedia('(max-width: 76.234375em)').matches) {
       return;
@@ -258,13 +261,33 @@
     });
 
     var drawerTitle = primaryNav.querySelector(':scope > .md-nav__title, :scope > label.md-nav__title');
+    var activeTopLevel = primaryList.querySelector(':scope > .md-nav__item--active');
+    if (drawerTitle && activeTopLevel) {
+      var activeParentLink = activeTopLevel.querySelector(':scope > .md-nav__container > a.md-nav__link, :scope > a.md-nav__link');
+      if (activeParentLink) {
+        var activeLabelNode = activeParentLink.querySelector('.md-ellipsis');
+        var activeLabel = activeLabelNode ? (activeLabelNode.textContent || '').trim() : (activeParentLink.textContent || '').trim();
+        var context = document.createElement('div');
+        context.className = 'sg-mobile-section-context';
+        context.innerHTML =
+          '<a class="sg-mobile-section-context__back" href="' + (activeParentLink.getAttribute('href') || activeParentLink.href) + '" aria-label="' + (isArabicPage() ? 'الرجوع إلى القسم' : 'Back to section') + '">' +
+            iconSvg('M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z') +
+          '</a>' +
+          '<div class="sg-mobile-section-context__body">' +
+            '<span class="sg-mobile-section-context__eyebrow">' + (isArabicPage() ? 'القسم الحالي' : 'Current section') + '</span>' +
+            '<span class="sg-mobile-section-context__title">' + activeLabel + '</span>' +
+          '</div>';
+        drawerTitle.insertAdjacentElement('afterend', context);
+      }
+    }
+
     if (drawerTitle) {
       drawerTitle.insertAdjacentElement('afterend', quickNav);
     } else {
       primaryNav.insertBefore(quickNav, primaryList);
     }
 
-    primaryNav.querySelectorAll('a.md-nav__link, .sg-mobile-quick-nav__link').forEach(function (link) {
+    primaryNav.querySelectorAll('a.md-nav__link, .sg-mobile-quick-nav__link, .sg-mobile-section-context__back').forEach(function (link) {
       if (link.dataset.drawerCloseBound === 'true') {
         return;
       }
