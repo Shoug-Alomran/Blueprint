@@ -20,7 +20,6 @@ theme:
     - navigation.top
     - search.suggest
     - search.highlight
-    - search.share
     - content.code.copy
     - toc.follow
   palette:
@@ -56,7 +55,7 @@ nav:
       - Discovery: process/discovery.md
       - Structure & Sitemap: process/structure-sitemap.md
       - Build: process/build.md
-      - Review & Revisions: process/revisions.md
+      - Review & Revisions: process/revision-rounds.md
       - Deployment & Handover: process/deployment-handover.md
   - Start a Project: start-project/index.md
   - Portfolio:

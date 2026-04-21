@@ -58,7 +58,7 @@
       { prefix: '/process/discovery/', label: 'اكتشاف المتطلبات' },
       { prefix: '/process/structure-sitemap/', label: 'الهيكلة وخريطة الموقع' },
       { prefix: '/process/build/', label: 'النسخة الأولى' },
-      { prefix: '/process/revisions/', label: 'جولات المراجعة' },
+      { prefix: '/process/revision-rounds/', label: 'جولات المراجعة' },
       { prefix: '/process/deployment-handover/', label: 'النشر والتسليم' },
       { prefix: '/process/', label: 'العملية' },
       { prefix: '/web-platforms/student-portfolio/', label: 'موقع بورتفوليو طالب' },

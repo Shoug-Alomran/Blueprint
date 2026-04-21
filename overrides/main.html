@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   {% set meta = page.meta if page and page.meta else {} %}
   {% set redirect_to = meta.redirect_to if meta.redirect_to else "" %}
+  {% set canonical_override = meta.canonical if meta.canonical else "" %}
   {% if meta.description %}
     <meta name="description" content="{{ meta.description }}">
   {% elif config.site_description %}
@@ -17,6 +18,8 @@
   {% endif %}
   {% if redirect_to %}
     <link rel="canonical" href="{{ redirect_to }}">
+  {% elif canonical_override %}
+    <link rel="canonical" href="{{ canonical_override }}">
   {% elif page and page.canonical_url %}
     <link rel="canonical" href="{{ page.canonical_url }}">
   {% endif %}
@@ -45,12 +48,14 @@
   {% set meta_description = meta.description if meta.description else config.site_description %}
   {% set page_title = page.title if page and page.title else config.site_name %}
   {% set redirect_to = meta.redirect_to if meta.redirect_to else "" %}
+  {% set canonical_override = meta.canonical if meta.canonical else "" %}
   {% set robots_content = meta.robots if meta.robots else "" %}
-  {% set canonical_url = redirect_to if redirect_to else (page.canonical_url if page and page.canonical_url else config.site_url) %}
+  {% set canonical_url = redirect_to if redirect_to else (canonical_override if canonical_override else (page.canonical_url if page and page.canonical_url else config.site_url)) %}
   {% set social_image = config.site_url ~ 'assets/logo.png' %}
   {% if redirect_to %}
   <meta http-equiv="refresh" content="0; url={{ redirect_to }}">
-  {% elif robots_content %}
+  {% endif %}
+  {% if robots_content %}
   <meta name="robots" content="{{ robots_content }}">
   {% endif %}
   <meta property="og:site_name" content="{{ config.site_name }}">

@@ -10,12 +10,30 @@ ET.register_namespace("", SITEMAP_NS["sm"])
 _excluded_urls: set[str] = set()
 
 
+def on_config(config):
+    _excluded_urls.clear()
+    return config
+
+
+def _page_url(page, config) -> str:
+    return f"{str(config.site_url).rstrip('/')}/{str(page.url).lstrip('/')}".rstrip("/")
+
+
 def on_page_context(context, page, config, nav):
     meta = getattr(page, "meta", {}) or {}
+    page_url = _page_url(page, config)
+    page_canonical_url = (getattr(page, "canonical_url", "") or page_url).rstrip("/")
+    canonical_override = str(meta.get("canonical", "") or "").rstrip("/")
+    robots_content = str(meta.get("robots", "") or "").lower()
 
     if meta.get("redirect_to"):
-        page_url = getattr(page, "canonical_url", "") or f"{config.site_url}{page.url}"
-        _excluded_urls.add(page_url.rstrip("/"))
+        _excluded_urls.add(page_url)
+
+    if "noindex" in robots_content:
+        _excluded_urls.add(page_url)
+
+    if canonical_override and canonical_override != page_canonical_url:
+        _excluded_urls.add(page_url)
 
     return context
 

@@ -6,8 +6,8 @@
 /start-project/details/ /start-project/ 301
 /start-project/start-project /start-project/ 301
 /start-project/start-project/ /start-project/ 301
-/process/revision-rounds /process/revisions/ 301
-/process/revision-rounds/ /process/revisions/ 301
+/process/revisions /process/revision-rounds/ 301
+/process/revisions/ /process/revision-rounds/ 301
 /process/first-build /process/build/ 301
 /process/first-build/ /process/build/ 301
 /process/discovery-content-checklist /process/discovery/ 301

@@ -5,7 +5,7 @@ role: Portfolio
 scope: All sites built under Blueprint Studio and ShougTech
 constraints: Accurate descriptions, tier-grouped, live links
 metrics: navigation clarity, credibility, project range
-last_updated: 2026-03-02
+last_updated: 2026-04-21
 ---
 
 # Work
@@ -51,9 +51,16 @@ Clean, navigable digital presence sites built for individuals who need their wor
 
 ## Tier 2, Project Documentation
 
-Structured academic documentation sites built for course projects, capstone submissions, and technical reports. Each site is organized around how evaluators and reviewers actually read academic work.
+Structured academic, technical, club, and workshop documentation sites built for course projects, student organizations, competitions, and technical reports. Each site is organized around how participants, evaluators, and reviewers actually read the work.
 
 <div class="card-grid">
+
+  <article class="info-card">
+    <h3>PSU Capture the Flag Competition</h3>
+    <p>Workshop and competition website for Prince Sultan University club programming around Capture the Flag cybersecurity activities. Organizes event details, workshop content, learning resources, and participation information for ACM and CyberTech Club members.</p>
+    <p><strong>Built for:</strong> ACM Club and CyberTech Club · Prince Sultan University</p>
+    <p><a href="https://psu-ctf.shoug-tech.com/" target="_blank">Visit Site →</a></p>
+  </article>
 
   <article class="info-card">
     <h3>CS210, Linked List & Runtime Analysis</h3>
