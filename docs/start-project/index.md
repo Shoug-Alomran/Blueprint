@@ -702,6 +702,29 @@ Use this intake form to submit your project details in one pass.
           .filter(Boolean);
       }
 
+      function titleizeFieldName(name) {
+        return String(name || '')
+          .replace(/^client_/, 'client ')
+          .replace(/^project_/, 'project ')
+          .replace(/^cnt_/, 'content ')
+          .replace(/^rep_/, 'report ')
+          .replace(/^ao_/, 'add-on ')
+          .replace(/_/g, ' ')
+          .replace(/\b\w/g, function (letter) {
+            return letter.toUpperCase();
+          });
+      }
+
+      function buildIntakeDetails(fd) {
+        var details = [];
+        fd.forEach(function (value, key) {
+          var text = String(value || '').trim();
+          if (!text || key.charAt(0) === '_') return;
+          details.push(titleizeFieldName(key) + ': ' + text.replace(/\s+/g, ' '));
+        });
+        return details;
+      }
+
       function buildProjectMeta(fd) {
         var lines = [];
         var contentAssets = getCheckedValues(fd, ['cnt_text', 'cnt_images', 'cnt_report', 'cnt_code', 'cnt_data', 'cnt_refs']);
@@ -728,7 +751,8 @@ Use this intake form to submit your project details in one pass.
         return {
           briefId: briefId,
           source: 'start-project',
-          projectSummary: lines
+          projectSummary: lines,
+          intakeDetails: buildIntakeDetails(fd)
         };
       }
 

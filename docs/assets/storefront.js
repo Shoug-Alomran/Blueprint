@@ -178,6 +178,20 @@
     return item.meta.projectSummary.filter(Boolean);
   }
 
+  function getProjectDetails(item) {
+    if (!item || !item.meta || !Array.isArray(item.meta.intakeDetails)) {
+      return [];
+    }
+    return item.meta.intakeDetails.filter(Boolean);
+  }
+
+  function getProjectKey(item) {
+    if (!item || !item.meta) {
+      return "";
+    }
+    return item.meta.briefId || "";
+  }
+
   function cartLoad() {
     var cart = parseJson(window.localStorage.getItem(CART_STORAGE_KEY), {
       items: []
@@ -1120,36 +1134,70 @@
   }
 
   function buildOrderSummary(items) {
-    return items
-      .map(function (item) {
-        var line = (
-          item.title +
+    var seenProjects = {};
+    var lines = [];
+
+    items.forEach(function (item) {
+      lines.push(
+        item.title +
           " | " +
           (item.option || "Standard") +
           " | qty " +
           item.qty +
           " | " +
           formatSAR(Number(item.price) * Number(item.qty))
-        );
-        var summary = getProjectSummary(item);
-        if (summary.length) {
-          line += "\n  Project summary:\n  - " + summary.join("\n  - ");
+      );
+
+      var projectKey = getProjectKey(item);
+      var summary = getProjectSummary(item);
+      if (summary.length && (!projectKey || !seenProjects[projectKey])) {
+        lines.push("  Project summary:");
+        summary.forEach(function (entry) {
+          lines.push("  - " + entry);
+        });
+        if (projectKey) {
+          seenProjects[projectKey] = true;
         }
-        return line;
-      })
-      .join("\n");
+      }
+    });
+
+    return lines.join("\n");
+  }
+
+  function buildProjectDetailsSummary(items) {
+    var seenProjects = {};
+    var blocks = [];
+
+    items.forEach(function (item) {
+      var projectKey = getProjectKey(item);
+      var details = getProjectDetails(item);
+
+      if (!details.length || (projectKey && seenProjects[projectKey])) {
+        return;
+      }
+
+      blocks.push("Project intake details:\n- " + details.join("\n- "));
+      if (projectKey) {
+        seenProjects[projectKey] = true;
+      }
+    });
+
+    return blocks.join("\n\n");
   }
 
   function buildMailtoFallback(payload) {
-      var lines = [
-        "Name: " + payload.name,
-        "Email: " + payload.email,
-        "Phone: " + (payload.phone || "None"),
-        "Preferred Contact: " + (payload.contactPreference || "Email"),
-        "Notes: " + (payload.notes || "None"),
-        "",
-        "Items:",
+    var projectDetails = buildProjectDetailsSummary(payload.items);
+    var lines = [
+      "Name: " + payload.name,
+      "Email: " + payload.email,
+      "Phone: " + (payload.phone || "None"),
+      "Preferred Contact: " + (payload.contactPreference || "Email"),
+      "Notes: " + (payload.notes || "None"),
+      "",
+      "Items:",
       buildOrderSummary(payload.items),
+      "",
+      projectDetails || "Project details: None",
       "",
       "Total: " + formatSAR(payload.total)
     ];
@@ -1277,6 +1325,8 @@
       workerFormData.append("notes", payload.notes);
       workerFormData.append("items_json", JSON.stringify(items));
       workerFormData.append("order_total_sar", String(total));
+      workerFormData.append("order_summary", buildOrderSummary(items));
+      workerFormData.append("project_details", buildProjectDetailsSummary(items));
 
       try {
         if (!isEndpointConfigured()) {
@@ -1332,7 +1382,11 @@
         ".";
     }
     if (nextCard) {
+      if (nextCard.querySelector("[data-bp-order-summary]")) {
+        return;
+      }
       var summary = document.createElement("p");
+      summary.setAttribute("data-bp-order-summary", "true");
       summary.innerHTML =
         "<strong>Order total:</strong> " +
         formatSAR(order.total) +
