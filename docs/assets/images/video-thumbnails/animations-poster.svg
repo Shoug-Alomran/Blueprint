@@ -1,0 +1,24 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07141B"/>
+  <rect x="48" y="48" width="1184" height="624" rx="28" fill="url(#bg)"/>
+  <circle cx="640" cy="330" r="180" fill="#2DD4BF" fill-opacity="0.08"/>
+  <circle cx="640" cy="330" r="130" fill="#2DD4BF" fill-opacity="0.14"/>
+  <circle cx="640" cy="330" r="80" fill="#2DD4BF" fill-opacity="0.22"/>
+  <circle cx="420" cy="200" r="20" fill="#F59E0B"/>
+  <circle cx="880" cy="220" r="14" fill="#60A5FA"/>
+  <circle cx="900" cy="440" r="18" fill="#2DD4BF"/>
+  <circle cx="380" cy="460" r="12" fill="#60A5FA"/>
+  <path d="M420 200C500 150 620 150 700 220" stroke="#D7E4E8" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 16" stroke-opacity="0.6"/>
+  <path d="M880 220C860 300 860 380 900 440" stroke="#D7E4E8" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 16" stroke-opacity="0.6"/>
+  <path d="M380 460C440 500 560 510 640 480" stroke="#D7E4E8" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 16" stroke-opacity="0.6"/>
+  <path d="M582 330C582 285.265 618.265 249 663 249H743C787.735 249 824 285.265 824 330C824 374.735 787.735 411 743 411H663C618.265 411 582 374.735 582 330Z" fill="#081C24" stroke="#D7E4E8" stroke-opacity="0.28"/>
+  <path d="M682 295L736 330L682 365V295Z" fill="#F8FAFC"/>
+  <text x="116" y="116" fill="#8AA3AD" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="0.18em">BLUEPRINT DEMO</text>
+  <text x="116" y="648" fill="#F8FAFC" font-family="Manrope, Arial, sans-serif" font-size="68" font-weight="800">Animations</text>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="76" x2="1186" y2="672" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#11212B"/>
+      <stop offset="1" stop-color="#0E403A"/>
+    </linearGradient>
+  </defs>
+</svg>
