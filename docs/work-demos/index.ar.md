@@ -81,7 +81,7 @@ last_updated: 2026-03-04
     <a class="video-preview-link" href="./animated-stats-section/">
       <span class="video-preview-frame">
         <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="/assets/images/video-thumbnails/animated-stats-section-poster.svg" aria-label="فيديو معاينة لعرض قسم الإحصاءات المتحركة">
-          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/Animated%20Stats%20Section.mov" type="video/quicktime" />
+          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/Animated%20Stats%20Section.mov" type="video/mp4" />
         </video>
         <span class="video-preview-play" aria-hidden="true">شاهد العرض</span>
       </span>
@@ -94,7 +94,7 @@ last_updated: 2026-03-04
     <a class="video-preview-link" href="./animations/">
       <span class="video-preview-frame">
         <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="/assets/images/video-thumbnails/animations-poster.svg" aria-label="فيديو معاينة لعرض الرسوم المتحركة">
-          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/animations.mov" type="video/quicktime" />
+          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/animations.mov" type="video/mp4" />
         </video>
         <span class="video-preview-play" aria-hidden="true">شاهد العرض</span>
       </span>
@@ -107,7 +107,7 @@ last_updated: 2026-03-04
     <a class="video-preview-link" href="./walkthrough/">
       <span class="video-preview-frame">
         <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="/assets/images/video-thumbnails/walkthrough-poster.svg" aria-label="فيديو معاينة لعرض الجولة الاستعراضية">
-          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/walkthrough.mov" type="video/quicktime" />
+          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/walkthrough.mov" type="video/mp4" />
         </video>
         <span class="video-preview-play" aria-hidden="true">شاهد العرض</span>
       </span>

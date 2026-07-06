@@ -12,7 +12,7 @@ last_updated: 2026-07-07
 
 <div class="video-wrap">
   <video controls preload="metadata" autoplay loop muted playsinline poster="/assets/images/video-thumbnails/walkthrough-poster.svg" title="فيديو الجولة الاستعراضية" aria-label="فيديو الجولة الاستعراضية">
-    <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/walkthrough.mov" type="video/quicktime" />
+    <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/walkthrough.mov" type="video/mp4" />
     متصفحك لا يدعم تشغيل الفيديو المضمن.
   </video>
 </div>

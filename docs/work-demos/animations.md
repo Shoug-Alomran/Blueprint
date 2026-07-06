@@ -12,7 +12,7 @@ Micro-interactions and motion polish applied across UI elements.
 
 <div class="video-wrap">
   <video controls preload="metadata" autoplay loop muted playsinline poster="/assets/images/video-thumbnails/animations-poster.svg" title="Animations demo video" aria-label="Animations demo video">
-    <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/animations.mov" type="video/quicktime" />
+    <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/animations.mov" type="video/mp4" />
     Your browser does not support embedded videos.
   </video>
 </div>

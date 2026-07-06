@@ -82,7 +82,7 @@ Short screen recordings showing key UI behaviours and interactions. Open any dem
     <a class="video-preview-link" href="./animated-stats-section/">
       <span class="video-preview-frame">
         <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="/assets/images/video-thumbnails/animated-stats-section-poster.svg" aria-label="Preview video for the Animated Stats Section demo">
-          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/Animated%20Stats%20Section.mov" type="video/quicktime" />
+          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/Animated%20Stats%20Section.mov" type="video/mp4" />
         </video>
         <span class="video-preview-play" aria-hidden="true">Watch demo</span>
       </span>
@@ -95,7 +95,7 @@ Short screen recordings showing key UI behaviours and interactions. Open any dem
     <a class="video-preview-link" href="./animations/">
       <span class="video-preview-frame">
         <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="/assets/images/video-thumbnails/animations-poster.svg" aria-label="Preview video for the Animations demo">
-          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/animations.mov" type="video/quicktime" />
+          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/animations.mov" type="video/mp4" />
         </video>
         <span class="video-preview-play" aria-hidden="true">Watch demo</span>
       </span>
@@ -108,7 +108,7 @@ Short screen recordings showing key UI behaviours and interactions. Open any dem
     <a class="video-preview-link" href="./walkthrough/">
       <span class="video-preview-frame">
         <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="/assets/images/video-thumbnails/walkthrough-poster.svg" aria-label="Preview video for the Walkthrough demo">
-          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/walkthrough.mov" type="video/quicktime" />
+          <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/walkthrough.mov" type="video/mp4" />
         </video>
         <span class="video-preview-play" aria-hidden="true">Watch demo</span>
       </span>

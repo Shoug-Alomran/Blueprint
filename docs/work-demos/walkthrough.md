@@ -12,7 +12,7 @@ A guided tour through the interface, from first view to core actions.
 
 <div class="video-wrap">
   <video controls preload="metadata" autoplay loop muted playsinline poster="/assets/images/video-thumbnails/walkthrough-poster.svg" title="Walkthrough demo video" aria-label="Walkthrough demo video">
-    <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/walkthrough.mov" type="video/quicktime" />
+    <source src="https://pub-1ae2691df7364eea93afb4e67996d97c.r2.dev/blueprint/walkthrough.mov" type="video/mp4" />
     Your browser does not support embedded videos.
   </video>
 </div>
