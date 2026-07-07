@@ -91,13 +91,6 @@ Structured academic, technical, club, and workshop documentation sites built for
   </article>
 
   <article class="info-card">
-    <h3>CS102, School Course Enrolment System</h3>
-    <p>Documentation for a Java console application simulating a university course management environment with role-based access for students, instructors, and administrators. Covers class structure, workflows, and code reference.</p>
-    <p><strong>Course:</strong> CS102 · Prince Sultan University</p>
-    <p><a href="https://school-course-enrolment-system.shoug-tech.com" target="_blank">Visit Site →</a></p>
-  </article>
-
-  <article class="info-card">
     <h3>CS340, Database Web Application</h3>
     <p>Six-phase documentation of a full database lifecycle project, from ER/EER conceptual modeling and relational schema mapping through SQL implementation and full-stack CRUD web application. Includes sustainability analysis and appendix.</p>
     <p><strong>Course:</strong> CS340 · Prince Sultan University</p>
