@@ -21,19 +21,19 @@ last_updated: 2026-03-04
 
   <article class="info-card">
     <h3>الباقة 1: حضور شخصي</h3>
-    <p><strong>600 ريال</strong><br>التسليم: 3 إلى 5 أيام عمل</p>
+    <p><strong>399 ريال</strong><br>التسليم: 3 إلى 5 أيام عمل</p>
     <p>حضور رقمي نظيف ومرتب بدون تعقيد زائد.</p>
   </article>
 
   <article class="info-card">
     <h3>الباقة 2: توثيق مشروع</h3>
-    <p><strong>950 ريال</strong><br>التسليم: 5 إلى 7 أيام عمل</p>
+    <p><strong>749 ريال</strong><br>التسليم: 5 إلى 7 أيام عمل</p>
     <p>موقع توثيقي منظم للمشاريع الأكاديمية والتقنية.</p>
   </article>
 
   <article class="info-card">
     <h3>الباقة 3: توثيق بحثي</h3>
-    <p><strong>1100 ريال</strong><br>التسليم: 7 إلى 10 أيام عمل</p>
+    <p><strong>1199 ريال</strong><br>التسليم: 7 إلى 10 أيام عمل</p>
     <p>توثيق بحثي بمستوى عرض احترافي وجاهزية نشر.</p>
   </article>
 
@@ -192,31 +192,31 @@ last_updated: 2026-03-04
 
   <article class="info-card">
     <h3>قسم إضافي</h3>
-    <p><strong>150 ريال لكل قسم</strong></p>
+    <p><strong>99 ريال لكل قسم</strong></p>
     <p>زيادة عدد الأقسام خارج النطاق الأساسي المتفق عليه.</p>
   </article>
 
   <article class="info-card">
     <h3>إعداد ثنائي اللغة (عربي وإنجليزي)</h3>
-    <p><strong>300 ريال</strong> للباقتين 1 و2</p>
+    <p><strong>199 ريال</strong> للباقتين 1 و2</p>
     <p>نسخة متطابقة من الهيكل والتنقل بكلتا اللغتين.</p>
   </article>
 
   <article class="info-card">
     <h3>إعداد دومين مخصص</h3>
-    <p><strong>250 ريال</strong></p>
+    <p><strong>99 ريال</strong></p>
     <p>إعداد DNS وHTTPS وربط الدومين بالموقع بشكل صحيح.</p>
   </article>
 
   <article class="info-card">
     <h3>تسليم مستعجل</h3>
-    <p><strong>200 ريال</strong></p>
+    <p><strong>149 ريال</strong></p>
     <p>أولوية تنفيذ وتسليم أسرع حسب المتاح.</p>
   </article>
 
   <article class="info-card">
     <h3>صيانة شهرية</h3>
-    <p><strong>50 ريال شهريا</strong></p>
+    <p><strong>49 ريال شهريا</strong></p>
     <p>تحديث محتوى وتعديلات هيكلية بسيطة ضمن الأقسام الحالية.</p>
   </article>
 
@@ -291,7 +291,7 @@ last_updated: 2026-03-04
 
   <article class="info-card">
     <h3>الباقة الأساسية</h3>
-    <p><strong>150 ريال</strong></p>
+    <p><strong>99 ريال</strong></p>
     <p>تحويل PDF أو DOCX إلى تقرير HTML منظم ومناسب للويب.</p>
     <p><strong>الحد:</strong> حتى 25 صفحة</p>
   </article>
@@ -326,13 +326,13 @@ last_updated: 2026-03-04
 
   <article class="info-card">
     <h3>مستند كبير</h3>
-    <p><strong>+50 ريال</strong></p>
+    <p><strong>+49 ريال</strong></p>
     <p>للتقارير من 25 إلى 50 صفحة.</p>
   </article>
 
   <article class="info-card">
     <h3>نسخة ثنائية اللغة</h3>
-    <p><strong>+60 ريال</strong></p>
+    <p><strong>+59 ريال</strong></p>
     <p>تسليم التقرير بلغتين مثل العربية والإنجليزية.</p>
     <ul>
       <li>مفتاح تبديل اللغة</li>

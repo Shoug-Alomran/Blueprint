@@ -518,8 +518,8 @@ hero_actions:
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Your Website</h3><p class="bp-desc">Choose a starting point and tell us what you have in mind.</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Essential<small>Starting from 600 SAR</small></label></div>
-          <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Signature<small>Starting from 950 SAR</small></label></div>
+          <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Essential<small>Starting from 399 SAR</small></label></div>
+          <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Signature<small>Starting from 749 SAR</small></label></div>
           <div class="bp-choice"><input id="tier3" name="tier" type="radio" value="Custom"><label for="tier3">Custom<small>Let’s define your scope</small></label></div>
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
@@ -584,12 +584,12 @@ hero_actions:
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">6</span><div><h3 class="bp-title">Add-Ons</h3><p class="bp-desc">Optional extras and scope extensions</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="ao_bilingual" name="ao_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual">Bilingual Setup<small>300 SAR</small></label></div>
-          <div class="bp-choice"><input id="ao_domain" name="ao_domain" type="checkbox" value="Custom Domain"><label for="ao_domain">Custom Domain Setup<small>250 SAR</small></label></div>
-          <div class="bp-choice"><input id="ao_priority" name="ao_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority">Priority Delivery<small>200 SAR</small></label></div>
-          <div class="bp-choice"><input id="ao_monthly" name="ao_monthly" type="checkbox" value="Monthly Maintenance"><label for="ao_monthly">Monthly Maintenance<small>50 SAR</small></label></div>
+          <div class="bp-choice"><input id="ao_bilingual" name="ao_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual">Bilingual Setup<small>199 SAR</small></label></div>
+          <div class="bp-choice"><input id="ao_domain" name="ao_domain" type="checkbox" value="Custom Domain"><label for="ao_domain">Custom Domain Setup<small>99 SAR</small></label></div>
+          <div class="bp-choice"><input id="ao_priority" name="ao_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority">Priority Delivery<small>149 SAR</small></label></div>
+          <div class="bp-choice"><input id="ao_monthly" name="ao_monthly" type="checkbox" value="Monthly Maintenance"><label for="ao_monthly">Monthly Maintenance<small>49 SAR</small></label></div>
           <div class="bp-choice"><input id="ao_daily" name="ao_daily" type="checkbox" value="Daily Maintenance"><label for="ao_daily">Daily Maintenance</label></div>
-          <div class="bp-choice"><input id="ao_extra" name="ao_extra" type="checkbox" value="Extra Sections"><label for="ao_extra">Extra Sections<small>150 SAR per section</small></label></div>
+          <div class="bp-choice"><input id="ao_extra" name="ao_extra" type="checkbox" value="Extra Sections"><label for="ao_extra">Extra Sections<small>99 SAR per section</small></label></div>
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
           <div class="bp-field"><label for="brief-field-18">Custom Domain Name (if applicable)</label><input id="brief-field-18" name="custom_domain" type="text" placeholder="For example: myproject.com"></div>
@@ -774,9 +774,9 @@ hero_actions:
           'Tier 3': 'Tier 3, Research Documentation'
         };
         var prices = {
-          'Tier 1': 600,
-          'Tier 2': 950,
-          'Tier 3': 1400
+          'Tier 1': 399,
+          'Tier 2': 749,
+          'Tier 3': 1199
         };
 
         if (!tier || !prices[tier]) {
@@ -802,7 +802,7 @@ hero_actions:
             id: 'start-project-addon-bilingual-setup-' + projectMeta.briefId,
             title: 'Bilingual Setup (Arabic + English)',
             option: 'Add-On',
-            price: 300,
+            price: 199,
             qty: 1,
             href: '',
             meta: projectMeta
@@ -814,7 +814,7 @@ hero_actions:
             id: 'start-project-addon-custom-domain-' + projectMeta.briefId,
             title: 'Custom Domain Setup',
             option: 'Add-On',
-            price: 250,
+            price: 99,
             qty: 1,
             href: '',
             meta: projectMeta
@@ -826,7 +826,7 @@ hero_actions:
             id: 'start-project-addon-priority-delivery-' + projectMeta.briefId,
             title: 'Priority Delivery',
             option: 'Add-On',
-            price: 200,
+            price: 149,
             qty: 1,
             href: '',
             meta: projectMeta
@@ -838,7 +838,7 @@ hero_actions:
             id: 'start-project-addon-monthly-maintenance-' + projectMeta.briefId,
             title: 'Monthly Maintenance',
             option: 'Add-On',
-            price: 50,
+            price: 49,
             qty: 1,
             href: '',
             meta: projectMeta
@@ -851,7 +851,7 @@ hero_actions:
             id: 'start-project-addon-additional-section-' + projectMeta.briefId,
             title: 'Additional Section',
             option: 'Add-On',
-            price: 150,
+            price: 99,
             qty: extraSections,
             href: '',
             meta: projectMeta

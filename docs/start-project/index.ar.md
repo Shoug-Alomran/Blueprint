@@ -397,9 +397,9 @@ last_updated: 2026-03-03
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">7</span><div><h3 class="bp-title">الإضافات</h3><p class="bp-desc">خيارات اختيارية وتوسعة النطاق</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="ao_bilingual_ar" name="ao_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual_ar">إعداد ثنائي اللغة<small>300 ريال</small></label></div>
-          <div class="bp-choice"><input id="ao_domain_ar" name="ao_domain" type="checkbox" value="Custom Domain"><label for="ao_domain_ar">إعداد دومين مخصص<small>250 ريال</small></label></div>
-          <div class="bp-choice"><input id="ao_priority_ar" name="ao_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority_ar">تسليم مستعجل<small>200 ريال</small></label></div>
+          <div class="bp-choice"><input id="ao_bilingual_ar" name="ao_bilingual" type="checkbox" value="Bilingual Setup"><label for="ao_bilingual_ar">إعداد ثنائي اللغة<small>199 ريال</small></label></div>
+          <div class="bp-choice"><input id="ao_domain_ar" name="ao_domain" type="checkbox" value="Custom Domain"><label for="ao_domain_ar">إعداد دومين مخصص<small>99 ريال</small></label></div>
+          <div class="bp-choice"><input id="ao_priority_ar" name="ao_priority" type="checkbox" value="Priority Delivery"><label for="ao_priority_ar">تسليم مستعجل<small>149 ريال</small></label></div>
           <div class="bp-choice"><input id="ao_monthly_ar" name="ao_monthly" type="checkbox" value="Monthly Maintenance"><label for="ao_monthly_ar">صيانة شهرية</label></div>
           <div class="bp-choice"><input id="ao_daily_ar" name="ao_daily" type="checkbox" value="Daily Maintenance"><label for="ao_daily_ar">صيانة يومية</label></div>
           <div class="bp-choice"><input id="ao_extra_ar" name="ao_extra" type="checkbox" value="Extra Sections"><label for="ao_extra_ar">أقسام إضافية</label></div>

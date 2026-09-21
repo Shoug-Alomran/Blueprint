@@ -37,7 +37,7 @@ Structured static websites designed for professional presence, academic document
   <article class="bp-plan">
     <span class="bp-plan__step">Tier 01</span>
     <h3 class="bp-plan__name">Personal Presence</h3>
-    <p class="bp-plan__price">600 <span>SAR</span></p>
+    <p class="bp-plan__price">399 <span>SAR</span></p>
     <p class="bp-plan__delivery">3–5 working days</p>
     <p class="bp-plan__desc">A clean digital presence without unnecessary complexity. Up to 4 sections, one page per section.</p>
     <a class="md-button" href="../start-project/">Select Tier 1</a>
@@ -47,7 +47,7 @@ Structured static websites designed for professional presence, academic document
     <span class="bp-plan__tag">Most chosen</span>
     <span class="bp-plan__step">Tier 02</span>
     <h3 class="bp-plan__name">Project Documentation</h3>
-    <p class="bp-plan__price">950 <span>SAR</span></p>
+    <p class="bp-plan__price">749 <span>SAR</span></p>
     <p class="bp-plan__delivery">5–7 working days</p>
     <p class="bp-plan__desc">Structured documentation websites for academic or technical projects. Up to 8 sections, roughly 10–16 pages.</p>
     <a class="md-button md-button--primary" href="../start-project/">Select Tier 2</a>
@@ -56,7 +56,7 @@ Structured static websites designed for professional presence, academic document
   <article class="bp-plan">
     <span class="bp-plan__step">Tier 03</span>
     <h3 class="bp-plan__name">Research Documentation</h3>
-    <p class="bp-plan__price">1400 <span>SAR</span></p>
+    <p class="bp-plan__price">1199 <span>SAR</span></p>
     <p class="bp-plan__delivery">7–10 working days</p>
     <p class="bp-plan__desc">Publication-ready research documentation and structured technical presentation. Up to 12 sections, roughly 20–25 pages.</p>
     <a class="md-button" href="../start-project/">Select Tier 3</a>
@@ -185,27 +185,27 @@ Applicable to website packages. All add-ons are confirmed in writing before impl
 
 <div class="bp-tiles bp-tiles--3" markdown="0">
   <article class="bp-tile">
-    <span class="bp-tile__num">+150 SAR / section</span>
+    <span class="bp-tile__num">+99 SAR / section</span>
     <h3>Additional Section</h3>
     <p>Expand the agreed website scope with extra standalone sections.</p>
   </article>
   <article class="bp-tile">
-    <span class="bp-tile__num">+300 SAR · Tier 1–2</span>
+    <span class="bp-tile__num">+199 SAR · Tier 1–2</span>
     <h3>Bilingual Setup</h3>
     <p>Duplicate structure and navigation across Arabic and English versions.</p>
   </article>
   <article class="bp-tile">
-    <span class="bp-tile__num">+250 SAR</span>
+    <span class="bp-tile__num">+99 SAR</span>
     <h3>Custom Domain Setup</h3>
     <p>DNS and HTTPS setup for connecting your own domain reliably.</p>
   </article>
   <article class="bp-tile">
-    <span class="bp-tile__num">+200 SAR</span>
+    <span class="bp-tile__num">+149 SAR</span>
     <h3>Priority Delivery</h3>
     <p>Move the project to an expedited execution queue.</p>
   </article>
   <article class="bp-tile">
-    <span class="bp-tile__num">50 SAR / month</span>
+    <span class="bp-tile__num">49 SAR / month</span>
     <h3>Monthly Maintenance</h3>
     <p>Ongoing content updates and minor structural edits within existing sections.</p>
   </article>
@@ -213,7 +213,7 @@ Applicable to website packages. All add-ons are confirmed in writing before impl
 
 ### Maintenance Policy { #maintenance-policy }
 
-Monthly maintenance covers ongoing content updates and minor structural adjustments within existing sections. A new section is billed at the standard rate of 150 SAR per section. Full layout redesigns, or migration to a different tier structure, are quoted separately.
+Monthly maintenance covers ongoing content updates and minor structural adjustments within existing sections. A new section is billed at the standard rate of 99 SAR per section. Full layout redesigns, or migration to a different tier structure, are quoted separately.
 
 <p class="bp-band__label">Standalone Products</p>
 
@@ -263,7 +263,7 @@ Convert static documents into structured HTML reports designed for easier readin
 
 <div class="bp-tiles bp-tiles--3" markdown="0">
   <article class="bp-tile">
-    <span class="bp-tile__num">150 SAR · up to 25 pages</span>
+    <span class="bp-tile__num">99 SAR · up to 25 pages</span>
     <h3>Base Package</h3>
     <p>Convert a static document into a clean, structured HTML report built for easier reading and navigation.</p>
   </article>
@@ -294,12 +294,12 @@ Convert static documents into structured HTML reports designed for easier readin
 
 <div class="bp-tiles bp-tiles--2" markdown="0">
   <article class="bp-tile">
-    <span class="bp-tile__num">+50 SAR</span>
+    <span class="bp-tile__num">+49 SAR</span>
     <h3>Large Document</h3>
     <p>For longer reports between 25 and 50 pages.</p>
   </article>
   <article class="bp-tile">
-    <span class="bp-tile__num">+60 SAR</span>
+    <span class="bp-tile__num">+59 SAR</span>
     <h3>Bilingual Report</h3>
     <p>Deliver the report in two languages with a language toggle, duplicated structured content, and consistent formatting across both versions.</p>
   </article>

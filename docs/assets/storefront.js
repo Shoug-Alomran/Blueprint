@@ -86,17 +86,17 @@
     id: "html-report-conversion",
     title: "HTML Report Conversion",
     href: PATHS.packages,
-    basePrice: 150,
+    basePrice: 99,
     addons: [
       {
         id: "large-document",
         title: "Large Document",
-        price: 50,
+        price: 49,
       },
       {
         id: "bilingual-report",
         title: "Bilingual Report",
-        price: 60,
+        price: 59,
       },
     ],
   };
@@ -104,20 +104,20 @@
     {
       id: "website-tier-1",
       title: "Tier 1, Personal Presence",
-      price: 600,
+      price: 399,
       summary: "Clean digital presence without unnecessary complexity.",
     },
     {
       id: "website-tier-2",
       title: "Tier 2, Project Documentation",
-      price: 950,
+      price: 749,
       summary:
         "Structured documentation websites for academic or technical projects.",
     },
     {
       id: "website-tier-3",
       title: "Tier 3, Research Documentation",
-      price: 1400,
+      price: 1199,
       summary:
         "Publication-ready research documentation and structured technical presentation.",
     },
@@ -126,33 +126,33 @@
     {
       id: "addon-additional-section",
       title: "Additional Section",
-      price: 150,
+      price: 99,
       summary:
         "Expand the agreed website scope with an extra standalone section.",
     },
     {
       id: "addon-bilingual-setup",
       title: "Bilingual Setup (Arabic + English)",
-      price: 300,
+      price: 199,
       summary:
         "Duplicate structure and navigation across both language versions.",
     },
     {
       id: "addon-custom-domain",
       title: "Custom Domain Setup",
-      price: 250,
+      price: 99,
       summary: "DNS and HTTPS setup for connecting your own domain reliably.",
     },
     {
       id: "addon-priority-delivery",
       title: "Priority Delivery",
-      price: 200,
+      price: 149,
       summary: "Move the project into an expedited execution queue.",
     },
     {
       id: "addon-monthly-maintenance",
       title: "Monthly Maintenance",
-      price: 50,
+      price: 49,
       summary:
         "Ongoing content updates and minor structural edits within existing sections.",
     },

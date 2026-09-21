@@ -65,7 +65,7 @@ Revisions refine. They do not redesign.
 | Tier 2 – Project Documentation  | 2 rounds                 |
 | Tier 3 – Research Documentation | 3 rounds                 |
 
-Additional revision rounds beyond the included count are available at 100 SAR per round and must be confirmed before implementation.
+Additional revision rounds beyond the included count are available at 79 SAR per round and must be confirmed before implementation.
 
 ---
 
