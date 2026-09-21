@@ -1,0 +1,139 @@
+# HTML Reports page (overrides/reports.html).
+strings:
+- en: Social Implications of AI & Expert Systems
+  ar: الآثار الاجتماعية للذكاء الاصطناعي والأنظمة الخبيرة
+- en: Social Implications of AI & Expert Systems — converted HTML report
+  ar: الآثار الاجتماعية للذكاء الاصطناعي والأنظمة الخبيرة — تقرير HTML بعد التحويل
+- en: Social Implications of AI & Expert Systems — first page of the original PDF
+  ar: الآثار الاجتماعية للذكاء الاصطناعي والأنظمة الخبيرة — الصفحة الأولى من ملف PDF الأصلي
+- en: Operating Systems Project
+  ar: مشروع أنظمة التشغيل
+- en: Operating Systems Project — converted HTML report
+  ar: مشروع أنظمة التشغيل — تقرير HTML بعد التحويل
+- en: Operating Systems Project — first page of the original PDF
+  ar: مشروع أنظمة التشغيل — الصفحة الأولى من ملف PDF الأصلي
+- en: Secure Key Exchange
+  ar: تبادل المفاتيح الآمن
+- en: Secure Key Exchange — converted HTML report
+  ar: تبادل المفاتيح الآمن — تقرير HTML بعد التحويل
+- en: Secure Key Exchange — first page of the original PDF
+  ar: تبادل المفاتيح الآمن — الصفحة الأولى من ملف PDF الأصلي
+- en: Linked List & Runtime Analysis
+  ar: القوائم المترابطة وتحليل زمن التنفيذ
+- en: Linked List & Runtime Analysis — converted HTML report
+  ar: القوائم المترابطة وتحليل زمن التنفيذ — تقرير HTML بعد التحويل
+- en: Linked List & Runtime Analysis — first page of the original PDF
+  ar: القوائم المترابطة وتحليل زمن التنفيذ — الصفحة الأولى من ملف PDF الأصلي
+- en: HTML Reports - Blueprint
+  ar: تقارير HTML - بلو برينت
+- en: See real PDF-to-HTML report conversions side by side, with the original document beside the finished web report.
+  ar: 'شاهد تحويلات حقيقية من PDF إلى تقارير HTML جنبا إلى جنب: المستند الأصلي بجوار تقرير الويب النهائي.'
+- en: CATALOG://HTML REPORTS <i></i>
+  ar: الكتالوج · تقارير HTML <i></i>
+- en: Your 10-page PDF.<br><em>Actually readable.</em>
+  ar: ملف PDF من 10 صفحات.<br><em>أصبح يقرأ فعلا.</em>
+- en: 'Send a PDF or Word document and get back a structured web report — searchable, linkable, and readable on a phone. Below are real conversions: the original on the left, the finished report on the right.'
+  ar: 'أرسل ملف PDF أو Word واستلمه تقرير ويب منظما — قابلا للبحث، وللمشاركة برابط، ومريحا للقراءة على الجوال. أدناه تحويلات حقيقية: الأصل على اليمين، والتقرير النهائي على اليسار.'
+- en: FROM 99 SAR · UP TO 25 PAGES · 2–4 DAYS
+  ar: من 99 ريال · حتى 25 صفحة · من 2 إلى 4 أيام
+- en: EXAMPLES://BEFORE & AFTER
+  ar: أمثلة · قبل وبعد
+- en: Three real conversions.<br>Open either side.
+  ar: تحويلات حقيقية.<br>افتح أي جانب منها.
+- en: A 10-page research paper rebuilt as an interactive report with live charts, reading progress, and a jump-to-section index.
+  ar: ورقة بحثية من 10 صفحات أعيد بناؤها تقريرا تفاعليا برسوم بيانية حية، ومؤشر لتقدم القراءة، وفهرس للانتقال بين الأقسام.
+- en: A two-phase systems report with benchmarks and results tables.
+  ar: تقرير أنظمة من مرحلتين مع قياسات أداء وجداول نتائج.
+- en: A cryptography project write-up with diagrams and structured findings.
+  ar: توثيق مشروع في علم التشفير مع مخططات ونتائج منظمة.
+- en: An algorithms comparison report with performance charts.
+  ar: تقرير مقارنة خوارزميات مع رسوم بيانية للأداء.
+- en: LIVE CHARTS
+  ar: رسوم حية
+- en: PROGRESS BAR
+  ar: مؤشر التقدم
+- en: SECTION INDEX
+  ar: فهرس الأقسام
+- en: BENCHMARKS
+  ar: قياسات الأداء
+- en: TABLES
+  ar: جداول
+- en: TWO PHASES
+  ar: مرحلتان
+- en: DIAGRAMS
+  ar: مخططات
+- en: FINDINGS
+  ar: النتائج
+- en: REFERENCES
+  ar: المراجع
+- en: CHARTS
+  ar: رسوم بيانية
+- en: COMPARISON
+  ar: مقارنة
+- en: ANALYSIS
+  ar: تحليل
+- en: Before
+  ar: قبل
+- en: After
+  ar: بعد
+- en: Original PDF
+  ar: ملف PDF الأصلي
+- en: HTML report
+  ar: تقرير HTML
+- en: Open the PDF ↗
+  ar: افتح ملف PDF ↖
+- en: Open the report ↗
+  ar: افتح التقرير ↖
+- en: WHAT CHANGES
+  ar: ما الذي يتغير
+- en: Same content.<br>Built to be used.
+  ar: المحتوى نفسه.<br>مبني ليستخدم.
+- en: Structured sections
+  ar: أقسام منظمة
+- en: Content is reorganised into clear sections with headings, anchors, and internal navigation.
+  ar: يعاد تنظيم المحتوى في أقسام واضحة بعناوين وروابط داخلية وتنقل بين الأجزاء.
+- en: Figures and tables kept
+  ar: الأشكال والجداول محفوظة
+- en: Diagrams, charts, and tables carry across and stay legible at any width.
+  ar: تنتقل المخططات والرسوم والجداول كما هي وتبقى واضحة على أي عرض شاشة.
+- en: Readable on a phone
+  ar: مريح للقراءة على الجوال
+- en: A responsive layout replaces pinch-and-zoom, with light and dark modes included.
+  ar: تخطيط متجاوب يغنيك عن التكبير والتصغير، مع وضعين فاتح وداكن.
+- en: Linkable and searchable
+  ar: قابل للبحث والمشاركة برابط
+- en: Every section has its own address, so you can send someone straight to the part that matters.
+  ar: لكل قسم رابطه الخاص، فتستطيع إرسال أي شخص مباشرة إلى الجزء المهم.
+- en: PRICING://CONVERSION
+  ar: الأسعار · التحويل
+- en: What it costs.
+  ar: كم يكلف.
+- en: A base conversion covers documents up to 25 pages. Longer or bilingual reports are quoted with the add-ons below.
+  ar: يغطي التحويل الأساسي المستندات حتى 25 صفحة. أما التقارير الأطول أو ثنائية اللغة فتسعر بالإضافات أدناه.
+- en: Base conversion
+  ar: التحويل الأساسي
+- en: PDF or DOCX → HTML report, up to 25 pages.
+  ar: من PDF أو DOCX إلى تقرير HTML، حتى 25 صفحة.
+- en: Large document
+  ar: مستند كبير
+- en: For reports between 25 and 50 pages.
+  ar: للتقارير بين 25 و50 صفحة.
+- en: +49 SAR
+  ar: +49 ريال
+- en: Bilingual report
+  ar: تقرير ثنائي اللغة
+- en: Two languages with a toggle and matching structure.
+  ar: لغتان مع زر للتبديل وهيكل متطابق.
+- en: +59 SAR
+  ar: +59 ريال
+- en: Full pricing breakdown ↗
+  ar: تفاصيل الأسعار كاملة ↖
+- en: SEND://YOUR DOCUMENT
+  ar: أرسل · مستندك
+- en: Have a report that<br>deserves better?
+  ar: لديك تقرير<br>يستحق عرضا أفضل؟
+- en: Send the document and we'll confirm the page count, the price, and the turnaround.
+  ar: أرسل المستند وسنؤكد لك عدد الصفحات والسعر ومدة التسليم.
+patterns:
+- match: ^CONVERSION / (\d+)$
+  ar: تحويل / \1

@@ -1,0 +1,371 @@
+# Services & Pricing page (overrides/packages.html).
+# Add-on codes (BPR_MOD_0x) are decorative identifiers and stay in Latin.
+strings:
+- en: BPR_MOD_01
+  ar: BPR_MOD_01
+- en: BPR_MOD_02
+  ar: BPR_MOD_02
+- en: BPR_MOD_03
+  ar: BPR_MOD_03
+- en: BPR_MOD_04
+  ar: BPR_MOD_04
+- en: BPR_MOD_05
+  ar: BPR_MOD_05
+- en: BPR_MOD_06
+  ar: BPR_MOD_06
+- en: BPR_MOD_07
+  ar: BPR_MOD_07
+- en: BPR_MOD_08
+  ar: BPR_MOD_08
+- en: Services & Pricing - Blueprint
+  ar: الخدمات والأسعار - بلو برينت
+- en: Compare Blueprint website packages, add-ons, pricing tiers, CV templates, and HTML report options for static website projects.
+  ar: قارن باقات مواقع بلو برينت وإضافاتها وفئات الأسعار، وقوالب السيرة الذاتية، وخيارات تحويل التقارير إلى HTML لمشاريع المواقع الثابتة.
+- en: SERVICES://PRICING <i></i>
+  ar: الخدمات · الأسعار <i></i>
+- en: Clear scope.<br>Clear pricing.<br><em>No surprises.</em>
+  ar: نطاق واضح.<br>أسعار واضحة.<br><em>بلا مفاجآت.</em>
+- en: Blueprint keeps website projects straightforward. Choose the level of support you need, understand exactly what’s included, and build from there.
+  ar: 'يبقي بلو برينت مشاريع المواقع بسيطة وواضحة: اختر مستوى الدعم الذي تحتاجه، واعرف بالضبط ما الذي يشمله، وانطلق من هناك.'
+- en: PROJECT-BASED · CLEAR SCOPE · NO SUBSCRIPTIONS
+  ar: حسب المشروع · نطاق واضح · بلا اشتراكات
+- en: PRICING_MODEL
+  ar: نموذج التسعير
+- en: Built around the project,<br>not a monthly subscription.
+  ar: تسعير حسب المشروع،<br>لا اشتراك شهري.
+- en: Blueprint’s pricing reflects the website’s scope, content, complexity, and required customization. You invest in a finished asset, not a recurring obligation.
+  ar: يعكس تسعير بلو برينت نطاق الموقع ومحتواه ومدى تعقيده والتخصيص المطلوب. أنت تستثمر في أصل مكتمل، لا في التزام متكرر.
+- en: PROJECT TYPE
+  ar: نوع المشروع
+- en: SCOPE
+  ar: النطاق
+- en: CUSTOMIZATION
+  ar: التخصيص
+- en: RESULT
+  ar: النتيجة
+- en: ESSENTIAL://01
+  ar: الأساسية · 01
+- en: SIGNATURE://02
+  ar: المميزة · 02
+- en: CUSTOM://03
+  ar: المخصصة · 03
+- en: RECOMMENDED SCOPE
+  ar: النطاق المقترح
+- en: For simple, focused websites with limited content and a clear objective.
+  ar: للمواقع البسيطة والمركزة ذات المحتوى المحدود والهدف الواضح.
+- en: For more complete websites requiring stronger customization and multiple content sections.
+  ar: للمواقع الأكثر اكتمالا التي تحتاج تخصيصا أكبر وأقساما متعددة للمحتوى.
+- en: For projects that don’t fit neatly into a predefined scope or require unique architectural solutions.
+  ar: للمشاريع التي لا تندرج في نطاق محدد مسبقا أو تتطلب حلولا هيكلية خاصة.
+- en: SUITABLE FOR
+  ar: مناسبة لـ
+- en: INCLUDES
+  ar: تشمل
+- en: INVESTMENT
+  ar: الاستثمار
+- en: CV websites
+  ar: مواقع السيرة الذاتية
+- en: Simple portfolios
+  ar: ملفات أعمال بسيطة
+- en: Small informational websites
+  ar: مواقع تعريفية صغيرة
+- en: Single-purpose pages
+  ar: صفحات لغرض واحد
+- en: Full portfolio websites
+  ar: مواقع ملفات أعمال متكاملة
+- en: Academic/course hubs
+  ar: منصات أكاديمية ومنصات مقررات
+- en: Professional websites
+  ar: مواقع مهنية
+- en: Documentation websites
+  ar: مواقع التوثيق
+- en: Large documentation websites
+  ar: مواقع توثيق كبيرة
+- en: Complex academic hubs
+  ar: منصات أكاديمية معقدة
+- en: Multi-section websites
+  ar: مواقع متعددة الأقسام
+- en: Unique static concepts
+  ar: أفكار ثابتة غير تقليدية
+- en: Responsive design
+  ar: تصميم متجاوب
+- en: Structured page layout
+  ar: تخطيط صفحات منظم
+- en: Blueprint customization
+  ar: تخصيص بلو برينت
+- en: Basic SEO foundations
+  ar: أساسيات SEO
+- en: Deployment
+  ar: النشر
+- en: Final testing
+  ar: الاختبار النهائي
+- en: Project handover
+  ar: تسليم المشروع
+- en: Everything in Essential
+  ar: كل ما في الباقة الأساسية
+- en: Expanded page structure
+  ar: هيكل صفحات موسع
+- en: Custom visual direction
+  ar: توجه بصري مخصص
+- en: Advanced content organization
+  ar: تنظيم متقدم للمحتوى
+- en: Interactive components
+  ar: عناصر تفاعلية
+- en: Enhanced animations
+  ar: حركات محسنة
+- en: Responsive optimization
+  ar: تحسين التجاوب
+- en: Extensive testing
+  ar: اختبار شامل
+- en: Custom scope planning
+  ar: تخطيط نطاق مخصص
+- en: Custom information architecture
+  ar: هيكلة معلومات مخصصة
+- en: Tailored visual system
+  ar: نظام بصري مفصل لك
+- en: Advanced static functionality
+  ar: وظائف ثابتة متقدمة
+- en: Project-specific components
+  ar: عناصر خاصة بالمشروع
+- en: Deployment and testing
+  ar: النشر والاختبار
+- en: Complete handover
+  ar: تسليم كامل
+- en: Starting from 399 <small>SAR</small>
+  ar: يبدأ من 399 <small>ريال</small>
+- en: Starting from 749 <small>SAR</small>
+  ar: يبدأ من 749 <small>ريال</small>
+- en: Custom Quote
+  ar: عرض سعر مخصص
+- en: Start Essential <span>→</span>
+  ar: ابدأ بالأساسية <span>←</span>
+- en: Start Signature <span>→</span>
+  ar: ابدأ بالمميزة <span>←</span>
+- en: Request a Quote <span>→</span>
+  ar: اطلب عرض سعر <span>←</span>
+- en: Every Blueprint build starts with the essentials.
+  ar: كل مشروع في بلو برينت يبدأ بالأساسيات.
+- en: Discovery
+  ar: الاستكشاف
+- en: Understand the purpose, audience, and content goals.
+  ar: فهم الغرض والجمهور وأهداف المحتوى.
+- en: Structure
+  ar: الهيكل
+- en: Plan pages, navigation, and hierarchy.
+  ar: تخطيط الصفحات والتنقل والتسلسل.
+- en: Design
+  ar: التصميم
+- en: Create a consistent responsive visual experience.
+  ar: بناء تجربة بصرية متسقة ومتجاوبة.
+- en: Build
+  ar: البناء
+- en: Develop the finished static website.
+  ar: تطوير الموقع الثابت بصيغته النهائية.
+- en: Testing
+  ar: الاختبار
+- en: Review responsiveness, links, and functionality.
+  ar: مراجعة التجاوب والروابط والوظائف.
+- en: Publish the finished website live.
+  ar: نشر الموقع المكتمل على الإنترنت.
+- en: Handover
+  ar: التسليم
+- en: Deliver a clean, maintainable structure.
+  ar: تسليم هيكل نظيف وسهل الصيانة.
+- en: ADD-ONS://OPTIONAL
+  ar: الإضافات · اختيارية
+- en: Extend your build.
+  ar: وسع مشروعك.
+- en: Additional Pages
+  ar: صفحات إضافية
+- en: Add pages to your agreed scope. The final cost depends on the content and structure required. Scope and price are confirmed before work begins.
+  ar: أضف صفحات إلى النطاق المتفق عليه. تعتمد التكلفة النهائية على المحتوى والهيكل المطلوبين. يؤكد النطاق والسعر قبل بدء العمل.
+- en: Content Formatting
+  ar: تنسيق المحتوى
+- en: Organize supplied text, images, and documents for a consistent reading experience. Scope and price are confirmed before work begins.
+  ar: تنظيم النصوص والصور والمستندات التي تقدمها لتجربة قراءة متسقة. يؤكد النطاق والسعر قبل بدء العمل.
+- en: Revision Rounds
+  ar: جولات تعديل
+- en: Request additional review rounds beyond those agreed in your project scope. Scope and price are confirmed before work begins.
+  ar: اطلب جولات مراجعة إضافية تتجاوز ما اتفق عليه في نطاق مشروعك. يؤكد النطاق والسعر قبل بدء العمل.
+- en: Custom Animations
+  ar: حركات مخصصة
+- en: Add considered motion and interactions that support your content. Scope and price are confirmed before work begins.
+  ar: أضف حركات وتفاعلات مدروسة تخدم محتواك. يؤكد النطاق والسعر قبل بدء العمل.
+- en: Advanced SEO Setup
+  ar: إعداد SEO متقدم
+- en: Discuss additional search metadata and page optimization needs. Scope and price are confirmed before work begins.
+  ar: ناقش احتياجاتك من بيانات البحث الوصفية الإضافية وتحسين الصفحات. يؤكد النطاق والسعر قبل بدء العمل.
+- en: Domain Configuration
+  ar: إعداد النطاق
+- en: Connect your own domain, including DNS and HTTPS configuration. Domain registration is separate. Scope and price are confirmed before work begins.
+  ar: ربط نطاقك الخاص، بما في ذلك إعداد DNS وHTTPS. تسجيل النطاق منفصل. يؤكد النطاق والسعر قبل بدء العمل.
+- en: Website Migration
+  ar: نقل الموقع
+- en: Move an existing static website into the agreed new structure. Scope and price are confirmed before work begins.
+  ar: نقل موقع ثابت قائم إلى الهيكل الجديد المتفق عليه. يؤكد النطاق والسعر قبل بدء العمل.
+- en: Additional Documentation
+  ar: توثيق إضافي
+- en: Receive additional project-specific guides and handover material. Scope and price are confirmed before work begins.
+  ar: احصل على أدلة إضافية خاصة بمشروعك ومواد تسليم. يؤكد النطاق والسعر قبل بدء العمل.
+- en: What determines your quote?
+  ar: ما الذي يحدد عرض السعر؟
+- en: 01 / SCALE
+  ar: 01 / الحجم
+- en: Content scale
+  ar: حجم المحتوى
+- en: The number of pages and volume of individual assets.
+  ar: عدد الصفحات وحجم الملفات والمواد.
+- en: 02 / STRUCTURE
+  ar: 02 / الهيكل
+- en: Architecture
+  ar: البنية
+- en: The complexity of navigation and information hierarchy.
+  ar: مدى تعقيد التنقل وتسلسل المعلومات.
+- en: 03 / CUSTOM
+  ar: 03 / التخصيص
+- en: Customization
+  ar: التخصيص
+- en: The depth of custom visual work and brand details.
+  ar: عمق العمل البصري المخصص وتفاصيل الهوية.
+- en: 04 / FEATURES
+  ar: 04 / الميزات
+- en: Interactivity
+  ar: التفاعلية
+- en: Interactive components, animation, and unique requirements.
+  ar: العناصر التفاعلية والحركة والمتطلبات الخاصة.
+- en: CENTRAL
+  ar: المحور
+- en: PROJECT<br><em>SCOPE</em>
+  ar: نطاق<br><em>المشروع</em>
+- en: Know the boundaries before we build.
+  ar: اعرف الحدود قبل أن نبدأ البناء.
+- en: <i></i>Blueprint builds
+  ar: <i></i>ما يبنيه بلو برينت
+- en: Static websites
+  ar: المواقع الثابتة
+- en: Portfolio websites
+  ar: مواقع ملفات الأعمال
+- en: Course hubs & documentation
+  ar: منصات المقررات والتوثيق
+- en: HTML reports
+  ar: تقارير HTML
+- en: Professional informational sites
+  ar: المواقع التعريفية المهنية
+- en: Responsive interfaces
+  ar: الواجهات المتجاوبة
+- en: Static interactive experiences
+  ar: التجارب التفاعلية الثابتة
+- en: Not currently provided
+  ar: غير متاح حاليا
+- en: Backend systems
+  ar: الأنظمة الخلفية
+- en: Databases & authentication
+  ar: قواعد البيانات وتسجيل الدخول
+- en: E-commerce checkout systems
+  ar: أنظمة الدفع للمتاجر الإلكترونية
+- en: Complex dashboards
+  ar: لوحات التحكم المعقدة
+- en: SaaS applications
+  ar: تطبيقات SaaS
+- en: Native mobile applications
+  ar: تطبيقات الجوال الأصلية
+- en: Have a requirement you’re unsure about? We’re happy to review your specific needs.
+  ar: لديك متطلب لست متأكدا منه؟ يسعدنا مراجعة احتياجاتك الخاصة.
+- en: Ask Blueprint →
+  ar: اسأل بلو برينت ←
+- en: TIMELINE://PROJECT
+  ar: الجدول الزمني · المشروع
+- en: From idea to deployment.
+  ar: من الفكرة إلى الإطلاق.
+- en: Project Request
+  ar: طلب المشروع
+- en: Initial contact and basic information sharing.
+  ar: التواصل الأولي ومشاركة المعلومات الأساسية.
+- en: Scope & Quote
+  ar: النطاق وعرض السعر
+- en: Defining boundaries and finalizing the investment.
+  ar: تحديد الحدود واعتماد التكلفة.
+- en: Content Collection
+  ar: جمع المحتوى
+- en: Gathering all text, images, and brand materials.
+  ar: جمع النصوص والصور ومواد الهوية كاملة.
+- en: Design & Build
+  ar: التصميم والبناء
+- en: The active creation phase of your website.
+  ar: مرحلة العمل الفعلي على موقعك.
+- en: Review
+  ar: المراجعة
+- en: Testing, refinement, and final approvals.
+  ar: الاختبار والتحسين والاعتماد النهائي.
+- en: Launching your site to its live environment.
+  ar: إطلاق موقعك على بيئة النشر.
+- en: Project finalization and maintenance guidance.
+  ar: إنهاء المشروع وإرشادات الصيانة.
+- en: Frequently Asked Questions
+  ar: الأسئلة الشائعة
+- en: Do I need to know exactly what type of website I need?
+  ar: هل يجب أن أعرف بالضبط نوع الموقع الذي أحتاجه؟
+- en: No. Start with your goal and content. We’ll help determine the right structure and scope during discovery.
+  ar: لا. ابدأ بهدفك ومحتواك، وسنساعدك على تحديد الهيكل والنطاق المناسبين خلال مرحلة الاستكشاف.
+- en: Can I request changes during the project?
+  ar: هل يمكنني طلب تعديلات أثناء المشروع؟
+- en: Yes. Each tier includes defined revision rounds. Additions outside the agreed scope are discussed and quoted before implementation.
+  ar: نعم. تشمل كل فئة جولات تعديل محددة، وأي إضافة خارج النطاق المتفق عليه تناقش ويقدم لها عرض سعر قبل التنفيذ.
+- en: Do I need to provide the content?
+  ar: هل علي تقديم المحتوى؟
+- en: Yes. You provide text, images, and relevant materials. Blueprint organizes what you provide into a clear digital experience.
+  ar: نعم. تقدم النصوص والصور والمواد ذات الصلة، وينظمها بلو برينت في تجربة رقمية واضحة.
+- en: Can Blueprint redesign an existing website?
+  ar: هل يمكن لبلو برينت إعادة تصميم موقع قائم؟
+- en: Yes, when the project fits our static website scope. Share the current site and the changes you need for a scope review.
+  ar: نعم، إذا كان المشروع ضمن نطاق المواقع الثابتة. شارك الموقع الحالي والتغييرات المطلوبة لنراجع النطاق.
+- en: Will my website work on mobile?
+  ar: هل سيعمل موقعي على الجوال؟
+- en: Yes. Responsive layouts and checks across screen sizes are part of every website build.
+  ar: نعم. التخطيطات المتجاوبة واختبار مختلف مقاسات الشاشات جزء من كل مشروع.
+- en: Can I request something that isn’t listed?
+  ar: هل يمكنني طلب شيء غير مذكور؟
+- en: Absolutely. Send the requirement and we’ll confirm whether it fits Blueprint’s capabilities and provide an appropriate quote.
+  ar: بالتأكيد. أرسل المتطلب وسنؤكد إن كان ضمن قدرات بلو برينت ونقدم لك عرض السعر المناسب.
+- en: PROJECT://NEW
+  ar: مشروع · جديد
+- en: Let’s define your<br>build.
+  ar: لنحدد معا<br>مشروعك.
+- en: Tell us what you’re looking for. We’ll determine the scope and provide a clear quote before the project begins.
+  ar: أخبرنا بما تبحث عنه، وسنحدد النطاق ونقدم لك عرض سعر واضحا قبل بدء المشروع.
+- en: SPECIFICATION V4.1
+  ar: المواصفات V4.1
+- en: NEW WEBSITE<span class="studio-cursor">_</span>
+  ar: موقع جديد<span class="studio-cursor">_</span>
+- en: TYPE
+  ar: النوع
+- en: TO BE DEFINED
+  ar: قيد التحديد
+- en: PENDING
+  ar: قيد الانتظار
+- en: YOUR NEXT CHAPTER STARTS HERE
+  ar: فصلك القادم يبدأ هنا
+- en: Up to 8 pages
+  ar: حتى 8 صفحات
+- en: 9–16 pages
+  ar: من 9 إلى 16 صفحة
+- en: 17+ pages
+  ar: 17 صفحة فأكثر
+- en: See examples →
+  ar: شاهد أمثلة ←
+- en: CV and personal websites
+  ar: مواقع السيرة الذاتية والمواقع الشخصية
+- en: Small course hubs
+  ar: منصات مقررات صغيرة
+- en: Short project documentation
+  ar: توثيق مشاريع قصير
+- en: Event and competition websites
+  ar: مواقع الفعاليات والمسابقات
+- en: Mid-size portfolios
+  ar: ملفات أعمال متوسطة الحجم
+- en: Multi-phase project documentation
+  ar: توثيق مشاريع متعددة المراحل
+- en: Organisation archives
+  ar: أرشيفات المنظمات
+- en: Large personal portfolios
+  ar: ملفات أعمال شخصية كبيرة

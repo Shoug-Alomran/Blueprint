@@ -1,0 +1,145 @@
+# Text that scripts insert after the page loads (mainly docs/assets/storefront.js:
+# cart, checkout, product buttons). Unlike the other files, these entries are
+# embedded in every Arabic page and applied live by javascripts/i18n-runtime.js.
+# Keep this file to runtime text only: everything in it ships with each page.
+# Strings that go into the order email to the studio are intentionally absent.
+strings:
+- en: Add to Cart
+  ar: أضف إلى السلة
+- en: Added
+  ar: تمت الإضافة
+- en: Buy Now
+  ar: اشتر الآن
+- en: Back
+  ar: رجوع
+- en: View product
+  ar: عرض المنتج
+- en: Hide summary
+  ar: إخفاء الملخص
+- en: Open Preview
+  ar: فتح المعاينة
+- en: Remove
+  ar: إزالة
+- en: Qty
+  ar: الكمية
+- en: Continue Shopping
+  ar: متابعة التسوق
+- en: Checkout
+  ar: إتمام الطلب
+- en: Submit Order
+  ar: إرسال الطلب
+- en: Back to Cart
+  ar: العودة إلى السلة
+- en: Go to Products
+  ar: الانتقال إلى المنتجات
+- en: Open Products
+  ar: فتح المنتجات
+- en: Your cart is empty.
+  ar: سلتك فارغة.
+- en: Browse products and add what you need.
+  ar: تصفح المنتجات وأضف ما تحتاجه.
+- en: No items ready for checkout.
+  ar: لا توجد عناصر جاهزة لإتمام الطلب.
+- en: Add a product to the cart first, or use Buy Now from a product page.
+  ar: أضف منتجا إلى السلة أولا، أو استخدم «اشتر الآن» من صفحة المنتج.
+- en: Submitting order...
+  ar: جار إرسال الطلب...
+- en: Checkout worker endpoint is not configured.
+  ar: خدمة إتمام الطلب غير مهيأة حاليا.
+- en: Worker submission failed. Opening email fallback...
+  ar: تعذر الإرسال. جار فتح البريد الإلكتروني كبديل...
+- en: Order summary
+  ar: ملخص الطلب
+- en: Order total
+  ar: إجمالي الطلب
+- en: Total
+  ar: الإجمالي
+- en: Customer details
+  ar: بيانات العميل
+- en: Name
+  ar: الاسم
+- en: Email
+  ar: البريد الإلكتروني
+- en: Phone Number
+  ar: رقم الجوال
+- en: Preferred Contact Method
+  ar: وسيلة التواصل المفضلة
+- en: WhatsApp
+  ar: واتساب
+- en: Notes (optional)
+  ar: ملاحظات (اختياري)
+- en: Anything Blueprint should know before fulfilling the order?
+  ar: هل هناك ما يجب أن يعرفه بلو برينت قبل تنفيذ الطلب؟
+- en: Basic
+  ar: أساسي
+- en: Pro
+  ar: احترافي
+- en: Standard
+  ar: قياسي
+- en: Base Service
+  ar: الخدمة الأساسية
+- en: 'Base service:'
+  ar: 'الخدمة الأساسية:'
+- en: Website Package
+  ar: باقة الموقع
+- en: Website Packages
+  ar: باقات المواقع
+- en: Website Tiers
+  ar: فئات المواقع
+- en: Website Add-Ons
+  ar: إضافات الموقع
+- en: Blueprint Setup
+  ar: إعداد بلو برينت
+- en: Self Setup
+  ar: إعداد ذاتي
+- en: Large Document
+  ar: مستند كبير
+- en: Bilingual Report
+  ar: تقرير ثنائي اللغة
+- en: Additional Section
+  ar: قسم إضافي
+- en: Custom Domain Setup
+  ar: إعداد نطاق خاص
+- en: Priority Delivery
+  ar: تسليم مستعجل
+- en: Monthly Maintenance
+  ar: صيانة شهرية
+- en: Order HTML Report Conversion
+  ar: اطلب تحويل تقرير إلى HTML
+- en: Clean digital presence without unnecessary complexity.
+  ar: حضور رقمي أنيق دون تعقيد غير ضروري.
+- en: Structured documentation websites for academic or technical projects.
+  ar: مواقع توثيق منظمة للمشاريع الأكاديمية أو التقنية.
+- en: Expand the agreed website scope with an extra standalone section.
+  ar: وسع نطاق الموقع المتفق عليه بقسم مستقل إضافي.
+- en: Duplicate structure and navigation across both language versions.
+  ar: تكرار الهيكل والتنقل في نسختي اللغتين.
+- en: Move the project into an expedited execution queue.
+  ar: نقل المشروع إلى قائمة التنفيذ المستعجل.
+- en: Ongoing content updates and minor structural edits within existing sections.
+  ar: تحديثات مستمرة للمحتوى وتعديلات هيكلية بسيطة ضمن الأقسام الحالية.
+- en: Choose delivery mode without changing the preview page.
+  ar: اختر طريقة التسليم دون تغيير صفحة المعاينة.
+- en: Choose the website package that fits your project.
+  ar: اختر باقة الموقع المناسبة لمشروعك.
+- en: Optional add-ons for your website order.
+  ar: إضافات اختيارية لطلب موقعك.
+- en: Base service with optional add-ons.
+  ar: خدمة أساسية مع إضافات اختيارية.
+- en: Buy a package directly from this page or add it to your cart for later.
+  ar: اشتر الباقة مباشرة من هذه الصفحة أو أضفها إلى السلة لاحقا.
+- en: Add optional extras to your order before you continue to Start Project.
+  ar: أضف ما تشاء من الإضافات إلى طلبك قبل المتابعة إلى «ابدأ مشروعك».
+patterns:
+- match: ^Cart \((\d+)\)$
+  ar: السلة (\1)
+- match: ^([\d,.]+) SAR$
+  ar: \1 ريال
+- match: '^Total: ([\d,.]+) SAR$'
+  ar: 'الإجمالي: \1 ريال'
+- match: ^Large Document \(\+ ([\d,.]+) SAR\)$
+  ar: مستند كبير (+ \1 ريال)
+- match: ^Bilingual Report \(\+ ([\d,.]+) SAR\)$
+  ar: تقرير ثنائي اللغة (+ \1 ريال)
+- match: ^Checkout request failed with status (\d+)\.?$
+  ar: تعذر إرسال الطلب (رمز الحالة \1).

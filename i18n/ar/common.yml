@@ -1,0 +1,155 @@
+# Shared chrome: header, footer, search, and labels used on many pages.
+#
+# How this catalog works: every Arabic page (/ar/...) is built from the same
+# English templates, then translated from these files by hooks/i18n_ar.py.
+# `en` must match the rendered English exactly (whitespace does not matter).
+# Entries containing tags translate a whole sentence, markup included.
+# After a build, any English left on an Arabic page is listed in
+# i18n/missing-ar.txt.
+#
+# Conventions used throughout:
+#   - "Blueprint" / "Blueprint Studio" stay in Latin, matching the wordmark.
+#   - HTML, PDF, CSS and SEO stay in Latin, as they are written in Arabic tech copy.
+#   - Prices use Western digits and "ريال".
+#   - Arrows are mirrored for right-to-left reading: → becomes ←, ↗ becomes ↖.
+strings:
+- en: Blueprint Studio home
+  ar: الصفحة الرئيسية لبلو برينت ستوديو
+- en: Open navigation
+  ar: فتح القائمة
+- en: Main navigation
+  ar: التنقل الرئيسي
+- en: Products
+  ar: المنتجات
+- en: Services & Pricing
+  ar: الخدمات والأسعار
+- en: How It Works
+  ar: آلية العمل
+- en: Portfolio
+  ar: الأعمال
+- en: About
+  ar: من نحن
+- en: Contact
+  ar: تواصل معنا
+- en: Start a Project <span aria-hidden="true">↗</span>
+  ar: ابدأ مشروعك <span aria-hidden="true">↖</span>
+- en: Search the site
+  ar: ابحث في الموقع
+- en: Search
+  ar: بحث
+- en: Switch to light theme
+  ar: التبديل إلى الوضع الفاتح
+- en: Switch to dark theme
+  ar: التبديل إلى الوضع الداكن
+- en: Switch theme
+  ar: تبديل المظهر
+- en: Skip to content
+  ar: انتقل إلى المحتوى
+- en: Search pages, products, pricing…
+  ar: ابحث في الصفحات والمنتجات والأسعار…
+- en: Search query
+  ar: نص البحث
+- en: Close search
+  ar: إغلاق البحث
+- en: Esc
+  ar: Esc
+- en: Type to search the site.
+  ar: اكتب للبحث في الموقع.
+- en: Good ideas deserve<br>a considered digital home.
+  ar: الأفكار الجيدة تستحق<br>بيتا رقميا مدروسا.
+- en: Let’s build yours <span>↗</span>
+  ar: لنبن بيتك الرقمي <span>↖</span>
+- en: 01 / EXPLORE
+  ar: 01 / استكشف
+- en: 02 / THE STUDIO
+  ar: 02 / الاستوديو
+- en: 03 / GET IN TOUCH
+  ar: 03 / تواصل معنا
+- en: Selected work
+  ar: أعمال مختارة
+- en: About Blueprint
+  ar: عن بلو برينت
+- en: How it works
+  ar: آلية العمل
+- en: blueprint@shoug-tech.com ↗
+  ar: blueprint@shoug-tech.com ↖
+- en: Riyadh, Saudi Arabia<br>Arabic & English
+  ar: الرياض، المملكة العربية السعودية<br>العربية والإنجليزية
+- en: Riyadh, Saudi Arabia
+  ar: الرياض، المملكة العربية السعودية
+- en: Arabic & English
+  ar: العربية والإنجليزية
+- en: © 2026 Blueprint Studio · Built with intention.
+  ar: © 2026 بلو برينت ستوديو · صنع بعناية.
+- en: Privacy
+  ar: الخصوصية
+- en: Terms
+  ar: الشروط
+- en: Revisions
+  ar: التعديلات
+- en: STATIC BY DESIGN
+  ar: مواقع ثابتة عن قصد
+- en: Back to top
+  ar: العودة إلى الأعلى
+- en: Start a Project
+  ar: ابدأ مشروعك
+- en: Start a Project →
+  ar: ابدأ مشروعك ←
+- en: Start Your Project →
+  ar: ابدأ مشروعك ←
+- en: Explore Our Work
+  ar: استعرض أعمالنا
+- en: Contact Blueprint
+  ar: تواصل مع بلو برينت
+- en: Blueprint
+  ar: بلو برينت
+- en: BLUEPRINT
+  ar: بلو برينت
+- en: STUDIO
+  ar: ستوديو
+- en: BLUEPRINT<span>STUDIO</span>
+  ar: بلو برينت<span>ستوديو</span>
+- en: SAR
+  ar: ريال
+- en: 99 SAR
+  ar: 99 ريال
+- en: 1 working day
+  ar: يوم عمل واحد
+- en: 1–2 working days
+  ar: من يوم إلى يومي عمل
+- en: Essential
+  ar: الأساسية
+- en: Signature
+  ar: المميزة
+- en: Custom
+  ar: المخصصة
+- en: Target Audience
+  ar: الفئة المستهدفة
+- en: Before · PDF
+  ar: قبل · PDF
+- en: After · HTML
+  ar: بعد · HTML
+- en: Permanent link
+  ar: رابط دائم
+- en: Visit SHOUG.TECH
+  ar: زيارة SHOUG.TECH
+- en: Visit WebForge 2026
+  ar: زيارة WebForge 2026
+- en: WebForge 2026
+  ar: WebForge 2026
+- en: A personal engineering portfolio bringing software projects, cybersecurity labs, and coursework into one navigable home.
+  ar: ملف أعمال هندسي شخصي يجمع مشاريع البرمجيات ومختبرات الأمن السيبراني والمقررات الدراسية في موقع واحد سهل التصفح.
+- en: PROJECT
+  ar: المشروع
+- en: PROJECT TYPE
+  ar: نوع المشروع
+- en: STATUS
+  ar: الحالة
+- en: READY
+  ar: جاهز
+- en: QUOTE
+  ar: عرض السعر
+- en: RESPONSIVE
+  ar: متجاوب
+- en: STATIC-FIRST
+  ar: ثابت أولا

@@ -1148,6 +1148,24 @@
           opacity: 1 !important;
         }
       }
+    
+      /* =====================================================================
+         Wide screens
+         Several stacked .container rules left the last word at 1120px, so a
+         laptop showed the report in 59% of the screen and a desktop in 52%.
+         One final rule now sizes the shell to the display.
+         ===================================================================== */
+      .container {
+        width: min(1720px, 100% - clamp(12px, 4vw, 96px));
+        max-width: none;
+        margin-inline: auto;
+      }
+      @media (min-width: 1024px) {
+        .title-header { max-width: min(1100px, 100%); }
+        .title-slide h1 { max-width: 1000px; }
+      }
+      @media (min-width: 1500px) { :root { --doc-measure: 38em; } }
+
     </style>
   </head>
 

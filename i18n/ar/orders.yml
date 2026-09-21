@@ -1,0 +1,58 @@
+# Cart, checkout and thank-you pages (docs/cart, docs/checkout, docs/thank-you).
+# Links inside translated sentences point at the Arabic pages directly
+# (../products/ from /ar/cart/ is /ar/products/).
+strings:
+- en: Cart - Blueprint
+  ar: السلة - بلو برينت
+- en: Review storefront items saved locally in the browser before checkout.
+  ar: راجع العناصر المحفوظة في متصفحك قبل إتمام الطلب.
+- en: order://cart
+  ar: الطلب · السلة
+- en: Your selections. <em>All in one place.</em>
+  ar: اختياراتك. <em>في مكان واحد.</em>
+- en: Review your chosen products and options before continuing.
+  ar: راجع المنتجات والخيارات التي اخترتها قبل المتابعة.
+- en: Cart
+  ar: السلة
+- en: Your cart uses local storage, so JavaScript is required. You can still browse <a href="../../products/">Products</a> and contact Blueprint directly by email.
+  ar: تعتمد السلة على التخزين المحلي، لذا يلزم تفعيل JavaScript. ويمكنك مع ذلك تصفح <a href="../products/">المنتجات</a> والتواصل مع بلو برينت مباشرة عبر البريد الإلكتروني.
+- en: Checkout - Blueprint
+  ar: إتمام الطلب - بلو برينت
+- en: Submit a Blueprint storefront order from the static site using the Cloudflare checkout worker.
+  ar: أرسل طلبك إلى بلو برينت مباشرة من الموقع.
+- en: order://checkout
+  ar: الطلب · الإتمام
+- en: The next step.<br><em>Made simple.</em>
+  ar: الخطوة التالية.<br><em>ببساطة.</em>
+- en: Review your request and share the contact details we need to follow up.
+  ar: راجع طلبك وشارك بيانات التواصل التي نحتاجها للمتابعة.
+- en: Checkout
+  ar: إتمام الطلب
+- en: Checkout requires JavaScript. If needed, send your order directly to <a href="mailto:blueprint@shoug-tech.com">blueprint@shoug-tech.com</a>.
+  ar: يتطلب إتمام الطلب تفعيل JavaScript. ويمكنك عند الحاجة إرسال طلبك مباشرة إلى <a href="mailto:blueprint@shoug-tech.com">blueprint@shoug-tech.com</a>.
+- en: Thank You - Blueprint
+  ar: شكرا لك - بلو برينت
+- en: Blueprint has received your storefront order request.
+  ar: استلم بلو برينت طلبك.
+- en: Thank You
+  ar: شكرا لك
+- en: Order received
+  ar: تم استلام الطلب
+- en: Thank you. Your Blueprint order is in the queue.
+  ar: شكرا لك. طلبك لدى بلو برينت قيد المعالجة.
+- en: Blueprint has received your order successfully. We will review the selected product details and continue the order using the contact method you selected.
+  ar: استلم بلو برينت طلبك بنجاح. سنراجع تفاصيل المنتج الذي اخترته ونتابع الطلب عبر وسيلة التواصل التي حددتها.
+- en: What happens next
+  ar: ما الذي يحدث بعد ذلك
+- en: Your order request is reviewed by Blueprint.
+  ar: يراجع بلو برينت طلبك.
+- en: You will be contacted using your selected contact method.
+  ar: سنتواصل معك عبر وسيلة التواصل التي اخترتها.
+- en: Next-step details for delivery, customization, or intake will follow.
+  ar: ستصلك لاحقا تفاصيل الخطوة التالية للتسليم أو التخصيص أو الاستقبال.
+- en: Need to update something?
+  ar: تحتاج إلى تعديل شيء ما؟
+- en: If you entered the wrong email address or want to change the requested product, send a follow-up message to <a href="mailto:blueprint@shoug-tech.com">blueprint@shoug-tech.com</a>.
+  ar: إذا أدخلت بريدا إلكترونيا خاطئا أو أردت تغيير المنتج المطلوب، أرسل رسالة متابعة إلى <a href="mailto:blueprint@shoug-tech.com">blueprint@shoug-tech.com</a>.
+- en: Back to Products
+  ar: العودة إلى المنتجات

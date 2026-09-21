@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Arabic typography
+   Applies only to /ar/ pages (Material sets lang="ar" on <html> there).
+   Layout direction is not handled here: hooks/rtl_css.py mirrors every
+   stylesheet for the Arabic build. This file covers what mirroring cannot:
+   type, tracking, emphasis and a few pieces of generated text.
+   ========================================================================== */
+
+/* Arabic faces sit *behind* the Latin ones. Browsers fall back per glyph, so
+   Arabic letters use Noto Kufi / IBM Plex Sans Arabic while the brand name,
+   Latin terms and every digit keep Archivo, Manrope and JetBrains Mono. */
+html[lang="ar"] {
+  --bp-font-display: "Archivo", "Noto Kufi Arabic", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --bp-font-body: "Manrope", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --bp-font-mono: "JetBrains Mono", "IBM Plex Sans Arabic", ui-monospace, monospace;
+  --md-text-font: "Manrope", "IBM Plex Sans Arabic";
+}
+
+html[lang="ar"] body {
+  font-family: var(--bp-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Arabic is a joined script: any letter-spacing pulls the letters of a word
+   apart. The English design tracks its mono labels widely, so tracking is
+   removed everywhere, the Arabic wordmark included. */
+html[lang="ar"] body :not(kbd, code, pre, pre *) {
+  letter-spacing: 0 !important;
+}
+
+/* Arabic has no true italic; the browser would slant the glyphs. Emphasis in
+   headlines is already carried by colour, so keep it upright. */
+html[lang="ar"] :is(em, i, cite, dfn, var) {
+  font-style: normal;
+}
+
+/* Tight display leading clips Arabic ascenders and the dots below letters. */
+html[lang="ar"] :is(
+  h1, h2, h3, h4,
+  .bp-hero__title, .bp-h2, .bp-ph__title, .bp-prod-hero__title,
+  .bp-cta__title, .bp-statement, .studio-hero h1, .studio-final h2
+) {
+  line-height: 1.38;
+}
+
+html[lang="ar"] :is(p, li, dd, td) {
+  line-height: 1.85;
+}
+
+/* Generated text in the English stylesheets. */
+html[lang="ar"] .bp-build__cta::before {
+  content: "عرض المشروع";
+}
+
+html[lang="ar"] .studio-features li::before {
+  content: "‹";
+}
+
+/* Latin fragments inside Arabic sentences (emails, domains, file names) read
+   left to right as a unit. */
+html[lang="ar"] :is(.studio-email, [href^="mailto:"], .bp-proof__price strong) {
+  unicode-bidi: plaintext;
+}
+
+/* --------------------------------------------------------------------------
+   Language toggle (both languages)
+   -------------------------------------------------------------------------- */
+
+.studio-lang {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--bp-line-strong);
+  background: var(--bp-tint-1);
+  color: var(--bp-text-mute) !important;
+  font: 600 0.64rem var(--bp-font-body);
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition:
+    color var(--bp-dur-fast) var(--bp-ease),
+    border-color var(--bp-dur-fast) var(--bp-ease),
+    background-color var(--bp-dur-fast) var(--bp-ease),
+    transform var(--bp-dur-fast) var(--bp-ease);
+}
+
+/* The Arabic label on English pages is set in the Arabic face. */
+.studio-lang[lang="ar"] {
+  font-family: "IBM Plex Sans Arabic", var(--bp-font-body);
+  font-size: 0.7rem;
+}
+
+.studio-lang:hover {
+  color: var(--bp-text) !important;
+  border-color: var(--bp-blue);
+  background: var(--bp-tint-3);
+  transform: translateY(-1px);
+}
+
+.studio-lang:focus-visible {
+  outline: 2px solid var(--bp-blue);
+  outline-offset: 3px;
+}
+
+.studio-lang svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: currentColor;
+}
+
+.studio-lang__short { display: none; }
+
+@media (max-width: 1024px) {
+  .studio-lang__long { display: none; }
+  .studio-lang__short { display: inline; }
+  .studio-lang { padding: 0.36rem 0.55rem; }
+}
+
+@media (max-width: 600px) {
+  .studio-lang { padding: 0.3rem 0.5rem; gap: 0.3rem; }
+  .studio-lang svg { width: 0.8rem; height: 0.8rem; }
+}
+
+@media (max-width: 380px) {
+  .studio-lang svg { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Connector diagrams
+   The hero's animated wire (home) and the fan diagram (products) are SVGs
+   whose line coordinates run left to right. The boxes they connect swap
+   sides in Arabic, so the drawings are flipped to follow them; otherwise
+   the lines draw toward empty space.
+   -------------------------------------------------------------------------- */
+[dir="rtl"] :is(.bp-wire, .bp-fan) {
+  transform: scaleX(-1);
+}

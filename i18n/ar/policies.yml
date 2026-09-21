@@ -1,0 +1,391 @@
+# Legal policies (docs/policies/*.md).
+# Translated faithfully and formally. If a policy's English wording changes,
+# its Arabic here should be reviewed rather than patched word by word.
+strings:
+- en: 'Effective Date:'
+  ar: 'تاريخ السريان:'
+- en: Limitation of Liability
+  ar: حدود المسؤولية
+- en: 'The Studio is not liable for:'
+  ar: 'لا يتحمل الاستوديو المسؤولية عن:'
+- en: Privacy Policy - Blueprint
+  ar: سياسة الخصوصية - بلو برينت
+- en: Privacy Policy
+  ar: سياسة الخصوصية
+- en: Read Blueprint's privacy policy covering inquiry data, processing systems, communication handling, and deletion requests.
+  ar: 'اطلع على سياسة الخصوصية في بلو برينت: بيانات الاستفسارات، وأنظمة المعالجة، وطريقة التواصل، وطلبات الحذف.'
+- en: Blueprint by ShougTech respects your privacy.
+  ar: يحترم بلو برينت من ShougTech خصوصيتك.
+- en: Information We Collect
+  ar: المعلومات التي نجمعها
+- en: 'We may collect:'
+  ar: 'قد نجمع:'
+- en: Name
+  ar: الاسم
+- en: Email address
+  ar: البريد الإلكتروني
+- en: Project details submitted through inquiry forms
+  ar: تفاصيل المشروع المرسلة عبر نماذج الاستفسار
+- en: How Information Is Used
+  ar: كيفية استخدام المعلومات
+- en: 'Your information is used solely to:'
+  ar: 'تستخدم معلوماتك حصرا من أجل:'
+- en: Respond to inquiries
+  ar: الرد على الاستفسارات
+- en: Deliver requested services
+  ar: تقديم الخدمات المطلوبة
+- en: Communicate about project progress
+  ar: التواصل بشأن سير المشروع
+- en: We do not sell or share personal information for marketing purposes.
+  ar: لا نبيع المعلومات الشخصية ولا نشاركها لأغراض تسويقية.
+- en: Data Storage
+  ar: تخزين البيانات
+- en: 'Information may be processed through:'
+  ar: 'قد تعالج المعلومات عبر:'
+- en: Email services
+  ar: خدمات البريد الإلكتروني
+- en: Form processing systems
+  ar: أنظمة معالجة النماذج
+- en: Hosting providers
+  ar: مزودي الاستضافة
+- en: Reasonable measures are taken to handle information securely.
+  ar: نتخذ تدابير معقولة للتعامل مع المعلومات بأمان.
+- en: Data Deletion Requests
+  ar: طلبات حذف البيانات
+- en: You may request deletion of submitted information by contacting us directly.
+  ar: يمكنك طلب حذف المعلومات التي أرسلتها بالتواصل معنا مباشرة.
+- en: Revision Policy - Blueprint
+  ar: سياسة التعديلات - بلو برينت
+- en: Revision Policy
+  ar: سياسة التعديلات
+- en: Learn how Blueprint handles revision rounds, scope limits, additional requests, and approval boundaries during website delivery.
+  ar: تعرف على كيفية تعامل بلو برينت مع جولات التعديل وحدود النطاق والطلبات الإضافية وحدود الاعتماد أثناء تسليم الموقع.
+- en: To maintain efficiency, fairness, and predictable delivery, all projects include a limited number of revision rounds as defined in the agreed package.
+  ar: حفاظا على الكفاءة والعدالة ووضوح مواعيد التسليم، تتضمن جميع المشاريع عددا محدودا من جولات التعديل وفق ما تحدده الباقة المتفق عليها.
+- en: What Counts as a Revision
+  ar: ما يعد تعديلا
+- en: A revision round refers to a single, consolidated set of feedback submitted at one time.
+  ar: جولة التعديل هي مجموعة واحدة موحدة من الملاحظات ترسل دفعة واحدة.
+- en: A revision may include:, Text edits, Minor layout adjustments, Color refinements, Section rearrangements within existing structure, Small structural clarifications
+  ar: قد يشمل التعديل:، تعديل النصوص، تعديلات طفيفة على التخطيط، تحسين الألوان، إعادة ترتيب الأقسام ضمن الهيكل الحالي، توضيحات هيكلية بسيطة
+- en: What Is Considered New Scope
+  ar: ما يعد نطاقا جديدا
+- en: The following fall outside revision scope:, Major layout redesign, Adding new pages beyond the agreed package, Adding features not previously discussed, Changing overall direction after draft delivery, Reworking approved sections from scratch
+  ar: يقع ما يلي خارج نطاق التعديلات:، إعادة تصميم التخطيط جذريا، إضافة صفحات جديدة تتجاوز الباقة المتفق عليها، إضافة ميزات لم تناقش سابقا، تغيير التوجه العام بعد تسليم المسودة، إعادة العمل على أقسام معتمدة من البداية
+- en: Such requests may require a revised quote before implementation.
+  ar: قد تتطلب هذه الطلبات عرض سعر معدلا قبل التنفيذ.
+- en: Revision Round Guidelines, Feedback must be consolidated into a single message per round., Feedback should reference specific sections or pages., Vague requests (e.g., "make it better") may require clarification before changes are made., Additional feedback submitted after a round has been completed may count as a new revision round.
+  ar: إرشادات جولات التعديل، يجب جمع الملاحظات في رسالة واحدة لكل جولة.، يجب أن تشير الملاحظات إلى أقسام أو صفحات محددة.، قد تحتاج الطلبات المبهمة (مثل «اجعله أفضل») إلى توضيح قبل إجراء التغييرات.، قد تحتسب الملاحظات الإضافية المرسلة بعد اكتمال الجولة جولة تعديل جديدة.
+- en: Timeline Impact, Delays in submitting feedback may extend the project timeline., Projects may be paused if feedback is not received within a reasonable timeframe.
+  ar: الأثر على الجدول الزمني، قد يؤدي التأخر في إرسال الملاحظات إلى تمديد مدة المشروع.، قد يعلق المشروع إذا لم تصل الملاحظات خلال مدة معقولة.
+- en: Final Approval
+  ar: الاعتماد النهائي
+- en: Once final approval is given:, The project moves to payment., No additional revisions are included., Handover occurs after payment confirmation.
+  ar: بعد منح الاعتماد النهائي:، ينتقل المشروع إلى مرحلة الدفع.، لا تشمل أي تعديلات إضافية.، يتم التسليم بعد تأكيد الدفع.
+- en: Revisions are intended to refine, not redesign, the approved structure.
+  ar: الغرض من التعديلات تحسين الهيكل المعتمد، لا إعادة تصميمه.
+- en: Structured feedback leads to efficient delivery.
+  ar: الملاحظات المنظمة تؤدي إلى تسليم أكثر كفاءة.
+- en: Content Responsibility - Blueprint
+  ar: المسؤولية عن المحتوى - بلو برينت
+- en: Content Responsibility Policy
+  ar: سياسة المسؤولية عن المحتوى
+- en: Content Responsibility
+  ar: المسؤولية عن المحتوى
+- en: Understand client and studio responsibilities for the accuracy, ownership, and approval of content published on Blueprint websites.
+  ar: تعرف على مسؤوليات العميل والاستوديو تجاه دقة المحتوى المنشور في مواقع بلو برينت وملكيته واعتماده.
+- en: Clients are solely responsible for all content provided for their project.
+  ar: يتحمل العملاء وحدهم المسؤولية عن كل المحتوى المقدم لمشاريعهم.
+- en: 'This includes, but is not limited to:'
+  ar: 'ويشمل ذلك، على سبيل المثال لا الحصر:'
+- en: Text and written materials
+  ar: النصوص والمواد المكتوبة
+- en: Images, graphics, and diagrams
+  ar: الصور والرسومات والمخططات
+- en: Logos, branding elements, and third-party assets
+  ar: الشعارات وعناصر الهوية والمواد المملوكة لأطراف ثالثة
+- en: Academic claims and research statements
+  ar: الادعاءات الأكاديمية والعبارات البحثية
+- en: Project descriptions and case details
+  ar: أوصاف المشاريع وتفاصيل الحالات
+- en: External links and references
+  ar: الروابط والمراجع الخارجية
+- en: Blueprint Studio does not independently verify authorship, academic validity, or licensing rights.
+  ar: لا تتحقق بلو برينت ستوديو بشكل مستقل من نسبة الأعمال إلى أصحابها أو صحتها الأكاديمية أو حقوق ترخيصها.
+- en: Content Rights & Permissions
+  ar: حقوق المحتوى والأذونات
+- en: 'By submitting materials, the client confirms that:'
+  ar: 'بتقديم المواد، يؤكد العميل أن:'
+- en: They own or have legal permission to use all provided content.
+  ar: يملك كل المحتوى المقدم أو لديه إذن قانوني باستخدامه.
+- en: The content does not infringe copyright, trademark, or intellectual property rights.
+  ar: المحتوى لا ينتهك حقوق النشر أو العلامات التجارية أو حقوق الملكية الفكرية.
+- en: The content does not contain plagiarism or misrepresentation.
+  ar: المحتوى لا يتضمن انتحالا أو تضليلا.
+- en: The content complies with applicable laws and institutional policies.
+  ar: المحتوى متوافق مع الأنظمة المعمول بها وسياسات الجهات المعنية.
+- en: Academic Integrity
+  ar: النزاهة الأكاديمية
+- en: 'For academic projects, the client is responsible for:'
+  ar: 'في المشاريع الأكاديمية، يتحمل العميل مسؤولية:'
+- en: Meeting all academic honesty standards
+  ar: الالتزام بجميع معايير الأمانة الأكاديمية
+- en: Confirming originality of research and written work
+  ar: التأكد من أصالة البحث والعمل المكتوب
+- en: Ensuring submission compliance with institutional rules
+  ar: ضمان توافق التسليم مع أنظمة الجهة الأكاديمية
+- en: Blueprint Studio is not responsible for grading outcomes or institutional review decisions.
+  ar: لا تتحمل بلو برينت ستوديو المسؤولية عن نتائج التقييم أو قرارات المراجعة لدى الجهات الأكاديمية.
+- en: AI-Generated or Third-Party Content
+  ar: المحتوى المنشأ بالذكاء الاصطناعي أو من أطراف ثالثة
+- en: 'If AI-generated content, stock images, templates, or third-party materials are used, the client is responsible for:'
+  ar: 'عند استخدام محتوى منشأ بالذكاء الاصطناعي أو صور جاهزة أو قوالب أو مواد من أطراف ثالثة، يتحمل العميل مسؤولية:'
+- en: Confirming usage rights
+  ar: التأكد من حقوق الاستخدام
+- en: Verifying originality and attribution requirements
+  ar: التحقق من الأصالة ومتطلبات نسبة المصدر
+- en: Ensuring compliance with licensing terms
+  ar: ضمان الالتزام بشروط الترخيص
+- en: Intellectual property claims
+  ar: مطالبات الملكية الفكرية
+- en: Academic misconduct claims
+  ar: ادعاءات المخالفات الأكاديمية
+- en: Misrepresentation or factual inaccuracies
+  ar: التضليل أو الأخطاء في المعلومات
+- en: Legal disputes arising from submitted content
+  ar: النزاعات القانونية الناشئة عن المحتوى المقدم
+- en: Consequences resulting from third-party use of provided materials
+  ar: العواقب المترتبة على استخدام أطراف ثالثة للمواد المقدمة
+- en: All responsibility for content remains with the client.
+  ar: تبقى المسؤولية الكاملة عن المحتوى على العميل.
+- en: Blueprint Studio provides structure and presentation services only. Content accuracy remains the responsibility of the client.
+  ar: تقدم بلو برينت ستوديو خدمات الهيكلة والعرض فقط، وتبقى دقة المحتوى مسؤولية العميل.
+- en: Copyright - Blueprint
+  ar: حقوق النشر - بلو برينت
+- en: Copyright
+  ar: حقوق النشر
+- en: Review copyright terms for Blueprint source work, client-provided assets, reuse rights, and published website materials.
+  ar: اطلع على شروط حقوق النشر لأعمال بلو برينت الأصلية، والمواد المقدمة من العملاء، وحقوق إعادة الاستخدام، ومواد المواقع المنشورة.
+- en: This page defines ownership boundaries for both Blueprint and its clients.
+  ar: تحدد هذه الصفحة حدود الملكية لكل من بلو برينت وعملائه.
+- en: All content, structure, and design systems used across Blueprint Studio websites are protected under applicable intellectual property laws.
+  ar: جميع المحتويات والهياكل وأنظمة التصميم المستخدمة في مواقع بلو برينت ستوديو محمية بموجب أنظمة الملكية الفكرية المعمول بها.
+- en: Client Content Ownership
+  ar: ملكية العميل للمحتوى
+- en: 'Clients retain full ownership of:'
+  ar: 'يحتفظ العملاء بالملكية الكاملة لـ:'
+- en: Submitted written content
+  ar: المحتوى المكتوب المقدم
+- en: Uploaded images and media
+  ar: الصور والوسائط المرفوعة
+- en: Logos and brand assets
+  ar: الشعارات ومواد الهوية
+- en: Research data and documentation
+  ar: البيانات البحثية والتوثيق
+- en: Reports and academic documents
+  ar: التقارير والمستندات الأكاديمية
+- en: Blueprint does not claim ownership over any client-provided materials.
+  ar: لا يدعي بلو برينت ملكية أي مواد يقدمها العميل.
+- en: Clients are responsible for maintaining compliance with academic, institutional, or regulatory requirements related to their content.
+  ar: يتحمل العملاء مسؤولية الالتزام بالمتطلبات الأكاديمية أو المؤسسية أو التنظيمية المتعلقة بمحتواهم.
+- en: Blueprint Intellectual Property
+  ar: الملكية الفكرية لبلو برينت
+- en: 'Unless explicitly transferred in writing, the following remain the intellectual property of Blueprint Studio:'
+  ar: 'ما لم ينقل صراحة وكتابيا، يبقى ما يلي ملكية فكرية لبلو برينت ستوديو:'
+- en: Structural frameworks
+  ar: الأطر الهيكلية
+- en: Core layout systems
+  ar: أنظمة التخطيط الأساسية
+- en: Navigation patterns
+  ar: أنماط التنقل
+- en: Section architecture models
+  ar: نماذج بنية الأقسام
+- en: Reusable styling systems
+  ar: أنظمة التنسيق القابلة لإعادة الاستخدام
+- en: Internal production workflows
+  ar: سير العمل الداخلي للإنتاج
+- en: Clients receive usage rights for their delivered website, not ownership of Blueprint's underlying framework or design methodology.
+  ar: يحصل العملاء على حقوق استخدام موقعهم المسلم، لا على ملكية الإطار الأساسي أو منهجية التصميم الخاصة بـ بلو برينت.
+- en: Blueprint reserves the right to reuse structural systems across future projects.
+  ar: يحتفظ بلو برينت بحق إعادة استخدام الأنظمة الهيكلية في المشاريع المستقبلية.
+- en: Template Products
+  ar: منتجات القوالب
+- en: CV templates and downloadable products are licensed for individual use only.
+  ar: قوالب السيرة الذاتية والمنتجات القابلة للتنزيل مرخصة للاستخدام الفردي فقط.
+- en: 'Clients may:'
+  ar: 'يحق للعملاء:'
+- en: Edit the files
+  ar: تعديل الملفات
+- en: Host them independently
+  ar: استضافتها بشكل مستقل
+- en: Deploy them for personal or academic use
+  ar: نشرها للاستخدام الشخصي أو الأكاديمي
+- en: 'Clients may not:'
+  ar: 'لا يحق للعملاء:'
+- en: Resell templates
+  ar: إعادة بيع القوالب
+- en: Redistribute source files
+  ar: إعادة توزيع ملفات المصدر
+- en: Claim the design framework as their own product
+  ar: نسبة إطار التصميم إليهم كمنتج خاص بهم
+- en: Source Files and Repository Access
+  ar: ملفات المصدر والوصول إلى المستودع
+- en: 'Upon final approval and payment confirmation:'
+  ar: 'بعد الاعتماد النهائي وتأكيد الدفع:'
+- en: Repository access or source files are transferred as agreed during intake.
+  ar: تنقل صلاحية الوصول إلى المستودع أو ملفات المصدر وفق ما اتفق عليه عند الاستقبال.
+- en: Clients assume responsibility for future edits unless a maintenance agreement is active.
+  ar: يتحمل العملاء مسؤولية التعديلات المستقبلية ما لم تكن هناك اتفاقية صيانة سارية.
+- en: Blueprint is not responsible for modifications made after handover.
+  ar: لا يتحمل بلو برينت المسؤولية عن التعديلات التي تجرى بعد التسليم.
+- en: Portfolio Rights
+  ar: حقوق العرض في ملف الأعمال
+- en: Blueprint reserves the right to display completed projects in its portfolio unless a confidentiality agreement was confirmed in writing before project initiation.
+  ar: يحتفظ بلو برينت بحق عرض المشاريع المكتملة في ملف أعماله، ما لم تؤكد اتفاقية سرية كتابيا قبل بدء المشروع.
+- en: Client-sensitive information may be redacted upon request.
+  ar: يمكن حجب المعلومات الحساسة الخاصة بالعميل عند الطلب.
+- en: 'Blueprint is not responsible for:'
+  ar: 'لا يتحمل بلو برينت المسؤولية عن:'
+- en: Hosting platform outages
+  ar: انقطاع منصات الاستضافة
+- en: GitHub service interruptions
+  ar: توقف خدمات GitHub
+- en: Third-party domain provider issues
+  ar: مشكلات مزودي النطاقات من الأطراف الثالثة
+- en: Changes made by the client after handover
+  ar: التغييرات التي يجريها العميل بعد التسليم
+- en: 'For copyright or licensing questions, contact:'
+  ar: 'للاستفسار عن حقوق النشر أو الترخيص، تواصل مع:'
+- en: Terms of Service - Blueprint
+  ar: شروط الخدمة - بلو برينت
+- en: Terms of Service
+  ar: شروط الخدمة
+- en: Review Blueprint's terms of service for project scope, delivery limits, client responsibilities, payments, and handover conditions.
+  ar: 'اطلع على شروط الخدمة في بلو برينت: نطاق المشروع، وحدود التسليم، ومسؤوليات العميل، والدفع، وشروط التسليم.'
+- en: These Terms of Service govern the services provided by Blueprint by ShougTech.
+  ar: تحكم شروط الخدمة هذه الخدمات التي يقدمها بلو برينت من ShougTech.
+- en: By requesting, approving, or proceeding with a project, you agree to these terms.
+  ar: بطلبك مشروعا أو اعتماده أو المضي فيه، فإنك توافق على هذه الشروط.
+- en: 1. Scope of Services
+  ar: 1. نطاق الخدمات
+- en: 'Blueprint provides structured static website development services, including:'
+  ar: 'يقدم بلو برينت خدمات تطوير مواقع ثابتة منظمة، تشمل:'
+- en: Academic documentation websites
+  ar: مواقع التوثيق الأكاديمي
+- en: Workshop or course landing pages
+  ar: الصفحات التعريفية لورش العمل أو المقررات
+- en: Services are limited to static website architecture.
+  ar: تقتصر الخدمات على بنية المواقع الثابتة.
+- en: 'The following are not included:'
+  ar: 'لا يشمل ذلك ما يلي:'
+- en: Databases
+  ar: قواعد البيانات
+- en: Authentication systems
+  ar: أنظمة تسجيل الدخول
+- en: E-commerce systems
+  ar: أنظمة المتاجر الإلكترونية
+- en: Custom web applications
+  ar: تطبيقات الويب المخصصة
+- en: Ongoing hosting or technical maintenance unless explicitly agreed in writing
+  ar: الاستضافة أو الصيانة التقنية المستمرة ما لم يتفق عليها صراحة وكتابيا
+- en: Any request outside the confirmed package scope is considered new work and may require additional fees.
+  ar: أي طلب خارج نطاق الباقة المؤكدة يعد عملا جديدا وقد يتطلب رسوما إضافية.
+- en: 2. Project Workflow
+  ar: 2. سير المشروع
+- en: 'Projects follow a structured delivery process:'
+  ar: 'تسير المشاريع وفق مراحل تسليم منظمة:'
+- en: Scope and structure are confirmed
+  ar: تأكيد النطاق والهيكل
+- en: Client submits required content and materials
+  ar: تقديم العميل للمحتوى والمواد المطلوبة
+- en: First draft is delivered
+  ar: تسليم المسودة الأولى
+- en: Included revision rounds are completed
+  ar: إتمام جولات التعديل المشمولة
+- en: Final version is approved
+  ar: اعتماد النسخة النهائية
+- en: Payment is completed
+  ar: إتمام الدفع
+- en: Handover and deployment transfer occur
+  ar: التسليم ونقل النشر
+- en: Failure to provide required content or feedback may pause or delay the project timeline.
+  ar: قد يؤدي عدم تقديم المحتوى أو الملاحظات المطلوبة إلى تعليق المشروع أو تأخير جدوله الزمني.
+- en: 3. Payment Terms
+  ar: 3. شروط الدفع
+- en: Payment is due after final approval and before project handover.
+  ar: يستحق الدفع بعد الاعتماد النهائي وقبل تسليم المشروع.
+- en: The Studio reserves the right to withhold final files, repository access, or deployment credentials until full payment is received.
+  ar: يحتفظ الاستوديو بحق حجب الملفات النهائية أو صلاحية المستودع أو بيانات النشر حتى استلام المبلغ كاملا.
+- en: All payments are non-refundable once final approval has been granted.
+  ar: جميع المدفوعات غير قابلة للاسترداد بعد منح الاعتماد النهائي.
+- en: 4. Intellectual Property
+  ar: 4. الملكية الفكرية
+- en: 'Upon full payment:'
+  ar: 'بعد سداد المبلغ كاملا:'
+- en: The client retains ownership of all content they provide.
+  ar: يحتفظ العميل بملكية كل المحتوى الذي يقدمه.
+- en: The client receives rights to use the final website deliverable.
+  ar: يحصل العميل على حق استخدام الموقع النهائي المسلم.
+- en: The Studio retains ownership of underlying templates, structural systems, and reusable components.
+  ar: يحتفظ الاستوديو بملكية القوالب الأساسية والأنظمة الهيكلية والعناصر القابلة لإعادة الاستخدام.
+- en: Unless otherwise agreed, the Studio may display completed work for portfolio and case study purposes.
+  ar: ما لم يتفق على خلاف ذلك، يحق للاستوديو عرض الأعمال المكتملة في ملف الأعمال ودراسات الحالة.
+- en: 5. Client Responsibilities
+  ar: 5. مسؤوليات العميل
+- en: 'The client is responsible for:'
+  ar: 'يتحمل العميل مسؤولية:'
+- en: Providing accurate and complete content
+  ar: تقديم محتوى دقيق ومكتمل
+- en: Ensuring they have rights to all submitted materials
+  ar: التأكد من امتلاكه حقوق جميع المواد المقدمة
+- en: Reviewing drafts within a reasonable timeframe
+  ar: مراجعة المسودات خلال مدة معقولة
+- en: Providing clear and actionable feedback
+  ar: تقديم ملاحظات واضحة وقابلة للتنفيذ
+- en: Blueprint provides structured digital presentation services only.
+  ar: يقدم بلو برينت خدمات العرض الرقمي المنظم فقط.
+- en: The Studio is not responsible for verifying factual, academic, or professional claims.
+  ar: لا يتحمل الاستوديو مسؤولية التحقق من صحة الادعاءات الواقعية أو الأكاديمية أو المهنية.
+- en: 6. Limitation of Liability
+  ar: 6. حدود المسؤولية
+- en: Hosting provider outages or platform changes
+  ar: انقطاع مزود الاستضافة أو تغييرات المنصات
+- en: Domain registration issues
+  ar: مشكلات تسجيل النطاقات
+- en: Third-party service interruptions
+  ar: توقف خدمات الأطراف الثالثة
+- en: Content accuracy or academic evaluation outcomes
+  ar: دقة المحتوى أو نتائج التقييم الأكاديمي
+- en: Indirect or consequential damages arising from website use
+  ar: الأضرار غير المباشرة أو التبعية الناشئة عن استخدام الموقع
+- en: Total liability, if any, is limited to the amount paid for the project.
+  ar: تقتصر المسؤولية الإجمالية، إن وجدت، على المبلغ المدفوع مقابل المشروع.
+- en: 7. Termination
+  ar: 7. إنهاء التعاقد
+- en: 'The Studio reserves the right to decline, pause, or discontinue a project if:'
+  ar: 'يحتفظ الاستوديو بحق رفض المشروع أو تعليقه أو إيقافه في الحالات التالية:'
+- en: Content is illegal, plagiarized, or inappropriate
+  ar: إذا كان المحتوى مخالفا للأنظمة أو منتحلا أو غير لائق
+- en: Communication becomes unreasonable or abusive
+  ar: إذا أصبح التواصل غير معقول أو مسيئا
+- en: The scope expands beyond agreement
+  ar: إذا توسع النطاق بما يتجاوز المتفق عليه
+- en: The client violates these Terms
+  ar: إذا خالف العميل هذه الشروط
+- en: In such cases, work completed up to that point may be invoiced accordingly.
+  ar: وفي هذه الحالات، قد تصدر فاتورة بالعمل المنجز حتى تلك المرحلة.
+- en: 'Handover includes:'
+  ar: 'يشمل التسليم:'
+- en: Final source files or repository transfer
+  ar: ملفات المصدر النهائية أو نقل المستودع
+- en: Deployment confirmation
+  ar: تأكيد النشر
+- en: Domain connection (if applicable)
+  ar: ربط النطاق (إن وجد)
+- en: 8. Acceptance of Terms
+  ar: 8. قبول الشروط
+- en: Proceeding with a project confirms acceptance of these Terms of Service.
+  ar: المضي في المشروع يعد قبولا لشروط الخدمة هذه.
+patterns:
+- match: ^<strong>Effective Date:</strong> (\d+/\d+/\d+)$
+  ar: <strong>تاريخ السريان:</strong> \1

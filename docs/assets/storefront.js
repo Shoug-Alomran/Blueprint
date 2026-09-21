@@ -17,8 +17,10 @@
     packages: "/packages/",
     htmlReports: "/html-reports/",
   };
+  // Arabic pages live under /ar/; keep shoppers in the language they chose.
+  var localePrefix = document.documentElement.lang === "ar" ? "ar/" : "";
   Object.keys(PATHS).forEach(function (key) {
-    PATHS[key] = storefrontRoot + PATHS[key].replace(/^\//, "");
+    PATHS[key] = storefrontRoot + localePrefix + PATHS[key].replace(/^\//, "");
   });
   var CV_PRICING = {
     Basic: {

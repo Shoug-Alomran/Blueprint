@@ -1061,7 +1061,7 @@
       '<span class="dot dot-red"></span>' +
       '<span class="dot dot-yellow"></span>' +
       '<span class="dot dot-green"></span>' +
-      '<span class="page-hero__ref">page://' +
+      '<span class="page-hero__ref" translate="no">page://' +
       pageRef +
       "</span>";
     hero.appendChild(bar);

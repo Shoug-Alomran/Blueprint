@@ -2370,6 +2370,22 @@ svg {
 .studio-pricing .studio-plan > p {
   min-height: 78px;
 }
+.studio-pricing .studio-plan > p.studio-plan-scope {
+  min-height: 0;
+  margin: 0;
+  font-size: 13px;
+}
+.studio-plan-scope strong {
+  color: var(--bp-text);
+  margin-inline-end: 14px;
+}
+.studio-plan-scope a {
+  color: var(--studio-blue);
+  text-decoration: none;
+}
+.studio-plan-scope a:hover {
+  text-decoration: underline;
+}
 .studio-pricing .studio-plan .studio-label {
   font-size: 10px;
 }
@@ -3438,15 +3454,17 @@ body.bp-search-open {
 }
 
 @media (max-width: 600px) {
+  /* Five controls share the bar on phones (brand, menu, search, language,
+     theme), so gaps and the wordmark tighten a step further. */
   .studio-header {
-    gap: 10px;
-    padding: 12px 16px;
+    gap: 6px;
+    padding: 12px 14px;
     min-height: 66px;
   }
   .studio-brand {
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: -0.5px;
-    gap: 8px;
+    gap: 7px;
   }
   .studio-brand .studio-mark {
     width: 26px;
@@ -3475,7 +3493,7 @@ body.bp-search-open {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   /* Below this the wordmark is the first thing worth losing. */
   .studio-brand span span {
     display: none;

@@ -1,0 +1,168 @@
+# Feature demos (docs/work-demos/*.md).
+strings:
+- en: Animated Stats Section
+  ar: قسم الإحصائيات المتحركة
+- en: Animated Stats Section - Blueprint
+  ar: قسم الإحصائيات المتحركة - بلو برينت
+- en: Animated Stats Section demo video
+  ar: فيديو عرض قسم الإحصائيات المتحركة
+- en: Preview video for the Animated Stats Section demo
+  ar: فيديو معاينة لعرض قسم الإحصائيات المتحركة
+- en: Key metrics that count up and animate into view as the page scrolls.
+  ar: مؤشرات رئيسية تتصاعد أرقامها وتظهر بحركة مع تمرير الصفحة.
+- en: Watch the Blueprint animated stats section demo showing metrics animating into view.
+  ar: شاهد عرض بلو برينت لقسم الإحصائيات المتحركة وهي تظهر بحركة سلسة.
+- en: Animations
+  ar: الحركات
+- en: Animations - Blueprint
+  ar: الحركات - بلو برينت
+- en: Animations demo video
+  ar: فيديو عرض الحركات
+- en: Preview video for the Animations demo
+  ar: فيديو معاينة لعرض الحركات
+- en: Micro-interactions and motion polish applied across UI elements.
+  ar: تفاعلات دقيقة ولمسات حركية مصقولة على عناصر الواجهة.
+- en: Watch the Blueprint animations demo showing motion and micro-interaction polish.
+  ar: شاهد عرض بلو برينت للحركات والتفاعلات الدقيقة.
+- en: Collapsing Navigation
+  ar: القائمة القابلة للطي
+- en: Collapsing Navigation - Blueprint
+  ar: القائمة القابلة للطي - بلو برينت
+- en: Collapsing Navigation demo video
+  ar: فيديو عرض القائمة القابلة للطي
+- en: Preview video for the Collapsing Navigation demo
+  ar: فيديو معاينة لعرض القائمة القابلة للطي
+- en: Responsive navigation behavior with compact states across viewport sizes.
+  ar: تنقل متجاوب يتحول إلى حالة مضغوطة حسب مقاس الشاشة.
+- en: Watch the Blueprint navigation demo showing how the menu adapts across viewport sizes.
+  ar: شاهد عرض بلو برينت لكيفية تكيف القائمة مع مختلف مقاسات الشاشات.
+- en: Dark/Light Mode
+  ar: الوضع الداكن/الفاتح
+- en: Dark/Light Mode - Blueprint
+  ar: الوضع الداكن/الفاتح - بلو برينت
+- en: Dark/Light Mode demo video
+  ar: فيديو عرض الوضع الداكن/الفاتح
+- en: Preview video for the Dark/Light Mode demo
+  ar: فيديو معاينة لعرض الوضع الداكن/الفاتح
+- en: Theme switching with readable contrast and smooth visual state changes.
+  ar: تبديل المظهر مع تباين مريح للقراءة وانتقال بصري سلس.
+- en: Watch the Blueprint theme toggle demo showing dark and light mode transitions.
+  ar: شاهد عرض بلو برينت للتبديل بين الوضعين الداكن والفاتح.
+- en: GitHub Flow
+  ar: سير عمل GitHub
+- en: GitHub Flow - Blueprint
+  ar: سير عمل GitHub - بلو برينت
+- en: GitHub Flow demo video
+  ar: فيديو عرض سير عمل GitHub
+- en: Preview video for the GitHub Flow demo
+  ar: فيديو معاينة لعرض سير عمل GitHub
+- en: Clean documentation workflow using branching, commits, and controlled publishing.
+  ar: سير عمل منظم للتوثيق باستخدام الفروع والإيداعات والنشر المنضبط.
+- en: Watch the Blueprint documentation workflow demo covering branching, commits, and publishing.
+  ar: 'شاهد عرض بلو برينت لسير عمل التوثيق: الفروع والإيداعات والنشر.'
+- en: Page Redirect
+  ar: إعادة توجيه الصفحات
+- en: Page Redirect - Blueprint
+  ar: إعادة توجيه الصفحات - بلو برينت
+- en: Page Redirect demo video
+  ar: فيديو عرض إعادة توجيه الصفحات
+- en: Preview video for the Page Redirect demo
+  ar: فيديو معاينة لعرض إعادة توجيه الصفحات
+- en: Redirect behavior that preserves user context and avoids dead-end navigation.
+  ar: إعادة توجيه تحافظ على سياق الزائر وتمنع الوصول إلى صفحات مسدودة.
+- en: Watch the Blueprint redirect demo showing how navigation preserves user context.
+  ar: شاهد عرض بلو برينت لكيفية حفاظ إعادة التوجيه على سياق الزائر.
+- en: Translation Toggle
+  ar: زر تبديل اللغة
+- en: Translation Toggle - Blueprint
+  ar: زر تبديل اللغة - بلو برينت
+- en: Translation Toggle demo video
+  ar: فيديو عرض زر تبديل اللغة
+- en: Preview video for the Translation Toggle demo
+  ar: فيديو معاينة لعرض زر تبديل اللغة
+- en: Language toggle flow for switching between localized content views.
+  ar: آلية تبديل اللغة للتنقل بين نسخ المحتوى المترجمة.
+- en: Watch the Blueprint language toggle demo showing localized content switching.
+  ar: شاهد عرض بلو برينت لتبديل اللغة بين نسخ المحتوى.
+- en: Walkthrough
+  ar: جولة تعريفية
+- en: Walkthrough - Blueprint
+  ar: جولة تعريفية - بلو برينت
+- en: Walkthrough demo video
+  ar: فيديو عرض جولة تعريفية
+- en: Preview video for the Walkthrough demo
+  ar: فيديو معاينة لعرض جولة تعريفية
+- en: A guided tour through the interface, from first view to core actions.
+  ar: جولة موجهة في الواجهة، من أول نظرة حتى الإجراءات الأساسية.
+- en: Watch the Blueprint walkthrough demo covering the interface end-to-end.
+  ar: شاهد جولة بلو برينت التعريفية في الواجهة من البداية إلى النهاية.
+- en: Demos - Blueprint
+  ar: عروض الميزات - بلو برينت
+- en: Watch Blueprint interface and website demos showing navigation, theme behavior, layout interactions, and report presentation examples.
+  ar: 'شاهد عروض بلو برينت للواجهات والمواقع: التنقل، وتبديل المظهر، وتفاعلات التخطيط، وأمثلة عرض التقارير.'
+- en: portfolio://feature-demos
+  ar: الأعمال · عروض الميزات
+- en: Small details.<br><em>A better experience.</em>
+  ar: تفاصيل صغيرة.<br><em>وتجربة أفضل.</em>
+- en: Explore the interactions that make a website easier to use, from clear navigation to thoughtful motion and language switching.
+  ar: استكشف التفاعلات التي تجعل الموقع أسهل استخداما، من التنقل الواضح إلى الحركة المدروسة وتبديل اللغة.
+- en: Client Work
+  ar: أعمالنا
+- en: Watch demo
+  ar: شاهد العرض
+- en: Back to all demos
+  ar: العودة إلى جميع العروض
+- en: 'This demo focuses on:'
+  ar: 'يركز هذا العرض على:'
+- en: Open video file
+  ar: فتح ملف الفيديو
+- en: Your browser does not support embedded videos.
+  ar: متصفحك لا يدعم تشغيل الفيديو المضمن.
+- en: numeric values that animate from zero into their final state
+  ar: قيم رقمية تتحرك من الصفر حتى قيمتها النهائية
+- en: timed reveals that draw attention to key metrics
+  ar: ظهور متتابع يلفت الانتباه إلى المؤشرات الرئيسية
+- en: maintaining layout stability while stats animate in
+  ar: الحفاظ على ثبات التخطيط أثناء ظهور الإحصائيات
+- en: subtle motion cues that reinforce interactive elements
+  ar: إشارات حركية خفيفة تبرز العناصر التفاعلية
+- en: transitions that feel responsive without being distracting
+  ar: انتقالات سريعة الاستجابة دون أن تشتت الانتباه
+- en: consistent timing and easing across components
+  ar: توقيت وتسارع متسقان في جميع العناصر
+- en: switching between expanded and compact navigation states
+  ar: التبديل بين حالتي القائمة الموسعة والمضغوطة
+- en: preserving access to key links on narrower screens
+  ar: الحفاظ على الوصول إلى الروابط الرئيسية في الشاشات الضيقة
+- en: keeping the page layout stable while navigation changes
+  ar: الحفاظ على ثبات تخطيط الصفحة أثناء تغير القائمة
+- en: switching color schemes without jarring flashes
+  ar: تبديل الألوان دون وميض مزعج
+- en: preserving contrast for headings, cards, and controls
+  ar: الحفاظ على التباين في العناوين والبطاقات وأدوات التحكم
+- en: maintaining a consistent visual hierarchy in both themes
+  ar: الحفاظ على تسلسل بصري متسق في الوضعين
+- en: isolating work in branches before review
+  ar: عزل العمل في فروع قبل المراجعة
+- en: documenting changes with clear commit history
+  ar: توثيق التغييرات بسجل إيداعات واضح
+- en: publishing updates through a controlled workflow
+  ar: نشر التحديثات عبر سير عمل منضبط
+- en: redirecting users to the right destination quickly
+  ar: توجيه الزوار إلى الوجهة الصحيحة بسرعة
+- en: preserving context instead of dropping visitors on dead ends
+  ar: الحفاظ على السياق بدل ترك الزوار في صفحات مسدودة
+- en: keeping navigation predictable during route changes
+  ar: إبقاء التنقل متوقعا عند تغير المسارات
+- en: switching between language versions clearly
+  ar: التبديل بوضوح بين نسخ اللغات
+- en: preserving page meaning across localized routes
+  ar: الحفاظ على معنى الصفحة عبر المسارات المترجمة
+- en: keeping the UI consistent while content language changes
+  ar: إبقاء الواجهة متسقة عند تغير لغة المحتوى
+- en: an end-to-end tour of the core interface
+  ar: جولة شاملة في الواجهة الأساسية
+- en: how key sections and actions connect to one another
+  ar: كيف ترتبط الأقسام والإجراءات الرئيسية ببعضها
+- en: context for first-time viewers navigating the product
+  ar: سياق يساعد الزائر الجديد على التنقل في المنتج

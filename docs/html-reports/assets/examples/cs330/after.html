@@ -1482,6 +1482,12 @@
           font-size: 0.9em;
         }
       }
+    
+      /* Wide screens: the shell grows with the display instead of stopping at
+         1520px; prose widens slightly and card grids gain columns. */
+      .main-content, .content-container { max-width: min(1780px, 100% - clamp(24px, 4vw, 96px)); }
+      @media (min-width: 1500px) { :root { --doc-measure: 38em; } }
+
     </style>
   </head>
   <body>

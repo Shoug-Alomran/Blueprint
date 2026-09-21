@@ -10,6 +10,37 @@
    nothing on pages nobody searches from.
    --------------------------------------------------------------------------- */
 (function () {
+  // Arabic pages search the Arabic index, which the build writes to /ar/.
+  var AR = document.documentElement.lang === "ar";
+  var TEXT = AR
+    ? {
+        idle: "اكتب للبحث في الموقع.",
+        none: function (q) { return "لا توجد نتائج لـ «" + q + "»."; },
+        count: function (n) {
+          return n === 1 ? "نتيجة واحدة" : n === 2 ? "نتيجتان" : n + (n <= 10 ? " نتائج" : " نتيجة");
+        },
+        untitled: "بدون عنوان",
+      }
+    : {
+        idle: "Type to search the site.",
+        none: function (q) { return "No matches for “" + q + "”."; },
+        count: function (n) { return n + (n === 1 ? " result" : " results"); },
+        untitled: "Untitled",
+      };
+
+  /* Arabic spelling varies in ways readers treat as the same word: hamza
+     forms of alef, taa marbuta vs haa, alef maqsura vs yaa, and optional
+     diacritics. Fold them on both sides so "اسعار" finds "أسعار". */
+  function fold(value) {
+    value = (value || "").toLowerCase();
+    if (!AR) return value;
+    return value
+      .replace(/[\u064B-\u0652\u0640]/g, "")
+      .replace(/[أإآ]/g, "ا")
+      .replace(/ة/g, "ه")
+      .replace(/ى/g, "ي");
+  }
+
   var docs = null;
   var loading = null;
   var activeIndex = -1;
@@ -24,7 +55,7 @@
   function load() {
     if (docs) return Promise.resolve(docs);
     if (loading) return loading;
-    loading = fetch(root() + "search/search_index.json")
+    loading = fetch(root() + (AR ? "ar/" : "") + "search/search_index.json")
       .then(function (r) {
         return r.json();
       })
@@ -43,12 +74,12 @@
   }
 
   function terms(query) {
-    return query.toLowerCase().split(/\s+/).filter(Boolean);
+    return fold(query).split(/\s+/).filter(Boolean);
   }
 
   function score(doc, list) {
-    var title = (doc.title || "").toLowerCase();
-    var text = (doc.text || "").toLowerCase();
+    var title = fold(doc.title);
+    var text = fold(doc.text);
     var total = 0;
     for (var i = 0; i < list.length; i++) {
       var t = list[i];
@@ -89,7 +120,7 @@
     var list = terms(query);
     if (!list.length) {
       results.innerHTML = "";
-      status.textContent = "Type to search the site.";
+      status.textContent = TEXT.idle;
       activeIndex = -1;
       return;
     }
@@ -114,13 +145,12 @@
 
     if (!top.length) {
       results.innerHTML = "";
-      status.textContent = "No matches for “" + query + "”.";
+      status.textContent = TEXT.none(query);
       activeIndex = -1;
       return;
     }
 
-    status.textContent =
-      top.length + (top.length === 1 ? " result" : " results");
+    status.textContent = TEXT.count(top.length);
     results.innerHTML = top
       .map(function (d, index) {
         return (
@@ -131,7 +161,7 @@
           index +
           '">' +
           '<span class="bp-search__hit-title">' +
-          mark(d.title || "Untitled", list) +
+          mark(d.title || TEXT.untitled, list) +
           "</span>" +
           '<span class="bp-search__hit-text">' +
           mark(snippet(d, list), list) +

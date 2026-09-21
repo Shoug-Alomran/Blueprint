@@ -17,6 +17,8 @@
    instead of being pinned to a snapshot of it.
    --------------------------------------------------------------------------- */
 (function () {
+  var AR = document.documentElement.lang === "ar";
+
   var STORAGE_KEY = "bp-scheme";
   var root = document.documentElement;
   var lightQuery = null;
@@ -48,8 +50,8 @@
 
   function label(scheme) {
     return scheme === "default"
-      ? "Switch to dark theme"
-      : "Switch to light theme";
+      ? AR ? "التبديل إلى الوضع الداكن" : "Switch to dark theme"
+      : AR ? "التبديل إلى الوضع الفاتح" : "Switch to light theme";
   }
 
   function syncButtons(scheme) {

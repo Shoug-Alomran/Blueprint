@@ -1,0 +1,84 @@
+# About page (overrides/about.html).
+strings:
+- en: About - Blueprint
+  ar: من نحن - بلو برينت
+- en: Learn about Blueprint, its static-first service model, delivery principles, and the kinds of website projects it supports.
+  ar: تعرف على بلو برينت، ونموذج خدماته القائم على المواقع الثابتة، ومبادئ التسليم، وأنواع المشاريع التي يعمل عليها.
+- en: STUDIO://ABOUT
+  ar: الاستوديو · من نحن
+- en: A small studio.<br><em>A clear purpose.</em>
+  ar: استوديو صغير.<br><em>وهدف واضح.</em>
+- en: Your work deserves a website that makes it easy to understand. Blueprint brings your content, ideas, and identity together in one considered place.
+  ar: أعمالك تستحق موقعا يجعل فهمها سهلا. يجمع بلو برينت محتواك وأفكارك وهويتك في مكان واحد مدروس.
+- en: INDEPENDENT STUDIO<br>RIYADH, SAUDI ARABIA · ARABIC & ENGLISH
+  ar: استوديو مستقل<br>الرياض، المملكة العربية السعودية · العربية والإنجليزية
+- en: WHAT WE BELIEVE
+  ar: ما نؤمن به
+- en: A good website makes<br>the important things clear.
+  ar: الموقع الجيد<br>يبرز ما يهم بوضوح.
+- en: Content comes first
+  ar: المحتوى أولا
+- en: The website should help people understand your work. We start with what you need to say and who needs to hear it.
+  ar: على الموقع أن يساعد الناس على فهم أعمالك. نبدأ بما تريد قوله ومن يجب أن يسمعه.
+- en: Structure brings clarity
+  ar: الهيكل يصنع الوضوح
+- en: Pages, navigation, and hierarchy give your content a natural order. Visitors should know where to go next.
+  ar: الصفحات والتنقل والتسلسل تمنح محتواك ترتيبا طبيعيا، فيعرف الزائر دائما أين يتجه بعد ذلك.
+- en: Details matter
+  ar: التفاصيل مهمة
+- en: Typography, spacing, responsive layouts, and thoughtful motion make the experience feel considered.
+  ar: الخطوط والمسافات والتخطيطات المتجاوبة والحركة المدروسة تجعل التجربة متقنة.
+- en: Keep it maintainable
+  ar: سهولة الصيانة
+- en: Your finished website should be easy to host, understand, and look after. We build with that in mind.
+  ar: يجب أن يكون موقعك النهائي سهل الاستضافة والفهم والعناية، ونبنيه على هذا الأساس.
+- en: A FOCUSED PRACTICE
+  ar: عمل مركز
+- en: A home for what<br>you want to share.
+  ar: بيت لكل ما<br>تريد مشاركته.
+- en: We build portfolios, professional websites, course hubs, and documentation sites. We also create CV templates and turn reports into easy-to-read web pages.
+  ar: نبني ملفات الأعمال والمواقع المهنية ومنصات المقررات ومواقع التوثيق، ونصمم كذلك قوالب السيرة الذاتية ونحول التقارير إلى صفحات ويب سهلة القراءة.
+- en: 'Our focus is static websites: fast, dependable pages that present your content without accounts, databases, or complicated application systems.'
+  ar: 'تركيزنا على المواقع الثابتة: صفحات سريعة وموثوقة تعرض محتواك دون حسابات أو قواعد بيانات أو أنظمة تطبيقات معقدة.'
+- en: Students & graduates
+  ar: الطلاب والخريجون
+- en: Bring your projects, experience, and achievements together.
+  ar: اجمع مشاريعك وخبراتك وإنجازاتك في مكان واحد.
+- en: Professionals & creatives
+  ar: المهنيون والمبدعون
+- en: Give your work and expertise a clear digital presence.
+  ar: امنح أعمالك وخبرتك حضورا رقميا واضحا.
+- en: Educators & researchers
+  ar: المعلمون والباحثون
+- en: Make courses, resources, and research easier to navigate.
+  ar: اجعل المقررات والموارد والأبحاث أسهل تصفحا.
+- en: Small teams & organizations
+  ar: الفرق والمنظمات الصغيرة
+- en: Explain what you do and help people find the right information.
+  ar: اشرح ما تقدمه وساعد الناس على الوصول إلى المعلومة الصحيحة.
+- en: Explore the products →
+  ar: استكشف المنتجات ←
+- en: THE PERSON BEHIND THE BUILD
+  ar: من يقف خلف العمل
+- en: One point of contact.<br>From idea to launch.
+  ar: جهة تواصل واحدة.<br>من الفكرة حتى الإطلاق.
+- en: When you get in touch, you speak directly to the person building your website. That means clear conversations, thoughtful decisions, and a consistent experience from start to finish.
+  ar: عندما تتواصل معنا، تتحدث مباشرة مع من يبني موقعك. وهذا يعني حوارا واضحا، وقرارات مدروسة، وتجربة متسقة من البداية إلى النهاية.
+- en: Blueprint is run by Shoug Fawaz Alomran, a Software Engineering and Cybersecurity student at Prince Sultan University, under ShougTech.
+  ar: تدير بلو برينت شوق فواز العمران، طالبة هندسة البرمجيات والأمن السيبراني في جامعة الأمير سلطان، تحت مظلة ShougTech.
+- en: See what we’ve built →
+  ar: شاهد ما بنيناه ←
+- en: Built with<br><em>intention.</em>
+  ar: مبني<br><em>بعناية.</em>
+- en: BLUEPRINT STUDIO — EST. RIYADH
+  ar: بلو برينت ستوديو — تأسس في الرياض
+- en: CLARITY / STRUCTURE / CRAFT
+  ar: الوضوح / الهيكل / الإتقان
+- en: YOUR IDEA://NEXT
+  ar: فكرتك · التالية
+- en: Let’s give your work<br>a place of its own.
+  ar: لنمنح أعمالك<br>مكانا خاصا بها.
+- en: Tell us what you have in mind. We’ll help you find the right structure.
+  ar: أخبرنا بما يدور في ذهنك، وسنساعدك على إيجاد الهيكل المناسب.
+- en: Get in Touch
+  ar: تواصل معنا

@@ -1,0 +1,297 @@
+# Start a Project form (docs/start-project/index.md).
+# Only what the visitor sees is translated. Option and checkbox `value`s stay
+# English, so every brief that reaches the studio's inbox reads the same
+# whichever language the form was filled in.
+strings:
+- en: 'For example: #0f3d4a, #5eead4, white'
+  ar: 'مثال: #0f3d4a، #5eead4، أبيض'
+- en: 'For example: +966 5X XXX XXXX'
+  ar: 'مثال: ‎+966 5X XXX XXXX'
+- en: 'For example: 2'
+  ar: 'مثال: 2'
+- en: 'For example: 3'
+  ar: 'مثال: 3'
+- en: 'For example: 6'
+  ar: 'مثال: 6'
+- en: 'For example: CS 499 / Computer Science'
+  ar: 'مثال: CS 499 / علوم الحاسب'
+- en: 'For example: Dr. Ahmed Alharbi'
+  ar: 'مثال: د. أحمد الحربي'
+- en: 'For example: Instagram, friend, university group chat'
+  ar: 'مثال: إنستغرام، صديق، مجموعة الجامعة'
+- en: 'For example: Prince Sultan University'
+  ar: 'مثال: جامعة الأمير سلطان'
+- en: 'For example: Senior Design Project Showcase'
+  ar: 'مثال: معرض مشروع التخرج'
+- en: 'For example: Shoug Alomran'
+  ar: 'مثال: شوق العمران'
+- en: 'For example: clean typography, no heavy animations, avoid bright red'
+  ar: 'مثال: خطوط نظيفة، بدون حركات كثيرة، تجنب الأحمر الفاقع'
+- en: 'For example: https://github.com/username/project'
+  ar: 'مثال: https://github.com/username/project'
+- en: 'For example: instructors, recruiters, classmates, clients'
+  ar: 'مثال: أعضاء هيئة التدريس، جهات التوظيف، الزملاء، العملاء'
+- en: 'For example: minimal, academic, modern, premium'
+  ar: 'مثال: بسيط، أكاديمي، عصري، فاخر'
+- en: 'For example: myproject.com'
+  ar: 'مثال: myproject.com'
+- en: 'For example: name@example.com'
+  ar: 'مثال: name@example.com'
+- en: 'For example: present the project clearly and collect interest'
+  ar: 'مثال: عرض المشروع بوضوح وجذب المهتمين'
+- en: 'For example: senior-design-site'
+  ar: 'مثال: senior-design-site'
+- en: 'For example: shougalomran'
+  ar: 'مثال: shougalomran'
+- en: 'For example: username.github.io/project-name, mylife.shoug-tech.com, or myproject.com'
+  ar: 'مثال: username.github.io/project-name أو mylife.shoug-tech.com أو myproject.com'
+- en: Start Project - Blueprint
+  ar: ابدأ مشروعك - بلو برينت
+- en: Start a Blueprint website project by reviewing fit requirements, delivery boundaries, and the intake path for new static website work.
+  ar: 'ابدأ مشروع موقعك مع بلو برينت: راجع متطلبات الملاءمة وحدود التسليم وخطوات استقبال مشاريع المواقع الثابتة الجديدة.'
+- en: Blueprint Studio
+  ar: بلو برينت ستوديو
+- en: intake://start-project
+  ar: الاستقبال · ابدأ مشروعك
+- en: Your next chapter<br><em>starts here.</em>
+  ar: فصلك القادم<br><em>يبدأ من هنا.</em>
+- en: Tell us what the website is for, what you want to share, and when you need it. We’ll review your brief and come back with a clear scope and quote.
+  ar: أخبرنا بالغرض من الموقع، وما تريد مشاركته، ومتى تحتاجه. سنراجع طلبك ونعود إليك بنطاق واضح وعرض سعر.
+- en: Review Pricing
+  ar: راجع الأسعار
+- en: Tell us about your project.
+  ar: حدثنا عن مشروعك.
+- en: Share what you know. We’ll confirm the details, scope, and quote together.
+  ar: شارك ما تعرفه، ونؤكد التفاصيل والنطاق وعرض السعر معا.
+- en: Client Information
+  ar: بيانات العميل
+- en: How we can reach you
+  ar: كيف نتواصل معك
+- en: Full Name <span class="req">*</span>
+  ar: الاسم الكامل <span class="req">*</span>
+- en: Full Name
+  ar: الاسم الكامل
+- en: Email Address <span class="req">*</span>
+  ar: البريد الإلكتروني <span class="req">*</span>
+- en: Email Address
+  ar: البريد الإلكتروني
+- en: Phone / WhatsApp
+  ar: الجوال / واتساب
+- en: Preferred Communication Language
+  ar: لغة التواصل المفضلة
+- en: Select...
+  ar: اختر...
+- en: English
+  ar: الإنجليزية
+- en: Arabic
+  ar: العربية
+- en: Both
+  ar: كلتاهما
+- en: University / Organization (if applicable)
+  ar: الجامعة / الجهة (إن وجدت)
+- en: Course / Department (if academic)
+  ar: المقرر / القسم (للمشاريع الأكاديمية)
+- en: Supervisor / Instructor (if applicable)
+  ar: المشرف / المحاضر (إن وجد)
+- en: Your Website
+  ar: موقعك
+- en: Choose a starting point and tell us what you have in mind.
+  ar: اختر نقطة البداية وأخبرنا بما في ذهنك.
+- en: Essential<small>Starting from 399 SAR</small>
+  ar: الأساسية<small>تبدأ من 399 ريال</small>
+- en: Signature<small>Starting from 749 SAR</small>
+  ar: المميزة<small>تبدأ من 749 ريال</small>
+- en: Custom<small>Let’s define your scope</small>
+  ar: المخصصة<small>لنحدد نطاقك معا</small>
+- en: Starting from 399 SAR
+  ar: تبدأ من 399 ريال
+- en: Starting from 749 SAR
+  ar: تبدأ من 749 ريال
+- en: Let’s define your scope
+  ar: لنحدد نطاقك معا
+- en: Project / Website Title
+  ar: عنوان المشروع / الموقع
+- en: Project Description <span class="req">*</span>
+  ar: وصف المشروع <span class="req">*</span>
+- en: Project Description
+  ar: وصف المشروع
+- en: Primary Goal of the Site
+  ar: الهدف الرئيسي من الموقع
+- en: Structure Planning
+  ar: تخطيط الهيكل
+- en: Sections, page depth, and navigation expectations
+  ar: الأقسام وعمق الصفحات وتوقعات التنقل
+- en: 'A section means one main top navigation item, for example: Home, About, Services, Portfolio, or Contact.'
+  ar: 'القسم يعني عنصرا رئيسيا واحدا في قائمة التنقل العلوية، مثل: الرئيسية، أو من نحن، أو الخدمات، أو الأعمال، أو تواصل معنا.'
+- en: Estimated Number of Sections <span class="req">*</span>
+  ar: العدد التقريبي للأقسام <span class="req">*</span>
+- en: Estimated Number of Sections
+  ar: العدد التقريبي للأقسام
+- en: Estimated Pages per Section
+  ar: العدد التقريبي للصفحات في كل قسم
+- en: Sections List <span class="req">*</span>
+  ar: قائمة الأقسام <span class="req">*</span>
+- en: Sections List
+  ar: قائمة الأقسام
+- en: Navigation Notes
+  ar: ملاحظات على التنقل
+- en: Content Readiness
+  ar: جاهزية المحتوى
+- en: Current status of source material and missing items
+  ar: حالة المواد الحالية وما ينقصها
+- en: Overall Content Status
+  ar: حالة المحتوى بشكل عام
+- en: Ready now
+  ar: جاهز الآن
+- en: Partially ready
+  ar: جاهز جزئيا
+- en: Draft exists, needs cleanup
+  ar: توجد مسودة تحتاج تنقيحا
+- en: Not started yet
+  ar: لم أبدأ بعد
+- en: Written Text
+  ar: النصوص المكتوبة
+- en: Images / Logos
+  ar: الصور / الشعارات
+- en: Report / Paper
+  ar: التقرير / الورقة البحثية
+- en: Data / Results
+  ar: البيانات / النتائج
+- en: Code / Repo
+  ar: الشيفرة / المستودع
+- en: References
+  ar: المراجع
+- en: Content Notes
+  ar: ملاحظات على المحتوى
+- en: Report Options
+  ar: خيارات التقرير
+- en: Choose how your report or document should be shown
+  ar: اختر طريقة عرض تقريرك أو مستندك
+- en: No report needed
+  ar: لا أحتاج تقريرا
+- en: Show PDF on the site
+  ar: عرض ملف PDF في الموقع
+- en: Open report as a html page
+  ar: فتح التقرير كصفحة HTML
+- en: Let visitors download the html version
+  ar: إتاحة تنزيل نسخة HTML للزوار
+- en: Report Notes
+  ar: ملاحظات على التقرير
+- en: Website Address & Repository
+  ar: عنوان الموقع والمستودع
+- en: Choose how you want the site address to work
+  ar: اختر طريقة عمل عنوان موقعك
+- en: Free GitHub Pages
+  ar: GitHub Pages مجانا
+- en: 'Uses a GitHub web address, for example: username.github.io/project-name'
+  ar: 'يستخدم عنوانا من GitHub، مثل: username.github.io/project-name'
+- en: Subdomain on shoug-tech.com
+  ar: نطاق فرعي على shoug-tech.com
+- en: 'Uses a website address under my domain, for example: mylife.shoug-tech.com'
+  ar: 'يستخدم عنوانا ضمن نطاقي، مثل: mylife.shoug-tech.com'
+- en: Custom Domain
+  ar: نطاق خاص
+- en: 'Uses your own domain, for example: myproject.com'
+  ar: 'يستخدم نطاقك الخاص، مثل: myproject.com'
+- en: Preferred Website Address
+  ar: عنوان الموقع المفضل
+- en: Custom Domain Name (if applicable)
+  ar: اسم النطاق الخاص (إن وجد)
+- en: GitHub Username (if you have one)
+  ar: اسم المستخدم في GitHub (إن وجد)
+- en: Existing Repository (if applicable)
+  ar: المستودع الحالي (إن وجد)
+- en: GitHub / Portfolio Link
+  ar: رابط GitHub / ملف الأعمال
+- en: Timeline & Design Direction
+  ar: الجدول الزمني والتوجه التصميمي
+- en: Deadline context and creative preferences
+  ar: سياق الموعد النهائي والتفضيلات الإبداعية
+- en: Target Launch / Submission Date <span class="req">*</span>
+  ar: تاريخ الإطلاق / التسليم المستهدف <span class="req">*</span>
+- en: Target Launch / Submission Date
+  ar: تاريخ الإطلاق / التسليم المستهدف
+- en: Is This Deadline Fixed?
+  ar: هل هذا الموعد ثابت؟
+- en: Fixed
+  ar: ثابت
+- en: Flexible
+  ar: مرن
+- en: Prefer earlier if possible
+  ar: أفضل قبله إن أمكن
+- en: Deadline Context
+  ar: سياق الموعد النهائي
+- en: Color Direction
+  ar: توجه الألوان
+- en: Brand Colors (hex or description)
+  ar: ألوان الهوية (رمز hex أو وصف)
+- en: Reference Sites
+  ar: مواقع مرجعية
+- en: Design Notes
+  ar: ملاحظات التصميم
+- en: Add-Ons
+  ar: الإضافات
+- en: Optional extras and scope extensions
+  ar: إضافات اختيارية وتوسعات للنطاق
+- en: Bilingual Setup<small>199 SAR</small>
+  ar: إعداد ثنائي اللغة<small>199 ريال</small>
+- en: Custom Domain Setup<small>99 SAR</small>
+  ar: إعداد نطاق خاص<small>99 ريال</small>
+- en: Priority Delivery<small>149 SAR</small>
+  ar: تسليم مستعجل<small>149 ريال</small>
+- en: Monthly Maintenance<small>49 SAR</small>
+  ar: صيانة شهرية<small>49 ريال</small>
+- en: Extra Sections<small>99 SAR per section</small>
+  ar: أقسام إضافية<small>99 ريال لكل قسم</small>
+- en: Bilingual Setup
+  ar: إعداد ثنائي اللغة
+- en: Custom Domain Setup
+  ar: إعداد نطاق خاص
+- en: Priority Delivery
+  ar: تسليم مستعجل
+- en: Monthly Maintenance
+  ar: صيانة شهرية
+- en: Daily Maintenance
+  ar: صيانة يومية
+- en: Extra Sections
+  ar: أقسام إضافية
+- en: 149 SAR
+  ar: 149 ريال
+- en: 199 SAR
+  ar: 199 ريال
+- en: 49 SAR
+  ar: 49 ريال
+- en: 99 SAR per section
+  ar: 99 ريال لكل قسم
+- en: Number of Extra Sections (if applicable)
+  ar: عدد الأقسام الإضافية (إن وجدت)
+- en: Team & Final Notes
+  ar: الفريق والملاحظات الختامية
+- en: Collaboration setup, referrals, and special constraints
+  ar: طريقة العمل الجماعي، وكيف عرفتنا، وأي قيود خاصة
+- en: Solo or Team Project?
+  ar: مشروع فردي أم جماعي؟
+- en: Solo
+  ar: فردي
+- en: Team
+  ar: جماعي
+- en: Number of Team Members (if team)
+  ar: عدد أعضاء الفريق (للمشاريع الجماعية)
+- en: Team Members (names and roles, one per line)
+  ar: أعضاء الفريق (الاسم والدور، كل عضو في سطر)
+- en: How Did You Hear About Blueprint?
+  ar: كيف عرفت عن بلو برينت؟
+- en: Special Requirements or Constraints
+  ar: متطلبات أو قيود خاصة
+- en: Anything Else Blueprint Should Know Before the Project Begins
+  ar: أي شيء آخر يجب أن يعرفه بلو برينت قبل بدء المشروع
+- en: 'Choose one: download as PDF for your records, add to cart if you want to continue shopping, or send directly to Blueprint.'
+  ar: 'اختر أحد الخيارات: نزل الطلب بصيغة PDF للاحتفاظ به، أو أضفه إلى السلة لمتابعة التسوق، أو أرسله مباشرة إلى بلو برينت.'
+- en: Download PDF
+  ar: تنزيل PDF
+- en: Add to Cart
+  ar: أضف إلى السلة
+- en: Send to Blueprint
+  ar: أرسل إلى بلو برينت
+- en: By submitting, you confirm details are accurate. Final scope and pricing are confirmed in writing before implementation.
+  ar: بإرسال الطلب، تؤكد صحة البيانات. ويؤكد النطاق والسعر النهائيان كتابيا قبل التنفيذ.

@@ -1,0 +1,145 @@
+# CV Templates page (overrides/cv-templates.html).
+strings:
+- en: Midnight Grid
+  ar: شبكة منتصف الليل
+- en: Template 2 — Midnight Grid preview
+  ar: معاينة القالب 2 — شبكة منتصف الليل
+- en: Editorial Sand
+  ar: الرملي التحريري
+- en: Template 3 — Editorial Sand preview
+  ar: معاينة القالب 3 — الرملي التحريري
+- en: Finance Prestige
+  ar: الفخامة المالية
+- en: Template 5 — Finance Prestige preview
+  ar: معاينة القالب 5 — الفخامة المالية
+- en: Monochrome Executive
+  ar: التنفيذي أحادي اللون
+- en: Template 6 — Monochrome Executive preview
+  ar: معاينة القالب 6 — التنفيذي أحادي اللون
+- en: Deep Ocean
+  ar: المحيط العميق
+- en: Template 7 — Deep Ocean preview
+  ar: معاينة القالب 7 — المحيط العميق
+- en: Aurora Violet
+  ar: بنفسجي الشفق
+- en: Template 10 — Aurora Violet preview
+  ar: معاينة القالب 10 — بنفسجي الشفق
+- en: Clean Teal
+  ar: الفيروزي النقي
+- en: Template 1 — Clean Teal preview
+  ar: معاينة القالب 1 — الفيروزي النقي
+- en: Classic Navy & Gold
+  ar: الكحلي والذهبي الكلاسيكي
+- en: Template 4 — Classic Navy & Gold preview
+  ar: معاينة القالب 4 — الكحلي والذهبي الكلاسيكي
+- en: Professional Mono
+  ar: الأحادي المهني
+- en: Template 8 — Professional Mono preview
+  ar: معاينة القالب 8 — الأحادي المهني
+- en: Minimal Ink
+  ar: الحبر البسيط
+- en: Template 9 — Minimal Ink preview
+  ar: معاينة القالب 9 — الحبر البسيط
+- en: CV Templates - Blueprint
+  ar: قوالب السيرة الذاتية - بلو برينت
+- en: Browse ten live CV website templates, preview each one full screen, and compare Basic and Pro options before you choose.
+  ar: تصفح عشرة قوالب حية لمواقع السيرة الذاتية، وعاين كل قالب بملء الشاشة، وقارن بين النسختين الأساسية والاحترافية قبل أن تختار.
+- en: CATALOG://CV TEMPLATES <i></i>
+  ar: الكتالوج · قوالب السيرة الذاتية <i></i>
+- en: Ten templates.<br><em>One first impression.</em>
+  ar: عشرة قوالب.<br><em>وانطباع أول واحد.</em>
+- en: Every template below is live on this page — scroll through the real thing, open it full screen, then pick the one that fits you. Each works on mobile and prints cleanly to PDF.
+  ar: كل قالب أدناه يعمل مباشرة على هذه الصفحة — تصفح القالب الحقيقي، وافتحه بملء الشاشة، ثم اختر ما يناسبك. جميعها تعمل على الجوال وتطبع بصيغة PDF بوضوح.
+- en: 10 TEMPLATES · BASIC & PRO · PRINT-READY
+  ar: 10 قوالب · أساسي واحترافي · جاهزة للطباعة
+- en: BASIC://01
+  ar: أساسي · 01
+- en: PRO://02
+  ar: احترافي · 02
+- en: MOST CHOSEN
+  ar: الأكثر طلبا
+- en: Basic
+  ar: أساسي
+- en: Pro
+  ar: احترافي
+- en: <strong>68</strong> SAR
+  ar: <strong>68</strong> ريال
+- en: <strong>95</strong> SAR
+  ar: <strong>95</strong> ريال
+- en: A clean, single-language CV with a professional layout and print-ready export.
+  ar: سيرة ذاتية أنيقة بلغة واحدة، بتخطيط احترافي وتصدير جاهز للطباعة.
+- en: The full set — dark and light modes, Arabic-English switching, and refined interactions.
+  ar: المجموعة الكاملة — وضعان داكن وفاتح، وتبديل بين العربية والإنجليزية، وتفاعلات متقنة.
+- en: Single language
+  ar: لغة واحدة
+- en: Mobile-ready layout
+  ar: تخطيط مناسب للجوال
+- en: Print to PDF
+  ar: طباعة بصيغة PDF
+- en: HTML/CSS source file
+  ar: ملف المصدر HTML/CSS
+- en: Dark & light modes
+  ar: الوضعان الداكن والفاتح
+- en: Arabic & English toggle
+  ar: تبديل بين العربية والإنجليزية
+- en: Polished interactions
+  ar: تفاعلات متقنة
+- en: Request this template →
+  ar: اطلب هذا القالب ←
+- en: See full pricing ↗
+  ar: اطلع على الأسعار كاملة ↖
+- en: TEMPLATE SPEC
+  ar: مواصفات القالب
+- en: FORMAT
+  ar: الصيغة
+- en: HTML / CSS<span class="studio-cursor">_</span>
+  ar: HTML / CSS<span class="studio-cursor">_</span>
+- en: DEVICES
+  ar: الأجهزة
+- en: MOBILE + DESKTOP
+  ar: الجوال + الحاسوب
+- en: PRINT
+  ar: الطباعة
+- en: PDF-READY
+  ar: جاهز لـ PDF
+- en: DELIVERY
+  ar: التسليم
+- en: IMMEDIATE
+  ar: فوري
+- en: YOURS TO EDIT AND KEEP
+  ar: ملكك لتعدله وتحتفظ به
+- en: GALLERY://LIVE PREVIEWS
+  ar: المعرض · معاينات حية
+- en: Every template,<br>running right here.
+  ar: كل القوالب<br>تعمل هنا مباشرة.
+- en: Previews are the real templates, shown at reduced scale. Open any one full screen to scroll it properly and test it on your phone.
+  ar: المعاينات هي القوالب الحقيقية معروضة بحجم مصغر. افتح أيا منها بملء الشاشة لتتصفحه كما ينبغي وتجربه على جوالك.
+- en: Filter templates
+  ar: تصفية القوالب
+- en: All templates
+  ar: جميع القوالب
+- en: 10 templates
+  ar: 10 قوالب
+- en: Open full screen ↗
+  ar: افتح بملء الشاشة ↖
+- en: DONE-FOR-YOU
+  ar: ننجزه لك
+- en: Prefer it filled in?
+  ar: تفضل أن نملأه لك؟
+- en: Send your details and we'll populate the template and integrate it into your site. Basic 100 SAR · Pro 130 SAR, delivered in 2–3 working days.
+  ar: أرسل بياناتك وسنملأ القالب وندمجه في موقعك. الأساسي 100 ريال · الاحترافي 130 ريال، ويسلم خلال 2 إلى 3 أيام عمل.
+- en: CHOOSE://YOUR TEMPLATE
+  ar: اختر · قالبك
+- en: Found the one?
+  ar: وجدت ما يناسبك؟
+- en: Tell us which template and whether you want the file or the done-for-you version. We'll confirm and send it over.
+  ar: أخبرنا بالقالب الذي اخترته، وهل تريد الملف فقط أم نسخة ننجزها لك، وسنؤكد الطلب ونرسله إليك.
+- en: Request a Template →
+  ar: اطلب قالبا ←
+patterns:
+- match: ^PRO / (\d+)$
+  ar: احترافي / \1
+- match: ^BASIC / (\d+)$
+  ar: أساسي / \1
+- match: ^Template (\d+)$
+  ar: القالب \1

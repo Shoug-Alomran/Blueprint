@@ -1,0 +1,168 @@
+# Portfolio page (overrides/portfolio.html).
+# Course codes and project names stay in Latin, as on the live sites.
+strings:
+- en: CYS401
+  ar: CYS401
+- en: SE322
+  ar: SE322
+- en: ETHC303
+  ar: ETHC303
+- en: SPM
+  ar: SPM
+- en: CTF 3.0
+  ar: CTF 3.0
+- en: ACM PSU
+  ar: ACM PSU
+- en: WEBFORGE
+  ar: WEBFORGE
+- en: ACM/CyberTech CTF 3.0
+  ar: ACM/CyberTech CTF 3.0
+- en: CYS401, Cybersecurity Fundamentals
+  ar: CYS401، أساسيات الأمن السيبراني
+- en: Visit CYS401, Cybersecurity Fundamentals
+  ar: زيارة CYS401، أساسيات الأمن السيبراني
+- en: ACM PSU Digital Archive
+  ar: الأرشيف الرقمي لـ ACM PSU
+- en: Visit ACM PSU Digital Archive
+  ar: زيارة الأرشيف الرقمي لـ ACM PSU
+- en: SE322, Software Design & Architecture
+  ar: SE322، تصميم البرمجيات وهندستها
+- en: Visit SE322, Software Design & Architecture
+  ar: زيارة SE322، تصميم البرمجيات وهندستها
+- en: Software Project Management
+  ar: إدارة مشاريع البرمجيات
+- en: Visit Software Project Management
+  ar: زيارة إدارة مشاريع البرمجيات
+- en: ETHC303, Social Implications of AI
+  ar: ETHC303، الآثار الاجتماعية للذكاء الاصطناعي
+- en: Visit ETHC303, Social Implications of AI
+  ar: زيارة ETHC303، الآثار الاجتماعية للذكاء الاصطناعي
+- en: Visit ACM/CyberTech CTF 3.0
+  ar: زيارة ACM/CyberTech CTF 3.0
+- en: Portfolio - Blueprint
+  ar: الأعمال - بلو برينت
+- en: Explore Blueprint website work examples across portfolios, documentation websites, and workshop or course pages.
+  ar: 'استعرض نماذج من أعمال بلو برينت: ملفات أعمال، ومواقع توثيق، وصفحات ورش عمل ومقررات.'
+- en: PORTFOLIO://SELECTED WORK
+  ar: الأعمال · مختارات
+- en: Real work.<br><em>Thoughtfully built.</em>
+  ar: أعمال حقيقية.<br><em>مبنية بعناية.</em>
+- en: Websites for people with something to share — portfolios, course hubs, project documentation, and event pages, each built as a clear digital experience.
+  ar: مواقع لمن لديه ما يشاركه — ملفات أعمال، ومنصات مقررات، وتوثيق مشاريع، وصفحات فعاليات، كل منها مبني كتجربة رقمية واضحة.
+- en: PERSONAL PRESENCE · COURSE HUBS · DOCUMENTATION · EVENT HUBS
+  ar: حضور شخصي · منصات مقررات · توثيق · منصات فعاليات
+- en: Filter projects
+  ar: تصفية المشاريع
+- en: All work
+  ar: كل الأعمال
+- en: Personal presence
+  ar: الحضور الشخصي
+- en: Course hubs
+  ar: منصات المقررات
+- en: Project documentation
+  ar: توثيق المشاريع
+- en: Event hubs
+  ar: منصات الفعاليات
+- en: 8 projects
+  ar: 8 مشاريع
+- en: Visit website ↗
+  ar: زيارة الموقع ↖
+- en: A course hub organising four modules — threat landscape, the CIA triad, access control, and protection mechanisms — into a guided path.
+  ar: منصة مقرر تنظم أربع وحدات — مشهد التهديدات، وثلاثية CIA، والتحكم في الوصول، وآليات الحماية — في مسار موجه.
+- en: A competition hub for ACM and PSU’s College of Computer & Information Sciences, covering three workshop days and the final build-off.
+  ar: منصة مسابقة لفرع ACM وكلية علوم الحاسب والمعلومات في جامعة الأمير سلطان، تغطي ثلاثة أيام من ورش العمل والتحدي النهائي.
+- en: Registration, challenge tracks, and participant resources for a three-hour capture-the-flag competition.
+  ar: التسجيل ومسارات التحديات وموارد المشاركين لمسابقة «التقاط العلم» (CTF) مدتها ثلاث ساعات.
+- en: A chapter archive documenting PSU ACM’s programming competitions, cybersecurity events, workshops, and history.
+  ar: أرشيف يوثق مسابقات البرمجة وفعاليات الأمن السيبراني وورش العمل وتاريخ فرع ACM في جامعة الأمير سلطان.
+- en: Architecture documentation for the Intaliq platform, organised across the 4+1 view model with quality attributes and design patterns.
+  ar: توثيق معماري لمنصة انطلق، منظم وفق نموذج العروض 4+1 مع سمات الجودة وأنماط التصميم.
+- en: Project documentation for the National Employment & Skill Matching Platform, carried from planning through delivery.
+  ar: توثيق مشروع المنصة الوطنية للتوظيف ومواءمة المهارات، من التخطيط حتى التسليم.
+- en: A structured showcase analysing the ethical, social, and sustainability implications of AI and expert systems.
+  ar: عرض منظم يحلل الآثار الأخلاقية والاجتماعية والبيئية للذكاء الاصطناعي والأنظمة الخبيرة.
+- en: The illustrations above show each project’s structure. Open a website to explore the live design. Portfolio examples include personal, academic, and client work. Blueprint’s service is the website and documentation; any underlying applications are separate.
+  ar: توضح الرسومات أعلاه هيكل كل مشروع، وبإمكانك فتح أي موقع لاستكشاف تصميمه الحي. تشمل النماذج أعمالا شخصية وأكاديمية وأعمالا لعملاء. تقتصر خدمة بلو برينت على الموقع والتوثيق، وأي تطبيقات خلفها منفصلة عنها.
+- en: DETAILS://IN MOTION
+  ar: التفاصيل · أثناء الحركة
+- en: See the experience<br>in action.
+  ar: شاهد التجربة<br>وهي تعمل.
+- en: Short walkthroughs show how navigation, language switching, and thoughtful interactions work across our websites.
+  ar: جولات قصيرة توضح كيف يعمل التنقل وتبديل اللغة والتفاعلات المدروسة في مواقعنا.
+- en: Explore Feature Demos →
+  ar: استعرض عروض الميزات ←
+- en: Made to be<br><em>explored.</em>
+  ar: مصمم<br><em>ليستكشف.</em>
+- en: RESPONSIVE / CONSIDERED / CONNECTED
+  ar: متجاوب / مدروس / مترابط
+- en: YOUR PROJECT://NEXT
+  ar: مشروعك · التالي
+- en: Let’s make room<br>for your work.
+  ar: لنفسح المجال<br>لأعمالك.
+- en: Bring the content. We’ll help it find its shape.
+  ar: أحضر المحتوى، ونساعدك على منحه الشكل المناسب.
+- en: CS330
+  ar: CS330
+- en: SE311
+  ar: SE311
+- en: CS340
+  ar: CS340
+- en: SHOUG.TECH
+  ar: SHOUG.TECH
+- en: WebForge 2026
+  ar: WebForge 2026
+- en: CS330, Parallel Performance in Linux
+  ar: CS330، تقييم أداء المعالجة المتوازية في لينكس
+- en: Visit CS330, Parallel Performance in Linux
+  ar: زيارة CS330، تقييم أداء المعالجة المتوازية في لينكس
+- en: SE311, Software Requirements Analysis
+  ar: SE311، تحليل متطلبات البرمجيات
+- en: Visit SE311, Software Requirements Analysis
+  ar: زيارة SE311، تحليل متطلبات البرمجيات
+- en: CS340, Database Web Application
+  ar: CS340، تطبيق ويب لقواعد البيانات
+- en: Visit CS340, Database Web Application
+  ar: زيارة CS340، تطبيق ويب لقواعد البيانات
+- en: Visit SHOUG.TECH
+  ar: زيارة SHOUG.TECH
+- en: Visit WebForge 2026
+  ar: زيارة WebForge 2026
+- en: A two-phase operating systems study measuring process and thread parallelism, with an interactive thread lab and scaling charts.
+  ar: دراسة من مرحلتين في أنظمة التشغيل تقيس التوازي على مستوى العمليات والخيوط، مع مختبر تفاعلي للخيوط ورسوم بيانية لقابلية التوسع.
+- en: Requirements engineering for Sillah, a family cardiac-health platform, from stakeholder interviews to use cases and prioritised requirements.
+  ar: هندسة متطلبات منصة صلة لصحة القلب العائلية، من مقابلات أصحاب المصلحة إلى حالات الاستخدام والمتطلبات المرتبة حسب الأولوية.
+- en: A database project documented phase by phase, from the EER model and relational schema to SQL and the finished full-stack application.
+  ar: مشروع قواعد بيانات موثق مرحلة بمرحلة، من نموذج EER والمخطط العلائقي إلى SQL والتطبيق المتكامل النهائي.
+- en: A personal engineering portfolio bringing software projects, cybersecurity labs, and coursework into one navigable home.
+  ar: ملف أعمال هندسي شخصي يجمع مشاريع البرمجيات ومختبرات الأمن السيبراني والمقررات في موقع واحد سهل التصفح.
+- en: Filter projects by package
+  ar: تصفية المشاريع حسب الباقة
+- en: Essential · up to 8 pages
+  ar: الأساسية · حتى 8 صفحات
+- en: Signature · 9–16 pages
+  ar: المميزة · من 9 إلى 16 صفحة
+- en: Custom · 17+ pages
+  ar: المخصصة · 17 صفحة فأكثر
+patterns:
+- match: ^BLUEPRINT / PROJECT (\d+)$
+  ar: بلو برينت / مشروع \1
+- match: ^STRUCTURE STUDY / (\d+)$
+  ar: دراسة هيكلية / \1
+- match: ^PERSONAL PRESENCE / (\d+)$
+  ar: حضور شخصي / \1
+- match: ^COURSE HUB / (\d+)$
+  ar: منصة مقرر / \1
+- match: ^EVENT HUB / (\d+)$
+  ar: منصة فعالية / \1
+- match: ^DOCUMENTATION / (\d+)$
+  ar: توثيق / \1
+- match: ^(\d+) projects$
+  ar: \1 مشاريع
+- match: ^ESSENTIAL · (\d+) PAGES$
+  ar: الأساسية · \1 صفحات
+- match: ^SIGNATURE · ([3-9]|10) PAGES$
+  ar: المميزة · \1 صفحات
+- match: ^SIGNATURE · (\d+) PAGES$
+  ar: المميزة · \1 صفحة
+- match: ^CUSTOM · (\d+\+?) PAGES$
+  ar: المخصصة · \1 صفحة

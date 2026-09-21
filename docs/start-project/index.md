@@ -511,7 +511,7 @@ hero_actions:
           <div class="bp-field"><label for="brief-field-4">University / Organization (if applicable)</label><input id="brief-field-4" name="client_org" type="text" placeholder="For example: Prince Sultan University"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label for="brief-field-5">Preferred Communication Language</label><select id="brief-field-5" name="client_lang"><option value="">Select...</option><option>English</option><option>Arabic</option><option>Both</option></select></div>
+          <div class="bp-field"><label for="brief-field-5">Preferred Communication Language</label><select id="brief-field-5" name="client_lang"><option value="">Select...</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Both">Both</option></select></div>
         </div>
       </section>
 
@@ -553,7 +553,7 @@ hero_actions:
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">4</span><div><h3 class="bp-title">Content Readiness</h3><p class="bp-desc">Current status of source material and missing items</p></div></div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label for="brief-field-15">Overall Content Status</label><select id="brief-field-15" name="content_status"><option value="">Select...</option><option>Ready now</option><option>Partially ready</option><option>Draft exists, needs cleanup</option><option>Not started yet</option></select></div>
+          <div class="bp-field"><label for="brief-field-15">Overall Content Status</label><select id="brief-field-15" name="content_status"><option value="">Select...</option><option value="Ready now">Ready now</option><option value="Partially ready">Partially ready</option><option value="Draft exists, needs cleanup">Draft exists, needs cleanup</option><option value="Not started yet">Not started yet</option></select></div>
         </div>
         <div class="bp-choice-grid bp-cols-3">
           <div class="bp-choice"><input id="cnt_text" name="cnt_text" type="checkbox" value="Written text"><label for="cnt_text">Written Text</label></div>
@@ -601,7 +601,7 @@ hero_actions:
         <div class="bp-section-label"><span class="bp-num">7</span><div><h3 class="bp-title">Timeline & Design Direction</h3><p class="bp-desc">Deadline context and creative preferences</p></div></div>
         <div class="bp-row bp-cols-2">
           <div class="bp-field"><label for="brief-field-20">Target Launch / Submission Date <span class="req">*</span></label><input id="brief-field-20" required name="deadline" type="date"></div>
-          <div class="bp-field"><label for="brief-field-21">Is This Deadline Fixed?</label><select id="brief-field-21" name="deadline_flex"><option value="">Select...</option><option>Fixed</option><option>Flexible</option><option>Prefer earlier if possible</option></select></div>
+          <div class="bp-field"><label for="brief-field-21">Is This Deadline Fixed?</label><select id="brief-field-21" name="deadline_flex"><option value="">Select...</option><option value="Fixed">Fixed</option><option value="Flexible">Flexible</option><option value="Prefer earlier if possible">Prefer earlier if possible</option></select></div>
         </div>
         <div class="bp-row bp-cols-1">
           <div class="bp-field"><label for="brief-field-22">Deadline Context</label><textarea id="brief-field-22" name="deadline_notes" placeholder="Course submission, event launch, exam date, or other context"></textarea></div>
@@ -638,7 +638,7 @@ hero_actions:
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">9</span><div><h3 class="bp-title">Team & Final Notes</h3><p class="bp-desc">Collaboration setup, referrals, and special constraints</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label for="brief-field-31">Solo or Team Project?</label><select id="brief-field-31" name="is_team"><option value="">Select...</option><option>Solo</option><option>Team</option></select></div>
+          <div class="bp-field"><label for="brief-field-31">Solo or Team Project?</label><select id="brief-field-31" name="is_team"><option value="">Select...</option><option value="Solo">Solo</option><option value="Team">Team</option></select></div>
           <div class="bp-field"><label for="brief-field-32">Number of Team Members (if team)</label><input id="brief-field-32" name="team_count" type="number" min="1" max="20"></div>
         </div>
         <div class="bp-row bp-cols-2">

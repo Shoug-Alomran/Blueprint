@@ -951,6 +951,24 @@
           opacity: 1 !important;
         }
       }
+    
+      /* =====================================================================
+         Wide screens
+         The shell stopped at 1340px, so a 1920px display was a third empty.
+         The shell now grows with the screen. Prose widens a little on large
+         displays (past ~90 characters a line gets hard to track), and the
+         rest of the width goes to what benefits from it: tables, code, the
+         contents rail and list blocks, which split into two columns.
+         ===================================================================== */
+      .container { max-width: min(1760px, 100% - clamp(24px, 4vw, 96px)); }
+      @media (min-width: 1500px) {
+        :root { --doc-measure: 38em; --doc-toc: 290px; }
+        .phase-list ul, .phase-list ol, .multiplier-list ul, .multiplier-list ol,
+        .toc ul, .toc ol { columns: 2; column-gap: 40px; }
+        .toc li, .phase-list li, .multiplier-list li { break-inside: avoid; }
+        main > .toc ul, main > .toc ol { columns: 1; }
+      }
+
     </style>
   </head>
 

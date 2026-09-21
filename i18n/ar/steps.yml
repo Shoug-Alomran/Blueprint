@@ -1,0 +1,345 @@
+# The six process step pages (docs/process/*.md).
+strings:
+- en: Tier 1 – Personal Presence
+  ar: الفئة 1 – الحضور الشخصي
+- en: Tier 2 – Project Documentation
+  ar: الفئة 2 – توثيق المشاريع
+- en: Tier 3 – Research Documentation
+  ar: الفئة 3 – التوثيق البحثي
+- en: Stage
+  ar: المرحلة
+- en: Tier
+  ar: الفئة
+- en: Timeline
+  ar: المدة
+- en: Typical Duration
+  ar: المدة المعتادة
+- en: Next stage
+  ar: المرحلة التالية
+- en: Previous stage
+  ar: المرحلة السابقة
+- en: Process overview
+  ar: نظرة عامة على المراحل
+- en: Output of This Stage
+  ar: مخرجات هذه المرحلة
+- en: What You Prepare
+  ar: ما تجهزه
+- en: All tiers
+  ar: جميع الفئات
+- en: 2 working days
+  ar: يوما عمل
+- en: 2–3 working days
+  ar: من 2 إلى 3 أيام عمل
+- en: 3–5 working days
+  ar: من 3 إلى 5 أيام عمل
+- en: Intake & Fit Check - Blueprint
+  ar: الاستقبال وتقييم الملاءمة - بلو برينت
+- en: Learn how Blueprint qualifies projects, confirms scope, and decides whether a portfolio, documentation site, or workshop page is a good fit.
+  ar: تعرف على كيفية تقييم بلو برينت للمشاريع وتأكيد نطاقها، وتحديد مدى ملاءمة ملف أعمال أو موقع توثيق أو صفحة ورشة عمل.
+- en: Start with the <em>right fit.</em>
+  ar: ابدأ <em>بالخيار المناسب.</em>
+- en: No project begins without a confirmed fit. This stage ensures the correct tier is selected, expectations are aligned, and scope is realistic before any time is committed on either side.
+  ar: لا يبدأ أي مشروع قبل تأكيد ملاءمته. تضمن هذه المرحلة اختيار الفئة الصحيحة، وتوافق التوقعات، وواقعية النطاق قبل أن يلتزم أي طرف بوقته.
+- en: What Gets Confirmed
+  ar: ما يتم تأكيده
+- en: Project Type
+  ar: نوع المشروع
+- en: Portfolio, project documentation, research documentation, or CV template. The correct tier is identified here.
+  ar: ملف أعمال، أو توثيق مشروع، أو توثيق بحثي، أو قالب سيرة ذاتية. تحدد الفئة المناسبة هنا.
+- en: Scope Fit
+  ar: ملاءمة النطاق
+- en: Confirm the project falls within static website scope. Dynamic systems, authentication, and databases fall outside Blueprint services.
+  ar: التأكد من أن المشروع ضمن نطاق المواقع الثابتة. الأنظمة الديناميكية وتسجيل الدخول وقواعد البيانات خارج خدمات بلو برينت.
+- en: Timeline Feasibility
+  ar: إمكانية الالتزام بالموعد
+- en: Verify that the requested deadline is achievable given current availability and content readiness.
+  ar: التحقق من إمكانية تحقيق الموعد المطلوب بناء على التوفر الحالي وجاهزية المحتوى.
+- en: Add-On Requirements
+  ar: متطلبات الإضافات
+- en: Identify any add-ons needed upfront, including bilingual setup, custom domain, HTML report conversion, or priority delivery.
+  ar: تحديد أي إضافات مطلوبة مسبقا، مثل الإعداد ثنائي اللغة، أو النطاق الخاص، أو تحويل التقارير إلى HTML، أو التسليم المستعجل.
+- en: Portfolio, academic documentation, research documentation, or CV template.
+  ar: ملف أعمال، أو توثيق أكاديمي، أو توثيق بحثي، أو قالب سيرة ذاتية.
+- en: Section or Page Count
+  ar: عدد الأقسام أو الصفحات
+- en: An estimate of how many sections or pages the site will require.
+  ar: تقدير لعدد الأقسام أو الصفحات التي يحتاجها الموقع.
+- en: Deadline
+  ar: الموعد النهائي
+- en: Your preferred launch date or submission deadline.
+  ar: تاريخ الإطلاق المفضل أو موعد التسليم.
+- en: Special Requirements
+  ar: متطلبات خاصة
+- en: Bilingual setup, custom domain, HTML report conversion, or any additional requirements.
+  ar: إعداد ثنائي اللغة، أو نطاق خاص، أو تحويل التقارير إلى HTML، أو أي متطلبات إضافية.
+- en: Confirmed project tier
+  ar: فئة المشروع المؤكدة
+- en: Agreed add-ons and total scope
+  ar: الإضافات المتفق عليها والنطاق الكامل
+- en: Response Window
+  ar: مهلة الرد
+- en: Within 2 business days of inquiry
+  ar: خلال يومي عمل من الاستفسار
+- en: Response within 2 business days
+  ar: الرد خلال يومي عمل
+- en: Once intake is confirmed, the project moves to Discovery.
+  ar: بعد تأكيد الاستقبال، ينتقل المشروع إلى مرحلة الاستكشاف.
+- en: Discovery - Blueprint
+  ar: الاستكشاف - بلو برينت
+- en: See how Blueprint defines goals, audience, content readiness, and page requirements before website structure and build work begins.
+  ar: تعرف على كيفية تحديد بلو برينت للأهداف والجمهور وجاهزية المحتوى ومتطلبات الصفحات قبل بدء الهيكلة والبناء.
+- en: Understand the goal.<br><em>Gather the essentials.</em>
+  ar: افهم الهدف.<br><em>واجمع الأساسيات.</em>
+- en: Discovery defines everything that gets built. Goals, audience, content readiness, and required sections are confirmed here. Once discovery is complete, scope is locked.
+  ar: 'يحدد الاستكشاف كل ما سيبنى: تؤكد هنا الأهداف والجمهور وجاهزية المحتوى والأقسام المطلوبة. وبعد اكتماله، يثبت النطاق.'
+- en: What Gets Defined
+  ar: ما يتم تحديده
+- en: Goals & Audience
+  ar: الأهداف والجمهور
+- en: Who is this site for, and what must they understand within the first two minutes of browsing?
+  ar: لمن هذا الموقع، وما الذي يجب أن يفهمه الزائر خلال أول دقيقتين من التصفح؟
+- en: Required Sections
+  ar: الأقسام المطلوبة
+- en: Define all sections and confirm they fall within the included tier count.
+  ar: تحديد جميع الأقسام والتأكد من أنها ضمن العدد المشمول في الفئة.
+- en: Content Readiness
+  ar: جاهزية المحتوى
+- en: Confirm available copy, images, reports, and reference materials before build begins.
+  ar: التأكد من توفر النصوص والصور والتقارير والمواد المرجعية قبل بدء البناء.
+- en: Launch Priorities
+  ar: أولويات الإطلاق
+- en: Identify what must be included in version one versus what can come later.
+  ar: تحديد ما يجب أن يتضمنه الإصدار الأول وما يمكن تأجيله.
+- en: Written Content
+  ar: المحتوى المكتوب
+- en: Bio, project descriptions, chapter text, research summaries, or session details.
+  ar: النبذة التعريفية، أو أوصاف المشاريع، أو نصوص الفصول، أو ملخصات الأبحاث، أو تفاصيل الجلسات.
+- en: Assets
+  ar: الملفات
+- en: Images, logos, diagrams, reports, or supporting documents.
+  ar: الصور أو الشعارات أو المخططات أو التقارير أو المستندات الداعمة.
+- en: Preferences
+  ar: التفضيلات
+- en: Color direction, layout references, or structural preferences.
+  ar: توجه الألوان، أو مراجع للتخطيط، أو تفضيلات هيكلية.
+- en: Defined section list
+  ar: قائمة الأقسام المحددة
+- en: Content inventory
+  ar: جرد المحتوى
+- en: Approved structural direction
+  ar: التوجه الهيكلي المعتمد
+- en: Agreed project scope and tier confirmation
+  ar: نطاق المشروع المتفق عليه وتأكيد الفئة
+- en: Scope is locked after this stage. Changes introduced after discovery is complete are assessed and quoted separately before implementation.
+  ar: يثبت النطاق بعد هذه المرحلة، وأي تغييرات بعد اكتمال الاستكشاف تقيم ويقدم لها عرض سعر منفصل قبل التنفيذ.
+- en: Structure & Sitemap - Blueprint
+  ar: الهيكلة وخريطة الموقع - بلو برينت
+- en: Understand how Blueprint plans website information architecture, navigation, page hierarchy, and sitemap approval before implementation.
+  ar: تعرف على كيفية تخطيط بلو برينت لهيكلة المعلومات والتنقل وتسلسل الصفحات واعتماد خريطة الموقع قبل التنفيذ.
+- en: Give your content<br><em>a clear structure.</em>
+  ar: امنح محتواك<br><em>هيكلا واضحا.</em>
+- en: Structure defines how visitors move through the site. Navigation hierarchy and content grouping are finalized and approved here before any visual or layout work begins.
+  ar: يحدد الهيكل كيف يتنقل الزوار في الموقع. يعتمد هنا تسلسل التنقل وتجميع المحتوى قبل أي عمل بصري أو تخطيطي.
+- en: What Gets Designed
+  ar: ما يتم تصميمه
+- en: Section Hierarchy
+  ar: تسلسل الأقسام
+- en: Define all top-level sections and the pages nested within each one.
+  ar: تحديد جميع الأقسام الرئيسية والصفحات المتفرعة من كل منها.
+- en: Navigation System
+  ar: نظام التنقل
+- en: Establish primary navigation paths and any secondary or sidebar navigation.
+  ar: تحديد مسارات التنقل الرئيسية وأي تنقل ثانوي أو جانبي.
+- en: User Flow
+  ar: رحلة المستخدم
+- en: Map how the target audience moves from the entry point to the most critical content.
+  ar: رسم مسار الجمهور المستهدف من نقطة الدخول إلى أهم محتوى.
+- en: Content Grouping
+  ar: تجميع المحتوى
+- en: Cluster related content to reduce cognitive load and improve scanning behavior.
+  ar: تجميع المحتوى المترابط لتخفيف العبء الذهني وتسهيل التصفح السريع.
+- en: Validation Checks
+  ar: فحوصات التحقق
+- en: Readability
+  ar: سهولة القراءة
+- en: Clear section order and predictable scanning patterns for the target audience.
+  ar: ترتيب واضح للأقسام وأنماط تصفح متوقعة للجمهور المستهدف.
+- en: Device Consistency
+  ar: الاتساق بين الأجهزة
+- en: Hierarchy remains intact and navigable across mobile and desktop.
+  ar: يبقى التسلسل سليما وسهل التنقل على الجوال والحاسوب.
+- en: Implementation Readiness
+  ar: الجاهزية للتنفيذ
+- en: Structure is clean and buildable without ambiguity.
+  ar: هيكل نظيف قابل للبناء دون أي غموض.
+- en: Approved sitemap
+  ar: خريطة موقع معتمدة
+- en: Locked navigation hierarchy
+  ar: تسلسل تنقل مثبت
+- en: Structured content map ready for build
+  ar: خريطة محتوى منظمة جاهزة للبناء
+- en: Structure is approved by the client before build begins. Structural changes requested after approval are assessed and quoted separately.
+  ar: يعتمد العميل الهيكل قبل بدء البناء، وأي تغييرات هيكلية تطلب بعد الاعتماد تقيم ويقدم لها عرض سعر منفصل.
+- en: Build - Blueprint
+  ar: البناء - بلو برينت
+- en: Explore Blueprint's website build stage covering responsive layout implementation, content integration, and HTML report deliverables.
+  ar: 'تعرف على مرحلة البناء في بلو برينت: تنفيذ التخطيط المتجاوب، ودمج المحتوى، وتسليم تقارير HTML.'
+- en: Bring the blueprint<br><em>to life.</em>
+  ar: حول المخطط<br><em>إلى واقع.</em>
+- en: The approved structure is implemented into a fully functional, responsive static website. All confirmed deliverables, including HTML report conversion if included, are produced during this stage.
+  ar: ينفذ الهيكل المعتمد في موقع ثابت متجاوب يعمل بالكامل، وتنجز خلال هذه المرحلة جميع المخرجات المؤكدة، بما فيها تحويل التقارير إلى HTML إن كان مشمولا.
+- en: What Gets Built
+  ar: ما يتم بناؤه
+- en: Layout Implementation
+  ar: تنفيذ التخطيط
+- en: Core page structure, spacing system, and section patterns applied consistently across all pages.
+  ar: تطبيق هيكل الصفحات الأساسي ونظام المسافات وأنماط الأقسام بشكل متسق في جميع الصفحات.
+- en: Typography System
+  ar: نظام الخطوط
+- en: Clear visual hierarchy for headings, body text, and supporting content.
+  ar: تسلسل بصري واضح للعناوين والنصوص والمحتوى الداعم.
+- en: Responsive Behavior
+  ar: السلوك المتجاوب
+- en: Layout tested and optimized across mobile, tablet, and desktop.
+  ar: اختبار التخطيط وتحسينه على الجوال والجهاز اللوحي والحاسوب.
+- en: Content Integration
+  ar: دمج المحتوى
+- en: All submitted text, images, diagrams, and assets placed and formatted within the approved structure.
+  ar: وضع جميع النصوص والصور والمخططات والملفات المقدمة وتنسيقها ضمن الهيكل المعتمد.
+- en: Report Deliverables
+  ar: مخرجات التقارير
+- en: For Tier 2 and Tier 3 projects, report integration is included. The format depends on what was confirmed during intake.
+  ar: في مشاريع الفئتين 2 و3 يكون دمج التقارير مشمولا، وتعتمد الصيغة على ما تم تأكيده عند الاستقبال.
+- en: Embedded PDF
+  ar: ملف PDF مضمن
+- en: The existing report is embedded directly into a dedicated page on the site and accessible without leaving the site or downloading a file.
+  ar: يضمن التقرير الحالي مباشرة في صفحة مخصصة داخل الموقع، ويمكن الاطلاع عليه دون مغادرة الموقع أو تنزيل ملف.
+- en: 'HTML Report: Hosted'
+  ar: 'تقرير HTML: مستضاف'
+- en: The report is converted into a fully styled HTML page and hosted as part of the site. Readable on any device without a PDF viewer.
+  ar: يحول التقرير إلى صفحة HTML منسقة بالكامل ويستضاف ضمن الموقع، ويقرأ على أي جهاز دون الحاجة إلى عارض PDF.
+- en: 'HTML Report: Standalone'
+  ar: 'تقرير HTML: مستقل'
+- en: The report is converted into a self-contained HTML file and delivered for download or independent hosting. Not integrated into the site navigation.
+  ar: يحول التقرير إلى ملف HTML مستقل يسلم للتنزيل أو للاستضافة المنفصلة، ولا يدمج في تنقل الموقع.
+- en: The original report document must be submitted in full before the build stage begins. Partial submissions will delay delivery.
+  ar: يجب تقديم مستند التقرير الأصلي كاملا قبل بدء مرحلة البناء، والتقديم الجزئي سيؤخر التسليم.
+- en: Build Output
+  ar: مخرجات البناء
+- en: Complete, functional static site reflecting the approved structure
+  ar: موقع ثابت مكتمل يعمل بالكامل ويعكس الهيكل المعتمد
+- en: All content integrated and formatted
+  ar: دمج المحتوى كاملا وتنسيقه
+- en: All confirmed report deliverables produced
+  ar: إنجاز جميع مخرجات التقارير المؤكدة
+- en: Ready for client review
+  ar: جاهز لمراجعة العميل
+- en: Review & Revisions - Blueprint
+  ar: المراجعة والتعديلات - بلو برينت
+- en: Review how Blueprint handles website feedback, revision rounds, scope boundaries, and quality checks before final launch.
+  ar: تعرف على كيفية تعامل بلو برينت مع الملاحظات وجولات التعديل وحدود النطاق وفحوصات الجودة قبل الإطلاق النهائي.
+- en: Review together.<br><em>Refine the details.</em>
+  ar: نراجع معا.<br><em>ونحسن التفاصيل.</em>
+- en: The completed build is reviewed against the approved structure and goals. Feedback is collected, assessed, and implemented within the included revision rounds.
+  ar: يراجع الموقع المكتمل مقارنة بالهيكل والأهداف المعتمدة، وتجمع الملاحظات وتقيم وتنفذ ضمن جولات التعديل المشمولة.
+- en: What Gets Refined
+  ar: ما يتم تحسينه
+- en: Content Clarity
+  ar: وضوح المحتوى
+- en: Wording, messaging, and section flow adjusted for the target audience.
+  ar: ضبط الصياغة والرسائل وتسلسل الأقسام بما يناسب الجمهور المستهدف.
+- en: Visual Consistency
+  ar: الاتساق البصري
+- en: Spacing, headings, and section hierarchy aligned across all pages.
+  ar: توحيد المسافات والعناوين وتسلسل الأقسام في جميع الصفحات.
+- en: Navigation Precision
+  ar: دقة التنقل
+- en: Labels, grouping, and page transitions reviewed for clarity.
+  ar: مراجعة التسميات والتجميع والانتقال بين الصفحات لضمان الوضوح.
+- en: Feedback Integration
+  ar: دمج الملاحظات
+- en: Structured client feedback implemented within the agreed revision scope.
+  ar: تنفيذ ملاحظات العميل المنظمة ضمن نطاق التعديل المتفق عليه.
+- en: Revision Rounds by Tier
+  ar: جولات التعديل حسب الفئة
+- en: Included Revision Rounds
+  ar: جولات التعديل المشمولة
+- en: 2 rounds
+  ar: جولتان
+- en: 3 rounds
+  ar: 3 جولات
+- en: Additional revision rounds beyond the included count are available at 79 SAR per round and must be confirmed before implementation.
+  ar: تتوفر جولات تعديل إضافية تتجاوز العدد المشمول بسعر 79 ريالا للجولة، ويجب تأكيدها قبل التنفيذ.
+- en: Scope Protection
+  ar: حماية النطاق
+- en: 'Revisions are limited to refinements within the approved structure and scope. The following require a separate quote before implementation:'
+  ar: 'تقتصر التعديلات على التحسينات ضمن الهيكل والنطاق المعتمدين، ويتطلب ما يلي عرض سعر منفصلا قبل التنفيذ:'
+- en: New sections or pages not included in the original scope
+  ar: أقسام أو صفحات جديدة غير مشمولة في النطاق الأصلي
+- en: Structural redesigns or navigation overhauls
+  ar: إعادة تصميم الهيكل أو تغيير التنقل جذريا
+- en: New deliverables not confirmed during intake
+  ar: مخرجات جديدة لم تؤكد عند الاستقبال
+- en: Revisions refine. They do not redesign.
+  ar: التعديلات تحسن، ولا تعيد التصميم.
+- en: A polished, review-ready build aligned with the original goals, approved structure, and client feedback, ready for final approval.
+  ar: موقع متقن جاهز للمراجعة، متوافق مع الأهداف الأصلية والهيكل المعتمد وملاحظات العميل، وجاهز للاعتماد النهائي.
+- en: Deployment & Handover - Blueprint
+  ar: النشر والتسليم - بلو برينت
+- en: See Blueprint's deployment and handover process for publishing, final checks, ownership transfer, and post-launch delivery assets.
+  ar: 'تعرف على مرحلة النشر والتسليم في بلو برينت: النشر، والفحوصات النهائية، ونقل الملكية، ومواد ما بعد الإطلاق.'
+- en: Your website.<br><em>Ready for the world.</em>
+  ar: موقعك.<br><em>جاهز للعالم.</em>
+- en: The approved build is published to production, validated across devices, and transferred to the client. Deployment is only initiated after final approval is confirmed.
+  ar: ينشر الموقع المعتمد على بيئة الإنتاج، ويتحقق منه على مختلف الأجهزة، ثم يسلم للعميل. لا يبدأ النشر إلا بعد تأكيد الاعتماد النهائي.
+- en: What Happens at This Stage
+  ar: ما يحدث في هذه المرحلة
+- en: Production Deployment
+  ar: النشر على بيئة الإنتاج
+- en: The site is published to GitHub Pages or the agreed static host.
+  ar: ينشر الموقع على GitHub Pages أو على الاستضافة الثابتة المتفق عليها.
+- en: Domain & HTTPS Setup
+  ar: إعداد النطاق وHTTPS
+- en: Custom domain configuration and HTTPS validation, if included in the project scope.
+  ar: إعداد النطاق الخاص والتحقق من HTTPS، إن كان مشمولا في نطاق المشروع.
+- en: Final Validation
+  ar: التحقق النهائي
+- en: Navigation, responsiveness, and performance checked across mobile and desktop before handover.
+  ar: فحص التنقل والتجاوب والأداء على الجوال والحاسوب قبل التسليم.
+- en: Ownership Transfer
+  ar: نقل الملكية
+- en: Repository access or source files transferred upon payment confirmation.
+  ar: نقل صلاحية الوصول إلى المستودع أو ملفات المصدر بعد تأكيد الدفع.
+- en: Finalization Conditions
+  ar: شروط الإنهاء
+- en: 'Handover requires both conditions to be met:'
+  ar: 'يتطلب التسليم استيفاء الشرطين التاليين:'
+- en: <strong>Final approval</strong>, all included revision rounds completed and client sign-off confirmed
+  ar: <strong>الاعتماد النهائي</strong>، باكتمال جميع جولات التعديل المشمولة وتأكيد موافقة العميل
+- en: <strong>Payment confirmation</strong>, full payment received before repository access or source files are transferred
+  ar: <strong>تأكيد الدفع</strong>، باستلام المبلغ كاملا قبل نقل صلاحية المستودع أو ملفات المصدر
+- en: What You Receive
+  ar: ما تستلمه
+- en: Live URL
+  ar: رابط الموقع المنشور
+- en: Your production-ready website at the agreed domain or GitHub Pages address.
+  ar: موقعك الجاهز على النطاق المتفق عليه أو على عنوان GitHub Pages.
+- en: Repository Access or Source Files
+  ar: صلاحية المستودع أو ملفات المصدر
+- en: Full access to your site files as agreed during intake.
+  ar: وصول كامل إلى ملفات موقعك وفق ما اتفق عليه عند الاستقبال.
+- en: Update Guidance
+  ar: إرشادات التحديث
+- en: Documentation covering how to edit and maintain your content going forward.
+  ar: توثيق يشرح كيفية تعديل محتواك وصيانته مستقبلا.
+- en: After Handover
+  ar: بعد التسليم
+- en: The client assumes full responsibility for ongoing content updates unless a maintenance add-on was agreed in writing. Hosting platform limitations and third-party service policies fall outside Blueprint's control after handover.
+  ar: يتحمل العميل المسؤولية الكاملة عن تحديثات المحتوى اللاحقة، ما لم يتفق كتابيا على إضافة الصيانة. وتقع قيود منصات الاستضافة وسياسات خدمات الأطراف الثالثة خارج سيطرة بلو برينت بعد التسليم.
+patterns:
+- match: ^(\d+) of 06$
+  ar: \1 من 06
+- match: ^<b>Stage</b>(\d+) of 06$
+  ar: <b>المرحلة</b>\1 من 06
+- match: ^stage://(\d+)$
+  ar: المرحلة · \1

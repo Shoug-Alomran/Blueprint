@@ -1,5 +1,24 @@
 /* Progressive enhancements: navigation, construction story, and shared icons. */
 (function () {
+  var IS_AR = document.documentElement.lang === "ar";
+
+  /* Arabic counts take a different form for 1, 2, 3-10 and 11+
+     (مشروع واحد، مشروعان، 3 مشاريع، 11 مشروعا). */
+  var AR_NOUNS = {
+    project: ["مشروع واحد", "مشروعان", "مشاريع", "مشروعا"],
+    template: ["قالب واحد", "قالبان", "قوالب", "قالبا"],
+  };
+
+  function countLabel(count, noun) {
+    if (!IS_AR) return count + " " + noun + (count === 1 ? "" : "s");
+    var forms = AR_NOUNS[noun] || AR_NOUNS.project;
+    if (count === 1) return forms[0];
+    if (count === 2) return forms[1];
+    var mod = count % 100;
+    if (count === 0 || (mod >= 3 && mod <= 10)) return count + " " + forms[2];
+    return count + " " + forms[3];
+  }
+
   "use strict";
   function init() {
     var button = document.querySelector(".studio-menu");
@@ -78,15 +97,17 @@
     var stages = Array.from(document.querySelectorAll("[data-journey-stage]"));
     if (stages.length && !document.body.dataset.journeyBound) {
       document.body.dataset.journeyBound = "true";
-      var names = [
-        "IDEA",
-        "DEFINITION",
-        "SPECIFICATION",
-        "BLUEPRINT",
-        "INTERFACE",
-        "TESTED BUILD",
-        "LIVE WEBSITE",
-      ];
+      var names = IS_AR
+        ? ["الفكرة", "التعريف", "المواصفات", "المخطط", "الواجهة", "نسخة مختبرة", "موقع منشور"]
+        : [
+            "IDEA",
+            "DEFINITION",
+            "SPECIFICATION",
+            "BLUEPRINT",
+            "INTERFACE",
+            "TESTED BUILD",
+            "LIVE WEBSITE",
+          ];
       var queued = false;
       function update() {
         var current = 1;
@@ -143,13 +164,14 @@
         document
           .querySelectorAll("[data-work-category]")
           .forEach(function (card) {
+            // A card can sit in several groups ("signature events").
             card.hidden =
-              filter !== "all" && card.dataset.workCategory !== filter;
+              filter !== "all" &&
+              card.dataset.workCategory.split(" ").indexOf(filter) === -1;
             if (!card.hidden) count++;
           });
         var countEl = document.getElementById("studio-work-count");
-        var noun = countEl.dataset.noun || "project";
-        countEl.textContent = count + " " + noun + (count === 1 ? "" : "s");
+        countEl.textContent = countLabel(count, countEl.dataset.noun || "project");
       });
     });
     // Deep links such as /web-platforms/#course arrive from the Products page

@@ -54,7 +54,6 @@ exclude_docs: |
   infrastructure/**
   systems/**
   templates/**
-  *.ar.md
 
 markdown_extensions:
   - admonition
@@ -71,10 +70,58 @@ markdown_extensions:
 
 plugins:
   - search
+  # Arabic lives at /ar/. Pages with a `.ar.md` file use it (long-form prose:
+  # policies, process steps, demos); every other page falls back to the
+  # English source, and hooks/i18n_ar.py translates its rendered output from
+  # i18n/ar/*.yml. Templates in overrides/ therefore stay plain English.
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+        - locale: ar
+          name: العربية
+          build: true
+          site_description: استوديو في الرياض يبني مواقع ثابتة واضحة ومنظمة، ويحول التقارير إلى HTML، ويصمم قوالب السيرة الذاتية.
+          nav_translations:
+            Home: الرئيسية
+            Products: المنتجات
+            All Products: جميع المنتجات
+            CV Templates: قوالب السيرة الذاتية
+            HTML Report Conversions: تحويل التقارير إلى HTML
+            Services & Pricing: الخدمات والأسعار
+            How It Works: آلية العمل
+            Process Overview: نظرة عامة على المراحل
+            Intake & Fit Check: الاستقبال وتقييم الملاءمة
+            Discovery: الاستكشاف
+            Structure & Sitemap: الهيكلة وخريطة الموقع
+            Build: البناء
+            Review & Revisions: المراجعة والتعديلات
+            Deployment & Handover: النشر والتسليم
+            Start a Project: ابدأ مشروعك
+            Portfolio: الأعمال
+            Client Work: أعمالنا
+            Feature Demos: عروض الميزات
+            About: من نحن
+            Contact: تواصل معنا
+
+# `mkdocs serve` only rebuilds when a watched file changes. The Arabic
+# translations (i18n/) and the build hooks live outside docs/, so without
+# these entries edits to them would not show up until a restart.
+watch:
+  - i18n
+  - hooks
 
 hooks:
   - hooks/sitemap_filter.py
   - hooks/search_index_from_html.py
+  - hooks/i18n_ar.py
+  - hooks/rtl_css.py
 
 validation:
   nav:
@@ -95,11 +142,13 @@ extra_css:
   - styles/products.css
   - styles/studio.css
   - styles/showcase.css
+  - styles/arabic.css
 
 extra:
   generator: false
 
 extra_javascript:
+  - javascripts/i18n-runtime.js
   - javascripts/theme-toggle.js
   - javascripts/search.js
   - javascripts/blueprint-motion.js

@@ -1,11 +1,18 @@
 {% from 'partials/studio-icons.html' import icon %}
+{#- Language state. On /ar/ pages page.url carries an "ar/" prefix; strip it
+    so the active-page check and the language switch both work from the same
+    base path. -#}
+{% set bp_locale = i18n_page_locale | default('en') %}
+{% set bp_url = page.url if page and page.url else '' %}
+{% set bp_base = bp_url[3:] if bp_url.startswith('ar/') else bp_url %}
+{% set bp_other = bp_base if bp_locale == 'ar' else 'ar/' ~ bp_base %}
 <header class="studio-header" data-md-component="header">
   <a
     class="studio-brand"
     href="{{ '.' | url }}"
     aria-label="Blueprint Studio home"
     ><span class="studio-mark">{{ icon('browser') }}</span
-    ><span>BLUEPRINT<span>STUDIO</span></span></a
+    ><span translate="no">{% if bp_locale == 'ar' %}بلو برينت<span>ستوديو</span>{% else %}BLUEPRINT<span>STUDIO</span>{% endif %}</span></a
   >
   <button
     class="studio-menu"
@@ -17,21 +24,10 @@
     <span></span><span></span>
   </button>
   <nav class="studio-nav" id="studio-navigation" aria-label="Main navigation">
-    {% for label, path in [('Products','products/'),('Services &
-    Pricing','packages/'),('How It
-    Works','process/'),('Portfolio','web-platforms/'),('About','about/'),('Contact','contact/')]
-    %}
+    {% for label, path in [('Products', 'products/'), ('Services & Pricing', 'packages/'), ('How It Works', 'process/'), ('Portfolio', 'web-platforms/'), ('About', 'about/'), ('Contact', 'contact/')] %}
     <a
       href="{{ path | url }}"
-      {%
-      if
-      page
-      and
-      page.url.startswith(path)
-      %}aria-current="page"
-      {%
-      endif
-      %}
+      {% if bp_base.startswith(path) %}aria-current="page"{% endif %}
       >{{ label }}</a
     >
     {% endfor %}
@@ -53,6 +49,22 @@
     <span class="studio-search-open__label">Search</span>
     <kbd aria-hidden="true">/</kbd>
   </button>
+  <a
+    class="studio-lang"
+    href="{{ (bp_other or '.') | url }}"
+    hreflang="{{ 'en' if bp_locale == 'ar' else 'ar' }}"
+    lang="{{ 'en' if bp_locale == 'ar' else 'ar' }}"
+    translate="no"
+    aria-label="{{ 'Read this page in English' if bp_locale == 'ar' else 'اقرأ هذه الصفحة بالعربية' }}"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.02a15.7 15.7 0 0 0-1.38-5.56A8.03 8.03 0 0 1 19.93 11ZM12 4.04c.9 1.25 1.9 3.5 2.13 6.96H9.87C10.1 7.54 11.1 5.29 12 4.04ZM8.47 5.44A15.7 15.7 0 0 0 7.09 11H4.07a8.03 8.03 0 0 1 4.4-5.56ZM4.07 13h3.02c.14 2.06.62 3.96 1.38 5.56A8.03 8.03 0 0 1 4.07 13ZM12 19.96c-.9-1.25-1.9-3.5-2.13-6.96h4.26c-.23 3.46-1.23 5.71-2.13 6.96Zm3.53-1.4A15.7 15.7 0 0 0 16.91 13h3.02a8.03 8.03 0 0 1-4.4 5.56Z"
+      />
+    </svg>
+    <span class="studio-lang__long">{{ 'English' if bp_locale == 'ar' else 'العربية' }}</span>
+    <span class="studio-lang__short" aria-hidden="true">{{ 'EN' if bp_locale == 'ar' else 'ع' }}</span>
+  </a>
   <button
     class="studio-theme"
     type="button"

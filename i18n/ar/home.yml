@@ -1,0 +1,224 @@
+# Home page (overrides/home.html).
+# Decorative code readouts in the hero and cards (pos:, NODE_01, REF: ...)
+# are deliberately kept in Latin: they are styled as code, and code reads in
+# Latin in Arabic interfaces too. They are listed here mapped to themselves so
+# the build does not report them as missing.
+strings:
+- en: 'COORD: 34.2 / -118.4'
+  ar: 'COORD: 34.2 / -118.4'
+- en: DEPLOY://EDGE
+  ar: DEPLOY://EDGE
+- en: NODE_01
+  ar: NODE_01
+- en: SYNC_CORE
+  ar: SYNC_CORE
+- en: 'pos: 142.8, 92.4'
+  ar: 'pos: 142.8, 92.4'
+- en: 'render: dynamic_static'
+  ar: 'render: dynamic_static'
+- en: 'scale: 1.000'
+  ar: 'scale: 1.000'
+- en: 'status: architecting<i class="bp-caret"></i>'
+  ar: 'status: architecting<i class="bp-caret"></i>'
+- en: 'status: architecting'
+  ar: 'status: architecting'
+- en: 'REF: ACADEMIC_PORTAL_X'
+  ar: 'REF: ACADEMIC_PORTAL_X'
+- en: 'REF: EVENT_HUB'
+  ar: 'REF: EVENT_HUB'
+- en: 'REF: STUDENT_PORTFOLIO'
+  ar: 'REF: STUDENT_PORTFOLIO'
+- en: 'REF: TEAM_CREDIBILITY'
+  ar: 'REF: TEAM_CREDIBILITY'
+- en: SEO
+  ar: SEO
+- en: Home - Blueprint
+  ar: الرئيسية - بلو برينت
+- en: Blueprint builds structured static websites for portfolios, academic documentation, HTML reports, and workshop pages with fast, maintainable delivery.
+  ar: يبني بلو برينت مواقع ثابتة منظمة لملفات الأعمال والتوثيق الأكاديمي وتقارير HTML وصفحات ورش العمل، بتسليم سريع وسهل الصيانة.
+- en: Read this page in English
+  ar: اقرأ هذه الصفحة بالإنجليزية
+- en: <i class="bp-eyebrow__dot"></i>studio://digital-presence
+  ar: <i class="bp-eyebrow__dot"></i>الاستوديو · الحضور الرقمي
+- en: Your ideas.<br><em>A clear presence.</em><br>Built to last.
+  ar: أفكارك.<br><em>حضور واضح.</em><br>مبني ليدوم.
+- en: A professional website for your work, business, or ideas. Blueprint organizes your content, designs the experience, and helps you launch — with a clear scope from the start.
+  ar: موقع احترافي لأعمالك أو مشروعك أو أفكارك. ينظم بلو برينت محتواك، ويصمم تجربة التصفح، ويساعدك على الإطلاق — بنطاق عمل واضح منذ البداية.
+- en: Start a Project <span class="bp-btn__arrow">→</span>
+  ar: ابدأ مشروعك <span class="bp-btn__arrow">←</span>
+- en: FAST
+  ar: سريع
+- en: SECURE
+  ar: آمن
+- en: LOW-MAINTENANCE
+  ar: صيانة منخفضة
+- en: Proof / Before & After
+  ar: دليل عملي / قبل وبعد
+- en: A 10-page PDF nobody reads.<br><em>Made readable.</em>
+  ar: ملف PDF من 10 صفحات لا يقرؤه أحد.<br><em>أصبح سهل القراءة.</em>
+- en: This is a real conversion, not a mockup. The same research paper, rebuilt as an interactive report with live charts, reading progress, and a jump-to-section index.
+  ar: 'هذا تحويل حقيقي وليس نموذجا تجريبيا: الورقة البحثية نفسها، أعيد بناؤها تقريرا تفاعليا برسوم بيانية حية، ومؤشر لتقدم القراءة، وفهرس للانتقال السريع بين الأقسام.'
+- en: First page of the original research paper PDF
+  ar: الصفحة الأولى من ملف PDF الأصلي للورقة البحثية
+- en: The same paper converted into an interactive HTML report
+  ar: الورقة نفسها بعد تحويلها إلى تقرير HTML تفاعلي
+- en: From <strong>99 SAR</strong> · 2–4 days · you send the PDF, that’s it.
+  ar: يبدأ من <strong>99 ريال</strong> · من 2 إلى 4 أيام · ترسل ملف PDF ونتولى الباقي.
+- en: See more conversions →
+  ar: شاهد المزيد من التحويلات ←
+- en: Convert my PDF
+  ar: حول ملف PDF الخاص بي
+- en: Built for people who need<br><em>clarity,</em> not complexity.
+  ar: صمم لمن يحتاج<br><em>الوضوح</em> لا التعقيد.
+- en: Students
+  ar: الطلاب
+- en: Professional portfolios and project documentation to showcase your academic achievements.
+  ar: ملفات أعمال احترافية وتوثيق للمشاريع يبرز إنجازاتك الأكاديمية.
+- en: Instructors
+  ar: أعضاء هيئة التدريس
+- en: Organized course hubs for resources, chapters, quizzes, and community announcements.
+  ar: منصات مقررات منظمة للموارد والفصول والاختبارات القصيرة والإعلانات.
+- en: Professionals
+  ar: المهنيون
+- en: Structured service, credibility, and case-study websites for boutique teams and solo experts.
+  ar: مواقع منظمة للخدمات ودراسات الحالة تعزز الثقة، للفرق الصغيرة والخبراء المستقلين.
+- en: Workshops
+  ar: ورش العمل
+- en: Clear event hubs for schedules, resources, and participant information for any community.
+  ar: منصات فعاليات واضحة للجداول والموارد ومعلومات المشاركين، لأي مجتمع.
+- en: Capabilities
+  ar: ما نقدمه
+- en: Digital experiences with<br>a <em>clear purpose.</em>
+  ar: تجارب رقمية<br><em>بهدف واضح.</em>
+- en: Portfolio Websites
+  ar: مواقع ملفات الأعمال
+- en: Elite professional digital identity.
+  ar: هوية رقمية احترافية ومميزة.
+- en: Academic Hubs
+  ar: المنصات الأكاديمية
+- en: Structured learning resources.
+  ar: موارد تعليمية منظمة.
+- en: Documentation Sites
+  ar: مواقع التوثيق
+- en: Technical clarity for complex products and frameworks.
+  ar: وضوح تقني للمنتجات والأطر المعقدة.
+- en: HTML Reports
+  ar: تقارير HTML
+- en: Interactive data-rich storytelling.
+  ar: سرد تفاعلي غني بالبيانات.
+- en: CV Pages
+  ar: صفحات السيرة الذاتية
+- en: Curated visual narratives for creatives and studios.
+  ar: سرد بصري منتقى للمبدعين والاستوديوهات.
+- en: MODULES
+  ar: الوحدات
+- en: SCHEDULE
+  ar: الجدول
+- en: PORTFOLIO
+  ar: ملف الأعمال
+- en: COURSE-HUB
+  ar: منصة المقرر
+- en: EVENT-HUB
+  ar: منصة الفعالية
+- en: STATIC
+  ar: ثابت
+- en: IA
+  ar: الهيكلة
+- en: Explore Products <span>→</span>
+  ar: استكشف المنتجات <span>←</span>
+- en: Positioning
+  ar: منهجنا
+- en: Good websites aren't just designed.<br><em>They're structured.</em>
+  ar: المواقع الجيدة لا تصمم فحسب.<br><em>بل تبنى على هيكل.</em>
+- en: Structure
+  ar: الهيكل
+- en: Navigation logic
+  ar: منطق التنقل
+- en: Clarity
+  ar: الوضوح
+- en: Visual semantics
+  ar: دلالات بصرية
+- en: Performance
+  ar: الأداء
+- en: Static architecture
+  ar: بنية ثابتة
+- en: Longevity
+  ar: الاستدامة
+- en: Low maintenance
+  ar: صيانة منخفضة
+- en: Selected Builds
+  ar: أعمال مختارة
+- en: CYS401 Course Hub
+  ar: منصة مقرر CYS401
+- en: Four modules — threat landscape, CIA triad, access control, protection — organised into a guided learning path.
+  ar: أربع وحدات — مشهد التهديدات، وثلاثية CIA، والتحكم في الوصول، والحماية — منظمة في مسار تعلم موجه.
+- en: Visit CYS401 Course Hub
+  ar: زيارة منصة مقرر CYS401
+- en: A competition hub covering three workshop days, the shared brief, and the final build-off.
+  ar: منصة مسابقة تغطي ثلاثة أيام من ورش العمل، والمتطلبات المشتركة، والتحدي النهائي.
+- en: View Project
+  ar: عرض المشروع
+- en: View Full Portfolio <span>↗</span>
+  ar: عرض جميع الأعمال <span>↖</span>
+- en: '"The static-first approach ensures instant loads and zero maintenance overhead."'
+  ar: «النهج القائم على المواقع الثابتة يضمن تحميلا فوريا دون أي أعباء صيانة.»
+- en: Process
+  ar: المراحل
+- en: The Blueprint Workflow
+  ar: آلية عمل بلو برينت
+- en: A transparent, structured approach from initial idea to high-performance deployment.
+  ar: منهجية واضحة ومنظمة من الفكرة الأولى حتى إطلاق موقع عالي الأداء.
+- en: Discovery
+  ar: الاستكشاف
+- en: Requirement analysis and content goals definition.
+  ar: تحليل المتطلبات وتحديد أهداف المحتوى.
+- en: IA, site mapping, and technical blueprints.
+  ar: هيكلة المعلومات وخريطة الموقع والمخططات التقنية.
+- en: Build
+  ar: البناء
+- en: Static generation and semantic development.
+  ar: توليد الصفحات الثابتة وتطويرها بشيفرة دلالية.
+- en: Review
+  ar: المراجعة
+- en: Testing, polish, and client feedback loops.
+  ar: الاختبار والتحسين وجولات ملاحظات العميل.
+- en: Deploy
+  ar: الإطلاق
+- en: Edge launch and global CDN distribution.
+  ar: النشر وتوزيع الموقع عبر شبكة CDN عالمية.
+- en: See the Full Process <span>→</span>
+  ar: اطلع على المراحل كاملة <span>←</span>
+- en: Focused by<br><em>design.</em>
+  ar: مركزون<br><em>عن قصد.</em>
+- en: We specialize in high-end static architectures. We don't do everything — we do one thing exceptionally well. This focus ensures your site is faster, more secure, and infinitely easier to maintain.
+  ar: نتخصص في بناء المواقع الثابتة عالية الجودة. لا نفعل كل شيء — بل نتقن أمرا واحدا بامتياز. وهذا التركيز يجعل موقعك أسرع وأكثر أمانا وأسهل بكثير في الصيانة.
+- en: Built Here
+  ar: ما نبنيه
+- en: Outside Scope
+  ar: خارج نطاقنا
+- en: <span class="bp-tick" aria-hidden="true"></span>Static Websites
+  ar: <span class="bp-tick" aria-hidden="true"></span>المواقع الثابتة
+- en: <span class="bp-tick" aria-hidden="true"></span>Info Architecture
+  ar: <span class="bp-tick" aria-hidden="true"></span>هيكلة المعلومات
+- en: <span class="bp-tick" aria-hidden="true"></span>Responsive UI
+  ar: <span class="bp-tick" aria-hidden="true"></span>واجهات متجاوبة
+- en: <span class="bp-tick" aria-hidden="true"></span>SEO Foundations
+  ar: <span class="bp-tick" aria-hidden="true"></span>أساسيات SEO
+- en: <span class="bp-tick" aria-hidden="true"></span>Deployment
+  ar: <span class="bp-tick" aria-hidden="true"></span>النشر
+- en: <span class="bp-tick" aria-hidden="true"></span>Testing & Handover
+  ar: <span class="bp-tick" aria-hidden="true"></span>الاختبار والتسليم
+- en: <span class="bp-cross" aria-hidden="true"></span>Full-stack Apps
+  ar: <span class="bp-cross" aria-hidden="true"></span>التطبيقات المتكاملة (Full-stack)
+- en: <span class="bp-cross" aria-hidden="true"></span>SaaS Development
+  ar: <span class="bp-cross" aria-hidden="true"></span>تطوير منصات SaaS
+- en: <span class="bp-cross" aria-hidden="true"></span>Complex Web Apps
+  ar: <span class="bp-cross" aria-hidden="true"></span>تطبيقات الويب المعقدة
+- en: <span class="bp-cross" aria-hidden="true"></span>Databases
+  ar: <span class="bp-cross" aria-hidden="true"></span>قواعد البيانات
+- en: <span class="bp-cross" aria-hidden="true"></span>Auth Systems
+  ar: <span class="bp-cross" aria-hidden="true"></span>أنظمة تسجيل الدخول
+- en: Ready to build?
+  ar: مستعد للبدء؟
+- en: Turn your idea into a<br><em>structured</em> presence.
+  ar: حول فكرتك إلى<br>حضور <em>منظم</em>.

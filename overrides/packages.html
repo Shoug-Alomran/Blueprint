@@ -55,23 +55,23 @@ block container %}
           {% set plans = [
           {'tag':'ESSENTIAL://01','name':'Essential','desc':'For simple, focused
           websites with limited content and a clear
-          objective.','price':'399','fit':['CV websites','Simple
-          portfolios','Small informational websites','Single-purpose
+          objective.','price':'399','key':'essential','size':'Up to 8 pages','fit':['CV and personal websites','Small course
+          hubs','Short project documentation','Single-purpose
           pages'],'features':['Responsive design','Structured page
           layout','Blueprint customization','Basic SEO
           foundations','Deployment','Final testing','Project handover']},
           {'tag':'SIGNATURE://02','name':'Signature','desc':'For more complete
           websites requiring stronger customization and multiple content
-          sections.','price':'749','fit':['Full portfolio
-          websites','Academic/course hubs','Professional
-          websites','Documentation websites'],'features':['Everything in
+          sections.','price':'749','key':'signature','size':'9–16 pages','fit':['Event and competition
+          websites','Documentation websites','Professional
+          websites','Mid-size portfolios'],'features':['Everything in
           Essential','Expanded page structure','Custom visual
           direction','Advanced content organization','Interactive
           components','Enhanced animations','Responsive optimization','Extensive
           testing']}, {'tag':'CUSTOM://03','name':'Custom','desc':'For projects
           that don’t fit neatly into a predefined scope or require unique
-          architectural solutions.','price':'','fit':['Large documentation
-          websites','Complex academic hubs','Multi-section websites','Unique
+          architectural solutions.','price':'','key':'custom','size':'17+ pages','fit':['Multi-phase project
+          documentation','Organisation archives','Large personal portfolios','Unique
           static concepts'],'features':['Custom scope planning','Custom
           information architecture','Tailored visual system','Advanced static
           functionality','Project-specific components','Deployment and
@@ -85,6 +85,12 @@ block container %}
             >{% endif %}<span class="studio-label">{{ plan.tag }}</span>
             <h3>{{ plan.name }}</h3>
             <p>{{ plan.desc }}</p>
+            <p class="studio-plan-scope">
+              <strong>{{ plan.size }}</strong
+              ><a href="{{ 'web-platforms/' | url }}#{{ plan.key }}"
+                >See examples →</a
+              >
+            </p>
             <span class="studio-plan-label">SUITABLE FOR</span>
             <ul class="studio-checks">
               {% for item in plan.fit %}

@@ -1,0 +1,346 @@
+# How It Works overview (overrides/process.html).
+strings:
+- en: blueprint / your-next-chapter
+  ar: blueprint / your-next-chapter
+- en: How It Works - Blueprint
+  ar: آلية العمل - بلو برينت
+- en: Review Blueprint's seven-stage website delivery process from intake and discovery through build, revisions, deployment, and handover.
+  ar: 'تعرف على مراحل بلو برينت السبع لتسليم المواقع: من استقبال الطلب والاستكشاف، مرورا بالبناء والتعديلات، حتى النشر والتسليم.'
+- en: PROCESS://FROM-IDEA-TO-LAUNCH
+  ar: المراحل · من الفكرة إلى الإطلاق
+- en: From an idea<br>to a <em>finished<br>build.</em>
+  ar: من فكرة<br>إلى <em>موقع<br>مكتمل.</em>
+- en: Every Blueprint project follows a structured process designed to keep the scope clear, the experience consistent, and the final website easy to maintain.
+  ar: يسير كل مشروع في بلو برينت وفق منهجية منظمة تبقي النطاق واضحا، والتجربة متسقة، والموقع النهائي سهل الصيانة.
+- en: View Services
+  ar: عرض الخدمات
+- en: 07 STAGES · CLEAR SCOPE · STRUCTURED DELIVERY
+  ar: 7 مراحل · نطاق واضح · تسليم منظم
+- en: Project stages
+  ar: مراحل المشروع
+- en: <span>01</span>Request
+  ar: <span>01</span>الطلب
+- en: <span>02</span>Discovery
+  ar: <span>02</span>الاستكشاف
+- en: <span>03</span>Scope
+  ar: <span>03</span>النطاق
+- en: <span>04</span>Structure
+  ar: <span>04</span>الهيكل
+- en: <span>05</span>Design & Build
+  ar: <span>05</span>التصميم والبناء
+- en: <span>06</span>Review
+  ar: <span>06</span>المراجعة
+- en: <span>07</span>Deploy
+  ar: <span>07</span>الإطلاق
+- en: One idea. A little more defined<br>with every step.
+  ar: فكرة واحدة، تزداد وضوحا<br>مع كل خطوة.
+- en: Website construction preview
+  ar: معاينة بناء الموقع
+- en: IDEA
+  ar: الفكرة
+- en: Idea
+  ar: الفكرة
+- en: Specification
+  ar: المواصفات
+- en: Wireframe
+  ar: المخطط الأولي
+- en: Interface
+  ar: الواجهة
+- en: Tested build
+  ar: نسخة مختبرة
+- en: Live website
+  ar: موقع منشور
+- en: Reveal finished interface
+  ar: إظهار الواجهة النهائية
+- en: A PLACE FOR YOUR IDEAS
+  ar: مكان لأفكارك
+- en: A clear space for the work that matters.
+  ar: مساحة واضحة للأعمال المهمة.
+- en: Explore the work ↗
+  ar: استكشف الأعمال ↖
+- en: GOAL
+  ar: الهدف
+- en: Showcase professional work
+  ar: عرض الأعمال المهنية
+- en: AUDIENCE
+  ar: الجمهور
+- en: Recruiters + clients
+  ar: جهات التوظيف + العملاء
+- en: PAGES
+  ar: الصفحات
+- en: PURPOSE
+  ar: الغرض
+- en: Portfolio website
+  ar: موقع ملف أعمال
+- en: IDENTITY
+  ar: الهوية
+- en: YOUR BRAND
+  ar: علامتك
+- en: FEATURES
+  ar: الميزات
+- en: RESPONSIVE UI
+  ar: واجهة متجاوبة
+- en: 'STATUS: PLANNING'
+  ar: 'الحالة: التخطيط'
+- en: 'STRUCTURE: 01'
+  ar: 'الهيكل: 01'
+- en: 'GRID: ACTIVE'
+  ar: 'الشبكة: مفعلة'
+- en: HOME
+  ar: الرئيسية
+- en: ABOUT
+  ar: نبذة
+- en: PROJECTS
+  ar: المشاريع
+- en: PROJECT 01
+  ar: المشروع 01
+- en: PROJECT 02
+  ar: المشروع 02
+- en: PROJECTS<small>PROJECT 01<br>PROJECT 02</small>
+  ar: المشاريع<small>المشروع 01<br>المشروع 02</small>
+- en: CONTACT
+  ar: التواصل
+- en: WIREFRAME
+  ar: المخطط الأولي
+- en: WIREFRAME → INTERFACE
+  ar: المخطط الأولي ← الواجهة
+- en: '← WIDTH: RESPONSIVE →'
+  ar: '← العرض: متجاوب →'
+- en: DESKTOP
+  ar: الحاسوب
+- en: TABLET
+  ar: الجهاز اللوحي
+- en: MOBILE
+  ar: الجوال
+- en: TESTING
+  ar: الاختبار
+- en: PASSED
+  ar: ناجح
+- en: LIVE
+  ar: منشور
+- en: PROJECT COMPLETE
+  ar: اكتمل المشروع
+- en: CONTENT <b>✓</b>
+  ar: المحتوى <b>✓</b>
+- en: LAYOUT <b>✓</b>
+  ar: التخطيط <b>✓</b>
+- en: LINKS <b>✓</b>
+  ar: الروابط <b>✓</b>
+- en: NAVIGATION <b>✓</b>
+  ar: التنقل <b>✓</b>
+- en: PERFORMANCE <b>✓</b>
+  ar: الأداء <b>✓</b>
+- en: RESPONSIVE <b>✓</b>
+  ar: التجاوب <b>✓</b>
+- en: CONSIDERED. CONNECTED. COMPLETE.
+  ar: مدروس. مترابط. مكتمل.
+- en: STAGE://01 — PROJECT REQUEST
+  ar: المرحلة 01 — طلب المشروع
+- en: Tell us what<br>you’re building.
+  ar: أخبرنا بما<br>تريد بناءه.
+- en: The process starts with your idea. Tell Blueprint what you need, who the website is for, and what you want it to accomplish.
+  ar: 'تبدأ المراحل بفكرتك: أخبر بلو برينت بما تحتاجه، ولمن الموقع، وما الذي تريد أن يحققه.'
+- en: Share your purpose and audience.
+  ar: شارك غرضك وجمهورك.
+- en: PROJECT REQUEST / EXAMPLE
+  ar: طلب مشروع / مثال
+- en: REQUEST RECEIVED
+  ar: استلم الطلب
+- en: Explore the fit check →
+  ar: تعرف على تقييم الملاءمة ←
+- en: STAGE://02 — DISCOVERY
+  ar: المرحلة 02 — الاستكشاف
+- en: Understand<br>before designing.
+  ar: افهم<br>قبل أن تصمم.
+- en: We review the purpose, audience, content, requirements, and identity of the project before building anything. The result is a shared understanding of what the website needs to do.
+  ar: نراجع غرض المشروع وجمهوره ومحتواه ومتطلباته وهويته قبل بناء أي شيء، لنصل إلى فهم مشترك لما يجب أن يؤديه الموقع.
+- en: Discover the requirements.
+  ar: اكتشاف المتطلبات.
+- en: The discovery checklist →
+  ar: قائمة الاستكشاف ←
+- en: STAGE://03 — SCOPE & QUOTE
+  ar: المرحلة 03 — النطاق وعرض السعر
+- en: Define exactly<br>what we’re building.
+  ar: حدد بدقة<br>ما سنبنيه.
+- en: Pages, features, deliverables, and the investment are agreed before development begins. This keeps expectations clear before the first page is built.
+  ar: نتفق على الصفحات والميزات والمخرجات والتكلفة قبل بدء التطوير، لتبقى التوقعات واضحة قبل بناء الصفحة الأولى.
+- en: Agree deliverables and quote.
+  ar: الاتفاق على المخرجات وعرض السعر.
+- en: PROJECT DEFINITION
+  ar: تعريف المشروع
+- en: SCOPED
+  ar: محدد النطاق
+- en: DELIVERABLES
+  ar: المخرجات
+- en: Confirmed
+  ar: مؤكد
+- en: Defined
+  ar: محدد
+- en: Scope
+  ar: النطاق
+- en: Request
+  ar: الطلب
+- en: STAGE://04 — STRUCTURE
+  ar: المرحلة 04 — الهيكل
+- en: Build the<br>blueprint first.
+  ar: ابن<br>المخطط أولا.
+- en: Before visual polish comes structure. Content, pages, navigation, and hierarchy are organized into a clear experience.
+  ar: 'الهيكل يسبق اللمسات البصرية: ينظم المحتوى والصفحات والتنقل والتسلسل في تجربة واضحة.'
+- en: Organize pages and navigation.
+  ar: تنظيم الصفحات والتنقل.
+- en: INFORMATION ARCHITECTURE
+  ar: هيكلة المعلومات
+- en: PAGE STRUCTURE
+  ar: هيكل الصفحات
+- en: NAVIGATION
+  ar: التنقل
+- en: CONTENT HIERARCHY
+  ar: تسلسل المحتوى
+- en: Explore the structure stage →
+  ar: تعرف على مرحلة الهيكلة ←
+- en: STAGE://05 — DESIGN & BUILD
+  ar: المرحلة 05 — التصميم والبناء
+- en: Turn structure<br>into an experience.
+  ar: حول الهيكل<br>إلى تجربة.
+- en: The website takes shape through typography, layout, responsive behavior, visual details, and interaction. Each decision follows the structure we established together.
+  ar: يتشكل الموقع عبر الخطوط والتخطيط والتجاوب والتفاصيل البصرية والتفاعل، وكل قرار يتبع الهيكل الذي وضعناه معا.
+- en: Bring the visual system to life.
+  ar: إحياء النظام البصري.
+- en: THE BUILD / IN PROGRESS
+  ar: البناء / قيد التنفيذ
+- en: BUILDING
+  ar: قيد البناء
+- en: BUILD SPECIFICATION
+  ar: مواصفات البناء
+- en: VISUAL SYSTEM
+  ar: النظام البصري
+- en: LAYOUT
+  ar: التخطيط
+- en: INTERACTIONS
+  ar: التفاعلات
+- en: Inside the build →
+  ar: من داخل مرحلة البناء ←
+- en: STAGE://06 — REVIEW
+  ar: المرحلة 06 — المراجعة
+- en: Review.<br>Refine. Verify.
+  ar: راجع.<br>حسن. تحقق.
+- en: You review the finished website before deployment. We refine the agreed details and check the experience across desktop, tablet, and mobile.
+  ar: تراجع الموقع المكتمل قبل نشره، ونحسن التفاصيل المتفق عليها ونختبر التجربة على الحاسوب والجهاز اللوحي والجوال.
+- en: Review and refine the experience.
+  ar: مراجعة التجربة وتحسينها.
+- en: DEPLOYMENT / FINAL CHECK
+  ar: النشر / الفحص النهائي
+- en: READY TO BUILD
+  ar: جاهز للبناء
+- en: Desktop, tablet, and mobile previews
+  ar: معاينات للحاسوب والجهاز اللوحي والجوال
+- en: How review rounds work →
+  ar: كيف تعمل جولات المراجعة ←
+- en: STAGE://07 — DEPLOY & HANDOVER
+  ar: المرحلة 07 — النشر والتسليم
+- en: Ready for<br><em>the world.</em>
+  ar: جاهز<br><em>للعالم.</em>
+- en: Once approved, the final website is deployed and the project is handed over in a clean, maintainable structure. Your idea now has a home.
+  ar: بعد الاعتماد، ينشر الموقع النهائي ويسلم المشروع بهيكل نظيف وسهل الصيانة. أصبح لفكرتك بيت.
+- en: Deploy and hand over the project.
+  ar: نشر المشروع وتسليمه.
+- en: FINAL BUILD
+  ar: النسخة النهائية
+- en: What you receive at handover →
+  ar: ما تستلمه عند التسليم ←
+- en: THE FULL TRANSFORMATION
+  ar: التحول الكامل
+- en: One process. Seven stages.<br>One finished build.
+  ar: منهجية واحدة. سبع مراحل.<br>وموقع واحد مكتمل.
+- en: Explore the transformation
+  ar: استكشف التحول
+- en: BUILD
+  ar: البناء
+- en: REVIEW
+  ar: المراجعة
+- en: DEPLOY
+  ar: الإطلاق
+- en: DEPLOYMENT
+  ar: النشر
+- en: HANDOVER
+  ar: التسليم
+- en: REQUESTED
+  ar: مطلوب
+- en: TAKING SHAPE
+  ar: قيد التشكل
+- en: COMPLETE
+  ar: مكتمل
+- en: EXPERIENCE
+  ar: التجربة
+- en: FUNCTION
+  ar: الوظيفة
+- en: PERFORMANCE
+  ar: الأداء
+- en: CONTENT
+  ar: المحتوى
+- en: CLIENT://INPUT
+  ar: العميل · المدخلات
+- en: Built around<br>your perspective.
+  ar: مبني حول<br>رؤيتك.
+- en: What you bring to the build.
+  ar: ما تقدمه للمشروع.
+- en: Text, project information, descriptions, or academic material that needs to appear on your website.
+  ar: النصوص ومعلومات المشروع والأوصاف أو المواد الأكاديمية التي يجب أن تظهر في موقعك.
+- en: Assets
+  ar: الملفات
+- en: Logos, images, documents, branding materials, and other relevant files.
+  ar: الشعارات والصور والمستندات ومواد الهوية وغيرها من الملفات ذات الصلة.
+- en: Direction
+  ar: التوجه
+- en: Your goals, preferences, references, and expectations.
+  ar: أهدافك وتفضيلاتك ومراجعك وتوقعاتك.
+- en: Feedback
+  ar: الملاحظات
+- en: Clear feedback during review so the result matches the agreed direction.
+  ar: ملاحظات واضحة أثناء المراجعة لتأتي النتيجة مطابقة للتوجه المتفق عليه.
+- en: <strong>Don’t have everything organized yet? That’s okay.</strong ><br>Blueprint helps structure the material you provide into a clear digital experience.
+  ar: <strong>لم ترتب كل شيء بعد؟ لا بأس.</strong ><br>يساعدك بلو برينت على تنظيم المواد التي تقدمها في تجربة رقمية واضحة.
+- en: COMMUNICATION://CLEAR
+  ar: التواصل · واضح
+- en: No guessing where<br>your project stands.
+  ar: لا حاجة للتخمين<br>أين وصل مشروعك.
+- en: You’ll know which stage your project is in, what has been completed, and what we need from you next.
+  ar: ستعرف في أي مرحلة مشروعك، وما الذي اكتمل، وما الذي نحتاجه منك بعد ذلك.
+- en: EXAMPLE PROJECT STATUS
+  ar: حالة مشروع / مثال
+- en: READY FOR INPUT
+  ar: جاهز لاستقبال المدخلات
+- en: READY FOR INPUT<span class="studio-cursor">_</span>
+  ar: جاهز لاستقبال المدخلات<span class="studio-cursor">_</span>
+- en: A FEW MORE DETAILS
+  ar: تفاصيل إضافية
+- en: Before we get started.
+  ar: قبل أن نبدأ.
+- en: Do I need to know exactly what website I want?
+  ar: هل يجب أن أعرف بالضبط الموقع الذي أريده؟
+- en: No. You can start with your goal and content, and the appropriate structure can be determined during discovery.
+  ar: لا. يمكنك البدء بهدفك ومحتواك، ويحدد الهيكل المناسب خلال مرحلة الاستكشاف.
+- en: When does development begin?
+  ar: متى يبدأ التطوير؟
+- en: Development begins after the project’s scope and requirements have been established.
+  ar: يبدأ التطوير بعد تحديد نطاق المشروع ومتطلباته.
+- en: Can the scope change during the project?
+  ar: هل يمكن أن يتغير النطاق أثناء المشروع؟
+- en: Changes can be discussed, but additions outside the agreed scope may affect the quote or project requirements.
+  ar: يمكن مناقشة التغييرات، لكن أي إضافات خارج النطاق المتفق عليه قد تؤثر في عرض السعر أو متطلبات المشروع.
+- en: When do I review the website?
+  ar: متى أراجع الموقع؟
+- en: A review stage takes place before final deployment.
+  ar: تأتي مرحلة المراجعة قبل النشر النهائي.
+- en: What happens after the website is finished?
+  ar: ماذا يحدث بعد اكتمال الموقع؟
+- en: The website is deployed and the final project is handed over in a clean, maintainable structure.
+  ar: ينشر الموقع ويسلم المشروع النهائي بهيكل نظيف وسهل الصيانة.
+- en: YOUR PROJECT://STAGE 00
+  ar: مشروعك · المرحلة 00
+- en: Every build starts<br>with an idea.
+  ar: كل مشروع يبدأ<br>بفكرة.
+- en: Bring us yours. We’ll help give it structure.
+  ar: أحضر فكرتك، ونساعدك على منحها هيكلا.
+- en: View Services & Pricing →
+  ar: عرض الخدمات والأسعار ←

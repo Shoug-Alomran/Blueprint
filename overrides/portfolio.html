@@ -20,379 +20,100 @@ block container %}
     </section>
     <section class="studio-section">
       <div class="studio-wrap">
+        {# One row per project, grouped by the package it fits.
+           kind: presence, course, events or documentation (kept so older
+           deep links such as #course still mean something). #}
+        {% set projects = [
+          {'package':'essential','pages':'7 pages','kind':'course','code':'CYS401','title':'CYS401, Cybersecurity Fundamentals','url':'https://shoug-alomran.github.io/cys401/','desc':'A course hub organising four modules — threat landscape, the CIA triad, access control, and protection mechanisms — into a guided path.'},
+          {'package':'essential','pages':'6 pages','kind':'documentation','code':'SPM','title':'Software Project Management','url':'https://software-project-management.shoug-tech.com/','desc':'Project documentation for the National Employment & Skill Matching Platform, carried from planning through delivery.'},
+          {'package':'essential','pages':'8 pages','kind':'documentation','code':'ETHC303','title':'ETHC303, Social Implications of AI','url':'https://ethics.shoug-tech.com/','desc':'A structured showcase analysing the ethical, social, and sustainability implications of AI and expert systems.'},
+          {'package':'signature','pages':'10 pages','kind':'events','code':'CTF 3.0','title':'ACM/CyberTech CTF 3.0','url':'https://acmchapter-psu.github.io/ACM-CTF-3.0./','desc':'Registration, challenge tracks, and participant resources for a three-hour capture-the-flag competition.'},
+          {'package':'signature','pages':'13 pages','kind':'events','code':'WEBFORGE','title':'WebForge 2026','url':'https://acmchapter-psu.github.io/acm-webforge-2026/','desc':'A competition hub for ACM and PSU’s College of Computer & Information Sciences, covering three workshop days and the final build-off.'},
+          {'package':'signature','pages':'13 pages','kind':'documentation','code':'SE322','title':'SE322, Software Design & Architecture','url':'https://software-architecture.shoug-tech.com/','desc':'Architecture documentation for the Intaliq platform, organised across the 4+1 view model with quality attributes and design patterns.'},
+          {'package':'custom','pages':'18 pages','kind':'events','code':'ACM PSU','title':'ACM PSU Digital Archive','url':'https://acmchapter-psu.github.io/acm-psu-website/','desc':'A chapter archive documenting PSU ACM’s programming competitions, cybersecurity events, workshops, and history.'},
+          {'package':'custom','pages':'22 pages','kind':'documentation','code':'CS330','title':'CS330, Parallel Performance in Linux','url':'https://operating-systems.shoug-tech.com/','desc':'A two-phase operating systems study measuring process and thread parallelism, with an interactive thread lab and scaling charts.'},
+          {'package':'custom','pages':'24 pages','kind':'documentation','code':'SE311','title':'SE311, Software Requirements Analysis','url':'https://software-requirements-analysis.shoug-tech.com/','desc':'Requirements engineering for Sillah, a family cardiac-health platform, from stakeholder interviews to use cases and prioritised requirements.'},
+          {'package':'custom','pages':'31 pages','kind':'documentation','code':'CS340','title':'CS340, Database Web Application','url':'https://database.shoug-tech.com/','desc':'A database project documented phase by phase, from the EER model and relational schema to SQL and the finished full-stack application.'},
+          {'package':'custom','pages':'100+ pages','kind':'presence','code':'SHOUG.TECH','title':'SHOUG.TECH','url':'https://shoug-tech.com/','desc':'A personal engineering portfolio bringing software projects, cybersecurity labs, and coursework into one navigable home.'}
+        ] %}
         <div class="studio-work-toolbar">
           <div
             class="studio-work-filters"
             role="group"
-            aria-label="Filter projects"
+            aria-label="Filter projects by package"
           >
             <button type="button" data-work-filter="all" aria-pressed="true">
               All work</button
             ><button
               type="button"
-              data-work-filter="presence"
+              data-work-filter="essential"
               aria-pressed="false"
             >
-              Personal presence</button
+              Essential · up to 8 pages</button
             ><button
               type="button"
-              data-work-filter="course"
+              data-work-filter="signature"
               aria-pressed="false"
             >
-              Course hubs</button
+              Signature · 9–16 pages</button
             ><button
               type="button"
-              data-work-filter="documentation"
+              data-work-filter="custom"
               aria-pressed="false"
             >
-              Project documentation</button
-            ><button
-              type="button"
-              data-work-filter="events"
-              aria-pressed="false"
-            >
-              Event hubs
+              Custom · 17+ pages
             </button>
           </div>
-          <span id="studio-work-count" aria-live="polite">8 projects</span>
+          <span id="studio-work-count" aria-live="polite"
+            >{{ projects | length }} projects</span
+          >
         </div>
         <div class="studio-work-grid">
-          <article class="studio-work-card" data-work-category="presence">
+          {% for p in projects %}
+          <article
+            class="studio-work-card"
+            data-work-category="{{ p.package }} {{ p.kind }}"
+          >
             <a
-              class="studio-work-art studio-work-art-0"
-              href="https://shoug-tech.com/"
+              class="studio-work-art studio-work-art-{{ loop.index0 % 4 }}"
+              href="{{ p.url }}"
               target="_blank"
               rel="noopener"
-              aria-label="Visit SHOUG.TECH"
+              aria-label="Visit {{ p.title }}"
               ><div class="studio-work-window" aria-hidden="true">
                 <span class="studio-work-window-bar"
                   ><i></i><i></i><i></i
                 ></span>
                 <div class="studio-work-window-body">
-                  <span>BLUEPRINT / PROJECT 01</span><strong>SHOUG.TECH</strong>
+                  <span>BLUEPRINT / PROJECT {{ '%02d' | format(loop.index) }}</span
+                  ><strong>{{ p.code }}</strong>
                   <div class="studio-work-wire"><i></i><i></i><i></i></div>
                 </div>
               </div>
-              <span class="studio-work-art-label">STRUCTURE STUDY / 01</span
+              <span class="studio-work-art-label"
+                >STRUCTURE STUDY / {{ '%02d' | format(loop.index) }}</span
               ><b>↗</b></a
             >
             <div class="studio-work-copy">
-              <span class="studio-label">PERSONAL PRESENCE / 01</span>
+              <span class="studio-label"
+                >{{ p.package | upper }} · {{ p.pages | upper }}</span
+              >
               <h2>
-                <a href="https://shoug-tech.com/" target="_blank" rel="noopener"
-                  >SHOUG.TECH</a
+                <a href="{{ p.url }}" target="_blank" rel="noopener"
+                  >{{ p.title }}</a
                 >
               </h2>
-              <p>
-                A personal engineering portfolio bringing software projects,
-                cybersecurity labs, and coursework into one navigable home.
-              </p>
+              <p>{{ p.desc }}</p>
               <a
                 class="journey-more"
-                href="https://shoug-tech.com/"
+                href="{{ p.url }}"
                 target="_blank"
                 rel="noopener"
                 >Visit website ↗</a
               >
             </div>
           </article>
-          <article class="studio-work-card" data-work-category="course">
-            <a
-              class="studio-work-art studio-work-art-1"
-              href="https://shoug-alomran.github.io/cys401/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Visit CYS401, Cybersecurity Fundamentals"
-              ><div class="studio-work-window" aria-hidden="true">
-                <span class="studio-work-window-bar"
-                  ><i></i><i></i><i></i
-                ></span>
-                <div class="studio-work-window-body">
-                  <span>BLUEPRINT / PROJECT 02</span><strong>CYS401</strong>
-                  <div class="studio-work-wire"><i></i><i></i><i></i></div>
-                </div>
-              </div>
-              <span class="studio-work-art-label">STRUCTURE STUDY / 02</span
-              ><b>↗</b></a
-            >
-            <div class="studio-work-copy">
-              <span class="studio-label">COURSE HUB / 02</span>
-              <h2>
-                <a
-                  href="https://shoug-alomran.github.io/cys401/"
-                  target="_blank"
-                  rel="noopener"
-                  >CYS401, Cybersecurity Fundamentals</a
-                >
-              </h2>
-              <p>
-                A course hub organising four modules — threat landscape, the CIA
-                triad, access control, and protection mechanisms — into a guided
-                path.
-              </p>
-              <a
-                class="journey-more"
-                href="https://shoug-alomran.github.io/cys401/"
-                target="_blank"
-                rel="noopener"
-                >Visit website ↗</a
-              >
-            </div>
-          </article>
-          <article class="studio-work-card" data-work-category="events">
-            <a
-              class="studio-work-art studio-work-art-2"
-              href="https://acmchapter-psu.github.io/acm-webforge-2026/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Visit WebForge 2026"
-              ><div class="studio-work-window" aria-hidden="true">
-                <span class="studio-work-window-bar"
-                  ><i></i><i></i><i></i
-                ></span>
-                <div class="studio-work-window-body">
-                  <span>BLUEPRINT / PROJECT 03</span><strong>WEBFORGE</strong>
-                  <div class="studio-work-wire"><i></i><i></i><i></i></div>
-                </div>
-              </div>
-              <span class="studio-work-art-label">STRUCTURE STUDY / 03</span
-              ><b>↗</b></a
-            >
-            <div class="studio-work-copy">
-              <span class="studio-label">EVENT HUB / 03</span>
-              <h2>
-                <a
-                  href="https://acmchapter-psu.github.io/acm-webforge-2026/"
-                  target="_blank"
-                  rel="noopener"
-                  >WebForge 2026</a
-                >
-              </h2>
-              <p>
-                A competition hub for ACM and PSU’s College of Computer &amp;
-                Information Sciences, covering three workshop days and the final
-                build-off.
-              </p>
-              <a
-                class="journey-more"
-                href="https://acmchapter-psu.github.io/acm-webforge-2026/"
-                target="_blank"
-                rel="noopener"
-                >Visit website ↗</a
-              >
-            </div>
-          </article>
-          <article class="studio-work-card" data-work-category="events">
-            <a
-              class="studio-work-art studio-work-art-3"
-              href="https://acmchapter-psu.github.io/ACM-CTF-3.0./"
-              target="_blank"
-              rel="noopener"
-              aria-label="Visit ACM/CyberTech CTF 3.0"
-              ><div class="studio-work-window" aria-hidden="true">
-                <span class="studio-work-window-bar"
-                  ><i></i><i></i><i></i
-                ></span>
-                <div class="studio-work-window-body">
-                  <span>BLUEPRINT / PROJECT 04</span><strong>CTF 3.0</strong>
-                  <div class="studio-work-wire"><i></i><i></i><i></i></div>
-                </div>
-              </div>
-              <span class="studio-work-art-label">STRUCTURE STUDY / 04</span
-              ><b>↗</b></a
-            >
-            <div class="studio-work-copy">
-              <span class="studio-label">EVENT HUB / 04</span>
-              <h2>
-                <a
-                  href="https://acmchapter-psu.github.io/ACM-CTF-3.0./"
-                  target="_blank"
-                  rel="noopener"
-                  >ACM/CyberTech CTF 3.0</a
-                >
-              </h2>
-              <p>
-                Registration, challenge tracks, and participant resources for a
-                three-hour capture-the-flag competition.
-              </p>
-              <a
-                class="journey-more"
-                href="https://acmchapter-psu.github.io/ACM-CTF-3.0./"
-                target="_blank"
-                rel="noopener"
-                >Visit website ↗</a
-              >
-            </div>
-          </article>
-          <article class="studio-work-card" data-work-category="events">
-            <a
-              class="studio-work-art studio-work-art-0"
-              href="https://acmchapter-psu.github.io/acm-psu-website/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Visit ACM PSU Digital Archive"
-              ><div class="studio-work-window" aria-hidden="true">
-                <span class="studio-work-window-bar"
-                  ><i></i><i></i><i></i
-                ></span>
-                <div class="studio-work-window-body">
-                  <span>BLUEPRINT / PROJECT 05</span><strong>ACM PSU</strong>
-                  <div class="studio-work-wire"><i></i><i></i><i></i></div>
-                </div>
-              </div>
-              <span class="studio-work-art-label">STRUCTURE STUDY / 05</span
-              ><b>↗</b></a
-            >
-            <div class="studio-work-copy">
-              <span class="studio-label">EVENT HUB / 05</span>
-              <h2>
-                <a
-                  href="https://acmchapter-psu.github.io/acm-psu-website/"
-                  target="_blank"
-                  rel="noopener"
-                  >ACM PSU Digital Archive</a
-                >
-              </h2>
-              <p>
-                A chapter archive documenting PSU ACM’s programming
-                competitions, cybersecurity events, workshops, and history.
-              </p>
-              <a
-                class="journey-more"
-                href="https://acmchapter-psu.github.io/acm-psu-website/"
-                target="_blank"
-                rel="noopener"
-                >Visit website ↗</a
-              >
-            </div>
-          </article>
-          <article class="studio-work-card" data-work-category="documentation">
-            <a
-              class="studio-work-art studio-work-art-1"
-              href="https://software-architecture.shoug-tech.com/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Visit SE322, Software Design &amp; Architecture"
-              ><div class="studio-work-window" aria-hidden="true">
-                <span class="studio-work-window-bar"
-                  ><i></i><i></i><i></i
-                ></span>
-                <div class="studio-work-window-body">
-                  <span>BLUEPRINT / PROJECT 06</span><strong>SE322</strong>
-                  <div class="studio-work-wire"><i></i><i></i><i></i></div>
-                </div>
-              </div>
-              <span class="studio-work-art-label">STRUCTURE STUDY / 06</span
-              ><b>↗</b></a
-            >
-            <div class="studio-work-copy">
-              <span class="studio-label">DOCUMENTATION / 06</span>
-              <h2>
-                <a
-                  href="https://software-architecture.shoug-tech.com/"
-                  target="_blank"
-                  rel="noopener"
-                  >SE322, Software Design &amp; Architecture</a
-                >
-              </h2>
-              <p>
-                Architecture documentation for the Intaliq platform, organised
-                across the 4+1 view model with quality attributes and design
-                patterns.
-              </p>
-              <a
-                class="journey-more"
-                href="https://software-architecture.shoug-tech.com/"
-                target="_blank"
-                rel="noopener"
-                >Visit website ↗</a
-              >
-            </div>
-          </article>
-          <article class="studio-work-card" data-work-category="documentation">
-            <a
-              class="studio-work-art studio-work-art-2"
-              href="https://software-project-management.shoug-tech.com/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Visit Software Project Management"
-              ><div class="studio-work-window" aria-hidden="true">
-                <span class="studio-work-window-bar"
-                  ><i></i><i></i><i></i
-                ></span>
-                <div class="studio-work-window-body">
-                  <span>BLUEPRINT / PROJECT 07</span><strong>SPM</strong>
-                  <div class="studio-work-wire"><i></i><i></i><i></i></div>
-                </div>
-              </div>
-              <span class="studio-work-art-label">STRUCTURE STUDY / 07</span
-              ><b>↗</b></a
-            >
-            <div class="studio-work-copy">
-              <span class="studio-label">DOCUMENTATION / 07</span>
-              <h2>
-                <a
-                  href="https://software-project-management.shoug-tech.com/"
-                  target="_blank"
-                  rel="noopener"
-                  >Software Project Management</a
-                >
-              </h2>
-              <p>
-                Project documentation for the National Employment &amp; Skill
-                Matching Platform, carried from planning through delivery.
-              </p>
-              <a
-                class="journey-more"
-                href="https://software-project-management.shoug-tech.com/"
-                target="_blank"
-                rel="noopener"
-                >Visit website ↗</a
-              >
-            </div>
-          </article>
-          <article class="studio-work-card" data-work-category="documentation">
-            <a
-              class="studio-work-art studio-work-art-3"
-              href="https://ethics.shoug-tech.com/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Visit ETHC303, Social Implications of AI"
-              ><div class="studio-work-window" aria-hidden="true">
-                <span class="studio-work-window-bar"
-                  ><i></i><i></i><i></i
-                ></span>
-                <div class="studio-work-window-body">
-                  <span>BLUEPRINT / PROJECT 08</span><strong>ETHC303</strong>
-                  <div class="studio-work-wire"><i></i><i></i><i></i></div>
-                </div>
-              </div>
-              <span class="studio-work-art-label">STRUCTURE STUDY / 08</span
-              ><b>↗</b></a
-            >
-            <div class="studio-work-copy">
-              <span class="studio-label">DOCUMENTATION / 08</span>
-              <h2>
-                <a
-                  href="https://ethics.shoug-tech.com/"
-                  target="_blank"
-                  rel="noopener"
-                  >ETHC303, Social Implications of AI</a
-                >
-              </h2>
-              <p>
-                A structured showcase analysing the ethical, social, and
-                sustainability implications of AI and expert systems.
-              </p>
-              <a
-                class="journey-more"
-                href="https://ethics.shoug-tech.com/"
-                target="_blank"
-                rel="noopener"
-                >Visit website ↗</a
-              >
-            </div>
-          </article>
+          {% endfor %}
         </div>
         <p class="studio-work-note">
           The illustrations above show each project’s structure. Open a website

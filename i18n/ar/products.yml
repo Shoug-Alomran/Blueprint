@@ -1,0 +1,118 @@
+# Products page (overrides/products.html).
+strings:
+- en: All Products - Blueprint
+  ar: جميع المنتجات - بلو برينت
+- en: Purpose-built static websites — portfolio sites, CV websites, course and academic hubs, documentation, and interactive HTML reports.
+  ar: مواقع ثابتة مبنية لغرض محدد — مواقع ملفات الأعمال، ومواقع السيرة الذاتية، ومنصات المقررات، والتوثيق، وتقارير HTML التفاعلية.
+- en: <i class="bp-eyebrow__dot"></i>catalog://products
+  ar: <i class="bp-eyebrow__dot"></i>الكتالوج · المنتجات
+- en: A place for your work.<br><em>Built around what you need.</em>
+  ar: مكان لأعمالك.<br><em>مبني حول ما تحتاجه.</em>
+- en: Showcase your experience, share a course, or make a report easier to read. Find the right format for your content.
+  ar: اعرض خبراتك، أو شارك مقررا دراسيا، أو اجعل تقريرك أسهل قراءة. اختر الصيغة المناسبة لمحتواك.
+- en: <i></i>STATIC-FIRST
+  ar: <i></i>ثابت أولا
+- en: <i></i>RESPONSIVE
+  ar: <i></i>متجاوب
+- en: <i></i>DEPLOYMENT-READY
+  ar: <i></i>جاهز للنشر
+- en: 01 — Personal Brand
+  ar: 01 — الهوية الشخصية
+- en: Portfolio Website
+  ar: موقع ملف الأعمال
+- en: A polished personal website for showcasing your work, experience, projects, skills, and professional identity.
+  ar: موقع شخصي متقن يعرض أعمالك وخبراتك ومشاريعك ومهاراتك وهويتك المهنية.
+- en: 'Best for:'
+  ar: 'مناسب لـ:'
+- en: Students, developers, designers, researchers.
+  ar: الطلاب والمطورين والمصممين والباحثين.
+- en: Explore Portfolio Websites <span>→</span>
+  ar: استكشف مواقع ملفات الأعمال <span>←</span>
+- en: 02 — Profile
+  ar: 02 — الملف المهني
+- en: CV Website
+  ar: موقع السيرة الذاتية
+- en: Turn a traditional CV into a clean, responsive digital profile.
+  ar: حول سيرتك الذاتية التقليدية إلى ملف رقمي أنيق ومتجاوب.
+- en: Live CV template preview
+  ar: معاينة حية لقالب سيرة ذاتية
+- en: LIVE TEMPLATE
+  ar: قالب حي
+- en: Explore CV Websites <span>→</span>
+  ar: استكشف مواقع السيرة الذاتية <span>←</span>
+- en: 03 — Academic
+  ar: 03 — أكاديمي
+- en: Course & Academic Hub
+  ar: منصة المقررات الأكاديمية
+- en: A structured academic website for organizing chapters, resources, announcements, and course content.
+  ar: موقع أكاديمي منظم لترتيب الفصول والموارد والإعلانات ومحتوى المقرر.
+- en: Explore Course Hubs <span>→</span>
+  ar: استكشف منصات المقررات <span>←</span>
+- en: 04 — Knowledge
+  ar: 04 — المعرفة
+- en: Documentation
+  ar: التوثيق
+- en: Organize technical or project information into a searchable experience.
+  ar: نظم المعلومات التقنية أو معلومات مشروعك في تجربة سهلة البحث.
+- en: Explore Documentation <span>→</span>
+  ar: استكشف مواقع التوثيق <span>←</span>
+- en: 05 — Digital Report
+  ar: 05 — التقرير الرقمي
+- en: Interactive HTML Report
+  ar: تقرير HTML تفاعلي
+- en: Transform traditional reports into polished web-based documents.
+  ar: حول التقارير التقليدية إلى مستندات ويب أنيقة.
+- en: Original PDF, first page
+  ar: ملف PDF الأصلي، الصفحة الأولى
+- en: Converted HTML report
+  ar: تقرير HTML بعد التحويل
+- en: Explore HTML Reports <span>→</span>
+  ar: استكشف تقارير HTML <span>←</span>
+- en: customization://on
+  ar: التخصيص · مفعل
+- en: A structure to start from.<br>Not a template you're stuck with.
+  ar: هيكل تنطلق منه.<br>لا قالب تقيد به.
+- en: Every Blueprint build is adapted around your content, goals, and identity while maintaining a clear and reliable structure.
+  ar: كل مشروع من بلو برينت يكيف حول محتواك وأهدافك وهويتك، مع الحفاظ على هيكل واضح وموثوق.
+- en: <span class="bp-custom__num">01</span >Adapted to your unique content
+  ar: <span class="bp-custom__num">01</span >مكيف حسب محتواك الخاص
+- en: <span class="bp-custom__num">02</span >Custom layout adjustments
+  ar: <span class="bp-custom__num">02</span >تعديلات مخصصة على التخطيط
+- en: <span class="bp-custom__num">03</span >Unique brand integration
+  ar: <span class="bp-custom__num">03</span >دمج هويتك البصرية
+- en: <span class="bp-custom__num">04</span >Bespoke functional sections
+  ar: <span class="bp-custom__num">04</span >أقسام وظيفية مصممة لك
+- en: Core<br>Structure
+  ar: الهيكل<br>الأساسي
+- en: Content
+  ar: المحتوى
+- en: Layout
+  ar: التخطيط
+- en: Branding
+  ar: الهوية
+- en: What Every Build Includes
+  ar: ما يتضمنه كل مشروع
+- en: Full Responsiveness
+  ar: تجاوب كامل
+- en: Carefully crafted for every screen size, ensuring your professional presence looks perfect on mobile, tablet, and desktop.
+  ar: مصمم بعناية لكل مقاس شاشة، ليبدو حضورك المهني مثاليا على الجوال والجهاز اللوحي والحاسوب.
+- en: Hyper-Performance
+  ar: أداء فائق
+- en: Static-first architecture ensures near-instant load times and high Core Web Vital scores out of the box.
+  ar: البنية القائمة على المواقع الثابتة تضمن تحميلا شبه فوري ودرجات عالية في مؤشرات Core Web Vitals من البداية.
+- en: SEO Foundations
+  ar: أساسيات SEO
+- en: Semantic HTML, proper meta tags, and optimized asset loading make your site easy for search engines to crawl and rank.
+  ar: شيفرة HTML دلالية، ووسوم وصفية صحيحة، وتحميل محسن للملفات تجعل موقعك سهل الأرشفة والظهور في محركات البحث.
+- en: Bulletproof Security
+  ar: أمان متين
+- en: No databases, no backends, no vulnerabilities. Static sites are inherently more secure than traditional platforms.
+  ar: لا قواعد بيانات، ولا خوادم خلفية، ولا ثغرات. المواقع الثابتة أكثر أمانا بطبيعتها من المنصات التقليدية.
+- en: Managed Deployment
+  ar: نشر مدار
+- en: We handle the hosting configuration and deployment pipelines so you don't have to worry about technical overhead.
+  ar: نتولى إعداد الاستضافة ومسار النشر، فلا تنشغل بالتفاصيل التقنية.
+- en: Clean Handover
+  ar: تسليم نظيف
+- en: Once finished, you receive clean, commented code and a structure that is easy to update as your content grows.
+  ar: عند الانتهاء، تستلم شيفرة نظيفة موثقة بالتعليقات وهيكلا يسهل تحديثه مع نمو محتواك.

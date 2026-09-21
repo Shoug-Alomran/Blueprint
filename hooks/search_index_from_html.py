@@ -17,6 +17,11 @@ import re
 from html.parser import HTMLParser
 from pathlib import Path
 
+from mkdocs.plugins import event_priority
+
+# Non-default languages built into their own subdirectory by mkdocs-static-i18n.
+LOCALES = ("ar",)
+
 # Chrome that appears on every page: indexing it makes every query match
 # everything.
 SKIP_TAGS = {"script", "style", "noscript", "svg", "template"}
@@ -120,27 +125,19 @@ def _clean(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def on_post_build(config):
-    site_dir = Path(config["site_dir"])
-    index_path = site_dir / "search" / "search_index.json"
-    if not index_path.exists():
-        return
-
-    try:
-        payload = json.loads(index_path.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return
-
+def _collect(site_dir: Path, subdir: str | None) -> list[dict]:
+    """Visible text of every page under site_dir (or site_dir/subdir)."""
+    base = site_dir / subdir if subdir else site_dir
     docs = []
-    for html_file in sorted(site_dir.rglob("*.html")):
+    for html_file in sorted(base.rglob("*.html")):
         rel = html_file.relative_to(site_dir)
-        # Standalone assets (CV templates, converted reports) are products,
-        # not pages of this site.
-        if rel.parts and rel.parts[0] in {"cv-templates", "assets", "search"}:
+        parts = rel.parts
+        if subdir is None and parts and parts[0] in LOCALES:
+            continue  # another language's pages live in their own index
+        inner = parts[1:] if subdir else parts
+        if inner and inner[0] in {"cv-templates", "assets", "search"}:
             continue
-        if rel.name == "404.html":
-            continue
-        if "assets/examples" in rel.as_posix():
+        if rel.name == "404.html" or "assets/examples" in rel.as_posix():
             continue
 
         try:
@@ -163,10 +160,38 @@ def on_post_build(config):
         title = _clean(parser.title.split(" - ")[0]) or _clean(
             parser.headings[0] if parser.headings else location or "Home"
         )
-
         docs.append({"location": location, "title": title, "text": text})
+    return docs
 
-    if docs:
-        payload["docs"] = docs
-        index_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-        print(f"INFO    -  search: reindexed {len(docs)} rendered pages")
+
+# Runs after mkdocs-static-i18n (-100) has built /ar/, and after Material's
+# search plugin, which would otherwise overwrite this index with the
+# markdown-based one. The Arabic build triggers this too, partway through;
+# the outer English build runs it again last, so the final files are complete.
+@event_priority(-200)
+def on_post_build(config):
+    site_dir = Path(config["site_dir"])
+    index_path = site_dir / "search" / "search_index.json"
+
+    payload = {"config": {"lang": ["en"], "separator": r"[\s\-]+", "pipeline": []}, "docs": []}
+    if index_path.exists():
+        try:
+            payload = json.loads(index_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            pass
+
+    targets = [(None, index_path)] + [
+        (loc, site_dir / loc / "search" / "search_index.json")
+        for loc in LOCALES if (site_dir / loc).is_dir()
+    ]
+    for subdir, path in targets:
+        docs = _collect(site_dir, subdir)
+        if not docs:
+            continue
+        out = dict(payload)
+        out["docs"] = docs
+        if subdir:
+            out["config"] = {**payload.get("config", {}), "lang": [subdir]}
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
+        print(f"INFO    -  search: indexed {len(docs)} {subdir or 'en'} pages")

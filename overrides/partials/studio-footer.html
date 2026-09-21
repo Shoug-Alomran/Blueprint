@@ -1,8 +1,8 @@
 <footer class="md-footer">
   <div class="bp-footer studio-footer">
     <div class="studio-footer-top">
-      <a class="studio-brand" href="{{ '.' | url }}"
-        >BLUEPRINT<span>STUDIO</span></a
+      <a class="studio-brand" href="{{ '.' | url }}" translate="no"
+        >{% if (i18n_page_locale | default('en')) == 'ar' %}بلو برينت<span>ستوديو</span>{% else %}BLUEPRINT<span>STUDIO</span>{% endif %}</a
       >
       <p>Good ideas deserve<br />a considered digital home.</p>
       <a class="studio-footer-next" href="{{ 'start-project/' | url }}"

@@ -1,0 +1,62 @@
+# Contact page (overrides/contact.html).
+strings:
+- en: Contact - Blueprint
+  ar: تواصل معنا - بلو برينت
+- en: Contact Blueprint for portfolio websites, academic documentation sites, HTML reports, and other static website inquiries.
+  ar: تواصل مع بلو برينت بخصوص مواقع ملفات الأعمال، ومواقع التوثيق الأكاديمي، وتقارير HTML، وأي استفسار عن المواقع الثابتة.
+- en: CONVERSATION://START
+  ar: المحادثة · البداية
+- en: An idea.<br>A question.<br><em>Let’s talk.</em>
+  ar: فكرة.<br>سؤال.<br><em>لنتحدث.</em>
+- en: You don’t need a finished plan to get in touch. Tell us what you’re thinking, and we’ll help you understand the options.
+  ar: لا تحتاج خطة مكتملة لتتواصل معنا. أخبرنا بما تفكر فيه، وسنساعدك على فهم الخيارات المتاحة.
+- en: DIRECT://TO THE STUDIO
+  ar: مباشرة · إلى الاستوديو
+- en: A simple hello<br>is a good start.
+  ar: تحية بسيطة<br>بداية جيدة.
+- en: RESPONSE
+  ar: الرد
+- en: Within 2 business days
+  ar: خلال يومي عمل
+- en: BASED IN
+  ar: المقر
+- en: LANGUAGES
+  ar: اللغات
+- en: READY://TO BUILD
+  ar: جاهز · للبناء
+- en: Have a project<br>in mind?
+  ar: لديك مشروع<br>في ذهنك؟
+- en: The project brief gives us the details we need to recommend a scope, timeline, and quote. Share what you know; we’ll work through the rest together.
+  ar: يمنحنا نموذج المشروع التفاصيل التي نحتاجها لاقتراح النطاق والجدول الزمني وعرض السعر. شارك ما تعرفه، ونكمل الباقي معا.
+- en: What is the website for?
+  ar: ما الغرض من الموقع؟
+- en: A portfolio, business, course, research project, or something else.
+  ar: ملف أعمال، أو نشاط تجاري، أو مقرر، أو مشروع بحثي، أو غير ذلك.
+- en: What content do you have?
+  ar: ما المحتوى المتوفر لديك؟
+- en: Text, images, documents, or examples you’d like us to see.
+  ar: نصوص أو صور أو مستندات أو أمثلة تود أن نطلع عليها.
+- en: What would a good result look like?
+  ar: كيف تبدو النتيجة الجيدة بالنسبة لك؟
+- en: Your goals, preferences, and any deadline you’re working toward.
+  ar: أهدافك وتفضيلاتك وأي موعد نهائي تعمل وفقه.
+- en: AFTER YOU REACH OUT
+  ar: بعد تواصلك معنا
+- en: A clear next step.
+  ar: خطوة تالية واضحة.
+- en: We read your brief
+  ar: نقرأ طلبك
+- en: We review what you need and check that the project fits our services.
+  ar: نراجع ما تحتاجه ونتأكد من أن المشروع ضمن خدماتنا.
+- en: We define the scope
+  ar: نحدد النطاق
+- en: You receive a clear outline of the website, timeline, and investment.
+  ar: تستلم تصورا واضحا للموقع والجدول الزمني والتكلفة.
+- en: We start together
+  ar: نبدأ معا
+- en: Once the scope is agreed and content is ready, the build begins.
+  ar: بمجرد الاتفاق على النطاق وجاهزية المحتوى، يبدأ البناء.
+- en: Still exploring? See what we build and how our pricing works.
+  ar: ما زلت تستكشف؟ اطلع على ما نبنيه وكيف نسعر أعمالنا.
+- en: Services & Pricing →
+  ar: الخدمات والأسعار ←
