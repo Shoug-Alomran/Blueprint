@@ -92,10 +92,36 @@ container %}
           <h2>Every template,<br />running right here.</h2>
         </div>
 
+        <div class="studio-work-toolbar">
+          <div
+            class="studio-work-filters"
+            role="group"
+            aria-label="Filter templates"
+          >
+            <button type="button" data-work-filter="all" aria-pressed="true">
+              All templates</button
+            ><button type="button" data-work-filter="pro" aria-pressed="false">
+              Pro</button
+            ><button
+              type="button"
+              data-work-filter="basic"
+              aria-pressed="false"
+            >
+              Basic
+            </button>
+          </div>
+          <span id="studio-work-count" data-noun="template" aria-live="polite"
+            >{{ templates | length }} templates</span
+          >
+        </div>
+
+        {% set tier_count = namespace(pro=0, basic=0) %}
         <div class="showcase-grid">
           {% for file, name, tier, theme in templates %}
+          {% if tier == 'Pro' %}{% set tier_count.pro = tier_count.pro + 1 %}{% set tier_index = tier_count.pro %}{% else %}{% set tier_count.basic = tier_count.basic + 1 %}{% set tier_index = tier_count.basic %}{% endif %}
           <article
             class="showcase-card"
+            data-work-category="{{ tier | lower }}"
             data-bp-reveal
             style="--bp-delay:{{ loop.index0 * 60 }}ms"
           >
@@ -118,7 +144,7 @@ container %}
             </div>
             <div class="showcase-meta">
               <span class="studio-label"
-                >{{ tier | upper }} / {{ '%02d' | format(loop.index) }}</span
+                >{{ tier | upper }} / {{ '%02d' | format(tier_index) }}</span
               >
               <h3>{{ name }}</h3>
               <p>{{ theme }}</p>

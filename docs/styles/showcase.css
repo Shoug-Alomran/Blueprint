@@ -52,6 +52,10 @@
   gap: 14px;
 }
 
+.showcase-card[hidden] {
+  display: none;
+}
+
 .showcase-frame {
   position: relative;
   overflow: hidden;

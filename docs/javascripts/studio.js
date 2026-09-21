@@ -147,8 +147,9 @@
               filter !== "all" && card.dataset.workCategory !== filter;
             if (!card.hidden) count++;
           });
-        document.getElementById("studio-work-count").textContent =
-          count + (count === 1 ? " project" : " projects");
+        var countEl = document.getElementById("studio-work-count");
+        var noun = countEl.dataset.noun || "project";
+        countEl.textContent = count + " " + noun + (count === 1 ? "" : "s");
       });
     });
     // Deep links such as /web-platforms/#course arrive from the Products page
