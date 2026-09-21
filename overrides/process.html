@@ -266,20 +266,10 @@ macro browser_mock(finished=false) %}
               <span class="studio-label">DEPLOYMENT / FINAL CHECK</span>
               <dl>
                 {% for title,value in
-                [('BUILD','COMPLETE'),('TESTING','PASSED'),('DEPLOYMENT','LIVE'),('HANDOVER','READY'),('STATUS','PROJECT
-                COMPLETE')] %}
+                [('BUILD','COMPLETE'),('TESTING','PASSED'),('DEPLOYMENT','LIVE'),('HANDOVER','READY'),('STATUS','PROJECT COMPLETE')] %}
                 <div>
                   <dt>{{ title }}</dt>
-                  <dd
-                    {%
-                    if
-                    title=""
-                    ="DEPLOYMENT"
-                    %}class="studio-live"
-                    {%
-                    endif
-                    %}
-                  >
+                  <dd{% if title == 'DEPLOYMENT' %} class="studio-live"{% endif %}>
                     {{ value }}
                   </dd>
                 </div>
