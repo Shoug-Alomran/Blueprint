@@ -1,0 +1,181 @@
+{% extends 'main.html' %} {% from 'partials/studio-icons.html' import icon %} {#
+CV template catalogue. Every card renders the real template in an iframe, so
+visitors judge the product itself rather than a description of it. #} {% block
+container %}
+<div class="md-content bp-home-shell studio-page" id="studio-main">
+  <div class="bp-home">
+    <section class="studio-hero studio-grid">
+      <div class="studio-wrap">
+        <span class="studio-label">CATALOG://CV TEMPLATES <i></i></span>
+        <h1 data-bp-reveal>
+          Ten templates.<br /><em>One first impression.</em>
+        </h1>
+        <div class="studio-hero-bottom">
+          <p>
+            Every template below is live on this page — scroll through the real
+            thing, open it full screen, then pick the one that fits you. Each
+            works on mobile and prints cleanly to PDF.
+          </p>
+          <div class="studio-caption">
+            10 TEMPLATES · BASIC &amp; PRO · PRINT-READY
+            <div class="studio-meter"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap">
+        <div class="showcase-tiers">
+          {% for tag, name, price, blurb, points in [ ('BASIC://01', 'Basic',
+          '68', 'A clean, single-language CV with a professional layout and
+          print-ready export.', ['Single language', 'Print to PDF',
+          'Mobile-ready layout', 'HTML/CSS source file']), ('PRO://02', 'Pro',
+          '95', 'The full set — dark and light modes, Arabic-English switching,
+          and refined interactions.', ['Dark &amp; light modes', 'Arabic &amp;
+          English toggle', 'Polished interactions', 'HTML/CSS source file']) ]
+          %}
+          <article
+            class="studio-plan{% if loop.last %} studio-plan-featured{% endif %}"
+            data-bp-reveal
+          >
+            {% if loop.last %}<span class="studio-plan-ribbon">MOST CHOSEN</span
+            >{% endif %}
+            <span class="studio-plan-label">{{ tag }}</span>
+            <h3>{{ name }}</h3>
+            <p class="studio-plan-investment">
+              <strong>{{ price }}</strong> SAR
+            </p>
+            <p>{{ blurb }}</p>
+            <ul class="studio-checks">
+              {% for point in points %}
+              <li>{{ point | safe }}</li>
+              {% endfor %}
+            </ul>
+            <a
+              class="bp-btn{% if loop.last %} bp-btn--primary{% endif %}"
+              href="{{ 'contact/' | url }}"
+              >Request this template →</a
+            >
+          </article>
+          {% endfor %}
+          <article class="studio-panel showcase-note" data-bp-reveal>
+            <span class="studio-label">DONE-FOR-YOU</span>
+            <h3>Prefer it filled in?</h3>
+            <p>
+              Send your details and we'll populate the template and integrate it
+              into your site. Basic 100 SAR · Pro 130 SAR, delivered in 2–3
+              working days.
+            </p>
+            <a class="journey-more" href="{{ 'packages/' | url }}"
+              >See full pricing ↗</a
+            >
+          </article>
+        </div>
+      </div>
+    </section>
+
+    {% set templates = [ ('temp_2_pro.html', 'Template 2', 'Pro', 'Midnight
+    Grid'), ('temp_3_pro.html', 'Template 3', 'Pro', 'Editorial Sand'),
+    ('temp_5_pro.html', 'Template 5', 'Pro', 'Finance Prestige'),
+    ('temp_6_pro.html', 'Template 6', 'Pro', 'Monochrome Executive'),
+    ('temp_7_pro.html', 'Template 7', 'Pro', 'Deep Ocean'), ('temp_10_pro.html',
+    'Template 10', 'Pro', 'Aurora Violet'), ('temp_1.html', 'Template 1',
+    'Basic', 'Clean Teal'), ('temp_4.html', 'Template 4', 'Basic', 'Classic Navy
+    & Gold'), ('temp_8.html', 'Template 8', 'Basic', 'Professional Mono'),
+    ('temp_9.html', 'Template 9', 'Basic', 'Minimal Ink') ] %}
+
+    <section class="studio-section">
+      <div class="studio-wrap">
+        <div class="studio-section-head">
+          <span class="studio-label">GALLERY://LIVE PREVIEWS</span>
+          <h2>Every template,<br />running right here.</h2>
+        </div>
+
+        <div class="showcase-grid">
+          {% for file, name, tier, theme in templates %}
+          <article
+            class="showcase-card"
+            data-bp-reveal
+            style="--bp-delay:{{ loop.index0 * 60 }}ms"
+          >
+            <div class="showcase-frame">
+              <span class="showcase-chrome"><i></i><i></i><i></i></span>
+              <iframe
+                src="{{ ('cv-templates/' ~ file) | url }}"
+                title="{{ name }} — {{ theme }} preview"
+                loading="lazy"
+                scrolling="no"
+                tabindex="-1"
+              ></iframe>
+              <a
+                class="showcase-open"
+                href="{{ ('cv-templates/' ~ file) | url }}"
+                target="_blank"
+                rel="noopener"
+                >Open full screen ↗</a
+              >
+            </div>
+            <div class="showcase-meta">
+              <span class="studio-label"
+                >{{ tier | upper }} / {{ '%02d' | format(loop.index) }}</span
+              >
+              <h3>{{ name }}</h3>
+              <p>{{ theme }}</p>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+
+        <p class="studio-work-note">
+          Previews are the real templates, shown at reduced scale. Open any one
+          full screen to scroll it properly and test it on your phone.
+        </p>
+      </div>
+    </section>
+
+    <section class="studio-section studio-grid">
+      <div class="studio-wrap studio-split studio-final">
+        <div>
+          <span class="studio-label">CHOOSE://YOUR TEMPLATE</span>
+          <h2>Found the one?</h2>
+          <p>
+            Tell us which template and whether you want the file or the
+            done-for-you version. We'll confirm and send it over.
+          </p>
+          <div class="studio-actions">
+            <a class="bp-btn bp-btn--primary" href="{{ 'contact/' | url }}"
+              >Request a Template →</a
+            >
+            <a class="bp-btn" href="{{ 'packages/' | url }}"
+              >Services &amp; Pricing</a
+            >
+          </div>
+        </div>
+        <div class="studio-spec studio-panel">
+          <span class="studio-label">TEMPLATE SPEC</span>
+          <dl>
+            <div>
+              <dt>FORMAT</dt>
+              <dd>HTML / CSS<span class="studio-cursor">_</span></dd>
+            </div>
+            <div>
+              <dt>PRINT</dt>
+              <dd>PDF-READY</dd>
+            </div>
+            <div>
+              <dt>DEVICES</dt>
+              <dd class="studio-blue">MOBILE + DESKTOP</dd>
+            </div>
+            <div>
+              <dt>DELIVERY</dt>
+              <dd class="studio-live">IMMEDIATE</dd>
+            </div>
+          </dl>
+          <small>YOURS TO EDIT AND KEEP</small>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -6,11 +6,19 @@ scope: Structured intake and scope confirmation
 constraints: Clear inputs, realistic timelines, static-site delivery boundaries
 metrics: form completion quality, submission rate, kickoff speed
 last_updated: 2026-03-03
+hero_eyebrow: intake://start-project
+hero_title: Your next chapter<br><em>starts here.</em>
+hero_lede: >
+  Tell us what the website is for, what you want to share, and when you need it. We’ll review your brief and come back with a clear scope and quote.
+hero_meta:
+  - label: Role
+    value: Project Intake
+  - label: Scope
+    value: Structured intake and scope confirmation
+hero_actions:
+  - label: Review Pricing
+    url: packages/
 ---
-
-# Start Project
-
-Use this intake form to submit your project details in one pass.
 
 <div class="bp-intake">
   <style>
@@ -21,7 +29,7 @@ Use this intake form to submit your project details in one pass.
       --cream: #f6fbfb;
       --bg: #f3f8f8;
       --ink: #1f2937;
-      --ink-light: #5f6f7b;
+      --ink-light: var(--bp-text-mute, #4a5a6b);
       --rule: var(--line-soft, rgba(15, 89, 101, 0.2));
       --input-border: rgba(15, 89, 101, 0.22);
       --input-focus: #0f766e;
@@ -72,7 +80,7 @@ Use this intake form to submit your project details in one pass.
       margin: 0 !important;
       padding: 0 !important;
       border: 0 !important;
-      color: #f6fffd !important;
+      color: var(--bp-on-accent) !important;
       font-size: clamp(2rem, 3vw, 3rem);
       font-weight: 900;
       line-height: 1.06;
@@ -82,7 +90,7 @@ Use this intake form to submit your project details in one pass.
 
     .bp-intake .bp-intake-header p {
       margin: 0.7rem 0 0;
-      color: rgba(240, 255, 252, 0.92);
+      color: rgba(255, 255, 255, 0.92);
       font-size: clamp(1rem, 1.2vw, 1.2rem);
       line-height: 1.55;
       max-width: 56ch;
@@ -96,7 +104,7 @@ Use this intake form to submit your project details in one pass.
       font-size: 0.86rem;
       letter-spacing: 0;
       text-transform: uppercase;
-      color: rgba(225, 252, 247, 0.95);
+      color: rgba(255, 255, 255, 0.95);
     }
 
     .bp-intake .bp-form {
@@ -473,12 +481,13 @@ Use this intake form to submit your project details in one pass.
         border: 0;
       }
     }
+
   </style>
 
   <div class="bp-intake-page" id="bp-intake-print-root">
     <div class="bp-intake-header">
-      <h2>Project Intake Form</h2>
-      <p>Fill this before kickoff so scope, timeline, and delivery are confirmed quickly.</p>
+      <h2>Tell us about your project.</h2>
+      <p>Share what you know. We’ll confirm the details, scope, and quote together.</p>
       <div class="bp-intake-meta">
         <span>Blueprint Studio</span>
         <span>blueprint@shoug-tech.com</span>
@@ -492,59 +501,59 @@ Use this intake form to submit your project details in one pass.
       <input type="hidden" name="_captcha" value="false">
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">1</span><div><h3 class="bp-title">Client Information</h3><p class="bp-desc">Core contact and communication details</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">1</span><div><h3 class="bp-title">Client Information</h3><p class="bp-desc">How we can reach you</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Full Name <span class="req">*</span></label><input required name="client_name" type="text" placeholder="For example: Shoug Alomran"></div>
-          <div class="bp-field"><label>Email Address <span class="req">*</span></label><input required name="client_email" type="email" placeholder="For example: name@example.com"></div>
+          <div class="bp-field"><label for="brief-field-1">Full Name <span class="req">*</span></label><input id="brief-field-1" required name="client_name" type="text" placeholder="For example: Shoug Alomran"></div>
+          <div class="bp-field"><label for="brief-field-2">Email Address <span class="req">*</span></label><input id="brief-field-2" required name="client_email" type="email" placeholder="For example: name@example.com"></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Phone / WhatsApp</label><input name="client_phone" type="tel" placeholder="For example: +966 5X XXX XXXX"></div>
-          <div class="bp-field"><label>University / Organization (if applicable)</label><input name="client_org" type="text" placeholder="For example: Prince Sultan University"></div>
+          <div class="bp-field"><label for="brief-field-3">Phone / WhatsApp</label><input id="brief-field-3" name="client_phone" type="tel" placeholder="For example: +966 5X XXX XXXX"></div>
+          <div class="bp-field"><label for="brief-field-4">University / Organization (if applicable)</label><input id="brief-field-4" name="client_org" type="text" placeholder="For example: Prince Sultan University"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Preferred Communication Language</label><select name="client_lang"><option value="">Select...</option><option>English</option><option>Arabic</option><option>Both</option></select></div>
+          <div class="bp-field"><label for="brief-field-5">Preferred Communication Language</label><select id="brief-field-5" name="client_lang"><option value="">Select...</option><option>English</option><option>Arabic</option><option>Both</option></select></div>
         </div>
       </section>
 
       <section class="bp-section">
-        <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Website Tier & Project Brief</h3><p class="bp-desc">Tier selection and project fundamentals</p></div></div>
+        <div class="bp-section-label"><span class="bp-num">2</span><div><h3 class="bp-title">Your Website</h3><p class="bp-desc">Choose a starting point and tell us what you have in mind.</p></div></div>
         <div class="bp-choice-grid bp-cols-3">
-          <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Tier 1<small>Personal Presence · 600 SAR</small></label></div>
-          <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Tier 2<small>Growth Site · 950 SAR</small></label></div>
-          <div class="bp-choice"><input id="tier3" name="tier" type="radio" value="Tier 3"><label for="tier3">Tier 3<small>Advanced Build · 1400 SAR</small></label></div>
+          <div class="bp-choice"><input id="tier1" name="tier" type="radio" value="Tier 1"><label for="tier1">Essential<small>Starting from 600 SAR</small></label></div>
+          <div class="bp-choice"><input id="tier2" name="tier" type="radio" value="Tier 2"><label for="tier2">Signature<small>Starting from 950 SAR</small></label></div>
+          <div class="bp-choice"><input id="tier3" name="tier" type="radio" value="Custom"><label for="tier3">Custom<small>Let’s define your scope</small></label></div>
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Project / Website Title</label><input name="project_title" type="text" placeholder="For example: Senior Design Project Showcase"></div>
-          <div class="bp-field"><label>Course / Department (if academic)</label><input name="project_course" type="text" placeholder="For example: CS 499 / Computer Science"></div>
+          <div class="bp-field"><label for="brief-field-6">Project / Website Title</label><input id="brief-field-6" name="project_title" type="text" placeholder="For example: Senior Design Project Showcase"></div>
+          <div class="bp-field"><label for="brief-field-7">Course / Department (if academic)</label><input id="brief-field-7" name="project_course" type="text" placeholder="For example: CS 499 / Computer Science"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Project Description <span class="req">*</span></label><textarea required name="project_desc" placeholder="What is this site for, who uses it, and what should they find?"></textarea></div>
+          <div class="bp-field"><label for="brief-field-8">Project Description <span class="req">*</span></label><textarea id="brief-field-8" required name="project_desc" placeholder="What is this site for, who uses it, and what should they find?"></textarea></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Target Audience</label><input name="audience" type="text" placeholder="For example: instructors, recruiters, classmates, clients"></div>
-          <div class="bp-field"><label>Primary Goal of the Site</label><input name="goal" type="text" placeholder="For example: present the project clearly and collect interest"></div>
+          <div class="bp-field"><label for="brief-field-9">Target Audience</label><input id="brief-field-9" name="audience" type="text" placeholder="For example: instructors, recruiters, classmates, clients"></div>
+          <div class="bp-field"><label for="brief-field-10">Primary Goal of the Site</label><input id="brief-field-10" name="goal" type="text" placeholder="For example: present the project clearly and collect interest"></div>
         </div>
       </section>
 
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">3</span><div><h3 class="bp-title">Structure Planning</h3><p class="bp-desc">Sections, page depth, and navigation expectations</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Estimated Number of Sections <span class="req">*</span></label><input required name="section_count" type="number" min="1" max="40" placeholder="For example: 6"></div>
-          <div class="bp-field"><label>Estimated Pages per Section</label><input name="pages_per_section" type="number" min="1" max="30" placeholder="For example: 2"></div>
+          <div class="bp-field"><label for="brief-field-11">Estimated Number of Sections <span class="req">*</span></label><input id="brief-field-11" required name="section_count" type="number" min="1" max="40" placeholder="For example: 6"></div>
+          <div class="bp-field"><label for="brief-field-12">Estimated Pages per Section</label><input id="brief-field-12" name="pages_per_section" type="number" min="1" max="30" placeholder="For example: 2"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Sections List <span class="req">*</span></label><textarea required name="sections_list" placeholder="For example: Home&#10;About&#10;Services&#10;Portfolio&#10;Contact"></textarea></div>
+          <div class="bp-field"><label for="brief-field-13">Sections List <span class="req">*</span></label><textarea id="brief-field-13" required name="sections_list" placeholder="For example: Home&#10;About&#10;Services&#10;Portfolio&#10;Contact"></textarea></div>
         </div>
         <div class="bp-summary">A section means one main top navigation item, for example: Home, About, Services, Portfolio, or Contact.</div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Navigation Notes</label><textarea name="nav_notes" placeholder="Grouping, ordering, and preferred naming (optional)"></textarea></div>
+          <div class="bp-field"><label for="brief-field-14">Navigation Notes</label><textarea id="brief-field-14" name="nav_notes" placeholder="Grouping, ordering, and preferred naming (optional)"></textarea></div>
         </div>
       </section>
 
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">4</span><div><h3 class="bp-title">Content Readiness</h3><p class="bp-desc">Current status of source material and missing items</p></div></div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Overall Content Status</label><select name="content_status"><option value="">Select...</option><option>Ready now</option><option>Partially ready</option><option>Draft exists, needs cleanup</option><option>Not started yet</option></select></div>
+          <div class="bp-field"><label for="brief-field-15">Overall Content Status</label><select id="brief-field-15" name="content_status"><option value="">Select...</option><option>Ready now</option><option>Partially ready</option><option>Draft exists, needs cleanup</option><option>Not started yet</option></select></div>
         </div>
         <div class="bp-choice-grid bp-cols-3">
           <div class="bp-choice"><input id="cnt_text" name="cnt_text" type="checkbox" value="Written text"><label for="cnt_text">Written Text</label></div>
@@ -555,7 +564,7 @@ Use this intake form to submit your project details in one pass.
           <div class="bp-choice"><input id="cnt_refs" name="cnt_refs" type="checkbox" value="References"><label for="cnt_refs">References</label></div>
         </div>
         <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Content Notes</label><textarea name="content_notes" placeholder="For example: final screenshots are ready, team bios are still being written, and the logo is available as SVG"></textarea></div>
+          <div class="bp-field"><label for="brief-field-16">Content Notes</label><textarea id="brief-field-16" name="content_notes" placeholder="For example: final screenshots are ready, team bios are still being written, and the logo is available as SVG"></textarea></div>
         </div>
       </section>
 
@@ -568,7 +577,7 @@ Use this intake form to submit your project details in one pass.
           <div class="bp-choice"><input id="rep_download" name="rep_download" type="checkbox" value="Let visitors download the html version"><label for="rep_download">Let visitors download the html version</label></div>
         </div>
         <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Report Notes</label><textarea name="report_notes" placeholder="For example: I have a final Word file, I want it visible on the site, and I also want a download option"></textarea></div>
+          <div class="bp-field"><label for="brief-field-17">Report Notes</label><textarea id="brief-field-17" name="report_notes" placeholder="For example: I have a final Word file, I want it visible on the site, and I also want a download option"></textarea></div>
         </div>
       </section>
 
@@ -583,30 +592,30 @@ Use this intake form to submit your project details in one pass.
           <div class="bp-choice"><input id="ao_extra" name="ao_extra" type="checkbox" value="Extra Sections"><label for="ao_extra">Extra Sections<small>150 SAR per section</small></label></div>
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Custom Domain Name (if applicable)</label><input name="custom_domain" type="text" placeholder="For example: myproject.com"></div>
-          <div class="bp-field"><label>Number of Extra Sections (if applicable)</label><input name="extra_sections" type="number" min="1" max="20" placeholder="For example: 3"></div>
+          <div class="bp-field"><label for="brief-field-18">Custom Domain Name (if applicable)</label><input id="brief-field-18" name="custom_domain" type="text" placeholder="For example: myproject.com"></div>
+          <div class="bp-field"><label for="brief-field-19">Number of Extra Sections (if applicable)</label><input id="brief-field-19" name="extra_sections" type="number" min="1" max="20" placeholder="For example: 3"></div>
         </div>
       </section>
 
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">7</span><div><h3 class="bp-title">Timeline & Design Direction</h3><p class="bp-desc">Deadline context and creative preferences</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Target Launch / Submission Date <span class="req">*</span></label><input required name="deadline" type="date"></div>
-          <div class="bp-field"><label>Is This Deadline Fixed?</label><select name="deadline_flex"><option value="">Select...</option><option>Fixed</option><option>Flexible</option><option>Prefer earlier if possible</option></select></div>
+          <div class="bp-field"><label for="brief-field-20">Target Launch / Submission Date <span class="req">*</span></label><input id="brief-field-20" required name="deadline" type="date"></div>
+          <div class="bp-field"><label for="brief-field-21">Is This Deadline Fixed?</label><select id="brief-field-21" name="deadline_flex"><option value="">Select...</option><option>Fixed</option><option>Flexible</option><option>Prefer earlier if possible</option></select></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Deadline Context</label><textarea name="deadline_notes" placeholder="Course submission, event launch, exam date, or other context"></textarea></div>
+          <div class="bp-field"><label for="brief-field-22">Deadline Context</label><textarea id="brief-field-22" name="deadline_notes" placeholder="Course submission, event launch, exam date, or other context"></textarea></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Color Direction</label><input name="color_dir" type="text" placeholder="For example: minimal, academic, modern, premium"></div>
-          <div class="bp-field"><label>Brand Colors (hex or description)</label><input name="brand_colors" type="text" placeholder="For example: #0f3d4a, #5eead4, white"></div>
+          <div class="bp-field"><label for="brief-field-23">Color Direction</label><input id="brief-field-23" name="color_dir" type="text" placeholder="For example: minimal, academic, modern, premium"></div>
+          <div class="bp-field"><label for="brief-field-24">Brand Colors (hex or description)</label><input id="brief-field-24" name="brand_colors" type="text" placeholder="For example: #0f3d4a, #5eead4, white"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Reference Sites</label><textarea name="references" placeholder="For example: https://example.com for structure, a clean portfolio layout, and a docs-style sidebar"></textarea></div>
+          <div class="bp-field"><label for="brief-field-25">Reference Sites</label><textarea id="brief-field-25" name="references" placeholder="For example: https://example.com for structure, a clean portfolio layout, and a docs-style sidebar"></textarea></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>GitHub / Portfolio Link</label><input name="portfolio_link" type="text" placeholder="For example: https://github.com/username/project"></div>
-          <div class="bp-field"><label>Design Notes</label><input name="design_notes" type="text" placeholder="For example: clean typography, no heavy animations, avoid bright red"></div>
+          <div class="bp-field"><label for="brief-field-26">GitHub / Portfolio Link</label><input id="brief-field-26" name="portfolio_link" type="text" placeholder="For example: https://github.com/username/project"></div>
+          <div class="bp-field"><label for="brief-field-27">Design Notes</label><input id="brief-field-27" name="design_notes" type="text" placeholder="For example: clean typography, no heavy animations, avoid bright red"></div>
         </div>
       </section>
 
@@ -618,32 +627,32 @@ Use this intake form to submit your project details in one pass.
           <div class="bp-choice"><input id="domain_subdomain" name="domain_type" type="radio" value="ShougTech Subdomain"><label for="domain_subdomain"><strong>Subdomain on shoug-tech.com</strong><small>Uses a website address under my domain, for example: mylife.shoug-tech.com</small></label></div>
         </div>
         <div class="bp-row bp-cols-1" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>Preferred Website Address</label><input name="preferred_site_address" type="text" placeholder="For example: username.github.io/project-name, mylife.shoug-tech.com, or myproject.com"></div>
+          <div class="bp-field"><label for="brief-field-28">Preferred Website Address</label><input id="brief-field-28" name="preferred_site_address" type="text" placeholder="For example: username.github.io/project-name, mylife.shoug-tech.com, or myproject.com"></div>
         </div>
         <div class="bp-row bp-cols-2" style="margin-top:0.8rem;">
-          <div class="bp-field"><label>GitHub Username (if you have one)</label><input name="github_user" type="text" placeholder="For example: shougalomran"></div>
-          <div class="bp-field"><label>Existing Repository (if applicable)</label><input name="github_repo" type="text" placeholder="For example: senior-design-site"></div>
+          <div class="bp-field"><label for="brief-field-29">GitHub Username (if you have one)</label><input id="brief-field-29" name="github_user" type="text" placeholder="For example: shougalomran"></div>
+          <div class="bp-field"><label for="brief-field-30">Existing Repository (if applicable)</label><input id="brief-field-30" name="github_repo" type="text" placeholder="For example: senior-design-site"></div>
         </div>
       </section>
 
       <section class="bp-section">
         <div class="bp-section-label"><span class="bp-num">9</span><div><h3 class="bp-title">Team & Final Notes</h3><p class="bp-desc">Collaboration setup, referrals, and special constraints</p></div></div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Solo or Team Project?</label><select name="is_team"><option value="">Select...</option><option>Solo</option><option>Team</option></select></div>
-          <div class="bp-field"><label>Number of Team Members (if team)</label><input name="team_count" type="number" min="1" max="20"></div>
+          <div class="bp-field"><label for="brief-field-31">Solo or Team Project?</label><select id="brief-field-31" name="is_team"><option value="">Select...</option><option>Solo</option><option>Team</option></select></div>
+          <div class="bp-field"><label for="brief-field-32">Number of Team Members (if team)</label><input id="brief-field-32" name="team_count" type="number" min="1" max="20"></div>
         </div>
         <div class="bp-row bp-cols-2">
-          <div class="bp-field"><label>Supervisor / Instructor (if applicable)</label><input name="supervisor" type="text" placeholder="For example: Dr. Ahmed Alharbi"></div>
-          <div class="bp-field"><label>How Did You Hear About Blueprint?</label><input name="referral" type="text" placeholder="For example: Instagram, friend, university group chat"></div>
+          <div class="bp-field"><label for="brief-field-33">Supervisor / Instructor (if applicable)</label><input id="brief-field-33" name="supervisor" type="text" placeholder="For example: Dr. Ahmed Alharbi"></div>
+          <div class="bp-field"><label for="brief-field-34">How Did You Hear About Blueprint?</label><input id="brief-field-34" name="referral" type="text" placeholder="For example: Instagram, friend, university group chat"></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Team Members (names and roles, one per line)</label><textarea name="team_members" placeholder="For example: Sara - UI design&#10;Omar - backend&#10;Lama - content review"></textarea></div>
+          <div class="bp-field"><label for="brief-field-35">Team Members (names and roles, one per line)</label><textarea id="brief-field-35" name="team_members" placeholder="For example: Sara - UI design&#10;Omar - backend&#10;Lama - content review"></textarea></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Special Requirements or Constraints</label><textarea name="special_req" placeholder="For example: must be bilingual, ready before final presentation, and easy to update after delivery"></textarea></div>
+          <div class="bp-field"><label for="brief-field-36">Special Requirements or Constraints</label><textarea id="brief-field-36" name="special_req" placeholder="For example: must be bilingual, ready before final presentation, and easy to update after delivery"></textarea></div>
         </div>
         <div class="bp-row bp-cols-1">
-          <div class="bp-field"><label>Anything Else Blueprint Should Know Before the Project Begins</label><textarea name="anything_else" placeholder="For example: the client wants a simple handoff, and final content will be approved one week before launch"></textarea></div>
+          <div class="bp-field"><label for="brief-field-37">Anything Else Blueprint Should Know Before the Project Begins</label><textarea id="brief-field-37" name="anything_else" placeholder="For example: the client wants a simple handoff, and final content will be approved one week before launch"></textarea></div>
         </div>
         <div class="bp-summary">By submitting, you confirm details are accurate. Final scope and pricing are confirmed in writing before implementation.</div>
       </section>
@@ -658,6 +667,7 @@ Use this intake form to submit your project details in one pass.
       </div>
       <div class="bp-status" id="bp-intake-status"></div>
     </form>
+
   </div>
 
   <script>
@@ -759,8 +769,8 @@ Use this intake form to submit your project details in one pass.
       function getTierItem(fd, projectMeta) {
         var tier = fd.get('tier');
         var titles = {
-          'Tier 1': 'Tier 1, Personal Presence',
-          'Tier 2': 'Tier 2, Project Documentation',
+          'Tier 1': 'Essential — starting scope',
+          'Tier 2': 'Signature — starting scope',
           'Tier 3': 'Tier 3, Research Documentation'
         };
         var prices = {
@@ -853,6 +863,10 @@ Use this intake form to submit your project details in one pass.
 
       window.bpIntakeAddToCart = function () {
         var fd = new FormData(form);
+        if (fd.get('tier') === 'Custom') {
+          setStatus('ok', 'Custom projects are quoted individually. Send your brief using Submit below and we’ll confirm your scope and price.');
+          return;
+        }
         var projectMeta = buildProjectMeta(fd);
         var serviceItem = getTierItem(fd, projectMeta);
         var addonItems = getAddonItems(fd, projectMeta);

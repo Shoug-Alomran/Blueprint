@@ -1,0 +1,326 @@
+{% extends 'main.html' %} {% from 'partials/studio-icons.html' import icon %} {%
+block container %}
+<div
+  class="md-content bp-home-shell studio-page studio-pricing"
+  id="studio-main"
+>
+  <div class="bp-home">
+    <section class="studio-hero studio-grid">
+      <div class="studio-wrap">
+        <span class="studio-label">SERVICES://PRICING <i></i></span>
+        <h1 data-bp-reveal>
+          Clear scope.<br />Clear pricing.<br /><em>No surprises.</em>
+        </h1>
+        <div class="studio-hero-bottom">
+          <p>
+            Blueprint keeps website projects straightforward. Choose the level
+            of support you need, understand exactly what’s included, and build
+            from there.
+          </p>
+          <div class="studio-caption">
+            PROJECT-BASED · CLEAR SCOPE · NO SUBSCRIPTIONS
+            <div class="studio-meter"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap studio-split">
+        <div>
+          <span class="studio-label">PRICING_MODEL</span>
+          <h2>Built around the project,<br />not a monthly subscription.</h2>
+          <p>
+            Blueprint’s pricing reflects the website’s scope, content,
+            complexity, and required customization. You invest in a finished
+            asset, not a recurring obligation.
+          </p>
+        </div>
+        <div class="studio-equation studio-panel" data-bp-reveal>
+          {% for name,label in [('layers','PROJECT
+          TYPE'),('ruler','SCOPE'),('pen','CUSTOMIZATION')] %}
+          <div>
+            {{ icon(name) }}<small>0{{ loop.index }}</small
+            ><strong>{{ label }}</strong>
+          </div>
+          <span>{{ '+' if not loop.last else '=' }}</span>{% endfor %}
+          <div class="studio-result">
+            <small>RESULT</small><strong>QUOTE</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="studio-section" id="website-packages">
+      <div class="studio-wrap">
+        <div class="studio-plans">
+          {% set plans = [
+          {'tag':'ESSENTIAL://01','name':'Essential','desc':'For simple, focused
+          websites with limited content and a clear
+          objective.','price':'600','fit':['CV websites','Simple
+          portfolios','Small informational websites','Single-purpose
+          pages'],'features':['Responsive design','Structured page
+          layout','Blueprint customization','Basic SEO
+          foundations','Deployment','Final testing','Project handover']},
+          {'tag':'SIGNATURE://02','name':'Signature','desc':'For more complete
+          websites requiring stronger customization and multiple content
+          sections.','price':'950','fit':['Full portfolio
+          websites','Academic/course hubs','Professional
+          websites','Documentation websites'],'features':['Everything in
+          Essential','Expanded page structure','Custom visual
+          direction','Advanced content organization','Interactive
+          components','Enhanced animations','Responsive optimization','Extensive
+          testing']}, {'tag':'CUSTOM://03','name':'Custom','desc':'For projects
+          that don’t fit neatly into a predefined scope or require unique
+          architectural solutions.','price':'','fit':['Large documentation
+          websites','Complex academic hubs','Multi-section websites','Unique
+          static concepts'],'features':['Custom scope planning','Custom
+          information architecture','Tailored visual system','Advanced static
+          functionality','Project-specific components','Deployment and
+          testing','Complete handover']} ] %} {% for plan in plans %}
+          <article
+            class="studio-plan {% if loop.index == 2 %}studio-plan-featured{% endif %}"
+            data-bp-reveal
+          >
+            {% if loop.index == 2 %}<span class="studio-plan-ribbon"
+              >RECOMMENDED SCOPE</span
+            >{% endif %}<span class="studio-label">{{ plan.tag }}</span>
+            <h3>{{ plan.name }}</h3>
+            <p>{{ plan.desc }}</p>
+            <span class="studio-plan-label">SUITABLE FOR</span>
+            <ul class="studio-checks">
+              {% for item in plan.fit %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+            <span class="studio-plan-label">INCLUDES</span>
+            <ul class="studio-features">
+              {% for item in plan.features %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+            <div class="studio-plan-investment">
+              <span class="studio-label">INVESTMENT</span
+              ><strong
+                >{% if plan.price %}Starting from {{ plan.price }}
+                <small>SAR</small>{% else %}Custom Quote{% endif %}</strong
+              ><a
+                class="bp-btn {% if loop.index == 2 %}bp-btn--primary{% endif %}"
+                href="{{ 'start-project/' | url }}"
+                >{{ "Request a Quote" if loop.last else "Start " ~ plan.name }}
+                <span>→</span></a
+              >
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap">
+        <div class="studio-section-head studio-center">
+          <h2>Every Blueprint build starts with the essentials.</h2>
+        </div>
+        <div class="studio-essentials">
+          {% for name,title,desc in [('search','Discovery','Understand the
+          purpose, audience, and content goals.'),('structure','Structure','Plan
+          pages, navigation, and hierarchy.'),('pen','Design','Create a
+          consistent responsive visual experience.'),('code','Build','Develop
+          the finished static website.'),('shield','Testing','Review
+          responsiveness, links, and
+          functionality.'),('launch','Deployment','Publish the finished website
+          live.'),('handover','Handover','Deliver a clean, maintainable
+          structure.')] %}<a
+            class="studio-essential"
+            href="{{ 'process/' | url }}#stage-{{ [2,4,5,5,6,7,7][loop.index0] }}"
+            data-bp-reveal
+            ><small>0{{ loop.index }}</small
+            ><span class="studio-icon-box">{{ icon(name) }}</span>
+            <h3>{{ title }}</h3>
+            <p>{{ desc }}</p></a
+          >{% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section" id="website-add-ons">
+      <div class="studio-wrap">
+        <span class="studio-label">ADD-ONS://OPTIONAL</span>
+        <h2>Extend your build.</h2>
+        <div class="studio-addons">
+          {% for name,desc in [('Additional Pages','Add pages to your agreed
+          scope. The final cost depends on the content and structure
+          required.'),('Content Formatting','Organize supplied text, images, and
+          documents for a consistent reading experience.'),('Revision
+          Rounds','Request additional review rounds beyond those agreed in your
+          project scope.'),('Custom Animations','Add considered motion and
+          interactions that support your content.'),('Advanced SEO
+          Setup','Discuss additional search metadata and page optimization
+          needs.'),('Domain Configuration','Connect your own domain, including
+          DNS and HTTPS configuration. Domain registration is
+          separate.'),('Website Migration','Move an existing static website into
+          the agreed new structure.'),('Additional Documentation','Receive
+          additional project-specific guides and handover material.')] %}
+          <details class="studio-addon">
+            <summary>
+              <span
+                ><strong>{{ name }}</strong
+                ><small>BPR_MOD_0{{ loop.index }}</small></span
+              ><b aria-hidden="true">+</b>
+            </summary>
+            <p>{{ desc }} Scope and price are confirmed before work begins.</p>
+          </details>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap">
+        <div class="studio-center"><h2>What determines your quote?</h2></div>
+        <div class="studio-scope">
+          <div class="studio-factor-grid">
+            {% for tag,title,desc in [('01 / SCALE','Content scale','The number
+            of pages and volume of individual assets.'),('02 /
+            STRUCTURE','Architecture','The complexity of navigation and
+            information hierarchy.'),('03 / CUSTOM','Customization','The depth
+            of custom visual work and brand details.'),('04 /
+            FEATURES','Interactivity','Interactive components, animation, and
+            unique requirements.')] %}
+            <article class="studio-panel" data-bp-reveal>
+              <span class="studio-label">{{ tag }}</span>
+              <h3>{{ title }}</h3>
+              <p>{{ desc }}</p>
+            </article>
+            {% endfor %}
+          </div>
+          <div class="studio-scope-orbit">
+            <span class="studio-label">CENTRAL</span
+            ><strong>PROJECT<br /><em>SCOPE</em></strong>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="studio-section" id="what-is-not-included">
+      <div class="studio-wrap">
+        <h2>Know the boundaries before we build.</h2>
+        <div class="studio-boundaries">
+          <article class="studio-panel">
+            <h3><i></i>Blueprint builds</h3>
+            <ul class="studio-checks">
+              {% for item in ['Static websites','Portfolio websites','CV
+              websites','Course hubs & documentation','HTML
+              reports','Professional informational sites','Responsive
+              interfaces','Static interactive experiences'] %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+          <article class="studio-panel studio-muted">
+            <h3>Not currently provided</h3>
+            <ul class="studio-features">
+              {% for item in ['Backend systems','Databases &
+              authentication','E-commerce checkout systems','Complex
+              dashboards','SaaS applications','Native mobile applications'] %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+        </div>
+        <div class="studio-note">
+          <p>
+            Have a requirement you’re unsure about? We’re happy to review your
+            specific needs.
+          </p>
+          <a href="{{ 'contact/' | url }}">Ask Blueprint →</a>
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap">
+        <span class="studio-label">TIMELINE://PROJECT</span>
+        <h2>From idea to deployment.</h2>
+        <div class="studio-timeline">
+          {% for title,desc,stage in [('Project Request','Initial contact and
+          basic information sharing.',1),('Scope & Quote','Defining boundaries
+          and finalizing the investment.',3),('Content Collection','Gathering
+          all text, images, and brand materials.',2),('Design & Build','The
+          active creation phase of your website.',5),('Review','Testing,
+          refinement, and final approvals.',6),('Deployment','Launching your
+          site to its live environment.',7),('Handover','Project finalization
+          and maintenance guidance.',7)] %}<a
+            href="{{ 'process/' | url }}#stage-{{ stage }}"
+            ><b>0{{ loop.index }}</b>
+            <h3>{{ title }}</h3>
+            <p>{{ desc }}</p></a
+          >{% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap studio-faq">
+        <h2>Frequently Asked Questions</h2>
+        {% for question,answer in [('Do I need to know exactly what type of
+        website I need?','No. Start with your goal and content. We’ll help
+        determine the right structure and scope during discovery.'),('Can I
+        request changes during the project?','Yes. Each tier includes defined
+        revision rounds. Additions outside the agreed scope are discussed and
+        quoted before implementation.'),('Do I need to provide the
+        content?','Yes. You provide text, images, and relevant materials.
+        Blueprint organizes what you provide into a clear digital
+        experience.'),('Can Blueprint redesign an existing website?','Yes, when
+        the project fits our static website scope. Share the current site and
+        the changes you need for a scope review.'),('Will my website work on
+        mobile?','Yes. Responsive layouts and checks across screen sizes are
+        part of every website build.'),('Can I request something that isn’t
+        listed?','Absolutely. Send the requirement and we’ll confirm whether it
+        fits Blueprint’s capabilities and provide an appropriate quote.')] %}
+        <details class="studio-detail">
+          <summary>{{ question }}</summary>
+          <p>{{ answer }}</p>
+        </details>
+        {% endfor %}
+      </div>
+    </section>
+    <section class="studio-section studio-grid">
+      <div class="studio-wrap studio-split studio-final">
+        <div>
+          <span class="studio-label">PROJECT://NEW</span>
+          <h2>Let’s define your<br />build.</h2>
+          <p>
+            Tell us what you’re looking for. We’ll determine the scope and
+            provide a clear quote before the project begins.
+          </p>
+          <div class="studio-actions">
+            <a
+              class="bp-btn bp-btn--primary"
+              href="{{ 'start-project/' | url }}"
+              >Start a Project →</a
+            ><a class="bp-btn" href="{{ 'contact/' | url }}"
+              >Contact Blueprint</a
+            >
+          </div>
+        </div>
+        <div class="studio-spec studio-panel">
+          <span class="studio-label">SPECIFICATION V4.1</span>
+          <dl>
+            <div>
+              <dt>PROJECT</dt>
+              <dd>NEW WEBSITE<span class="studio-cursor">_</span></dd>
+            </div>
+            <div>
+              <dt>TYPE</dt>
+              <dd>TO BE DEFINED</dd>
+            </div>
+            <div>
+              <dt>SCOPE</dt>
+              <dd class="studio-blue">PENDING</dd>
+            </div>
+            <div>
+              <dt>STATUS</dt>
+              <dd class="studio-live">READY</dd>
+            </div>
+          </dl>
+          <small>YOUR NEXT CHAPTER STARTS HERE</small>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -1,16 +1,28 @@
 ---
-title: Work
+title: Portfolio
+template: portfolio.html
 description: Explore Blueprint website work examples across portfolios, documentation websites, and workshop or course pages.
 role: Portfolio
 scope: All sites built under Blueprint Studio and ShougTech
 constraints: Accurate descriptions, tier-grouped, live links
 metrics: navigation clarity, credibility, project range
 last_updated: 2026-04-21
+hero_eyebrow: portfolio://client-work
+hero_title: Real work.<br><em>Thoughtfully built.</em>
+hero_lede: >
+  Explore websites created for students, professionals, and academic projects. Different subjects, with the same focus on clear content and a useful experience.
+hero_meta:
+  - label: Role
+    value: Portfolio
+  - label: Scope
+    value: All sites built under Blueprint Studio and ShougTech
+hero_actions:
+  - label: Start a Project
+    url: start-project/
+    primary: true
+  - label: Feature Demos
+    url: work-demos/
 ---
-
-# Work
-
-Every site below was built using static architecture, MkDocs Material, GitHub Pages, and structured navigation designed around the audience that would actually use it.
 
 Organized by tier to reflect the scope and complexity of each project.
 

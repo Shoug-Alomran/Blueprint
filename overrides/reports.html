@@ -1,0 +1,191 @@
+{% extends 'main.html' %} {% from 'partials/studio-icons.html' import icon %} {#
+HTML report conversions. Each example shows the original PDF beside the
+converted report, both live and both open by default — the comparison is the
+product demonstration. #} {% block container %}
+<div class="md-content bp-home-shell studio-page" id="studio-main">
+  <div class="bp-home">
+    <section class="studio-hero studio-grid">
+      <div class="studio-wrap">
+        <span class="studio-label">CATALOG://HTML REPORTS <i></i></span>
+        <h1 data-bp-reveal>
+          Your 10-page PDF.<br /><em>Actually readable.</em>
+        </h1>
+        <div class="studio-hero-bottom">
+          <p>
+            Send a PDF or Word document and get back a structured web report —
+            searchable, linkable, and readable on a phone. Below are real
+            conversions: the original on the left, the finished report on the
+            right.
+          </p>
+          <div class="studio-caption">
+            FROM 150 SAR · UP TO 25 PAGES · 2–4 DAYS
+            <div class="studio-meter"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% set examples = [ ('ethc303', 'Social Implications of AI & Expert
+    Systems', 'A 10-page research paper rebuilt as an interactive report with
+    live charts, reading progress, and a jump-to-section index.', ['LIVE
+    CHARTS', 'PROGRESS BAR', 'SECTION INDEX']), ('cs330', 'Operating Systems
+    Project', 'A two-phase systems report with benchmarks and results tables.',
+    ['BENCHMARKS', 'TABLES', 'TWO PHASES']), ('cs285', 'Secure Key Exchange', 'A
+    cryptography project write-up with diagrams and structured findings.',
+    ['DIAGRAMS', 'FINDINGS', 'REFERENCES']), ('cs210', 'Linked List & Runtime
+    Analysis', 'An algorithms comparison report with performance charts.',
+    ['CHARTS', 'COMPARISON', 'ANALYSIS']) ] %}
+
+    <section class="studio-section">
+      <div class="studio-wrap">
+        <div class="studio-section-head">
+          <span class="studio-label">EXAMPLES://BEFORE &amp; AFTER</span>
+          <h2>Three real conversions.<br />Open either side.</h2>
+        </div>
+
+        {% for slug, name, blurb, tags in examples %}
+        <article class="compare" data-bp-reveal>
+          <header class="compare-head">
+            <div>
+              <span class="studio-label"
+                >CONVERSION / {{ '%02d' | format(loop.index) }}</span
+              >
+              <h3>{{ name }}</h3>
+              <p>{{ blurb }}</p>
+            </div>
+            <ul class="compare-tags">
+              {% for tag in tags %}
+              <li>{{ tag }}</li>
+              {% endfor %}
+            </ul>
+          </header>
+
+          <div class="compare-pair">
+            <section class="compare-side compare-side--before">
+              <div class="compare-bar">
+                <span class="compare-stage">Before</span>
+                <span class="compare-kind">Original PDF</span>
+              </div>
+              <div class="compare-view compare-view--page">
+                <img
+                  src="{{ ('html-reports/assets/examples/' ~ slug ~ '/before-page1.png') | url }}"
+                  alt="{{ name }} — first page of the original PDF"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <a
+                class="bp-btn"
+                href="{{ ('html-reports/assets/examples/' ~ slug ~ '/before.pdf') | url }}"
+                target="_blank"
+                rel="noopener"
+                >Open the PDF ↗</a
+              >
+            </section>
+
+            <span class="compare-arrow" aria-hidden="true">→</span>
+
+            <section class="compare-side compare-side--after">
+              <div class="compare-bar">
+                <span class="compare-stage compare-stage--after">After</span>
+                <span class="compare-kind">HTML report</span>
+              </div>
+              <div class="compare-view compare-view--live">
+                <iframe
+                  src="{{ ('html-reports/assets/examples/' ~ slug ~ '/after.html') | url }}"
+                  title="{{ name }} — converted HTML report"
+                  loading="lazy"
+                  scrolling="no"
+                  tabindex="-1"
+                ></iframe>
+              </div>
+              <a
+                class="bp-btn bp-btn--primary"
+                href="{{ ('html-reports/assets/examples/' ~ slug ~ '/after.html') | url }}"
+                target="_blank"
+                rel="noopener"
+                >Open the report ↗</a
+              >
+            </section>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap">
+        <div class="studio-section-head">
+          <span class="studio-label">WHAT CHANGES</span>
+          <h2>Same content.<br />Built to be used.</h2>
+        </div>
+        <div class="studio-features">
+          {% for name, title, copy in [ ('layers', 'Structured sections',
+          'Content is reorganised into clear sections with headings, anchors,
+          and internal navigation.'), ('ruler', 'Figures and tables kept',
+          'Diagrams, charts, and tables carry across and stay legible at any
+          width.'), ('browser', 'Readable on a phone', 'A responsive layout
+          replaces pinch-and-zoom, with light and dark modes included.'),
+          ('pen', 'Linkable and searchable', 'Every section has its own address,
+          so you can send someone straight to the part that matters.') ] %}
+          <article
+            class="studio-panel"
+            data-bp-reveal
+            style="--bp-delay:{{ loop.index0 * 70 }}ms"
+          >
+            {{ icon(name) }}
+            <h3>{{ title }}</h3>
+            <p>{{ copy }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="studio-section">
+      <div class="studio-wrap studio-split">
+        <div>
+          <span class="studio-label">PRICING://CONVERSION</span>
+          <h2>What it costs.</h2>
+          <p>
+            A base conversion covers documents up to 25 pages. Longer or
+            bilingual reports are quoted with the add-ons below.
+          </p>
+          <a class="journey-more" href="{{ 'packages/' | url }}"
+            >Full pricing breakdown ↗</a
+          >
+        </div>
+        <div class="studio-addons">
+          {% for label, price, note in [ ('Base conversion', '150 SAR', 'PDF or
+          DOCX → HTML report, up to 25 pages.'), ('Large document', '+50 SAR',
+          'For reports between 25 and 50 pages.'), ('Bilingual report', '+60
+          SAR', 'Two languages with a toggle and matching structure.') ] %}
+          <div class="studio-addon" data-bp-reveal>
+            <strong>{{ label }}</strong>
+            <span class="studio-blue">{{ price }}</span>
+            <p>{{ note }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="studio-section studio-grid">
+      <div class="studio-wrap studio-final">
+        <span class="studio-label">SEND://YOUR DOCUMENT</span>
+        <h2>Have a report that<br />deserves better?</h2>
+        <p>
+          Send the document and we'll confirm the page count, the price, and the
+          turnaround.
+        </p>
+        <div class="studio-actions">
+          <a class="bp-btn bp-btn--primary" href="{{ 'start-project/' | url }}"
+            >Start a Project →</a
+          >
+          <a class="bp-btn" href="{{ 'contact/' | url }}">Contact Blueprint</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

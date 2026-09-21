@@ -1,0 +1,412 @@
+{% extends 'main.html' %} {% from 'partials/studio-icons.html' import icon %} {%
+macro browser_mock(finished=false) %}
+<div
+  class="journey-browser {% if finished %}journey-browser-finished{% endif %}"
+  aria-hidden="true"
+>
+  <div class="journey-browser-bar">
+    <i></i><i></i><i></i><span>blueprint / your-next-chapter</span>
+  </div>
+  <div class="journey-browser-content">
+    <div class="journey-browser-nav">
+      <span>YOUR BRAND</span><i></i><i></i><i></i>
+    </div>
+    <div class="journey-browser-hero">
+      <span class="journey-browser-kicker">A PLACE FOR YOUR IDEAS</span
+      ><strong>Built around<br />your perspective.</strong>
+      <p>A clear space for the work that matters.</p>
+      <b>Explore the work ↗</b>
+    </div>
+    <div class="journey-browser-cards"><i></i><i></i><i></i></div>
+    <div class="journey-browser-footer">CONSIDERED. CONNECTED. COMPLETE.</div>
+  </div>
+</div>
+{% endmacro %} {% block container %}
+<div class="md-content bp-home-shell studio-page" id="studio-main">
+  <div class="bp-home">
+    <section class="studio-hero studio-grid">
+      <div class="studio-wrap studio-split journey-hero">
+        <div>
+          <span class="studio-label">PROCESS://FROM-IDEA-TO-LAUNCH</span>
+          <h1>
+            From an idea<br />to a <em>finished<br />build.</em>
+          </h1>
+          <p>
+            Every Blueprint project follows a structured process designed to
+            keep the scope clear, the experience consistent, and the final
+            website easy to maintain.
+          </p>
+          <div class="studio-actions">
+            <a
+              class="bp-btn bp-btn--primary"
+              href="{{ 'start-project/' | url }}"
+              >Start a Project →</a
+            ><a class="bp-btn" href="{{ 'packages/' | url }}">View Services</a>
+          </div>
+          <p class="journey-meta">
+            07 STAGES · CLEAR SCOPE · STRUCTURED DELIVERY
+          </p>
+        </div>
+        <div class="journey-drawing" data-bp-reveal>
+          <div class="journey-measure">← WIDTH: RESPONSIVE →</div>
+          {{ browser_mock() }}
+          <div class="journey-annotations">
+            <span>STATUS: PLANNING</span><span>GRID: ACTIVE</span
+            ><span>STRUCTURE: 01</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="journey-navigation">
+      <nav class="studio-wrap" aria-label="Project stages">
+        {% for title in ['Request','Discovery','Scope','Structure','Design &
+        Build','Review','Deploy'] %}<a href="#stage-{{ loop.index }}"
+          ><span>0{{ loop.index }}</span>{{ title }}</a
+        >{% endfor %}
+      </nav>
+      <div class="journey-progress"><span></span></div>
+    </div>
+    <section class="studio-section journey-stages">
+      <div class="studio-wrap journey-layout">
+        <aside
+          class="journey-workspace"
+          aria-label="Website construction preview"
+        >
+          <div class="journey-workspace-head">
+            <span class="studio-label">THE BUILD / IN PROGRESS</span
+            ><span id="journey-count">01 / 07</span>
+          </div>
+          <div class="journey-transform" data-stage="1">
+            {{ browser_mock(true) }}
+            <div class="journey-construction-lines"></div>
+          </div>
+          <div class="journey-workspace-status">
+            <span id="journey-state">IDEA</span
+            ><span class="studio-live">TAKING SHAPE</span>
+          </div>
+          <p>One idea. A little more defined<br />with every step.</p>
+        </aside>
+        <div class="journey-story">
+          <article class="journey-stage" id="stage-1" data-journey-stage="1">
+            <span class="studio-label">STAGE://01 — PROJECT REQUEST</span>
+            <h2>Tell us what<br />you’re building.</h2>
+            <p>
+              The process starts with your idea. Tell Blueprint what you need,
+              who the website is for, and what you want it to accomplish.
+            </p>
+            <div class="studio-spec studio-panel">
+              <span class="studio-label">PROJECT REQUEST / EXAMPLE</span>
+              <dl>
+                <div>
+                  <dt>PROJECT TYPE</dt>
+                  <dd>Portfolio website</dd>
+                </div>
+                <div>
+                  <dt>PURPOSE</dt>
+                  <dd>Showcase professional work</dd>
+                </div>
+                <div>
+                  <dt>AUDIENCE</dt>
+                  <dd>Recruiters + clients</dd>
+                </div>
+                <div>
+                  <dt>STATUS</dt>
+                  <dd class="studio-blue">REQUEST RECEIVED</dd>
+                </div>
+              </dl>
+            </div>
+            <a
+              class="journey-more"
+              href="{{ 'process/intake-fit-check/' | url }}"
+              >Explore the fit check →</a
+            >
+          </article>
+          <article class="journey-stage" id="stage-2" data-journey-stage="2">
+            <span class="studio-label">STAGE://02 — DISCOVERY</span>
+            <h2>Understand<br />before designing.</h2>
+            <p>
+              We review the purpose, audience, content, requirements, and
+              identity of the project before building anything. The result is a
+              shared understanding of what the website needs to do.
+            </p>
+            <div class="journey-nodes">
+              {% for label in
+              ['GOAL','AUDIENCE','CONTENT','FUNCTION','IDENTITY'] %}<span
+                >{{ label }}</span
+              >{% endfor %}<strong>PROJECT DEFINITION</strong>
+            </div>
+            <a class="journey-more" href="{{ 'process/discovery/' | url }}"
+              >The discovery checklist →</a
+            >
+          </article>
+          <article class="journey-stage" id="stage-3" data-journey-stage="3">
+            <span class="studio-label">STAGE://03 — SCOPE & QUOTE</span>
+            <h2>Define exactly<br />what we’re building.</h2>
+            <p>
+              Pages, features, deliverables, and the investment are agreed
+              before development begins. This keeps expectations clear before
+              the first page is built.
+            </p>
+            <div class="studio-spec studio-panel">
+              <span class="studio-label">BUILD SPECIFICATION</span>
+              <dl>
+                {% for title,value in [('PROJECT','Portfolio
+                website'),('PAGES','Defined'),('FEATURES','Defined'),('DELIVERABLES','Defined'),('QUOTE','Confirmed'),('STATUS','READY
+                TO BUILD')] %}
+                <div>
+                  <dt>{{ title }}</dt>
+                  <dd>{{ value }}</dd>
+                </div>
+                {% endfor %}
+              </dl>
+            </div>
+            <a class="journey-more" href="{{ 'packages/' | url }}"
+              >View Services & Pricing →</a
+            >
+          </article>
+          <article class="journey-stage" id="stage-4" data-journey-stage="4">
+            <span class="studio-label">STAGE://04 — STRUCTURE</span>
+            <h2>Build the<br />blueprint first.</h2>
+            <p>
+              Before visual polish comes structure. Content, pages, navigation,
+              and hierarchy are organized into a clear experience.
+            </p>
+            <div class="journey-sitemap">
+              <strong>HOME</strong>
+              <div>
+                <span>ABOUT</span
+                ><span
+                  >PROJECTS<small>PROJECT 01<br />PROJECT 02</small></span
+                ><span>EXPERIENCE</span><span>CONTACT</span>
+              </div>
+            </div>
+            <div class="journey-tags">
+              <span>INFORMATION ARCHITECTURE</span><span>NAVIGATION</span
+              ><span>CONTENT HIERARCHY</span><span>PAGE STRUCTURE</span>
+            </div>
+            <a
+              class="journey-more"
+              href="{{ 'process/structure-sitemap/' | url }}"
+              >Explore the structure stage →</a
+            >
+          </article>
+          <article class="journey-stage" id="stage-5" data-journey-stage="5">
+            <span class="studio-label">STAGE://05 — DESIGN & BUILD</span>
+            <h2>Turn structure<br />into an experience.</h2>
+            <p>
+              The website takes shape through typography, layout, responsive
+              behavior, visual details, and interaction. Each decision follows
+              the structure we established together.
+            </p>
+            <div class="journey-comparison">
+              {{ browser_mock(true) }}
+              <div class="journey-comparison-wire">{{ browser_mock() }}</div>
+              <span class="journey-comparison-label"
+                >WIREFRAME → INTERFACE</span
+              >
+            </div>
+            <label class="journey-slider-label" for="journey-compare"
+              >Explore the transformation</label
+            ><input
+              id="journey-compare"
+              class="journey-slider"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              aria-label="Reveal finished interface"
+            />
+            <div class="journey-tags">
+              <span>WIREFRAME</span><span>VISUAL SYSTEM</span
+              ><span>RESPONSIVE UI</span><span>INTERACTIONS</span
+              ><span>FINAL BUILD</span>
+            </div>
+            <a class="journey-more" href="{{ 'process/build/' | url }}"
+              >Inside the build →</a
+            >
+          </article>
+          <article class="journey-stage" id="stage-6" data-journey-stage="6">
+            <span class="studio-label">STAGE://06 — REVIEW</span>
+            <h2>Review.<br />Refine. Verify.</h2>
+            <p>
+              You review the finished website before deployment. We refine the
+              agreed details and check the experience across desktop, tablet,
+              and mobile.
+            </p>
+            <div
+              class="journey-devices"
+              aria-label="Desktop, tablet, and mobile previews"
+            >
+              <div>{{ browser_mock(true) }}<small>DESKTOP</small></div>
+              <div>{{ browser_mock(true) }}<small>TABLET</small></div>
+              <div>{{ browser_mock(true) }}<small>MOBILE</small></div>
+            </div>
+            <div class="journey-verifications">
+              {% for label in
+              ['LAYOUT','RESPONSIVE','LINKS','CONTENT','NAVIGATION','PERFORMANCE']
+              %}<span style="--check-delay:{{ loop.index * 100 }}ms"
+                >{{ label }} <b>✓</b></span
+              >{% endfor %}
+            </div>
+            <a
+              class="journey-more"
+              href="{{ 'process/revision-rounds/' | url }}"
+              >How review rounds work →</a
+            >
+          </article>
+          <article class="journey-stage" id="stage-7" data-journey-stage="7">
+            <span class="studio-label">STAGE://07 — DEPLOY & HANDOVER</span>
+            <h2>Ready for<br /><em>the world.</em></h2>
+            <p>
+              Once approved, the final website is deployed and the project is
+              handed over in a clean, maintainable structure. Your idea now has
+              a home.
+            </p>
+            <div class="studio-spec studio-panel">
+              <span class="studio-label">DEPLOYMENT / FINAL CHECK</span>
+              <dl>
+                {% for title,value in
+                [('BUILD','COMPLETE'),('TESTING','PASSED'),('DEPLOYMENT','LIVE'),('HANDOVER','READY'),('STATUS','PROJECT
+                COMPLETE')] %}
+                <div>
+                  <dt>{{ title }}</dt>
+                  <dd
+                    {%
+                    if
+                    title=""
+                    ="DEPLOYMENT"
+                    %}class="studio-live"
+                    {%
+                    endif
+                    %}
+                  >
+                    {{ value }}
+                  </dd>
+                </div>
+                {% endfor %}
+              </dl>
+            </div>
+            <a
+              class="journey-more"
+              href="{{ 'process/deployment-handover/' | url }}"
+              >What you receive at handover →</a
+            >
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap">
+        <span class="studio-label">THE FULL TRANSFORMATION</span>
+        <h2>One process. Seven stages.<br />One finished build.</h2>
+        <div class="journey-recap">
+          {% for title,desc in [('Idea','Share your purpose and
+          audience.'),('Specification','Discover the
+          requirements.'),('Scope','Agree deliverables and
+          quote.'),('Wireframe','Organize pages and
+          navigation.'),('Interface','Bring the visual system to
+          life.'),('Tested build','Review and refine the experience.'),('Live
+          website','Deploy and hand over the project.')] %}<a
+            href="#stage-{{ loop.index }}"
+            ><small>0{{ loop.index }}</small>{{
+            icon(['pen','file','ruler','structure','browser','shield','globe'][loop.index0])
+            }}<strong>{{ title }}</strong><span>{{ desc }}</span></a
+          >{% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section">
+      <div class="studio-wrap">
+        <span class="studio-label">CLIENT://INPUT</span>
+        <h2>What you bring to the build.</h2>
+        <div class="journey-inputs">
+          {% for name,desc,ico in [('Content','Text, project information,
+          descriptions, or academic material that needs to appear on your
+          website.','file'),('Assets','Logos, images, documents, branding
+          materials, and other relevant files.','layers'),('Direction','Your
+          goals, preferences, references, and
+          expectations.','ruler'),('Feedback','Clear feedback during review so
+          the result matches the agreed direction.','pen')] %}
+          <article class="studio-panel">
+            {{ icon(ico) }}
+            <h3>{{ name }}</h3>
+            <p>{{ desc }}</p>
+          </article>
+          {% endfor %}
+        </div>
+        <div class="studio-note">
+          <p>
+            <strong>Don’t have everything organized yet? That’s okay.</strong
+            ><br />Blueprint helps structure the material you provide into a
+            clear digital experience.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap studio-split">
+        <div>
+          <span class="studio-label">COMMUNICATION://CLEAR</span>
+          <h2>No guessing where<br />your project stands.</h2>
+          <p>
+            You’ll know which stage your project is in, what has been completed,
+            and what we need from you next.
+          </p>
+        </div>
+        <div class="journey-tracker studio-panel">
+          <span class="studio-label">EXAMPLE PROJECT STATUS</span>{% for
+          title,status in
+          [('REQUESTED','✓'),('SCOPED','✓'),('BUILDING','●'),('REVIEW','○'),('DEPLOY','○')]
+          %}
+          <div><span>{{ title }}</span><b>{{ status }}</b></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section">
+      <div class="studio-wrap studio-faq">
+        <span class="studio-label">A FEW MORE DETAILS</span>
+        <h2>Before we get started.</h2>
+        {% for question,answer in [('Do I need to know exactly what website I
+        want?','No. You can start with your goal and content, and the
+        appropriate structure can be determined during discovery.'),('When does
+        development begin?','Development begins after the project’s scope and
+        requirements have been established.'),('Can the scope change during the
+        project?','Changes can be discussed, but additions outside the agreed
+        scope may affect the quote or project requirements.'),('When do I review
+        the website?','A review stage takes place before final
+        deployment.'),('What happens after the website is finished?','The
+        website is deployed and the final project is handed over in a clean,
+        maintainable structure.')] %}
+        <details class="studio-detail">
+          <summary>{{ question }}</summary>
+          <p>{{ answer }}</p>
+        </details>
+        {% endfor %}
+      </div>
+    </section>
+    <section class="studio-section studio-grid">
+      <div class="studio-wrap studio-split studio-final">
+        <div>
+          <span class="studio-label">YOUR PROJECT://STAGE 00</span>
+          <h2>Every build starts<br />with an idea.</h2>
+          <p>Bring us yours. We’ll help give it structure.</p>
+          <div class="studio-actions">
+            <a
+              class="bp-btn bp-btn--primary"
+              href="{{ 'start-project/' | url }}"
+              >Start Your Project →</a
+            ><a class="bp-btn" href="{{ 'web-platforms/' | url }}"
+              >Explore Our Work</a
+            >
+          </div>
+          <p class="journey-meta">
+            READY FOR INPUT<span class="studio-cursor">_</span>
+          </p>
+        </div>
+        <div>{{ browser_mock(true) }}</div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

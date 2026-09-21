@@ -1,6 +1,8 @@
 (function () {
-  var ENDPOINT = "https://blueprint-cv-purchase-worker.shoug-alomran.workers.dev/submit";
-  var SUCCESS_URL = "/thank-you/";
+  var ENDPOINT =
+    "https://blueprint-cv-purchase-worker.shoug-alomran.workers.dev/submit";
+  var SUCCESS_URL = new URL("../thank-you/", document.currentScript.src)
+    .pathname;
   var FALLBACK_EMAIL = "blueprint@shoug-tech.com";
   var SOURCE = "cv-catalog";
   var LOCALE = "en";
@@ -51,7 +53,9 @@
     var templateName = getTemplateName(link);
     var tier = getTier(link);
     var email = window.prompt(
-      "Enter your email so Blueprint can send purchase details for " + templateName + "."
+      "Enter your email so Blueprint can send purchase details for " +
+        templateName +
+        ".",
     );
 
     if (email === null) {
@@ -84,7 +88,7 @@
       var response = await fetch(ENDPOINT, {
         method: "POST",
         mode: "cors",
-        body: formData
+        body: formData,
       });
 
       if (!response.ok) {
@@ -119,7 +123,7 @@
 
         handlePurchase(link);
       },
-      true
+      true,
     );
   }
 

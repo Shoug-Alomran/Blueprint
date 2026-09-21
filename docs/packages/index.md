@@ -1,382 +1,370 @@
 ---
-title: Packages
+title: Services & Pricing
+template: packages.html
 description: Compare Blueprint website packages, add-ons, pricing tiers, CV templates, and HTML report options for static website projects.
 role: Service Offerings
 scope: Static website packages and add-ons
 constraints: Clear scope predictable delivery maintainable structure
 metrics: delivery time revision rounds scope boundaries
 last_updated: 2026-03-04
+hero_eyebrow: services://pricing
+hero_title: Clear scope. <em>Predictable</em> delivery.
+hero_lede: >
+  Structured static websites and documentation products with published prices,
+  fixed revision rounds, and scope agreed in writing before a single line is built.
+hero_meta:
+  - label: Tiers
+    value: 3 website packages
+  - label: Delivery
+    value: 3–10 working days
+  - label: Revisions
+    value: 2–3 rounds
+hero_actions:
+  - label: Start a Project
+    url: start-project/
+    primary: true
+  - label: How It Works
+    url: process/
 ---
 
-# Packages
+<p class="bp-band__label">Website Packages</p>
 
-Blueprint Studio provides structured static websites and documentation products designed for clarity reliability and long-term maintainability.
+## Website Packages { #website-packages }
 
-Clear scope. Predictable delivery. Maintainable structure.
+Structured static websites designed for professional presence, academic documentation, and research publication.
 
----
-
-## Website Packages
-
-Structured static websites designed for professional presence academic documentation and research publication.
-
-<div class="card-grid hero-cards hero-cards--tiers">
-
-  <article class="info-card">
-    <h3>Tier 1, Personal Presence</h3>
-    <p><strong>600 SAR</strong><br>Delivery: 3–5 working days</p>
-    <p>Clean digital presence without unnecessary complexity.</p>
+<div class="bp-plans" markdown="0">
+  <article class="bp-plan">
+    <span class="bp-plan__step">Tier 01</span>
+    <h3 class="bp-plan__name">Personal Presence</h3>
+    <p class="bp-plan__price">600 <span>SAR</span></p>
+    <p class="bp-plan__delivery">3–5 working days</p>
+    <p class="bp-plan__desc">A clean digital presence without unnecessary complexity. Up to 4 sections, one page per section.</p>
+    <a class="md-button" href="../start-project/">Select Tier 1</a>
   </article>
 
-  <article class="info-card">
-    <h3>Tier 2, Project Documentation</h3>
-    <p><strong>950 SAR</strong><br>Delivery: 5–7 working days</p>
-    <p>Structured documentation websites for academic or technical projects.</p>
+  <article class="bp-plan bp-plan--featured">
+    <span class="bp-plan__tag">Most chosen</span>
+    <span class="bp-plan__step">Tier 02</span>
+    <h3 class="bp-plan__name">Project Documentation</h3>
+    <p class="bp-plan__price">950 <span>SAR</span></p>
+    <p class="bp-plan__delivery">5–7 working days</p>
+    <p class="bp-plan__desc">Structured documentation websites for academic or technical projects. Up to 8 sections, roughly 10–16 pages.</p>
+    <a class="md-button md-button--primary" href="../start-project/">Select Tier 2</a>
   </article>
 
-  <article class="info-card">
-    <h3>Tier 3, Research Documentation</h3>
-    <p><strong>1400 SAR</strong><br>Delivery: 7–10 working days</p>
-    <p>Publication-ready research documentation and structured technical presentation.</p>
+  <article class="bp-plan">
+    <span class="bp-plan__step">Tier 03</span>
+    <h3 class="bp-plan__name">Research Documentation</h3>
+    <p class="bp-plan__price">1400 <span>SAR</span></p>
+    <p class="bp-plan__delivery">7–10 working days</p>
+    <p class="bp-plan__desc">Publication-ready research documentation and structured technical presentation. Up to 12 sections, roughly 20–25 pages.</p>
+    <a class="md-button" href="../start-project/">Select Tier 3</a>
   </article>
-
 </div>
 
----
+<p class="bp-band__label">Structural Model</p>
 
-## How Blueprint Defines Structure
+## How Blueprint Defines Structure { #how-blueprint-defines-structure }
 
-**Section**  
-A top-level navigation item in your website (Overview, Methodology, Results, Contact).
+<div class="bp-split" markdown="0">
+  <div class="bp-panel">
+    <h3>Section</h3>
+    <p>A top-level navigation item in your website — Overview, Methodology, Results, Contact. Sections define navigation.</p>
+  </div>
+  <div class="bp-panel">
+    <h3>Page</h3>
+    <p>A standalone content page inside a section. Pages define content depth.</p>
+  </div>
+</div>
 
-**Page**  
-A standalone content page inside a section.
+<div class="bp-callout" markdown="0">
+  <p><strong>Section-to-page flexibility.</strong> Each tier includes a fixed number of sections. If your project needs fewer, unused sections convert into additional standalone pages at no change in tier price. The conversion rate is confirmed in writing during scope review, before build begins.</p>
+</div>
 
-Example:  
-If you have a Methodology section with 2 detailed write-ups:, 1 section, 2 pages  
+<p class="bp-band__label">Tier Detail</p>
 
-Sections define navigation.  
-Pages define content depth.
+## What Each Tier Includes { #what-each-tier-includes }
 
----
+### Tier 1 — Personal Presence { #tier-1-personal-presence }
 
-## Section-to-Page Flexibility
-
-Each tier includes a fixed number of sections.
-
-If your project requires fewer sections unused sections may be converted into additional standalone pages without changing the tier price.
-
-This allows flexible content distribution while preserving the agreed structural scope.
-
-Conversion rate is confirmed in writing during scope review before build begins.
-
----
-
-### Tier 1, Personal Presence
-
-<div class="card-grid hero-cards hero-cards--feature">
-
-  <article class="info-card">
+<div class="bp-split" markdown="0">
+  <div class="bp-panel">
     <h3>Includes</h3>
-    <ul>
+    <ul class="bp-check">
       <li>Up to 4 sections (1 page per section)</li>
       <li>Clean responsive layout</li>
       <li>Structured navigation hierarchy</li>
-      <li>Custom primary color</li>
+      <li>Custom primary colour</li>
       <li>Basic SEO setup (titles + metadata)</li>
       <li>GitHub Pages deployment</li>
       <li>Free GitHub domain</li>
       <li>2 revision rounds</li>
       <li>Deployment + handover guidance</li>
     </ul>
-  </article>
-
-  <article class="info-card">
+  </div>
+  <div class="bp-panel bp-panel--muted">
     <h3>Best For</h3>
-    <ul>
-      <li>personal digital gardens</li>
-      <li>student profiles and portfolios</li>
-      <li>simple workshop landing pages</li>
-      <li>professional presence sites</li>
+    <ul class="bp-check">
+      <li>Personal digital gardens</li>
+      <li>Student profiles and portfolios</li>
+      <li>Simple workshop landing pages</li>
+      <li>Professional presence sites</li>
     </ul>
-  </article>
-
+  </div>
 </div>
 
----
+### Tier 2 — Project Documentation { #tier-2-project-documentation }
 
-### Tier 2, Project Documentation
-
-<div class="card-grid hero-cards hero-cards--feature">
-
-  <article class="info-card">
+<div class="bp-split" markdown="0">
+  <div class="bp-panel">
     <h3>Includes</h3>
-    <ul>
+    <ul class="bp-check">
       <li>Up to 8 sections (~10–16 total pages)</li>
       <li>Chapter-based or phase-based navigation</li>
-      <li>Structured sections for overview methodology results appendices references</li>
-      <li>Report integration (choose one or both):</li>
-      <ul>
-        <li>Embedded PDF</li>
-        <li>HTML-converted report</li>
-      </ul>
+      <li>Structured sections for overview, methodology, results, appendices, references</li>
+      <li>Report integration: embedded PDF, HTML-converted report, or both</li>
       <li>Team or contributor page</li>
       <li>Clean responsive layout</li>
-      <li>Custom primary color</li>
+      <li>Custom primary colour</li>
       <li>Basic SEO setup</li>
-      <li>GitHub Pages deployment</li>
-      <li>Free GitHub domain</li>
+      <li>GitHub Pages deployment + free GitHub domain</li>
       <li>2 revision rounds</li>
       <li>Deployment + handover guidance</li>
     </ul>
-  </article>
-
-  <article class="info-card">
+  </div>
+  <div class="bp-panel bp-panel--muted">
     <h3>Best For</h3>
-    <ul>
+    <ul class="bp-check">
       <li>CS projects and capstones</li>
-      <li>structured engineering and medical student reports</li>
-      <li>academic documentation websites</li>
-      <li>technical, lab, and clinical project submissions</li>
-      <li>student research and final-year documentation</li>
+      <li>Structured engineering and medical student reports</li>
+      <li>Academic documentation websites</li>
+      <li>Technical, lab, and clinical project submissions</li>
+      <li>Student research and final-year documentation</li>
     </ul>
-  </article>
-
+  </div>
 </div>
 
----
+### Tier 3 — Research Documentation { #tier-3-research-documentation }
 
-### Tier 3, Research Documentation
-
-<div class="card-grid hero-cards hero-cards--feature">
-
-  <article class="info-card">
+<div class="bp-split" markdown="0">
+  <div class="bp-panel">
     <h3>Includes</h3>
-    <ul>
+    <ul class="bp-check">
       <li>Up to 12 sections (~20–25 total pages)</li>
       <li>Deep navigation hierarchy across multiple tracks</li>
-      <li>Structured research sections (objectives ethics data model evaluation limitations future work)</li>
-      <li>Report & paper integration (choose one or both):</li>
-      <ul>
-        <li>Embedded PDF</li>
-        <li>HTML-converted paper</li>
-      </ul>
+      <li>Structured research sections: objectives, ethics, data model, evaluation, limitations, future work</li>
+      <li>Report &amp; paper integration: embedded PDF, HTML-converted paper, or both</li>
       <li>Deployment / installation documentation</li>
       <li>Dataset or repository documentation</li>
       <li>Contributor and contact pages</li>
-      <li>Clean responsive layout</li>
       <li>Bilingual setup (Arabic + English)</li>
-      <li>Custom primary color</li>
-      <li>Basic SEO setup</li>
-      <li>GitHub Pages deployment</li>
-      <li>Free GitHub domain</li>
+      <li>Custom primary colour + basic SEO setup</li>
+      <li>GitHub Pages deployment + free GitHub domain</li>
       <li>3 revision rounds</li>
       <li>Deployment + handover guidance</li>
     </ul>
-  </article>
-
-  <article class="info-card">
+  </div>
+  <div class="bp-panel bp-panel--muted">
     <h3>Best For</h3>
-    <ul>
+    <ul class="bp-check">
       <li>AI / ML research projects</li>
-      <li>multi-phase academic, medical, and scientific studies</li>
-      <li>publication-ready documentation</li>
-      <li>research portfolios for students and researchers</li>
-      <li>thesis, clinical, and lab-based documentation</li>
+      <li>Multi-phase academic, medical, and scientific studies</li>
+      <li>Publication-ready documentation</li>
+      <li>Research portfolios for students and researchers</li>
+      <li>Thesis, clinical, and lab-based documentation</li>
     </ul>
-  </article>
-
+  </div>
 </div>
 
----
+<p class="bp-band__label">Optional Extras</p>
 
-## Website Add-Ons
+## Website Add-Ons { #website-add-ons }
 
-Applicable to website packages.
+Applicable to website packages. All add-ons are confirmed in writing before implementation.
 
-<div class="card-grid hero-cards hero-cards--timeline">
-
-  <article class="info-card">
+<div class="bp-tiles bp-tiles--3" markdown="0">
+  <article class="bp-tile">
+    <span class="bp-tile__num">+150 SAR / section</span>
     <h3>Additional Section</h3>
-    <p><strong>150 SAR per section</strong></p>
     <p>Expand the agreed website scope with extra standalone sections.</p>
   </article>
-
-  <article class="info-card">
-    <h3>Bilingual Setup (Arabic + English)</h3>
-    <p><strong>300 SAR</strong> (Tiers 1 & 2)</p>
-    <p>Duplicate structure and navigation across both language versions.</p>
+  <article class="bp-tile">
+    <span class="bp-tile__num">+300 SAR · Tier 1–2</span>
+    <h3>Bilingual Setup</h3>
+    <p>Duplicate structure and navigation across Arabic and English versions.</p>
   </article>
-
-  <article class="info-card">
+  <article class="bp-tile">
+    <span class="bp-tile__num">+250 SAR</span>
     <h3>Custom Domain Setup</h3>
-    <p><strong>250 SAR</strong></p>
     <p>DNS and HTTPS setup for connecting your own domain reliably.</p>
   </article>
-
-  <article class="info-card">
+  <article class="bp-tile">
+    <span class="bp-tile__num">+200 SAR</span>
     <h3>Priority Delivery</h3>
-    <p><strong>200 SAR</strong></p>
     <p>Move the project to an expedited execution queue.</p>
   </article>
-
-  <article class="info-card">
+  <article class="bp-tile">
+    <span class="bp-tile__num">50 SAR / month</span>
     <h3>Monthly Maintenance</h3>
-    <p><strong>50 SAR / month</strong></p>
     <p>Ongoing content updates and minor structural edits within existing sections.</p>
   </article>
-
 </div>
 
-### Maintenance Policy
+### Maintenance Policy { #maintenance-policy }
 
-Monthly maintenance includes ongoing content updates and minor structural adjustments within existing sections.
+Monthly maintenance covers ongoing content updates and minor structural adjustments within existing sections. A new section is billed at the standard rate of 150 SAR per section. Full layout redesigns, or migration to a different tier structure, are quoted separately.
 
-If a new section is required it is billed at the standard additional section rate (150 SAR per section).
+<p class="bp-band__label">Standalone Products</p>
 
-Full layout redesigns or migration to a different tier structure are quoted separately.
-
-All add-ons are confirmed in writing before implementation.
-
----
-
-## Documentation Products
+## Documentation Products { #documentation-products }
 
 Standalone documentation products that can be purchased without a website package.
 
----
+### CV Templates { #cv-templates }
 
-### CV Templates
-
-Pre-designed HTML/CSS CV templates available in two options.
-
-<div class="card-grid hero-cards hero-cards--compact">
-
-  <article class="info-card">
+<div class="bp-tiles bp-tiles--2" markdown="0">
+  <article class="bp-tile">
+    <span class="bp-tile__num">Basic 68 SAR · Pro 95 SAR</span>
     <h3>Template Only</h3>
-    <p><strong>Basic: 68 SAR · Pro: 95 SAR</strong><br>Immediate delivery</p>
-    <p>You receive the HTML/CSS file and documentation to edit it yourself.</p>
+    <p>You receive the HTML/CSS file and the documentation to edit it yourself. Immediate delivery. No deployment or integration included.</p>
   </article>
-
-<article class="info-card">
-  <h3>Done For You</h3>
-  <p><strong>Basic: 100 SAR · Pro: 130 SAR</strong><br>2–3 working days</p>
-  <p>Your CV is filled in and integrated into your existing Blueprint site.</p>
-</article>
-
+  <article class="bp-tile">
+    <span class="bp-tile__num">Basic 100 SAR · Pro 130 SAR</span>
+    <h3>Done For You</h3>
+    <p>Your CV is filled in and integrated into your existing Blueprint site. 2–3 working days.</p>
+  </article>
 </div>
 
-<div class="card-grid hero-cards hero-cards--feature">
-
-  <article class="info-card">
+<div class="bp-split" markdown="0">
+  <div class="bp-panel">
     <h3>Includes</h3>
-    <ul>
+    <ul class="bp-check">
       <li>HTML/CSS source file</li>
-      <li>editing documentation</li>
-      <li>one design of your choice</li>
+      <li>Editing documentation</li>
+      <li>One design of your choice</li>
     </ul>
-    <p><strong>Template Only:</strong> no deployment or integration included.</p>
-  </article>
-
-  <article class="info-card">
+  </div>
+  <div class="bp-panel bp-panel--muted">
     <h3>Best For</h3>
-    <ul>
-      <li>professional CV pages</li>
-      <li>portfolio profiles</li>
-      <li>clean single-page presence</li>
+    <ul class="bp-check">
+      <li>Professional CV pages</li>
+      <li>Portfolio profiles</li>
+      <li>Clean single-page presence</li>
     </ul>
-  </article>
-
+  </div>
 </div>
 
----
+[Browse CV templates](../CV_index/index.md){ .md-button }
 
-### HTML Report Conversion
+### HTML Report Conversion { #html-report-conversion }
 
 Convert static documents into structured HTML reports designed for easier reading and navigation.
 
-<div class="card-grid hero-cards hero-cards--feature">
-
-  <article class="info-card">
+<div class="bp-tiles bp-tiles--3" markdown="0">
+  <article class="bp-tile">
+    <span class="bp-tile__num">150 SAR · up to 25 pages</span>
     <h3>Base Package</h3>
-    <p><strong>150 SAR</strong></p>
-    <p>Convert a static document into a clean structured HTML report built for easier reading and navigation.</p>
-    <p><strong>Limit:</strong> up to 25 pages</p>
+    <p>Convert a static document into a clean, structured HTML report built for easier reading and navigation.</p>
   </article>
-
-  <article class="info-card">
-    <h3>Includes</h3>
-    <ul>
-      <li>Convert <strong>PDF or DOCX → HTML report</strong></li>
+  <article class="bp-tile">
+    <span class="bp-tile__num">Included</span>
+    <h3>What You Get</h3>
+    <ul class="bp-check">
+      <li>PDF or DOCX → HTML report</li>
       <li>Structured headings and sections</li>
       <li>Figures and tables preserved</li>
       <li>Mobile-friendly layout</li>
-      <li>Clean readable formatting</li>
-      <li><strong>Light mode and dark mode support</strong></li>
+      <li>Light and dark mode support</li>
     </ul>
   </article>
-
-  <article class="info-card">
-    <h3>Best For</h3>
-    <ul>
-      <li>course reports</li>
-      <li>research summaries</li>
-      <li>technical documentation</li>
-      <li>project reports</li>
+  <article class="bp-tile">
+    <span class="bp-tile__num">Best For</span>
+    <h3>Typical Use</h3>
+    <ul class="bp-check">
+      <li>Course reports</li>
+      <li>Research summaries</li>
+      <li>Technical documentation</li>
+      <li>Project reports</li>
     </ul>
   </article>
-
 </div>
 
-#### HTML Report Add-Ons
+#### HTML Report Add-Ons { #html-report-add-ons }
 
-<div class="card-grid hero-cards hero-cards--timeline">
-
-  <article class="info-card">
+<div class="bp-tiles bp-tiles--2" markdown="0">
+  <article class="bp-tile">
+    <span class="bp-tile__num">+50 SAR</span>
     <h3>Large Document</h3>
-    <p><strong>+50 SAR</strong></p>
     <p>For longer reports between 25 and 50 pages.</p>
   </article>
-
-  <article class="info-card">
+  <article class="bp-tile">
+    <span class="bp-tile__num">+60 SAR</span>
     <h3>Bilingual Report</h3>
-    <p><strong>+60 SAR</strong></p>
-    <p>Deliver the report in two languages (for example Arabic and English).</p>
-    <ul>
-      <li>Language toggle</li>
-      <li>Duplicated structured content</li>
-      <li>Consistent formatting across both versions</li>
-    </ul>
+    <p>Deliver the report in two languages with a language toggle, duplicated structured content, and consistent formatting across both versions.</p>
   </article>
-
 </div>
 
----
+<p class="bp-band__label">Boundaries</p>
 
-## What Is Not Included
+## What Is Not Included { #what-is-not-included }
 
-Blueprint services do not include:, Full-stack applications, Databases, Authentication systems, SaaS development, Complex backend integrations, Custom web applications
+<div class="bp-split" markdown="0">
+  <div class="bp-panel">
+    <h3>Built Here</h3>
+    <ul class="bp-check">
+      <li>Static websites</li>
+      <li>Information architecture</li>
+      <li>Responsive UI + accessibility basics</li>
+      <li>SEO foundations</li>
+      <li>Deployment, testing, and handover</li>
+    </ul>
+  </div>
+  <div class="bp-panel bp-panel--muted">
+    <h3>Outside Scope</h3>
+    <ul class="bp-nope">
+      <li>Full-stack applications</li>
+      <li>Databases</li>
+      <li>Authentication systems</li>
+      <li>SaaS development</li>
+      <li>Complex backend integrations</li>
+      <li>Custom web applications</li>
+    </ul>
+  </div>
+</div>
 
-Projects requiring dynamic systems fall outside Blueprint’s static service scope.
+Projects requiring dynamic systems fall outside Blueprint's static service scope.
 
----
+<p class="bp-band__label">Engagement</p>
 
-## Project Flow
+## Project Flow { #project-flow }
 
-1. Scope confirmation + tier selection  
-2. Structure approval  
-3. First build  
-4. Revision rounds  
-5. Final approval  
-6. Payment  
-7. Deployment & handover  
+<ol class="bp-flow" markdown="0">
+  <li data-step="01"><h3>Scope confirmation</h3><p>Tier selection and written scope agreement.</p></li>
+  <li data-step="02"><h3>Structure approval</h3><p>Sitemap and navigation signed off before build.</p></li>
+  <li data-step="03"><h3>First build</h3><p>The structured site is generated and populated.</p></li>
+  <li data-step="04"><h3>Revision rounds</h3><p>2–3 rounds depending on tier.</p></li>
+  <li data-step="05"><h3>Final approval</h3><p>You confirm the build is ready to ship.</p></li>
+  <li data-step="06"><h3>Payment</h3><p>Due after final approval and before handover.</p></li>
+  <li data-step="07"><h3>Deployment &amp; handover</h3><p>Launch, checklist, and the keys to your own site.</p></li>
+</ol>
 
-Payment is due after final approval and before project handover.
+### Notes { #notes }
 
----
+<ul class="bp-check">
+  <li>Final timeline depends on content readiness.</li>
+  <li>Delays in feedback may extend delivery.</li>
+  <li>Out-of-scope changes are quoted separately.</li>
+  <li>Hosting and domain registration fees are separate unless stated otherwise.</li>
+  <li>HTML report conversion requires the full document before build begins.</li>
+  <li>Section-to-page conversion is confirmed during scope review.</li>
+</ul>
 
-## Notes:
- Final timeline depends on content readiness., Delays in feedback may extend delivery., Out-of-scope changes are quoted separately., Hosting and domain registration fees are separate unless stated otherwise., HTML report conversion requires the full document before build begins., Section-to-page conversion is confirmed during scope review.
-
-Not sure which tier fits your project?  
-Reach out via [Contact](../contact/index.md) with your project type section count and deadline.
+<div class="bp-cta-band" markdown="0">
+  <span class="bp-band__label">Not sure which tier fits?</span>
+  <p class="bp-cta-band__title">Send your project type, section count, and <em>deadline.</em></p>
+  <div class="bp-cta-band__actions">
+    <a class="md-button md-button--primary" href="../start-project/">Start a Project</a>
+    <a class="md-button" href="../contact/">Contact Blueprint</a>
+  </div>
+</div>

@@ -29,7 +29,10 @@
       if (!href || href.startsWith("#")) {
         return;
       }
-      var url = new URL(href, window.location.origin + window.location.pathname);
+      var url = new URL(
+        href,
+        window.location.origin + window.location.pathname,
+      );
       var normalized = url.pathname.replace(/\/$/, "") || "/";
       if (normalized === path) {
         link.classList.add("active");
@@ -38,24 +41,32 @@
   }
 
   function cloneTopNavLinks() {
-    var navRoot = document.querySelector("#navbar-collapse > ul.nav.navbar-nav");
+    var navRoot = document.querySelector(
+      "#navbar-collapse > ul.nav.navbar-nav",
+    );
     if (!navRoot) {
       return [];
     }
     var links = [];
     navRoot.querySelectorAll(":scope > li.nav-item").forEach(function (item) {
       var direct = item.querySelector(":scope > a.nav-link");
-      if (direct && direct.getAttribute("href") && direct.getAttribute("href") !== "#") {
+      if (
+        direct &&
+        direct.getAttribute("href") &&
+        direct.getAttribute("href") !== "#"
+      ) {
         links.push({
           label: direct.textContent.trim(),
-          href: direct.getAttribute("href")
+          href: direct.getAttribute("href"),
         });
       }
-      var menuItems = item.querySelectorAll(":scope .dropdown-menu a.dropdown-item");
+      var menuItems = item.querySelectorAll(
+        ":scope .dropdown-menu a.dropdown-item",
+      );
       menuItems.forEach(function (menuItem) {
         links.push({
           label: menuItem.textContent.trim(),
-          href: menuItem.getAttribute("href")
+          href: menuItem.getAttribute("href"),
         });
       });
     });
@@ -101,7 +112,9 @@
         nested.classList.remove("nav", "flex-column");
       });
     } else {
-      tocPills.appendChild(createEl("span", "panel-empty", "No headings available"));
+      tocPills.appendChild(
+        createEl("span", "panel-empty", "No headings available"),
+      );
     }
     rightPanel.appendChild(tocPills);
     row.appendChild(rightPanel);
@@ -119,11 +132,19 @@
     overlay.addEventListener("click", closeDrawers);
     document.body.appendChild(overlay);
 
-    var navDrawer = createEl("aside", "mobile-drawer left", "<h3>Site Map</h3>");
+    var navDrawer = createEl(
+      "aside",
+      "mobile-drawer left",
+      "<h3>Site Map</h3>",
+    );
     var navDrawerList = sectionPills.cloneNode(true);
     navDrawer.appendChild(navDrawerList);
 
-    var tocDrawer = createEl("aside", "mobile-drawer right", "<h3>Page Outline</h3>");
+    var tocDrawer = createEl(
+      "aside",
+      "mobile-drawer right",
+      "<h3>Page Outline</h3>",
+    );
     var tocDrawerList = tocPills.cloneNode(true);
     tocDrawer.appendChild(tocDrawerList);
 
@@ -241,7 +262,9 @@
     }
 
     var input = tools.querySelector("input[type='search']");
-    var searchLink = document.querySelector("[data-bs-target='#mkdocs_search_modal']");
+    var searchLink = document.querySelector(
+      "[data-bs-target='#mkdocs_search_modal']",
+    );
     if (input && searchLink) {
       input.addEventListener("focus", function () {
         searchLink.click();
@@ -264,40 +287,40 @@
     footer.innerHTML =
       '<div class="dashboard-footer">' +
       '<div class="footer-main">' +
-      '<section>' +
+      "<section>" +
       '<h2 class="footer-heading">Build a Clear Digital Presence</h2>' +
       '<p class="footer-copy">Structured static websites for portfolios, academic documentation, and workshop pages.</p>' +
       '<div class="subscribe-shell">' +
       '<input type="text" placeholder="Project type and timeline" aria-label="Project scope placeholder" />' +
       '<button type="button">Start a Project</button>' +
-      '</div>' +
-      '</section>' +
+      "</div>" +
+      "</section>" +
       '<section class="footer-links-grid">' +
       '<div class="link-panel">' +
-      '<h4>Products</h4>' +
+      "<h4>Products</h4>" +
       '<a href="/products/">All Products</a>' +
       '<a href="/packages/">Services & Pricing</a>' +
       '<a href="/CV_index/">CV Template Shop</a>' +
       '<a href="/html-reports/">HTML Report Conversion</a>' +
-      '</div>' +
+      "</div>" +
       '<div class="link-panel">' +
-      '<h4>Studio</h4>' +
+      "<h4>Studio</h4>" +
       '<a href="/process/">How It Works</a>' +
       '<a href="/start-project/">Start a Project</a>' +
       '<a href="/web-platforms/">Client Work</a>' +
       '<a href="/work-demos/">Feature Demos</a>' +
       '<a href="/about/">About</a>' +
-      '</div>' +
+      "</div>" +
       '<div class="link-panel">' +
-      '<h4>Support</h4>' +
+      "<h4>Support</h4>" +
       '<a href="/contact/">Contact</a>' +
       '<a href="/packages/#what-is-not-included">Scope</a>' +
       '<a href="/process/">Delivery Flow</a>' +
-      '</div>' +
-      '</section>' +
-      '</div>' +
+      "</div>" +
+      "</section>" +
+      "</div>" +
       '<div class="footer-meta">Blueprint Studio · Static website services only</div>' +
-      '</div>';
+      "</div>";
   }
 
   document.addEventListener("DOMContentLoaded", function () {

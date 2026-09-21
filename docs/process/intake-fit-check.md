@@ -6,12 +6,23 @@ scope: Confirm project type, tier, and scope before work begins
 constraints: Clear requirements, realistic timeline, aligned expectations
 metrics: qualification speed, scope accuracy, kickoff readiness
 last_updated: 2026-03-02
----
-
-# 01 · Intake & Fit Check
-
-No project begins without a confirmed fit. This stage ensures the correct tier is selected, expectations are aligned, and scope is realistic before any time is committed on either side.
-
+hero_eyebrow: stage://01
+hero_title: Start with the <em>right fit.</em>
+hero_lede: >
+  No project begins without a confirmed fit. This stage ensures the correct tier is selected, expectations are aligned, and scope is realistic before any time is committed on either side.
+hero_meta:
+  - label: Stage
+    value: 01 of 06
+  - label: Role
+    value: Project Qualification
+  - label: Scope
+    value: Confirm project type, tier, and scope before work begins
+hero_actions:
+  - label: Next stage
+    url: process/discovery/
+    primary: true
+  - label: Process overview
+    url: process/
 ---
 
 ## What Gets Confirmed
@@ -72,9 +83,9 @@ No project begins without a confirmed fit. This stage ensures the correct tier i
 
 ## Output of This Stage
 
-- Confirmed project tier  
-- Agreed add-ons and total scope  
-- Response within 2 business days  
+- Confirmed project tier
+- Agreed add-ons and total scope
+- Response within 2 business days
 
 Once intake is confirmed, the project moves to Discovery.
 
@@ -82,6 +93,6 @@ Once intake is confirmed, the project moves to Discovery.
 
 ## Timeline
 
-| Tier | Response Window |
-| --- | --- |
+| Tier      | Response Window                   |
+| --------- | --------------------------------- |
 | All tiers | Within 2 business days of inquiry |

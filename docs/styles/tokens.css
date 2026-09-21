@@ -1,16 +1,184 @@
+/* ==========================================================================
+   Blueprint — design tokens
+
+   Two schemes share one set of semantic names. Nothing outside this file
+   should hardcode a surface, text or line colour: use the token and both
+   schemes follow automatically.
+
+     dark  (default)  — near-black navy, electric blueprint blue
+     light            — blueprint paper: warm white, same blue, darker ink
+
+   Elevation reads in opposite directions per scheme. In dark, surfaces get
+   LIGHTER as they lift off the page; in light they get WHITER. The token
+   names describe the role, not the brightness, so components don't care.
+
+   Breakpoints (used consistently across every stylesheet):
+     <=  480px   small phone
+     <=  600px   phone            (iPhone portrait)
+     <=  768px   tablet portrait  (iPad portrait)
+     <= 1024px   tablet landscape / small laptop
+     <= 1280px   laptop
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+/* --------------------------------------------------------------------------
+   DARK — the default scheme.
+   -------------------------------------------------------------------------- */
+
+:root,
+[data-md-color-scheme="slate"] {
+  color-scheme: dark;
+
+  /* --- Surfaces ------------------------------------------------------- */
+  --bp-void: #04070f;
+  --bp-bg: #060b17;
+  --bp-bg-2: #08101f;
+  --bp-surface: #0a1426;
+  --bp-surface-2: #0d1a30;
+  --bp-surface-glass: rgba(14, 26, 48, 0.62);
+
+  /* Neutral overlays layered on top of a surface. Replaces the old
+     rgba(255,255,255,.0x) pattern, which vanished in light mode. */
+  --bp-tint-1: rgba(255, 255, 255, 0.02);
+  --bp-tint-2: rgba(255, 255, 255, 0.035);
+  --bp-tint-3: rgba(255, 255, 255, 0.06);
+  --bp-tint-4: rgba(255, 255, 255, 0.09);
+
+  /* Translucent "glass" panels that veil whatever scrolls behind them. */
+  --bp-glass-1: rgba(6, 11, 23, 0.5);
+  --bp-glass-2: rgba(6, 11, 23, 0.75);
+  --bp-glass-3: rgba(6, 11, 23, 0.93);
+  --bp-scrim: rgba(3, 7, 15, 0.62);
+  --bp-live: #76c5a5;
+  --bp-readout-ink: rgba(122, 162, 255, 0.55);
+
+  /* --- Blueprint blue -------------------------------------------------- */
+  --bp-blue: #2f6bff;
+  --bp-blue-bright: #4d86ff;
+  --bp-blue-deep: #1b4bd8;
+  --bp-cyan: #7cc7ff;
+  --bp-ink-blue: #0f2247;
+  --bp-on-accent: #fff;
+
+  /* --- Text ------------------------------------------------------------ */
+  --bp-text: #f2f6fc;
+  --bp-text-soft: #a8b8d0;
+  --bp-text-mute: #6d7f9b;
+  --bp-text-faint: #44546f;
+
+  /* --- Lines & glow ---------------------------------------------------- */
+  --bp-line: rgba(122, 162, 255, 0.14);
+  --bp-line-strong: rgba(122, 162, 255, 0.28);
+  --bp-line-grid: rgba(96, 140, 235, 0.07);
+  --bp-glow:
+    0 0 0 1px rgba(47, 107, 255, 0.35),
+    0 18px 48px -18px rgba(47, 107, 255, 0.65);
+  --bp-glow-soft: 0 24px 60px -30px rgba(47, 107, 255, 0.55);
+  --bp-shadow: 0 24px 60px -32px rgba(2, 6, 18, 0.95);
+  --bp-shadow-sm: 0 6px 18px -10px rgba(2, 6, 18, 0.9);
+
+  /* Legacy studio-* names resolve to the same tokens so both design
+     systems flip together. */
+  --studio-bg: var(--bp-bg);
+  --studio-panel: #0c1627;
+  --studio-line: var(--bp-line);
+  --studio-blue: #3981ff;
+  --studio-muted: var(--bp-text-mute);
+
+  --bar-gradient: linear-gradient(120deg, #060b17, #0a1426, #0f2247);
+  --brand-2: #0b1730;
+  --brand-3: #12275a;
+}
+
+/* --------------------------------------------------------------------------
+   LIGHT — blueprint paper. Same blue, inverted ink, softer lines.
+   -------------------------------------------------------------------------- */
+
+[data-md-color-scheme="default"] {
+  color-scheme: light;
+
+  --bp-void: #dde6f4;
+  --bp-bg: #f6f9fd;
+  --bp-bg-2: #eef4fb;
+  --bp-surface: #ffffff;
+  --bp-surface-2: #f4f8fd;
+  --bp-surface-glass: rgba(255, 255, 255, 0.78);
+
+  --bp-tint-1: rgba(10, 20, 36, 0.02);
+  --bp-tint-2: rgba(10, 20, 36, 0.035);
+  --bp-tint-3: rgba(10, 20, 36, 0.055);
+  --bp-tint-4: rgba(10, 20, 36, 0.08);
+
+  --bp-glass-1: rgba(255, 255, 255, 0.62);
+  --bp-glass-2: rgba(255, 255, 255, 0.84);
+  --bp-glass-3: rgba(255, 255, 255, 0.95);
+  --bp-scrim: rgba(18, 32, 58, 0.34);
+  --bp-live: #0f7a5a;
+  --bp-readout-ink: rgba(43, 78, 148, 0.72);
+
+  --bp-blue: #2f6bff;
+  --bp-blue-bright: #1b4bd8;
+  --bp-blue-deep: #12369f;
+  --bp-cyan: #0e74b8;
+  --bp-ink-blue: #dce9ff;
+  --bp-on-accent: #fff;
+
+  --bp-text: #0a1424;
+  --bp-text-soft: #3d4f6b;
+  --bp-text-mute: #64748f;
+  --bp-text-faint: #94a3bd;
+
+  --bp-line: rgba(15, 34, 71, 0.12);
+  --bp-line-strong: rgba(15, 34, 71, 0.24);
+  --bp-line-grid: rgba(47, 107, 255, 0.08);
+  --bp-glow:
+    0 0 0 1px rgba(47, 107, 255, 0.28),
+    0 18px 40px -20px rgba(47, 107, 255, 0.4);
+  --bp-glow-soft: 0 24px 50px -30px rgba(47, 107, 255, 0.35);
+  --bp-shadow: 0 20px 48px -28px rgba(15, 34, 71, 0.28);
+  --bp-shadow-sm: 0 6px 16px -10px rgba(15, 34, 71, 0.25);
+
+  --studio-bg: var(--bp-bg);
+  --studio-panel: #ffffff;
+  --studio-line: var(--bp-line);
+  --studio-blue: #2059d8;
+  --studio-muted: var(--bp-text-mute);
+
+  --bar-gradient: linear-gradient(120deg, #eef4fb, #f6f9fd, #dce9ff);
+  --brand-2: #e6eefb;
+  --brand-3: #cfe0fb;
+}
+
+/* --------------------------------------------------------------------------
+   Scheme-independent: type, geometry, motion, layout.
+   -------------------------------------------------------------------------- */
+
 :root {
-  --bg-page: #f4f8f9;
-  --text-main: #1f2937;
-  --line-soft: rgba(15, 89, 101, 0.2);
-  --line-strong: rgba(15, 89, 101, 0.34);
-  --radius-lg: 0.9rem;
-  --radius-xl: 1.1rem;
-  --shadow-soft: 0 12px 28px rgba(15, 23, 42, 0.12);
-  --ring: #0f766e;
-  --brand-2: #0f3d4a;
-  --brand-3: #115e59;
-  --brand-4: #0f766e;
-  --bar-gradient: linear-gradient(120deg, #0f2933, #0f3d4a, #115e59);
+  /* --- Type ------------------------------------------------------------ */
+  --bp-font-display: "Archivo", "Manrope", system-ui, -apple-system, sans-serif;
+  --bp-font-body: "Manrope", system-ui, -apple-system, sans-serif;
+  --bp-font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  /* --- Geometry -------------------------------------------------------- */
+  --bp-radius-sm: 0.5rem;
+  --bp-radius: 0.85rem;
+  --bp-radius-lg: 1.25rem;
+  --bp-radius-xl: 1.75rem;
+  --bp-grid-size: 48px;
+
+  /* --- Motion ---------------------------------------------------------- */
+  --bp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --bp-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --bp-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --bp-dur-fast: 0.18s;
+  --bp-dur: 0.32s;
+  --bp-dur-slow: 0.6s;
+  /* Theme flips animate; set to 0s while the toggle is mid-swap so the
+     switch itself feels instant rather than smeared. */
+  --bp-dur-theme: 0.28s;
+
+  /* --- Layout ---------------------------------------------------------- */
   --layout-shell-max: 110rem;
   --layout-gutter: clamp(0.9rem, 1.4vw, 1.5rem);
   --layout-edge-padding: clamp(0.85rem, 1.8vw, 1.6rem);
@@ -19,18 +187,41 @@
   --content-measure: clamp(56rem, 78vw, 96rem);
   --content-wide-max: 82rem;
   --table-max: 90rem;
+
+  /* --- Legacy aliases (kept so existing components keep working) ------- */
+  --bg-page: var(--bp-bg);
+  --text-main: var(--bp-text);
+  --line-soft: var(--bp-line);
+  --line-strong: var(--bp-line-strong);
+  --radius-lg: var(--bp-radius);
+  --radius-xl: var(--bp-radius-lg);
+  --shadow-soft: var(--bp-shadow);
+  --ring: var(--bp-blue);
+  --brand-4: var(--bp-blue);
 }
 
-[data-md-color-scheme="slate"] {
-  --bg-page: #0b1220;
-  --text-main: #e5edf5;
-  --line-soft: rgba(45, 212, 191, 0.24);
-  --line-strong: rgba(45, 212, 191, 0.36);
-  --ring: #2dd4bf;
-  --shadow-soft: 0 12px 28px rgba(2, 6, 23, 0.36);
+/* Surfaces, text and lines cross-fade when the scheme flips. Anything that
+   animates transform/opacity for its own reasons is untouched. */
+body,
+.md-main,
+.studio-header,
+.studio-panel,
+.bp-card,
+.bp-btn,
+.bp-prod,
+.compare,
+.compare-side,
+.showcase-card,
+input,
+textarea,
+select {
+  transition:
+    background-color var(--bp-dur-theme) var(--bp-ease),
+    border-color var(--bp-dur-theme) var(--bp-ease),
+    color var(--bp-dur-theme) var(--bp-ease);
 }
 
-/* Arabic typography tuning to match clean sans look and avoid glyph artifacts */
+/* Arabic typography tuning: keep glyphs clean, drop display tracking. */
 html[lang^="ar"],
 [dir="rtl"] {
   -webkit-font-smoothing: antialiased;
@@ -38,39 +229,28 @@ html[lang^="ar"],
   text-rendering: auto;
 }
 
-html[lang^="ar"] .md-typeset h1,
-html[lang^="ar"] .md-typeset h2,
-html[lang^="ar"] .md-typeset h3,
-html[lang^="ar"] .md-typeset h4,
-html[lang^="ar"] .md-typeset h5,
-html[lang^="ar"] .md-typeset h6,
-html[lang^="ar"] .md-typeset p,
-html[lang^="ar"] .md-typeset li,
-html[lang^="ar"] .md-typeset a,
-html[lang^="ar"] .md-typeset span,
-[dir="rtl"] .md-typeset h1,
-[dir="rtl"] .md-typeset h2,
-[dir="rtl"] .md-typeset h3,
-[dir="rtl"] .md-typeset h4,
-[dir="rtl"] .md-typeset h5,
-[dir="rtl"] .md-typeset h6,
-[dir="rtl"] .md-typeset p,
-[dir="rtl"] .md-typeset li,
-[dir="rtl"] .md-typeset a,
-[dir="rtl"] .md-typeset span {
+html[lang^="ar"] .md-typeset :is(h1, h2, h3, h4, h5, h6, p, li, a, span),
+[dir="rtl"] .md-typeset :is(h1, h2, h3, h4, h5, h6, p, li, a, span) {
   letter-spacing: 0 !important;
 }
 
-/* Arabic heading size and color alignment (without changing whole-site Arabic font family yet) */
 html[lang^="ar"] .md-typeset h1,
 [dir="rtl"] .md-typeset h1,
-html[lang^="ar"] .md-typeset .terminal-body h1,
-[dir="rtl"] .md-typeset .terminal-body h1,
 html[lang^="ar"] .md-typeset .page-hero__title,
 [dir="rtl"] .md-typeset .page-hero__title {
   font-family: "Tahoma", "Arial", sans-serif !important;
-  color: var(--md-default-fg-color--light) !important;
   text-shadow: none !important;
   filter: none !important;
   -webkit-text-stroke: 0 transparent !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -6,12 +6,23 @@ scope: Layout, content, and deliverable production
 constraints: Approved structure, submitted content, confirmed add-ons
 metrics: layout quality, responsiveness, deliverable completeness
 last_updated: 2026-03-02
----
-
-# 04 · Build
-
-The approved structure is implemented into a fully functional, responsive static website. All confirmed deliverables, including HTML report conversion if included, are produced during this stage.
-
+hero_eyebrow: stage://04
+hero_title: Bring the blueprint<br><em>to life.</em>
+hero_lede: >
+  The approved structure is implemented into a fully functional, responsive static website. All confirmed deliverables, including HTML report conversion if included, are produced during this stage.
+hero_meta:
+  - label: Stage
+    value: 04 of 06
+  - label: Role
+    value: Site Implementation
+  - label: Scope
+    value: Layout, content, and deliverable production
+hero_actions:
+  - label: Next stage
+    url: process/revision-rounds/
+    primary: true
+  - label: Previous stage
+    url: process/structure-sitemap/
 ---
 
 ## What Gets Built
@@ -80,8 +91,8 @@ The original report document must be submitted in full before the build stage be
 
 ## Timeline
 
-| Tier | Typical Duration |
-| --- | --- |
-| Tier 1 – Personal Presence | 1–2 working days |
-| Tier 2 – Project Documentation | 2–3 working days |
+| Tier                            | Typical Duration |
+| ------------------------------- | ---------------- |
+| Tier 1 – Personal Presence      | 1–2 working days |
+| Tier 2 – Project Documentation  | 2–3 working days |
 | Tier 3 – Research Documentation | 3–5 working days |

@@ -55,3 +55,15 @@ def on_post_build(config):
             root.remove(url_node)
 
     tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
+
+
+def on_page_content(html, page, config, files):
+    """Keep local links and previews portable when served below /site/."""
+    import posixpath
+    import re
+    base = str(page.url).rstrip('/') or '.'
+    if not str(page.url).endswith('/'):
+        base = posixpath.dirname(str(page.url)) or '.'
+    prefix = posixpath.relpath('.', base)
+    prefix = '' if prefix == '.' else prefix + '/'
+    return re.sub(r'(\b(?:href|src|poster)=["\'])/(?!/)', lambda match: match.group(1) + prefix, html)

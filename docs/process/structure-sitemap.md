@@ -6,12 +6,23 @@ scope: Page hierarchy and navigation flow approval
 constraints: Approved before visual work begins
 metrics: navigation clarity, hierarchy logic, implementation readiness
 last_updated: 2026-03-02
----
-
-# 03 · Structure & Sitemap
-
-Structure defines how visitors move through the site. Navigation hierarchy and content grouping are finalized and approved here before any visual or layout work begins.
-
+hero_eyebrow: stage://03
+hero_title: Give your content<br><em>a clear structure.</em>
+hero_lede: >
+  Structure defines how visitors move through the site. Navigation hierarchy and content grouping are finalized and approved here before any visual or layout work begins.
+hero_meta:
+  - label: Stage
+    value: 03 of 06
+  - label: Role
+    value: Navigation Design
+  - label: Scope
+    value: Page hierarchy and navigation flow approval
+hero_actions:
+  - label: Next stage
+    url: process/build/
+    primary: true
+  - label: Previous stage
+    url: process/discovery/
 ---
 
 ## What Gets Designed
@@ -67,9 +78,9 @@ Structure defines how visitors move through the site. Navigation hierarchy and c
 
 ## Output of This Stage
 
-- Approved sitemap  
-- Locked navigation hierarchy  
-- Structured content map ready for build  
+- Approved sitemap
+- Locked navigation hierarchy
+- Structured content map ready for build
 
 Structure is approved by the client before build begins. Structural changes requested after approval are assessed and quoted separately.
 
@@ -77,8 +88,8 @@ Structure is approved by the client before build begins. Structural changes requ
 
 ## Timeline
 
-| Tier | Typical Duration |
-| --- | --- |
-| Tier 1 – Personal Presence | 1 working day |
-| Tier 2 – Project Documentation | 1 working day |
+| Tier                            | Typical Duration |
+| ------------------------------- | ---------------- |
+| Tier 1 – Personal Presence      | 1 working day    |
+| Tier 2 – Project Documentation  | 1 working day    |
 | Tier 3 – Research Documentation | 1–2 working days |

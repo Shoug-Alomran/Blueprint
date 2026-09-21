@@ -39,5 +39,6 @@ hide:
         <a href="mailto:blueprint@shoug-tech.com">blueprint@shoug-tech.com</a>.
       </p>
     </article>
+
   </div>
 </section>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4d86ff"/><stop offset="1" stop-color="#1b4bd8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="1" r="0.9">
+      <stop offset="0" stop-color="#2f6bff" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#2f6bff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#608ceb" stroke-opacity="0.09" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#060b17"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <ellipse cx="600" cy="700" rx="620" ry="320" fill="url(#glow)"/>
+
+  <!-- Blueprint registration ticks -->
+  <g stroke="#2f6bff" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round">
+    <path d="M56 56h34M56 56v34"/>
+    <path d="M1144 56h-34M1144 56v34"/>
+    <path d="M56 574h34M56 574v-34"/>
+    <path d="M1144 574h-34M1144 574v-34"/>
+  </g>
+
+  <!-- Mark -->
+  <g transform="translate(96,150)">
+    <rect width="104" height="104" rx="24" fill="url(#mark)"/>
+    <g fill="none" stroke="#ffffff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="22" y="26" width="60" height="53" rx="5"/>
+      <path d="M22 43h60"/><path d="M38 43v36"/>
+    </g>
+    <g fill="#ffffff" opacity="0.92">
+      <circle cx="33" cy="34.5" r="2.8"/><circle cx="43" cy="34.5" r="2.8"/>
+    </g>
+  </g>
+
+  <text x="232" y="196" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="800" letter-spacing="-1" fill="#f2f6fc">BLUEPRINT<tspan fill="#4d86ff">STUDIO</tspan></text>
+  <text x="234" y="232" font-family="'JetBrains Mono', Menlo, monospace" font-size="17" letter-spacing="4.5" fill="#6d7f9b">STUDIO://DIGITAL-PRESENCE</text>
+
+  <text x="96" y="352" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-2.4" fill="#f2f6fc">Structured digital presence,</text>
+  <text x="96" y="428" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-2.4" fill="#4d86ff">built to last.</text>
+
+  <text x="96" y="494" font-family="'Helvetica Neue', Arial, sans-serif" font-size="25" fill="#a8b8d0">Portfolios, course hubs, documentation and HTML reports.</text>
+
+  <path d="M96 540h1008" stroke="#7aa2ff" stroke-opacity="0.16" stroke-width="1"/>
+  <text x="96" y="578" font-family="'JetBrains Mono', Menlo, monospace" font-size="17" letter-spacing="3.6" fill="#6d7f9b">STATIC-FIRST &#183; FAST &#183; SECURE</text>
+  <text x="1104" y="578" text-anchor="end" font-family="'JetBrains Mono', Menlo, monospace" font-size="17" letter-spacing="1.6" fill="#4d86ff">blueprint.shoug-tech.com</text>
+</svg>

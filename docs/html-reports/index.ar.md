@@ -67,12 +67,12 @@ last_updated: 2026-03-04
 
 ## لماذا HTML بدل PDF
 
-| PDF | تقرير HTML |
-|----|----|
-| تنقل أصعب | تنقل منظم |
-| بحث محدود | بحث فوري |
+| PDF                    | تقرير HTML              |
+| ---------------------- | ----------------------- |
+| تنقل أصعب              | تنقل منظم               |
+| بحث محدود              | بحث فوري                |
 | تجربة ضعيفة على الجوال | قراءة ممتازة على الجوال |
-| تحديث أصعب | تحديث أسهل |
+| تحديث أصعب             | تحديث أسهل              |
 
 ---
 
@@ -157,6 +157,7 @@ last_updated: 2026-03-04
         </details>
       </section>
     </div>
+
   </article>
 
   <article class="example-card">
@@ -202,6 +203,7 @@ last_updated: 2026-03-04
         </details>
       </section>
     </div>
+
   </article>
 
   <article class="example-card">
@@ -247,6 +249,7 @@ last_updated: 2026-03-04
         </details>
       </section>
     </div>
+
   </article>
 
 </div>

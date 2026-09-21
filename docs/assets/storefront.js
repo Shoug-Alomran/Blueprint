@@ -1,4 +1,6 @@
 (function () {
+  var storefrontRoot = new URL("../", document.currentScript.src).pathname;
+
   var CART_STORAGE_KEY = "bp-storefront-cart";
   var BUYNOW_STORAGE_KEY = "bp-storefront-buynow";
   var ORDER_STORAGE_KEY = "bp-storefront-last-order";
@@ -13,69 +15,72 @@
     thankYou: "/thank-you/",
     cvIndex: "/CV_index/",
     packages: "/packages/",
-    htmlReports: "/html-reports/"
+    htmlReports: "/html-reports/",
   };
+  Object.keys(PATHS).forEach(function (key) {
+    PATHS[key] = storefrontRoot + PATHS[key].replace(/^\//, "");
+  });
   var CV_PRICING = {
     Basic: {
       self: 68,
-      blueprint: 100
+      blueprint: 100,
     },
     Pro: {
       self: 95,
-      blueprint: 130
-    }
+      blueprint: 130,
+    },
   };
   var CV_PRODUCTS = {
     "/cv-templates/temp_1.html": {
       id: "cv-template-1-basic",
       title: "Template 1",
-      tier: "Basic"
+      tier: "Basic",
     },
     "/cv-templates/temp_4.html": {
       id: "cv-template-4-basic",
       title: "Template 4",
-      tier: "Basic"
+      tier: "Basic",
     },
     "/cv-templates/temp_8.html": {
       id: "cv-template-8-basic",
       title: "Template 8",
-      tier: "Basic"
+      tier: "Basic",
     },
     "/cv-templates/temp_9.html": {
       id: "cv-template-9-basic",
       title: "Template 9",
-      tier: "Basic"
+      tier: "Basic",
     },
     "/cv-templates/temp_2_pro.html": {
       id: "cv-template-2-pro",
       title: "Template 2",
-      tier: "Pro"
+      tier: "Pro",
     },
     "/cv-templates/temp_3_pro.html": {
       id: "cv-template-3-pro",
       title: "Template 3",
-      tier: "Pro"
+      tier: "Pro",
     },
     "/cv-templates/temp_5_pro.html": {
       id: "cv-template-5-pro",
       title: "Template 5",
-      tier: "Pro"
+      tier: "Pro",
     },
     "/cv-templates/temp_6_pro.html": {
       id: "cv-template-6-pro",
       title: "Template 6",
-      tier: "Pro"
+      tier: "Pro",
     },
     "/cv-templates/temp_7_pro.html": {
       id: "cv-template-7-pro",
       title: "Template 7",
-      tier: "Pro"
+      tier: "Pro",
     },
     "/cv-templates/temp_10_pro.html": {
       id: "cv-template-10-pro",
       title: "Template 10",
-      tier: "Pro"
-    }
+      tier: "Pro",
+    },
   };
   var HTML_REPORT_PRODUCT = {
     id: "html-report-conversion",
@@ -86,70 +91,78 @@
       {
         id: "large-document",
         title: "Large Document",
-        price: 50
+        price: 50,
       },
       {
         id: "bilingual-report",
         title: "Bilingual Report",
-        price: 60
-      }
-    ]
+        price: 60,
+      },
+    ],
   };
   var WEBSITE_TIERS = [
     {
       id: "website-tier-1",
       title: "Tier 1, Personal Presence",
       price: 600,
-      summary: "Clean digital presence without unnecessary complexity."
+      summary: "Clean digital presence without unnecessary complexity.",
     },
     {
       id: "website-tier-2",
       title: "Tier 2, Project Documentation",
       price: 950,
-      summary: "Structured documentation websites for academic or technical projects."
+      summary:
+        "Structured documentation websites for academic or technical projects.",
     },
     {
       id: "website-tier-3",
       title: "Tier 3, Research Documentation",
       price: 1400,
-      summary: "Publication-ready research documentation and structured technical presentation."
-    }
+      summary:
+        "Publication-ready research documentation and structured technical presentation.",
+    },
   ];
   var WEBSITE_ADDONS = [
     {
       id: "addon-additional-section",
       title: "Additional Section",
       price: 150,
-      summary: "Expand the agreed website scope with an extra standalone section."
+      summary:
+        "Expand the agreed website scope with an extra standalone section.",
     },
     {
       id: "addon-bilingual-setup",
       title: "Bilingual Setup (Arabic + English)",
       price: 300,
-      summary: "Duplicate structure and navigation across both language versions."
+      summary:
+        "Duplicate structure and navigation across both language versions.",
     },
     {
       id: "addon-custom-domain",
       title: "Custom Domain Setup",
       price: 250,
-      summary: "DNS and HTTPS setup for connecting your own domain reliably."
+      summary: "DNS and HTTPS setup for connecting your own domain reliably.",
     },
     {
       id: "addon-priority-delivery",
       title: "Priority Delivery",
       price: 200,
-      summary: "Move the project into an expedited execution queue."
+      summary: "Move the project into an expedited execution queue.",
     },
     {
       id: "addon-monthly-maintenance",
       title: "Monthly Maintenance",
       price: 50,
-      summary: "Ongoing content updates and minor structural edits within existing sections."
-    }
+      summary:
+        "Ongoing content updates and minor structural edits within existing sections.",
+    },
   ];
 
   function normalizePath(path) {
-    return (path || "/").replace(/\/+$/, "") || "/";
+    var resolved = new URL(path || "/", window.location.href).pathname;
+    if (storefrontRoot !== "/" && resolved.indexOf(storefrontRoot) === 0)
+      resolved = "/" + resolved.slice(storefrontRoot.length);
+    return resolved.replace(/\/+$/, "") || "/";
   }
 
   function formatSAR(amount) {
@@ -194,7 +207,7 @@
 
   function cartLoad() {
     var cart = parseJson(window.localStorage.getItem(CART_STORAGE_KEY), {
-      items: []
+      items: [],
     });
 
     if (!cart || !Array.isArray(cart.items)) {
@@ -216,7 +229,9 @@
 
   function saveCart(cart) {
     window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
-    document.dispatchEvent(new CustomEvent("bp:cartchange", { detail: clone(cart) }));
+    document.dispatchEvent(
+      new CustomEvent("bp:cartchange", { detail: clone(cart) }),
+    );
   }
 
   function cartAdd(item) {
@@ -242,7 +257,7 @@
         qty: Number(item.qty) || 1,
         href: item.href || "",
         kind: item.kind || "product",
-        meta: item.meta || {}
+        meta: item.meta || {},
       });
     }
 
@@ -302,7 +317,7 @@
     return {
       key: normalizedKey,
       label: normalizedKey === "blueprint" ? "Blueprint Setup" : "Self Setup",
-      price: CV_PRICING[normalizedTier][normalizedKey]
+      price: CV_PRICING[normalizedTier][normalizedKey],
     };
   }
 
@@ -318,8 +333,8 @@
       kind: "cv-template",
       meta: {
         tier: meta.tier,
-        optionKey: option.key
-      }
+        optionKey: option.key,
+      },
     };
   }
 
@@ -336,7 +351,10 @@
     });
 
     return {
-      id: HTML_REPORT_PRODUCT.id + "-" + (selectedAddonIds.sort().join("-") || "base"),
+      id:
+        HTML_REPORT_PRODUCT.id +
+        "-" +
+        (selectedAddonIds.sort().join("-") || "base"),
       title: HTML_REPORT_PRODUCT.title,
       option: optionParts.join(" + "),
       price: price,
@@ -344,8 +362,8 @@
       href: HTML_REPORT_PRODUCT.href,
       kind: "html-report",
       meta: {
-        addons: selectedAddonIds.slice()
-      }
+        addons: selectedAddonIds.slice(),
+      },
     };
   }
 
@@ -358,7 +376,7 @@
       qty: 1,
       href: PATHS.packages,
       kind: kind,
-      meta: {}
+      meta: {},
     };
   }
 
@@ -385,7 +403,8 @@
   function createActionButton(label, modifier) {
     var button = document.createElement("button");
     button.type = "button";
-    button.className = "bp-storefront-button" + (modifier ? " " + modifier : "");
+    button.className =
+      "bp-storefront-button" + (modifier ? " " + modifier : "");
     button.textContent = label;
     return button;
   }
@@ -443,15 +462,22 @@
     var select = createSelect([
       {
         value: "self",
-        label: "Self Setup · " + formatSAR(CV_PRICING[meta.tier].self)
+        label: "Self Setup · " + formatSAR(CV_PRICING[meta.tier].self),
       },
       {
         value: "blueprint",
-        label: "Blueprint Setup · " + formatSAR(CV_PRICING[meta.tier].blueprint)
-      }
+        label:
+          "Blueprint Setup · " + formatSAR(CV_PRICING[meta.tier].blueprint),
+      },
     ]);
-    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
-    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+    var addButton = createActionButton(
+      "Add to Cart",
+      "bp-storefront-button--muted",
+    );
+    var buyButton = createActionButton(
+      "Buy Now",
+      "bp-storefront-button--primary",
+    );
 
     addButton.addEventListener("click", function () {
       addItemAndStay(createCvItem(meta, select.value), addButton);
@@ -479,7 +505,9 @@
     }
 
     if (!previewLink) {
-      previewLink = link.parentNode ? link.parentNode.querySelector('a[href^="/cv-templates/"]') : null;
+      previewLink = link.parentNode
+        ? link.parentNode.querySelector('a[href^="/cv-templates/"]')
+        : null;
     }
 
     if (previewLink) {
@@ -489,18 +517,25 @@
           id: meta.id,
           title: meta.title,
           tier: meta.tier,
-          href: previewLink.getAttribute("href")
+          href: previewLink.getAttribute("href"),
         };
       }
     }
 
     title = title || link.getAttribute("data-cv-buy") || "CV Template";
-    tier = link.getAttribute("data-cv-tier") || (/pro/i.test(title) ? "Pro" : "Basic");
+    tier =
+      link.getAttribute("data-cv-tier") ||
+      (/pro/i.test(title) ? "Pro" : "Basic");
     return {
-      id: title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
-      title: title.replace(/\s*\((Basic|Pro)\)\s*/i, "").trim(),
+      id: title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, ""),
+      title: title
+        .replace(/\s*(?:\((Basic|Pro)\)|[·,]\s*(Basic|Pro))\s*/i, "")
+        .trim(),
       tier: tier,
-      href: previewLink ? previewLink.getAttribute("href") : PATHS.cvIndex
+      href: previewLink ? previewLink.getAttribute("href") : PATHS.cvIndex,
     };
   }
 
@@ -532,17 +567,19 @@
 
     var helper = document.createElement("p");
     helper.className = "bp-template-panel__copy";
-    helper.textContent = "Choose delivery mode without changing the preview page.";
+    helper.textContent =
+      "Choose delivery mode without changing the preview page.";
 
     var select = createSelect([
       {
         value: "self",
-        label: "Self Setup · " + formatSAR(CV_PRICING[meta.tier].self)
+        label: "Self Setup · " + formatSAR(CV_PRICING[meta.tier].self),
       },
       {
         value: "blueprint",
-        label: "Blueprint Setup · " + formatSAR(CV_PRICING[meta.tier].blueprint)
-      }
+        label:
+          "Blueprint Setup · " + formatSAR(CV_PRICING[meta.tier].blueprint),
+      },
     ]);
     var backLink = document.createElement("a");
     backLink.className = "bp-storefront-link";
@@ -556,8 +593,14 @@
       }
     });
 
-    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
-    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+    var addButton = createActionButton(
+      "Add to Cart",
+      "bp-storefront-button--muted",
+    );
+    var buyButton = createActionButton(
+      "Buy Now",
+      "bp-storefront-button--primary",
+    );
     var actions = document.createElement("div");
     actions.className = "bp-storefront-actions bp-storefront-actions--stack";
 
@@ -589,7 +632,7 @@
       id: meta.id,
       title: meta.title,
       tier: meta.tier,
-      href: window.location.pathname
+      href: window.location.pathname,
     };
 
     renderTemplatePanel(meta);
@@ -629,8 +672,14 @@
       '<div class="bp-storefront-actions"></div>';
 
     var actions = card.querySelector(".bp-storefront-actions");
-    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
-    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+    var addButton = createActionButton(
+      "Add to Cart",
+      "bp-storefront-button--muted",
+    );
+    var buyButton = createActionButton(
+      "Buy Now",
+      "bp-storefront-button--primary",
+    );
 
     addButton.addEventListener("click", function () {
       addItemAndStay(createSimpleProductItem(product, kind), addButton);
@@ -672,15 +721,23 @@
     var select = createSelect([
       {
         value: "self",
-        label: "Self Setup · " + formatSAR(CV_PRICING[tier || "Basic"].self)
+        label: "Self Setup · " + formatSAR(CV_PRICING[tier || "Basic"].self),
       },
       {
         value: "blueprint",
-        label: "Blueprint Setup · " + formatSAR(CV_PRICING[tier || "Basic"].blueprint)
-      }
+        label:
+          "Blueprint Setup · " +
+          formatSAR(CV_PRICING[tier || "Basic"].blueprint),
+      },
     ]);
-    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
-    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+    var addButton = createActionButton(
+      "Add to Cart",
+      "bp-storefront-button--muted",
+    );
+    var buyButton = createActionButton(
+      "Buy Now",
+      "bp-storefront-button--primary",
+    );
 
     addButton.addEventListener("click", function () {
       addItemAndStay(createCvItem(meta, select.value), addButton);
@@ -703,8 +760,14 @@
   function createWebsiteActionRow(product, kind) {
     var actions = document.createElement("div");
     actions.className = "bp-storefront-actions";
-    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
-    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+    var addButton = createActionButton(
+      "Add to Cart",
+      "bp-storefront-button--muted",
+    );
+    var buyButton = createActionButton(
+      "Buy Now",
+      "bp-storefront-button--primary",
+    );
 
     addButton.addEventListener("click", function () {
       addItemAndStay(createSimpleProductItem(product, kind), addButton);
@@ -726,19 +789,19 @@
     function createSection(title, description) {
       var section = document.createElement("section");
       section.className = "bp-products-section";
-      section.innerHTML = '<div class="bp-products-section__head"><h2>' + title + "</h2></div>";
+      section.innerHTML =
+        '<div class="bp-products-section__head"><h2>' + title + "</h2></div>";
       if (description) {
-        section.querySelector(".bp-products-section__head").insertAdjacentHTML(
-          "beforeend",
-          "<p>" + description + "</p>"
-        );
+        section
+          .querySelector(".bp-products-section__head")
+          .insertAdjacentHTML("beforeend", "<p>" + description + "</p>");
       }
       return section;
     }
 
     var tiersSection = createSection(
       "Website Tiers",
-      "Choose the website package that fits your project."
+      "Choose the website package that fits your project.",
     );
     var tiersGrid = document.createElement("div");
     tiersGrid.className = "bp-storefront-card-grid";
@@ -750,7 +813,7 @@
 
     var addonsSection = createSection(
       "Website Add-Ons",
-      "Optional add-ons for your website order."
+      "Optional add-ons for your website order.",
     );
     var addonsGrid = document.createElement("div");
     addonsGrid.className = "bp-storefront-card-grid";
@@ -762,15 +825,13 @@
 
     var reportsSection = createSection(
       "HTML Report Conversion",
-      "Base service with optional add-ons."
+      "Base service with optional add-ons.",
     );
     var reportCard = createHtmlReportOrderCard();
     reportsSection.appendChild(reportCard);
     wrapper.appendChild(reportsSection);
 
-    var cvSection = createSection(
-      "CV Templates"
-    );
+    var cvSection = createSection("CV Templates");
     var cvGrid = document.createElement("div");
     cvGrid.className = "bp-storefront-card-grid bp-storefront-card-grid--cv";
     Object.keys(CV_PRODUCTS).forEach(function (href) {
@@ -780,8 +841,8 @@
           id: meta.id,
           title: meta.title,
           tier: meta.tier,
-          href: href
-        })
+          href: href,
+        }),
       );
     });
     cvSection.appendChild(cvGrid);
@@ -797,12 +858,12 @@
     function createSection(title, description) {
       var section = document.createElement("section");
       section.className = "bp-products-section";
-      section.innerHTML = '<div class="bp-products-section__head"><h2>' + title + "</h2></div>";
+      section.innerHTML =
+        '<div class="bp-products-section__head"><h2>' + title + "</h2></div>";
       if (description) {
-        section.querySelector(".bp-products-section__head").insertAdjacentHTML(
-          "beforeend",
-          "<p>" + description + "</p>"
-        );
+        section
+          .querySelector(".bp-products-section__head")
+          .insertAdjacentHTML("beforeend", "<p>" + description + "</p>");
       }
       return section;
     }
@@ -822,13 +883,15 @@
         "</p>" +
         '<div class="bp-storefront-actions"></div>';
 
-      card.querySelector(".bp-storefront-actions").replaceWith(createWebsiteActionRow(product, kind));
+      card
+        .querySelector(".bp-storefront-actions")
+        .replaceWith(createWebsiteActionRow(product, kind));
       return card;
     }
 
     var packageSection = createSection(
       "Website Packages",
-      "Buy a package directly from this page or add it to your cart for later."
+      "Buy a package directly from this page or add it to your cart for later.",
     );
     var packageGrid = document.createElement("div");
     packageGrid.className = "bp-storefront-card-grid";
@@ -840,7 +903,7 @@
 
     var addonsSection = createSection(
       "Website Add-Ons",
-      "Add optional extras to your order before you continue to Start Project."
+      "Add optional extras to your order before you continue to Start Project.",
     );
     var addonsGrid = document.createElement("div");
     addonsGrid.className = "bp-storefront-card-grid";
@@ -896,15 +959,22 @@
     }
 
     function syncSummary() {
-      totalNode.textContent = "Total: " + formatSAR(createHtmlReportItem(getSelectedAddons()).price);
+      totalNode.textContent =
+        "Total: " + formatSAR(createHtmlReportItem(getSelectedAddons()).price);
     }
 
     inputs.forEach(function (input) {
       input.addEventListener("change", syncSummary);
     });
 
-    var addButton = createActionButton("Add to Cart", "bp-storefront-button--muted");
-    var buyButton = createActionButton("Buy Now", "bp-storefront-button--primary");
+    var addButton = createActionButton(
+      "Add to Cart",
+      "bp-storefront-button--muted",
+    );
+    var buyButton = createActionButton(
+      "Buy Now",
+      "bp-storefront-button--primary",
+    );
 
     addButton.addEventListener("click", function () {
       addItemAndStay(createHtmlReportItem(getSelectedAddons()), addButton);
@@ -921,7 +991,7 @@
   }
 
   function enhanceCustomWebsitesPage() {
-    if (normalizePath(window.location.pathname) !== "/custom-websites/") {
+    if (normalizePath(window.location.pathname) !== "/custom-websites") {
       return;
     }
 
@@ -933,30 +1003,37 @@
       productById[addon.id] = { product: addon, kind: "website-addon" };
     });
 
-    document.querySelectorAll("[data-bp-custom-websites-order]").forEach(function (slot) {
-      if (slot.dataset.bpStorefrontReady === "true") {
-        return;
-      }
-      var key = slot.getAttribute("data-bp-custom-websites-order") || "";
-      var entry = productById[key];
-      if (!entry) {
-        return;
-      }
-      slot.dataset.bpStorefrontReady = "true";
-      var links = slot.querySelectorAll("a");
-      if (links.length >= 2) {
-        links[0].addEventListener("click", function (event) {
-          event.preventDefault();
-          addItemAndStay(createSimpleProductItem(entry.product, entry.kind), links[0]);
-        });
-        links[1].addEventListener("click", function (event) {
-          event.preventDefault();
-          startWebsiteProject(createSimpleProductItem(entry.product, entry.kind));
-        });
-        return;
-      }
-      slot.replaceChildren(createWebsiteActionRow(entry.product, entry.kind));
-    });
+    document
+      .querySelectorAll("[data-bp-custom-websites-order]")
+      .forEach(function (slot) {
+        if (slot.dataset.bpStorefrontReady === "true") {
+          return;
+        }
+        var key = slot.getAttribute("data-bp-custom-websites-order") || "";
+        var entry = productById[key];
+        if (!entry) {
+          return;
+        }
+        slot.dataset.bpStorefrontReady = "true";
+        var links = slot.querySelectorAll("a");
+        if (links.length >= 2) {
+          links[0].addEventListener("click", function (event) {
+            event.preventDefault();
+            addItemAndStay(
+              createSimpleProductItem(entry.product, entry.kind),
+              links[0],
+            );
+          });
+          links[1].addEventListener("click", function (event) {
+            event.preventDefault();
+            startWebsiteProject(
+              createSimpleProductItem(entry.product, entry.kind),
+            );
+          });
+          return;
+        }
+        slot.replaceChildren(createWebsiteActionRow(entry.product, entry.kind));
+      });
 
     document.querySelectorAll(".hero-card").forEach(function (card) {
       if (card.querySelector(".bp-storefront-actions")) {
@@ -994,7 +1071,10 @@
   }
 
   function enhanceHtmlReportsPage() {
-    if (normalizePath(window.location.pathname) !== normalizePath(PATHS.htmlReports)) {
+    if (
+      normalizePath(window.location.pathname) !==
+      normalizePath(PATHS.htmlReports)
+    ) {
       return;
     }
 
@@ -1028,8 +1108,8 @@
           "Your cart is empty.",
           "Browse products and add what you need.",
           PATHS.products,
-          "Go to Products"
-        )
+          "Go to Products",
+        ),
       );
       root.replaceChildren(wrapper);
       return;
@@ -1050,7 +1130,11 @@
         "<p>" +
         (item.option || "Standard") +
         "</p>" +
-        (item.href ? '<p><a class="bp-storefront-inline-link" href="' + item.href + '">View product</a></p>' : "") +
+        (item.href
+          ? '<p><a class="bp-storefront-inline-link" href="' +
+            item.href +
+            '">View product</a></p>'
+          : "") +
         "</div>" +
         '<div class="bp-storefront-line__side">' +
         "<strong>" +
@@ -1066,7 +1150,8 @@
       if (summaryLines.length) {
         var toggle = document.createElement("button");
         toggle.type = "button";
-        toggle.className = "bp-storefront-inline-link bp-storefront-inline-link--button";
+        toggle.className =
+          "bp-storefront-inline-link bp-storefront-inline-link--button";
         toggle.textContent = "View product";
 
         var summaryBox = document.createElement("div");
@@ -1081,7 +1166,9 @@
 
         toggle.addEventListener("click", function () {
           summaryBox.hidden = !summaryBox.hidden;
-          toggle.textContent = summaryBox.hidden ? "View product" : "Hide summary";
+          toggle.textContent = summaryBox.hidden
+            ? "View product"
+            : "Hide summary";
         });
 
         var toggleWrap = document.createElement("p");
@@ -1095,10 +1182,12 @@
         renderCartPage(root);
       });
 
-      row.querySelector(".bp-storefront-remove").addEventListener("click", function () {
-        cartRemove(item.id);
-        renderCartPage(root);
-      });
+      row
+        .querySelector(".bp-storefront-remove")
+        .addEventListener("click", function () {
+          cartRemove(item.id);
+          renderCartPage(root);
+        });
 
       list.appendChild(row);
     });
@@ -1107,7 +1196,7 @@
     footer.className = "bp-storefront-card";
     footer.innerHTML =
       "<h2>Order total</h2>" +
-      "<p class=\"bp-storefront-total\">" +
+      '<p class="bp-storefront-total">' +
       formatSAR(cartTotal(cart.items)) +
       "</p>" +
       '<div class="bp-storefront-actions">' +
@@ -1145,7 +1234,7 @@
           " | qty " +
           item.qty +
           " | " +
-          formatSAR(Number(item.price) * Number(item.qty))
+          formatSAR(Number(item.price) * Number(item.qty)),
       );
 
       var projectKey = getProjectKey(item);
@@ -1199,7 +1288,7 @@
       "",
       projectDetails || "Project details: None",
       "",
-      "Total: " + formatSAR(payload.total)
+      "Total: " + formatSAR(payload.total),
     ];
 
     return (
@@ -1227,8 +1316,8 @@
           "No items ready for checkout.",
           "Add a product to the cart first, or use Buy Now from a product page.",
           PATHS.products,
-          "Open Products"
-        )
+          "Open Products",
+        ),
       );
       root.replaceChildren(wrapper);
       return;
@@ -1269,8 +1358,10 @@
     });
 
     var totalLine = document.createElement("div");
-    totalLine.className = "bp-storefront-summary-line bp-storefront-summary-line--total";
-    totalLine.innerHTML = "<span>Total</span><strong>" + formatSAR(total) + "</strong>";
+    totalLine.className =
+      "bp-storefront-summary-line bp-storefront-summary-line--total";
+    totalLine.innerHTML =
+      "<span>Total</span><strong>" + formatSAR(total) + "</strong>";
     summary.appendChild(totalLine);
 
     var formCard = document.createElement("section");
@@ -1311,10 +1402,12 @@
         name: (formData.get("name") || "").toString().trim(),
         email: (formData.get("email") || "").toString().trim(),
         phone: (formData.get("phone") || "").toString().trim(),
-        contactPreference: (formData.get("contact_preference") || "Email").toString().trim(),
+        contactPreference: (formData.get("contact_preference") || "Email")
+          .toString()
+          .trim(),
         notes: (formData.get("notes") || "").toString().trim(),
         items: items,
-        total: total
+        total: total,
       };
 
       var workerFormData = new FormData();
@@ -1326,7 +1419,10 @@
       workerFormData.append("items_json", JSON.stringify(items));
       workerFormData.append("order_total_sar", String(total));
       workerFormData.append("order_summary", buildOrderSummary(items));
-      workerFormData.append("project_details", buildProjectDetailsSummary(items));
+      workerFormData.append(
+        "project_details",
+        buildProjectDetailsSummary(items),
+      );
 
       try {
         if (!isEndpointConfigured()) {
@@ -1336,22 +1432,27 @@
         var response = await fetch(CHECKOUT_ENDPOINT, {
           method: "POST",
           mode: "cors",
-          body: workerFormData
+          body: workerFormData,
         });
 
         if (!response.ok) {
-          throw new Error("Checkout request failed with status " + response.status);
+          throw new Error(
+            "Checkout request failed with status " + response.status,
+          );
         }
 
         setLastOrder(payload);
-        if (new URLSearchParams(window.location.search).get("mode") === "buynow") {
+        if (
+          new URLSearchParams(window.location.search).get("mode") === "buynow"
+        ) {
           clearBuyNowItem();
         } else {
           cartClear();
         }
         window.location.assign(PATHS.thankYou);
       } catch (error) {
-        status.textContent = "Worker submission failed. Opening email fallback...";
+        status.textContent =
+          "Worker submission failed. Opening email fallback...";
         window.location.href = buildMailtoFallback(payload);
       } finally {
         submitButton.disabled = false;
@@ -1398,6 +1499,11 @@
 
   function updateCartIndicator(button) {
     button.textContent = "Cart (" + cartCount() + ")";
+    var isShopping =
+      /\/(CV_index|cart|checkout|html-reports|cv-templates)(\/|$)/.test(
+        window.location.pathname,
+      );
+    button.hidden = cartCount() === 0 && !isShopping;
   }
 
   function mountCartIndicator() {
@@ -1435,28 +1541,28 @@
       ".cv-template-card .bp-storefront-inline{display:grid;width:100%;gap:.75rem;margin:.75rem 0 0}" +
       ".cv-template-card .bp-storefront-inline .bp-storefront-select{width:100%;min-width:0}" +
       ".cv-template-card .bp-storefront-inline .bp-storefront-button{flex:1 1 0;min-width:0}" +
-      ".bp-storefront-select{min-width:13rem;max-width:100%;padding:.55rem .7rem;border:1px solid rgba(15,94,89,.26);border-radius:.7rem;background:#fff;color:#12343b}" +
-      ".bp-storefront-button{border:1px solid rgba(15,94,89,.28);border-radius:.7rem;padding:.6rem .9rem;background:#fff;color:#12343b;font:inherit;font-weight:700;cursor:pointer}" +
-      ".bp-storefront-button--primary{background:#0f5e59;color:#fff;border-color:#0f5e59}" +
-      ".bp-storefront-button--muted{background:rgba(15,94,89,.08)}" +
+      ".bp-storefront-select{min-width:13rem;max-width:100%;padding:.55rem .7rem;border:1px solid rgba(47,107,255,.26);border-radius:.7rem;background:#fff;color:#12343b}" +
+      ".bp-storefront-button{border:1px solid rgba(47,107,255,.28);border-radius:.7rem;padding:.6rem .9rem;background:#fff;color:#12343b;font:inherit;font-weight:700;cursor:pointer}" +
+      ".bp-storefront-button--primary{background:#1b4bd8;color:#fff;border-color:#1b4bd8}" +
+      ".bp-storefront-button--muted{background:rgba(47,107,255,.08)}" +
       ".bp-storefront-page{display:grid;gap:1rem}" +
       ".bp-products-section{display:grid;gap:.85rem}" +
       ".bp-products-section__head h2{margin:0}" +
       ".bp-products-section__head p{margin:.2rem 0 0;color:#486581}" +
       ".bp-storefront-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:1rem}" +
-      ".bp-storefront-card,.bp-storefront-line,.bp-storefront-empty{border:1px solid var(--line-soft,rgba(15,94,89,.18));border-radius:1rem;background:linear-gradient(160deg,rgba(255,255,255,.98),rgba(241,245,249,.96));box-shadow:0 18px 50px rgba(15,23,42,.08);padding:1rem}" +
+      ".bp-storefront-card,.bp-storefront-line,.bp-storefront-empty{border:1px solid var(--line-soft,rgba(47,107,255,.18));border-radius:1rem;background:linear-gradient(160deg,rgba(255,255,255,.98),rgba(241,245,249,.96));box-shadow:0 18px 50px rgba(15,23,42,.08);padding:1rem}" +
       ".bp-storefront-card h2,.bp-storefront-line h2,.bp-storefront-empty h2{margin-top:0}" +
       ".bp-storefront-card h3{margin-top:0;margin-bottom:.45rem}" +
       ".bp-storefront-card--product p{margin:.2rem 0 0}" +
       ".bp-storefront-card--cv{display:grid;gap:.7rem}" +
-      ".bp-storefront-price{font-size:1.15rem;font-weight:800;color:#0f5e59}" +
+      ".bp-storefront-price{font-size:1.15rem;font-weight:800;color:#1b4bd8}" +
       ".bp-storefront-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}" +
       ".bp-storefront-actions--stack{margin-top:0}" +
       ".bp-storefront-actions--pair{display:grid;grid-template-columns:1fr 1fr;width:100%}" +
-      ".bp-storefront-link{display:inline-flex;align-items:center;justify-content:center;min-height:3.35rem;padding:.78rem 1.18rem;border-radius:999px;text-decoration:none !important;border:1px solid rgba(15,94,89,.26);color:#124e57 !important;background:linear-gradient(180deg,rgba(15,94,89,.06),rgba(15,94,89,.12));font-weight:800;letter-spacing:-.01em;box-shadow:inset 0 1px 0 rgba(255,255,255,.42);transition:transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease,color 160ms ease}" +
-      ".bp-storefront-link:hover,.bp-storefront-link:focus-visible{color:#0b3e46 !important;background:linear-gradient(180deg,rgba(15,94,89,.1),rgba(15,94,89,.16));box-shadow:0 10px 24px rgba(15,94,89,.12),inset 0 1px 0 rgba(255,255,255,.48);transform:translateY(-1px)}" +
-      ".bp-storefront-link--primary{background:linear-gradient(135deg,#0f5e59,#11766f);color:#f5fffd !important;border-color:transparent;box-shadow:0 14px 30px rgba(15,94,89,.26)}" +
-      ".bp-storefront-link--primary:hover,.bp-storefront-link--primary:focus-visible{color:#ffffff !important;background:linear-gradient(135deg,#106863,#138178);box-shadow:0 18px 34px rgba(15,94,89,.32)}" +
+      ".bp-storefront-link{display:inline-flex;align-items:center;justify-content:center;min-height:3.35rem;padding:.78rem 1.18rem;border-radius:999px;text-decoration:none !important;border:1px solid rgba(47,107,255,.26);color:#124e57 !important;background:linear-gradient(180deg,rgba(47,107,255,.06),rgba(47,107,255,.12));font-weight:800;letter-spacing:-.01em;box-shadow:inset 0 1px 0 rgba(255,255,255,.42);transition:transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease,color 160ms ease}" +
+      ".bp-storefront-link:hover,.bp-storefront-link:focus-visible{color:#0b3e46 !important;background:linear-gradient(180deg,rgba(47,107,255,.1),rgba(47,107,255,.16));box-shadow:0 10px 24px rgba(47,107,255,.12),inset 0 1px 0 rgba(255,255,255,.48);transform:translateY(-1px)}" +
+      ".bp-storefront-link--primary{background:linear-gradient(135deg,#1b4bd8,#11766f);color:#f5fffd !important;border-color:transparent;box-shadow:0 14px 30px rgba(47,107,255,.26)}" +
+      ".bp-storefront-link--primary:hover,.bp-storefront-link--primary:focus-visible{color:#ffffff !important;background:linear-gradient(135deg,#106863,#138178);box-shadow:0 18px 34px rgba(47,107,255,.32)}" +
       ".bp-storefront-addon-list{display:grid;gap:.5rem;margin-top:.9rem}" +
       ".bp-storefront-check{display:flex;align-items:center;gap:.55rem}" +
       ".bp-storefront-summary{margin-top:.9rem;font-weight:700}" +
@@ -1464,65 +1570,73 @@
       ".bp-storefront-line{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}" +
       ".bp-storefront-line__main p{margin:.2rem 0 0}" +
       ".bp-storefront-line__side{display:grid;gap:.55rem;justify-items:end;min-width:9rem}" +
-      ".bp-storefront-item-summary{margin-top:.2rem;padding:.75rem .85rem;border:1px solid rgba(15,94,89,.14);border-radius:.8rem;background:rgba(15,94,89,.04)}" +
+      ".bp-storefront-item-summary{margin-top:.2rem;padding:.75rem .85rem;border:1px solid rgba(47,107,255,.14);border-radius:.8rem;background:rgba(47,107,255,.04)}" +
       ".bp-storefront-item-summary p{margin:.15rem 0;color:#334e68}" +
       ".bp-storefront-qty{display:grid;gap:.25rem;font-size:.92rem}" +
-      ".bp-storefront-qty input{width:5rem;padding:.45rem .55rem;border:1px solid rgba(15,94,89,.26);border-radius:.65rem}" +
+      ".bp-storefront-qty input{width:5rem;padding:.45rem .55rem;border:1px solid rgba(47,107,255,.26);border-radius:.65rem}" +
       ".bp-storefront-remove{background:none;border:none;color:#9f1239;font:inherit;cursor:pointer;text-decoration:underline;padding:0}" +
       ".bp-storefront-total{font-size:1.6rem;font-weight:800}" +
-      ".bp-storefront-summary-line{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-bottom:1px solid rgba(15,94,89,.12)}" +
+      ".bp-storefront-summary-line{display:flex;justify-content:space-between;gap:1rem;padding:.45rem 0;border-bottom:1px solid rgba(47,107,255,.12)}" +
       ".bp-storefront-summary-detail{padding:.15rem 0 .85rem;color:#486581;font-size:.95rem}" +
       ".bp-storefront-summary-detail p{margin:.15rem 0}" +
       ".bp-storefront-summary-line--total{border-bottom:none;padding-top:.8rem;font-size:1.05rem}" +
       ".bp-storefront-form{display:grid;gap:.85rem}" +
       ".bp-storefront-form label{display:grid;gap:.35rem;font-weight:600}" +
-      ".bp-storefront-form input,.bp-storefront-form textarea{padding:.7rem .78rem;border:1px solid rgba(15,94,89,.24);border-radius:.75rem;background:#fff;color:#102a43;font:inherit}" +
-      ".bp-storefront-fieldset{border:1px solid rgba(15,94,89,.18);border-radius:.75rem;padding:.8rem .85rem;display:grid;gap:.55rem}" +
+      ".bp-storefront-form input,.bp-storefront-form textarea{padding:.7rem .78rem;border:1px solid rgba(47,107,255,.24);border-radius:.75rem;background:#fff;color:#102a43;font:inherit}" +
+      ".bp-storefront-fieldset{border:1px solid rgba(47,107,255,.18);border-radius:.75rem;padding:.8rem .85rem;display:grid;gap:.55rem}" +
       ".bp-storefront-fieldset legend{padding:0 .25rem;font-weight:700}" +
       ".bp-storefront-choice{display:flex !important;align-items:center;gap:.5rem;font-weight:600}" +
       ".bp-storefront-choice input{margin:0}" +
       ".bp-storefront-helper,.bp-storefront-status{margin:0;color:#486581}" +
-      ".bp-storefront-inline-link{color:#0f5e59}" +
+      ".bp-storefront-inline-link{color:#1b4bd8}" +
       ".bp-storefront-inline-link--button{padding:0;border:none;background:none;font:inherit;cursor:pointer;text-decoration:underline}" +
-      ".bp-storefront-preview{display:block;position:relative;overflow:hidden;border-radius:.85rem;border:1px solid rgba(15,94,89,.18);background:#fff;aspect-ratio:3/4;text-decoration:none}" +
+      ".bp-storefront-preview{display:block;position:relative;overflow:hidden;border-radius:.85rem;border:1px solid rgba(47,107,255,.18);background:#fff;aspect-ratio:3/4;text-decoration:none}" +
       ".bp-storefront-preview iframe{width:100%;height:100%;border:0;pointer-events:none;background:#fff}" +
-      ".bp-storefront-preview__label{position:absolute;right:.6rem;bottom:.6rem;padding:.35rem .55rem;border-radius:999px;background:rgba(15,94,89,.88);color:#fff;font-size:.8rem;font-weight:700}" +
-      ".bp-cart-indicator{position:fixed;right:1rem;bottom:1rem;z-index:999;display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1rem;border-radius:999px;background:#0f5e59;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 12px 35px rgba(15,94,89,.3)}" +
+      ".bp-storefront-preview__label{position:absolute;right:.6rem;bottom:.6rem;padding:.35rem .55rem;border-radius:999px;background:rgba(47,107,255,.88);color:#fff;font-size:.8rem;font-weight:700}" +
+      ".bp-cart-indicator{position:fixed;right:1rem;bottom:1rem;z-index:999;display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1rem;border-radius:999px;background:#1b4bd8;color:#fff;text-decoration:none;font-weight:800;box-shadow:0 12px 35px rgba(47,107,255,.3)}" +
       ".bp-template-panel{position:fixed;left:1rem;bottom:1rem;z-index:998;display:grid;gap:.6rem;max-width:20rem;padding:1rem;border-radius:1rem;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);box-shadow:0 12px 35px rgba(15,23,42,.18)}" +
       ".bp-template-panel__title{font-size:1rem}" +
       ".bp-template-panel__copy{margin:0;font-size:.95rem;color:#334e68}" +
-      '[data-md-color-scheme="slate"] .bp-storefront-card,[data-md-color-scheme="slate"] .bp-storefront-line,[data-md-color-scheme="slate"] .bp-storefront-empty{border-color:rgba(45,212,191,.2);background:linear-gradient(165deg,rgba(9,18,30,.96),rgba(12,30,42,.96));box-shadow:0 18px 44px rgba(2,6,23,.34);color:#e6fbfa}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-card h2,[data-md-color-scheme="slate"] .bp-storefront-card h3,[data-md-color-scheme="slate"] .bp-storefront-line h2,[data-md-color-scheme="slate"] .bp-storefront-empty h2,[data-md-color-scheme="slate"] .bp-products-section__head h2{color:#f0fdfa}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-card,[data-md-color-scheme="slate"] .bp-storefront-line,[data-md-color-scheme="slate"] .bp-storefront-empty{border-color:rgba(122,162,255,.2);background:linear-gradient(165deg,rgba(9,18,30,.96),rgba(12,30,42,.96));box-shadow:0 18px 44px rgba(2,6,23,.34);color:#dce9ff}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-card h2,[data-md-color-scheme="slate"] .bp-storefront-card h3,[data-md-color-scheme="slate"] .bp-storefront-line h2,[data-md-color-scheme="slate"] .bp-storefront-empty h2,[data-md-color-scheme="slate"] .bp-products-section__head h2{color:#eaf2ff}' +
       '[data-md-color-scheme="slate"] .bp-storefront-card p,[data-md-color-scheme="slate"] .bp-storefront-line__main p,[data-md-color-scheme="slate"] .bp-storefront-empty p,[data-md-color-scheme="slate"] .bp-products-section__head p,[data-md-color-scheme="slate"] .bp-storefront-helper,[data-md-color-scheme="slate"] .bp-storefront-status,[data-md-color-scheme="slate"] .bp-storefront-summary-detail,[data-md-color-scheme="slate"] .bp-storefront-item-summary p{color:#c6e7e5}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-price,[data-md-color-scheme="slate"] .bp-storefront-total,[data-md-color-scheme="slate"] .bp-storefront-line__side strong,[data-md-color-scheme="slate"] .bp-storefront-summary-line strong{color:#7ce9d9}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-link{border-color:rgba(94,234,212,.26);color:#dffcf8 !important;background:linear-gradient(180deg,rgba(45,212,191,.12),rgba(13,148,136,.2));box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-link:hover,[data-md-color-scheme="slate"] .bp-storefront-link:focus-visible{color:#ffffff !important;background:linear-gradient(180deg,rgba(45,212,191,.18),rgba(20,184,166,.28));box-shadow:0 10px 24px rgba(2,6,23,.28),inset 0 1px 0 rgba(255,255,255,.1)}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-link--primary,[data-md-color-scheme="slate"] .bp-storefront-button--primary{background:linear-gradient(135deg,#0f766e,#14b8a6);border-color:rgba(94,234,212,.2);color:#f0fdfa !important;box-shadow:0 14px 30px rgba(8,145,128,.28);text-shadow:0 1px 1px rgba(3,18,15,.28)}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-link--primary:hover,[data-md-color-scheme="slate"] .bp-storefront-link--primary:focus-visible,[data-md-color-scheme="slate"] .bp-storefront-button--primary:hover,[data-md-color-scheme="slate"] .bp-storefront-button--primary:focus-visible{background:linear-gradient(135deg,#2dd4bf,#5eead4);color:#03211d !important}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-button,[data-md-color-scheme="slate"] .bp-storefront-select,[data-md-color-scheme="slate"] .bp-storefront-form input,[data-md-color-scheme="slate"] .bp-storefront-form textarea,[data-md-color-scheme="slate"] .bp-storefront-qty input{border-color:rgba(94,234,212,.22);background:rgba(12,24,34,.92);color:#ecfeff}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-button--muted{background:rgba(45,212,191,.1);color:#dffcf8}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-price,[data-md-color-scheme="slate"] .bp-storefront-total,[data-md-color-scheme="slate"] .bp-storefront-line__side strong,[data-md-color-scheme="slate"] .bp-storefront-summary-line strong{color:#7cc7ff}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-link{border-color:rgba(124,199,255,.26);color:#e4efff !important;background:linear-gradient(180deg,rgba(122,162,255,.12),rgba(47,107,255,.2));box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-link:hover,[data-md-color-scheme="slate"] .bp-storefront-link:focus-visible{color:#ffffff !important;background:linear-gradient(180deg,rgba(122,162,255,.18),rgba(20,184,166,.28));box-shadow:0 10px 24px rgba(2,6,23,.28),inset 0 1px 0 rgba(255,255,255,.1)}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-link--primary,[data-md-color-scheme="slate"] .bp-storefront-button--primary{background:linear-gradient(135deg,#2f6bff,#14b8a6);border-color:rgba(124,199,255,.2);color:#eaf2ff !important;box-shadow:0 14px 30px rgba(47,107,255,.28);text-shadow:0 1px 1px rgba(3,18,15,.28)}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-link--primary:hover,[data-md-color-scheme="slate"] .bp-storefront-link--primary:focus-visible,[data-md-color-scheme="slate"] .bp-storefront-button--primary:hover,[data-md-color-scheme="slate"] .bp-storefront-button--primary:focus-visible{background:linear-gradient(135deg,#4d86ff,#7cc7ff);color:#03211d !important}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-button,[data-md-color-scheme="slate"] .bp-storefront-select,[data-md-color-scheme="slate"] .bp-storefront-form input,[data-md-color-scheme="slate"] .bp-storefront-form textarea,[data-md-color-scheme="slate"] .bp-storefront-qty input{border-color:rgba(124,199,255,.22);background:rgba(12,24,34,.92);color:#ecfeff}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-button--muted{background:rgba(122,162,255,.1);color:#e4efff}' +
       '[data-md-color-scheme="slate"] .bp-storefront-select{background:linear-gradient(180deg,rgba(12,24,34,.96),rgba(8,19,28,.96))}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-fieldset,[data-md-color-scheme="slate"] .bp-storefront-item-summary{border-color:rgba(94,234,212,.18);background:rgba(10,23,33,.72)}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-fieldset legend,[data-md-color-scheme="slate"] .bp-storefront-choice,[data-md-color-scheme="slate"] .bp-storefront-qty,[data-md-color-scheme="slate"] .bp-storefront-summary-line span{color:#dffcf8}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-summary-line,[data-md-color-scheme="slate"] .bp-storefront-remove{border-color:rgba(94,234,212,.12);color:#fca5a5}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-inline-link,[data-md-color-scheme="slate"] .bp-storefront-inline-link--button{color:#7ce9d9}' +
-      '[data-md-color-scheme="slate"] .bp-storefront-preview{border-color:rgba(94,234,212,.18);background:#07131d}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-fieldset,[data-md-color-scheme="slate"] .bp-storefront-item-summary{border-color:rgba(124,199,255,.18);background:rgba(10,23,33,.72)}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-fieldset legend,[data-md-color-scheme="slate"] .bp-storefront-choice,[data-md-color-scheme="slate"] .bp-storefront-qty,[data-md-color-scheme="slate"] .bp-storefront-summary-line span{color:#e4efff}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-summary-line,[data-md-color-scheme="slate"] .bp-storefront-remove{border-color:rgba(124,199,255,.12);color:#fca5a5}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-inline-link,[data-md-color-scheme="slate"] .bp-storefront-inline-link--button{color:#7cc7ff}' +
+      '[data-md-color-scheme="slate"] .bp-storefront-preview{border-color:rgba(124,199,255,.18);background:#07131d}' +
       '[data-md-color-scheme="slate"] .bp-storefront-preview iframe{background:#07131d}' +
-      '[data-md-color-scheme="slate"] .bp-cart-indicator{background:linear-gradient(135deg,#0f766e,#0f5e59);color:#f0fdfa;box-shadow:0 12px 35px rgba(2,6,23,.42)}' +
-      '[data-md-color-scheme="slate"] .bp-template-panel{background:rgba(8,18,28,.94);border:1px solid rgba(94,234,212,.14);box-shadow:0 12px 35px rgba(2,6,23,.42);color:#e6fbfa}' +
-      '[data-md-color-scheme="slate"] .bp-template-panel__copy,[data-md-color-scheme="slate"] .bp-template-panel__title{color:#dffcf8}' +
-      "@media (max-width: 720px){.bp-storefront-inline{display:grid;margin-left:0;margin-top:.6rem}.bp-storefront-line{display:grid}.bp-storefront-line__side{justify-items:start}.bp-template-panel{left:.75rem;right:.75rem;bottom:4.75rem;max-width:none}.bp-cart-indicator{left:.75rem;right:.75rem;bottom:.75rem}.bp-storefront-actions{display:grid}.bp-storefront-actions--pair{grid-template-columns:1fr}.bp-storefront-select,.bp-storefront-button,.bp-storefront-link{width:100%}.bp-storefront-card-grid--cv{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(17.5rem,82vw);overflow-x:auto;overflow-y:visible;padding:0 0 .85rem;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:thin}.bp-storefront-card-grid--cv::-webkit-scrollbar{height:.38rem}.bp-storefront-card-grid--cv::-webkit-scrollbar-thumb{background:rgba(15,94,89,.35);border-radius:999px}.bp-storefront-card-grid--cv .bp-storefront-card{min-height:100%;scroll-snap-align:start}}";
+      '[data-md-color-scheme="slate"] .bp-cart-indicator{background:linear-gradient(135deg,#2f6bff,#1b4bd8);color:#eaf2ff;box-shadow:0 12px 35px rgba(2,6,23,.42)}' +
+      '[data-md-color-scheme="slate"] .bp-template-panel{background:rgba(8,18,28,.94);border:1px solid rgba(124,199,255,.14);box-shadow:0 12px 35px rgba(2,6,23,.42);color:#dce9ff}' +
+      '[data-md-color-scheme="slate"] .bp-template-panel__copy,[data-md-color-scheme="slate"] .bp-template-panel__title{color:#e4efff}' +
+      "@media (max-width: 720px){.bp-storefront-inline{display:grid;margin-left:0;margin-top:.6rem}.bp-storefront-line{display:grid}.bp-storefront-line__side{justify-items:start}.bp-template-panel{left:.75rem;right:.75rem;bottom:4.75rem;max-width:none}.bp-cart-indicator{left:.75rem;right:.75rem;bottom:.75rem}.bp-storefront-actions{display:grid}.bp-storefront-actions--pair{grid-template-columns:1fr}.bp-storefront-select,.bp-storefront-button,.bp-storefront-link{width:100%}.bp-storefront-card-grid--cv{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(17.5rem,82vw);overflow-x:auto;overflow-y:visible;padding:0 0 .85rem;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:thin}.bp-storefront-card-grid--cv::-webkit-scrollbar{height:.38rem}.bp-storefront-card-grid--cv::-webkit-scrollbar-thumb{background:rgba(47,107,255,.35);border-radius:999px}.bp-storefront-card-grid--cv .bp-storefront-card{min-height:100%;scroll-snap-align:start}}";
 
     document.head.appendChild(style);
   }
 
   function renderRoots() {
     var productsRoot = document.querySelector("[data-bp-products-root]");
-    var productsTiersRoot = document.querySelector("[data-bp-products-tiers-root]");
-    var productsAddonsRoot = document.querySelector("[data-bp-products-addons-root]");
-    var productsReportsRoot = document.querySelector("[data-bp-products-reports-root]");
+    var productsTiersRoot = document.querySelector(
+      "[data-bp-products-tiers-root]",
+    );
+    var productsAddonsRoot = document.querySelector(
+      "[data-bp-products-addons-root]",
+    );
+    var productsReportsRoot = document.querySelector(
+      "[data-bp-products-reports-root]",
+    );
     var productsCvRoot = document.querySelector("[data-bp-products-cv-root]");
-    var customWebsitesRoot = document.querySelector("[data-bp-custom-websites-root]");
+    var customWebsitesRoot = document.querySelector(
+      "[data-bp-custom-websites-root]",
+    );
     var cartRoot = document.querySelector("[data-bp-cart-root]");
     var checkoutRoot = document.querySelector("[data-bp-checkout-root]");
 
@@ -1541,7 +1655,9 @@
       var addonsGrid = document.createElement("div");
       addonsGrid.className = "bp-storefront-card-grid";
       WEBSITE_ADDONS.forEach(function (addon) {
-        addonsGrid.appendChild(createWebsiteProductCard(addon, "website-addon"));
+        addonsGrid.appendChild(
+          createWebsiteProductCard(addon, "website-addon"),
+        );
       });
       productsAddonsRoot.replaceChildren(addonsGrid);
     }
@@ -1558,8 +1674,8 @@
             id: meta.id,
             title: meta.title,
             tier: meta.tier,
-            href: href
-          })
+            href: href,
+          }),
         );
       });
       productsCvRoot.replaceChildren(cvGrid);

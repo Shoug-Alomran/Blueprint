@@ -1,0 +1,88 @@
+{% extends 'main.html' %} {% from 'partials/studio-icons.html' import icon %} {%
+block container %}
+<div class="md-content bp-home-shell studio-page" id="studio-main">
+  <div class="bp-home">
+    <section class="studio-hero studio-grid">
+      <div class="studio-wrap studio-split">
+        <div>
+          <span class="studio-label">CONVERSATION://START</span>
+          <h1>An idea.<br />A question.<br /><em>Let’s talk.</em></h1>
+          <p class="studio-lede">
+            You don’t need a finished plan to get in touch. Tell us what you’re
+            thinking, and we’ll help you understand the options.
+          </p>
+        </div>
+        <div class="studio-contact-sheet studio-panel">
+          <span class="studio-label">DIRECT://TO THE STUDIO</span>{{
+          icon('mail') }}
+          <h2>A simple hello<br />is a good start.</h2>
+          <a class="studio-email" href="mailto:blueprint@shoug-tech.com"
+            >blueprint@shoug-tech.com ↗</a
+          >
+          <div class="studio-contact-facts">
+            <div>
+              <span>RESPONSE</span><strong>Within 2 business days</strong>
+            </div>
+            <div><span>LANGUAGES</span><strong>Arabic & English</strong></div>
+            <div>
+              <span>BASED IN</span><strong>Riyadh, Saudi Arabia</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="studio-section">
+      <div class="studio-wrap studio-split">
+        <div>
+          <span class="studio-label">READY://TO BUILD</span>
+          <h2>Have a project<br />in mind?</h2>
+          <p>
+            The project brief gives us the details we need to recommend a scope,
+            timeline, and quote. Share what you know; we’ll work through the
+            rest together.
+          </p>
+          <a class="bp-btn bp-btn--primary" href="{{ 'start-project/' | url }}"
+            >Start Your Project →</a
+          >
+        </div>
+        <div class="studio-fit-list">
+          {% for title,desc in [('What is the website for?','A portfolio,
+          business, course, research project, or something else.'),('What
+          content do you have?','Text, images, documents, or examples you’d like
+          us to see.'),('What would a good result look like?','Your goals,
+          preferences, and any deadline you’re working toward.')] %}
+          <div>
+            <span class="studio-label">0{{ loop.index }}</span>
+            <h3>{{ title }}</h3>
+            <p>{{ desc }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap">
+        <span class="studio-label">AFTER YOU REACH OUT</span>
+        <h2>A clear next step.</h2>
+        <div class="studio-contact-steps">
+          {% for title,desc in [('We read your brief','We review what you need
+          and check that the project fits our services.'),('We define the
+          scope','You receive a clear outline of the website, timeline, and
+          investment.'),('We start together','Once the scope is agreed and
+          content is ready, the build begins.')] %}
+          <article class="studio-panel">
+            <span class="studio-label">0{{ loop.index }}</span>
+            <h3>{{ title }}</h3>
+            <p>{{ desc }}</p>
+          </article>
+          {% endfor %}
+        </div>
+        <div class="studio-note">
+          <p>Still exploring? See what we build and how our pricing works.</p>
+          <a href="{{ 'packages/' | url }}">Services & Pricing →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

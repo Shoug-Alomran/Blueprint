@@ -10,12 +10,12 @@ Clients are solely responsible for all content provided for their project.
 
 This includes, but is not limited to:
 
-- Text and written materials  
-- Images, graphics, and diagrams  
-- Project descriptions and case details  
-- Academic claims and research statements  
-- External links and references  
-- Logos, branding elements, and third-party assets  
+- Text and written materials
+- Images, graphics, and diagrams
+- Project descriptions and case details
+- Academic claims and research statements
+- External links and references
+- Logos, branding elements, and third-party assets
 
 Blueprint Studio provides structure and presentation services only. Content accuracy remains the responsibility of the client.
 
@@ -25,10 +25,10 @@ Blueprint Studio provides structure and presentation services only. Content accu
 
 By submitting materials, the client confirms that:
 
-- They own or have legal permission to use all provided content.  
-- The content does not infringe copyright, trademark, or intellectual property rights.  
-- The content does not contain plagiarism or misrepresentation.  
-- The content complies with applicable laws and institutional policies.  
+- They own or have legal permission to use all provided content.
+- The content does not infringe copyright, trademark, or intellectual property rights.
+- The content does not contain plagiarism or misrepresentation.
+- The content complies with applicable laws and institutional policies.
 
 Blueprint Studio does not independently verify authorship, academic validity, or licensing rights.
 
@@ -38,9 +38,9 @@ Blueprint Studio does not independently verify authorship, academic validity, or
 
 If AI-generated content, stock images, templates, or third-party materials are used, the client is responsible for:
 
-- Confirming usage rights  
-- Ensuring compliance with licensing terms  
-- Verifying originality and attribution requirements  
+- Confirming usage rights
+- Ensuring compliance with licensing terms
+- Verifying originality and attribution requirements
 
 ---
 
@@ -48,9 +48,9 @@ If AI-generated content, stock images, templates, or third-party materials are u
 
 For academic projects, the client is responsible for:
 
-- Ensuring submission compliance with institutional rules  
-- Confirming originality of research and written work  
-- Meeting all academic honesty standards  
+- Ensuring submission compliance with institutional rules
+- Confirming originality of research and written work
+- Meeting all academic honesty standards
 
 Blueprint Studio is not responsible for grading outcomes or institutional review decisions.
 
@@ -60,10 +60,10 @@ Blueprint Studio is not responsible for grading outcomes or institutional review
 
 The Studio is not liable for:
 
-- Legal disputes arising from submitted content  
-- Intellectual property claims  
-- Academic misconduct claims  
-- Misrepresentation or factual inaccuracies  
-- Consequences resulting from third-party use of provided materials  
+- Legal disputes arising from submitted content
+- Intellectual property claims
+- Academic misconduct claims
+- Misrepresentation or factual inaccuracies
+- Consequences resulting from third-party use of provided materials
 
 All responsibility for content remains with the client.

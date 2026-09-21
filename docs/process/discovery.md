@@ -6,12 +6,23 @@ scope: Define goals, audience, content, and structure direction
 constraints: Content readiness, scope clarity, audience alignment
 metrics: scope accuracy, content inventory completeness
 last_updated: 2026-03-02
----
-
-# 02 · Discovery
-
-Discovery defines everything that gets built. Goals, audience, content readiness, and required sections are confirmed here. Once discovery is complete, scope is locked.
-
+hero_eyebrow: stage://02
+hero_title: Understand the goal.<br><em>Gather the essentials.</em>
+hero_lede: >
+  Discovery defines everything that gets built. Goals, audience, content readiness, and required sections are confirmed here. Once discovery is complete, scope is locked.
+hero_meta:
+  - label: Stage
+    value: 02 of 06
+  - label: Role
+    value: Scope Definition
+  - label: Scope
+    value: Define goals, audience, content, and structure direction
+hero_actions:
+  - label: Next stage
+    url: process/structure-sitemap/
+    primary: true
+  - label: Previous stage
+    url: process/intake-fit-check/
 ---
 
 ## What Gets Defined
@@ -67,10 +78,10 @@ Discovery defines everything that gets built. Goals, audience, content readiness
 
 ## Output of This Stage
 
-- Agreed project scope and tier confirmation  
-- Defined section list  
-- Content inventory  
-- Approved structural direction  
+- Agreed project scope and tier confirmation
+- Defined section list
+- Content inventory
+- Approved structural direction
 
 Scope is locked after this stage. Changes introduced after discovery is complete are assessed and quoted separately before implementation.
 
@@ -78,8 +89,8 @@ Scope is locked after this stage. Changes introduced after discovery is complete
 
 ## Timeline
 
-| Tier | Typical Duration |
-| --- | --- |
-| Tier 1 – Personal Presence | 1 working day |
-| Tier 2 – Project Documentation | 1–2 working days |
-| Tier 3 – Research Documentation | 2 working days |
+| Tier                            | Typical Duration |
+| ------------------------------- | ---------------- |
+| Tier 1 – Personal Presence      | 1 working day    |
+| Tier 2 – Project Documentation  | 1–2 working days |
+| Tier 3 – Research Documentation | 2 working days   |

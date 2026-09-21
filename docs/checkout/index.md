@@ -1,4 +1,7 @@
 ---
+hero_eyebrow: order://checkout
+hero_title: The next step.<br><em>Made simple.</em>
+hero_lede: Review your request and share the contact details we need to follow up.
 title: Checkout
 description: Submit a Blueprint storefront order from the static site using the Cloudflare checkout worker.
 robots: noindex, follow

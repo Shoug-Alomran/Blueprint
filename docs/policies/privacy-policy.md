@@ -16,9 +16,9 @@ Blueprint by ShougTech respects your privacy.
 
 We may collect:
 
-- Name  
-- Email address  
-- Project details submitted through inquiry forms  
+- Name
+- Email address
+- Project details submitted through inquiry forms
 
 ---
 
@@ -26,9 +26,9 @@ We may collect:
 
 Your information is used solely to:
 
-- Respond to inquiries  
-- Deliver requested services  
-- Communicate about project progress  
+- Respond to inquiries
+- Deliver requested services
+- Communicate about project progress
 
 We do not sell or share personal information for marketing purposes.
 
@@ -38,9 +38,9 @@ We do not sell or share personal information for marketing purposes.
 
 Information may be processed through:
 
-- Email services  
-- Hosting providers  
-- Form processing systems  
+- Email services
+- Hosting providers
+- Form processing systems
 
 Reasonable measures are taken to handle information securely.
 

@@ -19,12 +19,12 @@ This page defines ownership boundaries for both Blueprint and its clients.
 
 Unless explicitly transferred in writing, the following remain the intellectual property of Blueprint Studio:
 
-- Core layout systems  
-- Structural frameworks  
-- Navigation patterns  
-- Section architecture models  
-- Reusable styling systems  
-- Internal production workflows  
+- Core layout systems
+- Structural frameworks
+- Navigation patterns
+- Section architecture models
+- Reusable styling systems
+- Internal production workflows
 
 Clients receive usage rights for their delivered website, not ownership of Blueprint's underlying framework or design methodology.
 
@@ -36,11 +36,11 @@ Blueprint reserves the right to reuse structural systems across future projects.
 
 Clients retain full ownership of:
 
-- Submitted written content  
-- Uploaded images and media  
-- Reports and academic documents  
-- Logos and brand assets  
-- Research data and documentation  
+- Submitted written content
+- Uploaded images and media
+- Reports and academic documents
+- Logos and brand assets
+- Research data and documentation
 
 Blueprint does not claim ownership over any client-provided materials.
 
@@ -63,15 +63,15 @@ CV templates and downloadable products are licensed for individual use only.
 
 Clients may:
 
-- Edit the files  
-- Deploy them for personal or academic use  
-- Host them independently  
+- Edit the files
+- Deploy them for personal or academic use
+- Host them independently
 
 Clients may not:
 
-- Resell templates  
-- Redistribute source files  
-- Claim the design framework as their own product  
+- Resell templates
+- Redistribute source files
+- Claim the design framework as their own product
 
 ---
 
@@ -87,10 +87,10 @@ Client-sensitive information may be redacted upon request.
 
 Blueprint is not responsible for:
 
-- Hosting platform outages  
-- GitHub service interruptions  
-- Third-party domain provider issues  
-- Changes made by the client after handover  
+- Hosting platform outages
+- GitHub service interruptions
+- Third-party domain provider issues
+- Changes made by the client after handover
 
 Clients are responsible for maintaining compliance with academic, institutional, or regulatory requirements related to their content.
 

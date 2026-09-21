@@ -1,0 +1,513 @@
+{% extends "main.html" %} {# Blueprint homepage. Replaces the whole Material
+content container so the page can run full-bleed. Motion is progressive: every
+section is readable with JS or animation off. #} {% block site_nav %}{% endblock
+%} {% block container %}
+<div class="md-content bp-home-shell" data-md-component="content">
+  <div class="bp-home">
+    <!-- ============================ HERO ============================ -->
+    <section class="bp-hero">
+      <div class="bp-hero__grid">
+        <div class="bp-hero__copy">
+          <span class="bp-eyebrow" data-bp-reveal>
+            <i class="bp-eyebrow__dot"></i>studio://digital-presence
+          </span>
+
+          <h1 class="bp-hero__title" data-bp-reveal style="--bp-delay: 80ms">
+            Your ideas.<br />
+            <em>A clear presence.</em><br />
+            Built to last.
+          </h1>
+
+          <p class="bp-hero__lede" data-bp-reveal style="--bp-delay: 180ms">
+            A professional website for your work, business, or ideas. Blueprint
+            organizes your content, designs the experience, and helps you launch
+            — with a clear scope from the start.
+          </p>
+
+          <div
+            class="bp-hero__actions"
+            data-bp-reveal
+            style="--bp-delay: 260ms"
+          >
+            <a
+              class="bp-btn bp-btn--primary"
+              href="{{ 'start-project/' | url }}"
+            >
+              Start a Project <span class="bp-btn__arrow">&rarr;</span>
+            </a>
+            <a class="bp-btn" href="{{ 'web-platforms/' | url }}"
+              >Explore Our Work</a
+            >
+          </div>
+
+          <p class="bp-hero__status" data-bp-reveal style="--bp-delay: 340ms">
+            <span>STATIC-FIRST</span><i>&bull;</i><span>FAST</span><i>&bull;</i
+            ><span>SECURE</span><i>&bull;</i><span>LOW-MAINTENANCE</span>
+          </p>
+        </div>
+
+        <!-- Abstract "site being architected" composition -->
+        <div class="bp-hero__visual" data-bp-parallax aria-hidden="true">
+          <div class="bp-node-tag">NODE_01</div>
+
+          <div class="bp-frame bp-frame--main" data-bp-depth="0.035">
+            <div class="bp-frame__bar">
+              <i class="bp-tl bp-tl--r"></i><i class="bp-tl bp-tl--y"></i
+              ><i class="bp-tl bp-tl--g"></i>
+              <span class="bp-frame__addr"></span>
+            </div>
+            <div class="bp-frame__body">
+              <span class="bp-bar bp-bar--accent" style="width: 74%"></span>
+              <span class="bp-bar" style="width: 92%"></span>
+              <span class="bp-bar" style="width: 66%"></span>
+              <span class="bp-bar" style="width: 84%"></span>
+              <span class="bp-bar" style="width: 48%"></span>
+            </div>
+          </div>
+
+          <svg class="bp-wire" viewBox="0 0 400 300" preserveAspectRatio="none">
+            <path d="M92 96 L232 232" pathLength="1" />
+            <path d="M232 232 L318 188" pathLength="1" />
+          </svg>
+
+          <div class="bp-frame bp-frame--sub" data-bp-depth="0.06">
+            <div class="bp-frame__split">
+              <div class="bp-orbit">
+                <span class="bp-orbit__ring"></span><em>SYNC_CORE</em>
+              </div>
+              <div class="bp-frame__lines">
+                <span class="bp-bar" style="width: 88%"></span>
+                <span class="bp-bar" style="width: 70%"></span>
+                <span class="bp-bar" style="width: 80%"></span>
+                <span class="bp-bar bp-bar--block"></span>
+              </div>
+            </div>
+            <span class="bp-annot bp-annot--deploy">DEPLOY://EDGE</span>
+          </div>
+
+          <div class="bp-readout" data-bp-depth="0.02">
+            <span>pos: 142.8, 92.4</span>
+            <span>scale: 1.000</span>
+            <span>render: dynamic_static</span>
+            <span>status: architecting<i class="bp-caret"></i></span>
+          </div>
+
+          <div class="bp-coord" data-bp-depth="0.05">COORD: 34.2 / -118.4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== PROOF ========================== -->
+    <section class="bp-section bp-proof">
+      <header class="bp-section__head" data-bp-reveal>
+        <span class="bp-label">Proof / Before &amp; After</span>
+        <h2 class="bp-h2">
+          A 10-page PDF nobody reads.<br /><em>Made readable.</em>
+        </h2>
+        <p class="bp-section__lede">
+          This is a real conversion, not a mockup. The same research paper,
+          rebuilt as an interactive report with live charts, reading progress,
+          and a jump-to-section index.
+        </p>
+      </header>
+
+      <div class="bp-proof__pair" data-bp-reveal>
+        <figure class="bp-proof__side">
+          <span class="bp-proof__stage">Before &middot; PDF</span>
+          <div class="bp-proof__view bp-proof__view--page">
+            <img
+              src="{{ 'html-reports/assets/examples/ethc303/before-page1.png' | url }}"
+              alt="First page of the original research paper PDF"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </figure>
+
+        <span class="bp-proof__arrow" aria-hidden="true">&rarr;</span>
+
+        <figure class="bp-proof__side">
+          <span class="bp-proof__stage bp-proof__stage--after"
+            >After &middot; HTML</span
+          >
+          <div class="bp-proof__view bp-proof__view--live">
+            <iframe
+              src="{{ 'html-reports/assets/examples/ethc303/after.html' | url }}"
+              title="The same paper converted into an interactive HTML report"
+              loading="lazy"
+              scrolling="no"
+              tabindex="-1"
+            ></iframe>
+          </div>
+        </figure>
+      </div>
+
+      <div class="bp-proof__foot" data-bp-reveal>
+        <p class="bp-proof__price">
+          From <strong>150 SAR</strong> &middot; 2&ndash;4 days &middot; you
+          send the PDF, that&rsquo;s it.
+        </p>
+        <div class="bp-proof__actions">
+          <a class="bp-btn bp-btn--primary" href="{{ 'html-reports/' | url }}"
+            >See more conversions &rarr;</a
+          >
+          <a class="bp-btn" href="{{ 'start-project/' | url }}"
+            >Convert my PDF</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== AUDIENCE ========================== -->
+    <section class="bp-section">
+      <header class="bp-section__head" data-bp-reveal>
+        <span class="bp-label">Target Audience</span>
+        <h2 class="bp-h2">
+          Built for people who need<br /><em>clarity,</em> not complexity.
+        </h2>
+      </header>
+
+      <div class="bp-audience">
+        {% set audience = [ ("01", "Students", "Professional portfolios and
+        project documentation to showcase your academic achievements.",
+        "STUDENT_PORTFOLIO", "M12 3 1 9l11 6 9-4.9V17h2V9M5 13.2V17c0 1.7 3.1 3
+        7 3s7-1.3 7-3v-3.8l-7 3.8z"), ("02", "Instructors", "Organized course
+        hubs for resources, chapters, quizzes, and community announcements.",
+        "ACADEMIC_PORTAL_X", "M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0
+        0 2-2V5a2 2 0 0 0-2-2m0 16H5V5h14zM7 7h10v6H7z"), ("03",
+        "Professionals", "Structured service, credibility, and case-study
+        websites for boutique teams and solo experts.", "TEAM_CREDIBILITY", "M10
+        2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2
+        2 0 0 1 2-2h4V4a2 2 0 0 1 2-2m4 4V4h-4v2z"), ("04", "Workshops", "Clear
+        event hubs for schedules, resources, and participant information for any
+        community.", "EVENT_HUB", "M16 13c2.2 0 4 1.3 4
+        3v2h-4.5v-2c0-1.2-.5-2.2-1.3-3zM8 13c-2.2 0-4 1.3-4
+        3v2h8.5v-2c0-1.2.5-2.2 1.3-3zM8 6a3 3 0 1 1 0 6 3 3 0 0 1 0-6m8 1a2.5
+        2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5") ] %} {% for num, name, copy, ref, path
+        in audience %}
+        <article
+          class="bp-card bp-card--audience"
+          data-bp-reveal
+          style="--bp-delay:{{ loop.index0 * 90 }}ms"
+        >
+          <span class="bp-card__index">{{ num }}</span>
+          <span class="bp-card__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="{{ path }}" />
+            </svg>
+          </span>
+          <h3>{{ name }}</h3>
+          <p>{{ copy }}</p>
+          <span class="bp-card__ref">REF: {{ ref }}</span>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ======================== CAPABILITIES ======================== -->
+    <section class="bp-section">
+      <header class="bp-section__head bp-section__head--split" data-bp-reveal>
+        <div>
+          <span class="bp-label">Capabilities</span>
+          <h2 class="bp-h2">
+            Digital experiences with<br />a <em>clear purpose.</em>
+          </h2>
+        </div>
+        <a class="bp-link" href="{{ 'products/' | url }}"
+          >Explore Products <span>&rarr;</span></a
+        >
+      </header>
+
+      <div class="bp-bento">
+        <a
+          class="bp-card bp-card--wide"
+          href="{{ 'products/' | url }}"
+          data-bp-reveal
+        >
+          <h3>Portfolio Websites</h3>
+          <p>Curated visual narratives for creatives and studios.</p>
+          <div class="bp-preview bp-preview--gallery">
+            <span></span><span></span><span></span>
+          </div>
+        </a>
+
+        <a
+          class="bp-card bp-card--wide"
+          href="{{ 'products/' | url }}"
+          data-bp-reveal
+          style="--bp-delay: 90ms"
+        >
+          <h3>Documentation Sites</h3>
+          <p>Technical clarity for complex products and frameworks.</p>
+          <div class="bp-preview bp-preview--docs">
+            <div class="bp-preview__side">
+              <span class="bp-bar bp-bar--accent" style="width: 70%"></span>
+              <span class="bp-bar" style="width: 52%"></span>
+              <span class="bp-bar" style="width: 60%"></span>
+              <span class="bp-bar" style="width: 40%"></span>
+            </div>
+            <div class="bp-preview__main">
+              <span class="bp-bar bp-bar--accent" style="width: 44%"></span>
+              <span class="bp-bar" style="width: 96%"></span>
+              <span class="bp-bar" style="width: 88%"></span>
+              <span class="bp-bar" style="width: 92%"></span>
+              <span class="bp-bar" style="width: 64%"></span>
+            </div>
+          </div>
+        </a>
+
+        <a class="bp-card" href="{{ 'CV_index/' | url }}" data-bp-reveal>
+          <h3>CV Pages</h3>
+          <p>Elite professional digital identity.</p>
+          <div class="bp-preview bp-preview--cv">
+            <span class="bp-avatar"></span>
+            <span class="bp-bar" style="width: 62%"></span>
+            <span class="bp-bar" style="width: 44%"></span>
+          </div>
+        </a>
+
+        <a
+          class="bp-card"
+          href="{{ 'web-platforms/' | url }}"
+          data-bp-reveal
+          style="--bp-delay: 90ms"
+        >
+          <h3>Academic Hubs</h3>
+          <p>Structured learning resources.</p>
+          <div class="bp-preview bp-preview--hub">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </a>
+
+        <a
+          class="bp-card"
+          href="{{ 'html-reports/' | url }}"
+          data-bp-reveal
+          style="--bp-delay: 180ms"
+        >
+          <h3>HTML Reports</h3>
+          <p>Interactive data-rich storytelling.</p>
+          <div class="bp-preview bp-preview--report">
+            <i style="height: 38%"></i><i style="height: 62%"></i
+            ><i style="height: 48%"></i><i style="height: 84%"></i
+            ><i style="height: 70%"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================= PHILOSOPHY ========================= -->
+    <section class="bp-section bp-philosophy">
+      <h2 class="bp-statement" data-bp-reveal>
+        Good websites aren't just designed.<br />
+        <em>They're structured.</em>
+      </h2>
+
+      <div class="bp-stages" data-bp-stages>
+        <span class="bp-stages__rail"><i data-bp-rail></i></span>
+        {% set stages = [ ("1", "Structure", "Navigation logic"), ("2",
+        "Clarity", "Visual semantics"), ("3", "Performance", "Static
+        architecture"), ("4", "Longevity", "Low maintenance") ] %} {% for num,
+        title, sub in stages %}
+        <div
+          class="bp-stage"
+          data-bp-reveal
+          style="--bp-delay:{{ loop.index0 * 120 }}ms"
+        >
+          <span class="bp-stage__node">{{ num }}</span>
+          <h3>{{ title }}</h3>
+          <span class="bp-stage__sub">{{ sub }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ======================= SELECTED WORK ======================== -->
+    <section class="bp-section">
+      <header class="bp-section__head bp-section__head--split" data-bp-reveal>
+        <div>
+          <span class="bp-label">Portfolio</span>
+          <h2 class="bp-h2">Selected Builds</h2>
+        </div>
+        <a class="bp-btn bp-btn--ghost" href="{{ 'web-platforms/' | url }}"
+          >View Full Portfolio <span>&#8599;</span></a
+        >
+      </header>
+
+      <div class="bp-work">
+        {% set builds = [ ("SHOUG.TECH", "2026", "A personal engineering
+        portfolio bringing software projects, cybersecurity labs, and coursework
+        into one navigable home.", ["PORTFOLIO", "STATIC", "SEO"],
+        "https://shoug-tech.com/", "M4 5h16v3H4zm0 5h10v9H4zm12 0h4v9h-4z"),
+        ("CYS401 Course Hub", "2026", "Four modules \u2014 threat landscape, CIA
+        triad, access control, protection \u2014 organised into a guided
+        learning path.", ["COURSE-HUB", "MODULES", "IA"],
+        "https://shoug-alomran.github.io/cys401/", "M12 3 1 9l11 6
+        9-4.9V17h2V9M5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8z"),
+        ("WebForge 2026", "2026", "A competition hub covering three workshop
+        days, the shared brief, and the final build-off.", ["EVENT-HUB",
+        "SCHEDULE", "RESPONSIVE"],
+        "https://acmchapter-psu.github.io/acm-webforge-2026/", "M6 3h9l4
+        4v14H6zm8 1.5V8h3.5") ] %} {% for name, year, copy, tags, href, path in
+        builds %}
+        <article
+          class="bp-build"
+          data-bp-reveal
+          style="--bp-delay:{{ loop.index0 * 110 }}ms"
+        >
+          <a
+            class="bp-build__shot"
+            href="{{ href }}"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit {{ name }}"
+          >
+            <span class="bp-build__chrome"><i></i><i></i><i></i></span>
+            <span class="bp-build__canvas">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="{{ path }}" />
+              </svg>
+            </span>
+            <span class="bp-build__cta">View Project</span>
+          </a>
+          <div class="bp-build__meta">
+            <h3>{{ name }}</h3>
+            <span class="bp-build__year">/ {{ year }}</span>
+          </div>
+          <p>{{ copy }}</p>
+          <ul class="bp-tags">
+            {% for tag in tags %}
+            <li>{{ tag }}</li>
+            {% endfor %}
+          </ul>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ========================== WORKFLOW ========================== -->
+    <section class="bp-section bp-workflow">
+      <header class="bp-section__head bp-section__head--center" data-bp-reveal>
+        <span class="bp-label">Process</span>
+        <h2 class="bp-h2">The Blueprint Workflow</h2>
+        <p class="bp-section__lede">
+          A transparent, structured approach from initial idea to
+          high-performance deployment.
+        </p>
+      </header>
+
+      <ol class="bp-timeline" data-bp-stages>
+        <span class="bp-timeline__rail"><i data-bp-rail></i></span>
+        {% set steps = [ ("01", "Discovery", "Requirement analysis and content
+        goals definition.", "process/discovery/"), ("02", "Structure", "IA, site
+        mapping, and technical blueprints.", "process/structure-sitemap/"),
+        ("03", "Build", "Static generation and semantic development.",
+        "process/build/"), ("04", "Review", "Testing, polish, and client
+        feedback loops.", "process/revision-rounds/"), ("05", "Deploy", "Edge
+        launch and global CDN distribution.", "process/deployment-handover/") ]
+        %} {% for num, title, copy, href in steps %}
+        <li
+          class="bp-step"
+          data-bp-reveal
+          style="--bp-delay:{{ loop.index0 * 110 }}ms"
+        >
+          <a href="{{ href | url }}">
+            <span class="bp-step__node">{{ num }}</span>
+            <h3>{{ title }}</h3>
+            <p>{{ copy }}</p>
+          </a>
+        </li>
+        {% endfor %}
+      </ol>
+
+      <div class="bp-workflow__foot" data-bp-reveal>
+        <a class="bp-link" href="{{ 'process/' | url }}"
+          >See the Full Process <span>&rarr;</span></a
+        >
+      </div>
+    </section>
+
+    <!-- ========================= POSITIONING ======================== -->
+    <section class="bp-section bp-scope">
+      <div class="bp-scope__intro" data-bp-reveal>
+        <span class="bp-label">Positioning</span>
+        <h2 class="bp-h2">Focused by<br /><em>design.</em></h2>
+        <p>
+          We specialize in high-end static architectures. We don't do everything
+          — we do one thing exceptionally well. This focus ensures your site is
+          faster, more secure, and infinitely easier to maintain.
+        </p>
+        <blockquote class="bp-quote">
+          <span class="bp-quote__mark">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="m12 2 2.4 1.8 3-.2.9 2.9 2.5 1.6-1 2.9 1 2.9-2.5 1.6-.9 2.9-3-.2L12 22l-2.4-1.8-3 .2-.9-2.9L3.2 16l1-2.9-1-2.9 2.5-1.6.9-2.9 3 .2zm-1 13 5-5-1.4-1.4L11 12.2 9.4 10.6 8 12z"
+              />
+            </svg>
+          </span>
+          <p>
+            "The static-first approach ensures instant loads and zero
+            maintenance overhead."
+          </p>
+        </blockquote>
+      </div>
+
+      <div class="bp-scope__lists">
+        <div
+          class="bp-scope__col bp-scope__col--in"
+          data-bp-reveal
+          style="--bp-delay: 90ms"
+        >
+          <h3>Built Here</h3>
+          <ul>
+            {% for item in ["Static Websites", "Info Architecture", "Responsive
+            UI", "SEO Foundations", "Deployment", "Testing & Handover"] %}
+            <li><span class="bp-tick" aria-hidden="true"></span>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div
+          class="bp-scope__col bp-scope__col--out"
+          data-bp-reveal
+          style="--bp-delay: 180ms"
+        >
+          <h3>Outside Scope</h3>
+          <ul>
+            {% for item in ["Full-stack Apps", "Databases", "Auth Systems",
+            "SaaS Development", "Complex Web Apps"] %}
+            <li><span class="bp-cross" aria-hidden="true"></span>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== FINAL CTA ========================= -->
+    <section class="bp-cta" data-bp-reveal>
+      <span class="bp-cta__corner bp-cta__corner--tl" aria-hidden="true"></span>
+      <span class="bp-cta__corner bp-cta__corner--br" aria-hidden="true"></span>
+
+      <span class="bp-label bp-label--wide">Ready to build?</span>
+      <h2 class="bp-cta__title">
+        Turn your idea into a<br /><em>structured</em> presence.
+      </h2>
+      <div class="bp-cta__actions">
+        <a
+          class="bp-btn bp-btn--primary bp-btn--lg"
+          href="{{ 'start-project/' | url }}"
+        >
+          Start a Project
+          <svg class="bp-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 2c3 2.6 4.8 6.1 4.8 10l2.6 2.4v3l-3.6-1.4c-.5.8-1.1 1.6-1.8 2.3V21H10v-2.7c-.7-.7-1.3-1.5-1.8-2.3L4.6 17.4v-3L7.2 12C7.2 8.1 9 4.6 12 2m0 6.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4"
+            />
+          </svg>
+        </a>
+        <a class="bp-btn bp-btn--lg" href="{{ 'contact/' | url }}"
+          >Contact Blueprint</a
+        >
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

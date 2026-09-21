@@ -1,4 +1,7 @@
 ---
+hero_eyebrow: order://cart
+hero_title: Your selections. <em>All in one place.</em>
+hero_lede: Review your chosen products and options before continuing.
 title: Cart
 description: Review storefront items saved locally in the browser before checkout.
 hide:

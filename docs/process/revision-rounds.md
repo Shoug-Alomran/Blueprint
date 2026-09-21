@@ -6,11 +6,24 @@ scope: Structured feedback and implementation within agreed scope
 constraints: Revision rounds per tier, scope boundaries enforced
 metrics: feedback quality, revision efficiency, final approval readiness
 last_updated: 2026-03-02
+hero_eyebrow: stage://05
+hero_title: Review together.<br><em>Refine the details.</em>
+hero_lede: >
+  The completed build is reviewed against the approved structure and goals. Feedback is collected, assessed, and implemented within the included revision rounds.
+hero_meta:
+  - label: Stage
+    value: 05 of 06
+  - label: Role
+    value: Refinement
+  - label: Scope
+    value: Structured feedback and implementation within agreed scope
+hero_actions:
+  - label: Next stage
+    url: process/deployment-handover/
+    primary: true
+  - label: Previous stage
+    url: process/build/
 ---
-
-# 05 · Review & Revisions
-
-The completed build is reviewed against the approved structure and goals. Feedback is collected, assessed, and implemented within the included revision rounds.
 
 Revisions refine. They do not redesign.
 
@@ -46,11 +59,11 @@ Revisions refine. They do not redesign.
 
 ## Revision Rounds by Tier
 
-| Tier | Included Revision Rounds |
-| --- | --- |
-| Tier 1 – Personal Presence | 2 rounds |
-| Tier 2 – Project Documentation | 2 rounds |
-| Tier 3 – Research Documentation | 3 rounds |
+| Tier                            | Included Revision Rounds |
+| ------------------------------- | ------------------------ |
+| Tier 1 – Personal Presence      | 2 rounds                 |
+| Tier 2 – Project Documentation  | 2 rounds                 |
+| Tier 3 – Research Documentation | 3 rounds                 |
 
 Additional revision rounds beyond the included count are available at 100 SAR per round and must be confirmed before implementation.
 

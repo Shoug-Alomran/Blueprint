@@ -1,0 +1,329 @@
+{% extends "main.html" %} {# Blueprint products catalogue. Full-bleed like the
+homepage: replaces Material's content container so the bento grid and diagrams
+can run edge to edge. #} {% block site_nav %}{% endblock %} {% block container
+%}
+<div class="md-content bp-home-shell" data-md-component="content">
+  <div class="bp-home bp-products">
+    <!-- ============================ HERO ============================ -->
+    <section class="bp-prod-hero">
+      <span class="bp-eyebrow" data-bp-reveal>
+        <i class="bp-eyebrow__dot"></i>catalog://products
+      </span>
+
+      <h1 class="bp-prod-hero__title" data-bp-reveal style="--bp-delay: 80ms">
+        A place for your work.<br />
+        <em>Built around what you need.</em>
+      </h1>
+
+      <p class="bp-prod-hero__lede" data-bp-reveal style="--bp-delay: 170ms">
+        Showcase your experience, share a course, or make a report easier to
+        read. Find the right format for your content.
+      </p>
+
+      <p class="bp-prod-hero__status" data-bp-reveal style="--bp-delay: 250ms">
+        <span><i></i>STATIC-FIRST</span>
+        <b>|</b>
+        <span><i></i>RESPONSIVE</span>
+        <b>|</b>
+        <span><i></i>DEPLOYMENT-READY</span>
+      </p>
+
+      <span class="bp-prod-hero__crosshair" aria-hidden="true"></span>
+    </section>
+
+    <!-- ========================== CATALOGUE ========================= -->
+    <section class="bp-section bp-section--flush">
+      <div class="bp-catalog">
+        <!-- 01 — Portfolio Website (feature card) -->
+        <article class="bp-prod bp-prod--feature" data-bp-reveal>
+          <span class="bp-prod__ghost" aria-hidden="true">01</span>
+          <span class="bp-prod__chip">01 — Personal Brand</span>
+          <h2>Portfolio Website</h2>
+          <p class="bp-prod__desc">
+            A polished personal website for showcasing your work, experience,
+            projects, skills, and professional identity.
+          </p>
+
+          <div class="bp-mock bp-mock--portfolio" aria-hidden="true">
+            <span class="bp-mock__bar"><i></i><i></i><i></i></span>
+            <div class="bp-mock__body">
+              <span class="bp-mock__hero">A</span>
+              <div class="bp-mock__stack">
+                <span class="bp-mock__block bp-mock__block--wide"></span>
+                <div class="bp-mock__pair">
+                  <span class="bp-mock__block"></span>
+                  <span class="bp-mock__block"></span>
+                </div>
+                <span class="bp-mock__block bp-mock__block--wide"></span>
+              </div>
+            </div>
+            <div class="bp-mock__lines">
+              <span class="bp-bar" style="width: 52%"></span>
+              <span class="bp-bar" style="width: 34%"></span>
+              <span class="bp-bar bp-bar--accent" style="width: 52%"></span>
+              <span class="bp-bar bp-bar--accent" style="width: 52%"></span>
+            </div>
+          </div>
+
+          <footer class="bp-prod__foot">
+            <span class="bp-prod__best">Best for:</span>
+            <p>Students, developers, designers, researchers.</p>
+          </footer>
+
+          <a class="bp-prod__link" href="{{ 'web-platforms/#presence' | url }}"
+            >Explore Portfolio Websites <span>&rarr;</span></a
+          >
+        </article>
+
+        <!-- 02 — CV Website -->
+        <article class="bp-prod" data-bp-reveal style="--bp-delay: 80ms">
+          <span class="bp-prod__chip">02 — Profile</span>
+          <h2>CV Website</h2>
+          <p class="bp-prod__desc">
+            Turn a traditional CV into a clean, responsive digital profile.
+          </p>
+
+          <div class="bp-mock bp-mock--live">
+            <span class="showcase-chrome" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+            <iframe
+              src="{{ 'cv-templates/temp_2_pro.html' | url }}"
+              title="Live CV template preview"
+              loading="lazy"
+              scrolling="no"
+              tabindex="-1"
+            ></iframe>
+            <span class="bp-mock__tag">LIVE TEMPLATE</span>
+          </div>
+
+          <a class="bp-prod__link" href="{{ 'CV_index/' | url }}"
+            >Explore CV Websites <span>&rarr;</span></a
+          >
+        </article>
+
+        <!-- 04 — Documentation -->
+        <article class="bp-prod" data-bp-reveal style="--bp-delay: 160ms">
+          <span class="bp-prod__chip">04 — Knowledge</span>
+          <h2>Documentation</h2>
+          <p class="bp-prod__desc">
+            Organize technical or project information into a searchable
+            experience.
+          </p>
+
+          <div class="bp-mock bp-mock--docs" aria-hidden="true">
+            <div class="bp-mock__side">
+              <span class="bp-bar" style="width: 74%"></span>
+              <span class="bp-bar" style="width: 56%"></span>
+              <span class="bp-bar" style="width: 64%"></span>
+            </div>
+            <div class="bp-mock__lines">
+              <span class="bp-bar bp-bar--accent" style="width: 46%"></span>
+              <span class="bp-bar" style="width: 96%"></span>
+              <span class="bp-bar" style="width: 88%"></span>
+              <span class="bp-bar" style="width: 92%"></span>
+            </div>
+          </div>
+
+          <a class="bp-prod__link" href="{{ 'packages/' | url }}"
+            >Explore Documentation <span>&rarr;</span></a
+          >
+        </article>
+
+        <!-- 03 — Course & Academic Hub -->
+        <article class="bp-prod bp-prod--split" data-bp-reveal>
+          <div class="bp-prod__copy">
+            <span class="bp-prod__chip">03 — Academic</span>
+            <h2>Course &amp; Academic Hub</h2>
+            <p class="bp-prod__desc">
+              A structured academic website for organizing chapters, resources,
+              announcements, and course content.
+            </p>
+            <a class="bp-prod__link" href="{{ 'web-platforms/#course' | url }}"
+              >Explore Course Hubs <span>&rarr;</span></a
+            >
+          </div>
+
+          <div class="bp-mock bp-mock--hub" aria-hidden="true">
+            <div class="bp-mock__side">
+              <span class="bp-bar bp-bar--accent" style="width: 88%"></span>
+              <span class="bp-bar" style="width: 64%"></span>
+              <span class="bp-bar" style="width: 72%"></span>
+              <span class="bp-bar" style="width: 50%"></span>
+            </div>
+            <div class="bp-mock__grid">
+              <span class="bp-mock__block bp-mock__block--head"></span>
+              <div class="bp-mock__pair">
+                <span class="bp-mock__block"></span>
+                <span class="bp-mock__block"></span>
+              </div>
+              <span class="bp-mock__block bp-mock__block--wide"></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 — Interactive HTML Report -->
+        <article class="bp-prod" data-bp-reveal style="--bp-delay: 80ms">
+          <span class="bp-prod__chip">05 — Digital Report</span>
+          <h2>Interactive HTML Report</h2>
+          <p class="bp-prod__desc">
+            Transform traditional reports into polished web-based documents.
+          </p>
+
+          <div class="bp-mock bp-mock--ba">
+            <figure>
+              <img
+                src="{{ 'html-reports/assets/examples/cs330/before-page1.png' | url }}"
+                alt="Original PDF, first page"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Before &middot; PDF</figcaption>
+            </figure>
+            <span class="bp-mock__arrow" aria-hidden="true">&rarr;</span>
+            <figure>
+              <iframe
+                src="{{ 'html-reports/assets/examples/cs330/after.html' | url }}"
+                title="Converted HTML report"
+                loading="lazy"
+                tabindex="-1"
+              ></iframe>
+              <figcaption class="is-after">After &middot; HTML</figcaption>
+            </figure>
+          </div>
+
+          <a class="bp-prod__link" href="{{ 'html-reports/' | url }}"
+            >Explore HTML Reports <span>&rarr;</span></a
+          >
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================== CUSTOMIZATION ======================= -->
+    <section class="bp-section bp-custom">
+      <div class="bp-custom__copy">
+        <span class="bp-label" data-bp-reveal>customization://on</span>
+        <h2 class="bp-custom__title" data-bp-reveal style="--bp-delay: 70ms">
+          A structure to start from.<br />
+          Not a template you're stuck with.
+        </h2>
+        <p class="bp-custom__lede" data-bp-reveal style="--bp-delay: 140ms">
+          Every Blueprint build is adapted around your content, goals, and
+          identity while maintaining a clear and reliable structure.
+        </p>
+
+        <ol class="bp-custom__list">
+          {% for item in ["Adapted to your unique content", "Custom layout
+          adjustments", "Unique brand integration", "Bespoke functional
+          sections"] %}
+          <li data-bp-reveal style="--bp-delay:{{ 200 + loop.index0 * 80 }}ms">
+            <span class="bp-custom__num">{{ "%02d"|format(loop.index) }}</span
+            >{{ item }}
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+
+      <div
+        class="bp-custom__diagram"
+        data-bp-reveal
+        style="--bp-delay: 160ms"
+        aria-hidden="true"
+      >
+        <div class="bp-core">
+          <span class="bp-core__diamond"></span>
+          <em>Core<br />Structure</em>
+        </div>
+
+        <svg
+          class="bp-fan"
+          viewBox="0 0 40 300"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d="M0 150 L40 50" />
+          <path d="M0 150 L40 150" />
+          <path d="M0 150 L40 250" />
+        </svg>
+
+        <div class="bp-branch bp-branch--content">
+          <span class="bp-branch__label">Content</span>
+          <div class="bp-branch__box">
+            <span class="bp-mock__row">
+              <span class="bp-mock__dot"></span>
+              <span class="bp-bar" style="width: 60%"></span>
+            </span>
+            <span class="bp-bar" style="width: 88%"></span>
+            <span class="bp-bar bp-bar--block"></span>
+          </div>
+        </div>
+
+        <div class="bp-branch bp-branch--layout">
+          <span class="bp-branch__label">Layout</span>
+          <div class="bp-branch__box">
+            <span class="bp-mock__thumb"></span>
+            <div class="bp-mock__lines">
+              <span class="bp-bar" style="width: 92%"></span>
+              <span class="bp-bar" style="width: 76%"></span>
+              <span class="bp-bar" style="width: 84%"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bp-branch bp-branch--branding">
+          <span class="bp-branch__label">Branding</span>
+          <div class="bp-branch__box">
+            <span class="bp-mock__block"></span>
+            <span class="bp-mock__block"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== INCLUDES ========================== -->
+    <section class="bp-section bp-includes">
+      <h2 class="bp-includes__title" data-bp-reveal>
+        What Every Build Includes
+      </h2>
+
+      <div class="bp-includes__grid">
+        {% set includes = [ ("Hyper-Performance", "Static-first architecture
+        ensures near-instant load times and high Core Web Vital scores out of
+        the box.", "M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z"), ("Bulletproof
+        Security", "No databases, no backends, no vulnerabilities. Static sites
+        are inherently more secure than traditional platforms.", "M12 2 4
+        5.5v6c0 4.8 3.4 9.3 8 10.5 4.6-1.2 8-5.7 8-10.5v-6zm-1 13-3-3 1.4-1.4L11
+        12.2l4.6-4.6L17 9z"), ("Full Responsiveness", "Carefully crafted for
+        every screen size, ensuring your professional presence looks perfect on
+        mobile, tablet, and desktop.", "M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2
+        2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m0 3v13h10V5zm4 14.5h2v1h-2z"), ("SEO
+        Foundations", "Semantic HTML, proper meta tags, and optimized asset
+        loading make your site easy for search engines to crawl and rank.", "M10
+        2a8 8 0 1 0 4.9 14.3l5 5 1.4-1.4-5-5A8 8 0 0 0 10 2m0 2a6 6 0 1 1 0 12 6
+        6 0 0 1 0-12"), ("Managed Deployment", "We handle the hosting
+        configuration and deployment pipelines so you don't have to worry about
+        technical overhead.", "M5 3h14a2 2 0 0 1 2 2v3H3V5a2 2 0 0 1 2-2m-2
+        7h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zm6 3v2h6v-2z"), ("Clean Handover",
+        "Once finished, you receive clean, commented code and a structure that
+        is easy to update as your content grows.", "M4 4h16a2 2 0 0 1 2 2v12a2 2
+        0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m2.4 5L5 10.4 7.6 13 5 15.6 6.4
+        17l4-4zM12 15v1.6h5V15z") ] %} {% for title, copy, path in includes %}
+        <article
+          class="bp-include"
+          data-bp-reveal
+          style="--bp-delay:{{ loop.index0 * 70 }}ms"
+        >
+          <span class="bp-include__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="{{ path }}" />
+            </svg>
+          </span>
+          <h3>{{ title }}</h3>
+          <p>{{ copy }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

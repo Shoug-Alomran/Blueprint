@@ -20,7 +20,7 @@ last_updated: 2026-03-03
       --cream: #f6fbfb;
       --bg: #f3f8f8;
       --ink: #1f2937;
-      --ink-light: #5f6f7b;
+      --ink-light: var(--bp-text-mute, #4a5a6b);
       --rule: var(--line-soft, rgba(15, 89, 101, 0.2));
       --input-border: rgba(15, 89, 101, 0.22);
       --input-focus: #0f766e;
@@ -72,7 +72,7 @@ last_updated: 2026-03-03
       margin: 0 !important;
       padding: 0 !important;
       border: 0 !important;
-      color: #f6fffd !important;
+      color: var(--bp-on-accent) !important;
       font-size: 1.95rem;
       font-weight: 800;
       line-height: 1.2;
@@ -81,7 +81,7 @@ last_updated: 2026-03-03
 
     .bp-intake .bp-intake-header p {
       margin: 0.5rem 0 0;
-      color: rgba(240, 255, 252, 0.92);
+      color: rgba(255, 255, 255, 0.92);
       font-size: 1.02rem;
       line-height: 1.7;
       max-width: 74ch;
@@ -94,7 +94,7 @@ last_updated: 2026-03-03
       gap: 0.9rem;
       font-size: 0.84rem;
       letter-spacing: 0;
-      color: rgba(225, 252, 247, 0.95);
+      color: rgba(255, 255, 255, 0.95);
     }
 
     .bp-intake .bp-form { background: transparent; padding: 0 0 1.2rem; }
@@ -285,6 +285,7 @@ last_updated: 2026-03-03
       .bp-intake .bp-choice-grid,
       .bp-intake .bp-choice-grid.bp-cols-3 { grid-template-columns: 1fr; }
     }
+
   </style>
 
   <div class="bp-intake-page" id="bp-intake-print-root">
@@ -474,6 +475,7 @@ last_updated: 2026-03-03
       </div>
       <div class="bp-status" id="bp-intake-status"></div>
     </form>
+
   </div>
 
   <script>

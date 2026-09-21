@@ -9,8 +9,8 @@ copyright: © 2026 Blueprint · All rights reserved
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/logo.png
-  favicon: assets/google2.png
+  logo: assets/favicon.svg
+  favicon: assets/favicon.svg
   features:
     - navigation.tracking
     - navigation.tabs
@@ -22,30 +22,14 @@ theme:
     - search.highlight
     - content.code.copy
     - toc.follow
-  palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: blue grey
-      accent: teal
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: blue grey
-      accent: teal
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
   font:
     text: Manrope
-    code: Fira Code
+    code: JetBrains Mono
 
 nav:
   - Home: index.md
   - Products:
       - All Products: products/index.md
-      - Custom Websites: custom-websites/index.md
       - CV Templates: CV_index/index.md
       - HTML Report Conversions: html-reports/index.md
   - Services & Pricing: packages/index.md
@@ -90,6 +74,7 @@ plugins:
 
 hooks:
   - hooks/sitemap_filter.py
+  - hooks/search_index_from_html.py
 
 validation:
   nav:
@@ -98,19 +83,28 @@ validation:
     absolute_links: ignore
   links:
     not_found: ignore
-    anchors: ignore
     unrecognized_links: ignore
 
 extra_css:
   - styles/tokens.css
   - styles/layout.css
   - styles/components.css
+  - styles/blueprint.css
+  - styles/home.css
+  - styles/pages.css
+  - styles/products.css
+  - styles/studio.css
+  - styles/showcase.css
 
 extra:
   generator: false
 
 extra_javascript:
+  - javascripts/theme-toggle.js
+  - javascripts/search.js
+  - javascripts/blueprint-motion.js
   - javascripts/cta-footer.js
   - assets/storefront.js
   - javascripts/cv-purchase.js
   - javascripts/standalone-theme.js
+  - javascripts/studio.js

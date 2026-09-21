@@ -4,11 +4,22 @@ description: Watch Blueprint interface and website demos showing navigation, the
 role: Portfolio
 scope: Video walkthroughs of key UI behaviors
 last_updated: 2026-03-04
+hero_eyebrow: portfolio://feature-demos
+hero_title: Small details.<br><em>A better experience.</em>
+hero_lede: >
+  Explore the interactions that make a website easier to use, from clear navigation to thoughtful motion and language switching.
+hero_meta:
+  - label: Role
+    value: Portfolio
+  - label: Scope
+    value: Video walkthroughs of key UI behaviors
+hero_actions:
+  - label: Client Work
+    url: web-platforms/
+    primary: true
+  - label: Start a Project
+    url: start-project/
 ---
-
-# Demos
-
-Short screen recordings showing key UI behaviours and interactions. Open any demo to watch it on its own page.
 
 <div class="card-grid demos-grid">
   <article class="info-card video-card">

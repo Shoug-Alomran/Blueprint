@@ -15,21 +15,27 @@ To help students and early professionals establish a clean, structured, and prof
 ## What We Build
 
 ### Digital Gardens
+
 Personal knowledge spaces designed to grow over time.
+
 - Structured navigation
 - Clean information architecture
 - Responsive design
 - Long-term maintainability
 
 ### Project Documentation Systems
+
 Organized, searchable documentation for academic or technical projects.
+
 - Structured chapters
 - Search integration
 - Resource organization
 - Git-based deployment
 
 ### Workshop & Course Sites
+
 Clean workshop or course websites with clear learning structures.
+
 - Organized modules
 - Resource sections
 - Embedded materials
@@ -49,6 +55,7 @@ Blueprint projects prioritize:
 - Clean information architecture
 
 We intentionally do **not** provide:
+
 - Backend systems
 - Databases
 - User authentication
@@ -87,6 +94,7 @@ All projects include limited revision rounds to maintain clarity and efficiency.
 ## Ownership & Repository Policy
 
 Client project repositories may be:
+
 - Managed by Blueprint
 - Or transferred upon request after project completion
 

@@ -1,0 +1,116 @@
+{% from 'partials/studio-icons.html' import icon %}
+<header class="studio-header" data-md-component="header">
+  <a
+    class="studio-brand"
+    href="{{ '.' | url }}"
+    aria-label="Blueprint Studio home"
+    ><span class="studio-mark">{{ icon('browser') }}</span
+    ><span>BLUEPRINT<span>STUDIO</span></span></a
+  >
+  <button
+    class="studio-menu"
+    type="button"
+    aria-controls="studio-navigation"
+    aria-expanded="false"
+    aria-label="Open navigation"
+  >
+    <span></span><span></span>
+  </button>
+  <nav class="studio-nav" id="studio-navigation" aria-label="Main navigation">
+    {% for label, path in [('Products','products/'),('Services &
+    Pricing','packages/'),('How It
+    Works','process/'),('Portfolio','web-platforms/'),('About','about/'),('Contact','contact/')]
+    %}
+    <a
+      href="{{ path | url }}"
+      {%
+      if
+      page
+      and
+      page.url.startswith(path)
+      %}aria-current="page"
+      {%
+      endif
+      %}
+      >{{ label }}</a
+    >
+    {% endfor %}
+    <a class="studio-nav-cta" href="{{ 'start-project/' | url }}"
+      >Start a Project <span aria-hidden="true">↗</span></a
+    >
+  </nav>
+  <button
+    class="studio-search-open"
+    type="button"
+    data-bp-search-open
+    aria-label="Search the site"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12Zm0-2a8 8 0 1 0 4.9 14.32l4.39 4.39a1 1 0 0 0 1.42-1.42l-4.39-4.39A8 8 0 0 0 10 2Z"
+      />
+    </svg>
+    <span class="studio-search-open__label">Search</span>
+    <kbd aria-hidden="true">/</kbd>
+  </button>
+  <button
+    class="studio-theme"
+    type="button"
+    data-bp-theme-toggle
+    aria-label="Switch to light theme"
+    title="Switch theme"
+  >
+    <span class="studio-theme__track" aria-hidden="true">
+      <span class="studio-theme__thumb">
+        <svg class="studio-theme__sun" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-13.5a1 1 0 0 1 1 1V6a1 1 0 1 1-2 0V4.5a1 1 0 0 1 1-1Zm0 15a1 1 0 0 1 1 1V21a1 1 0 1 1-2 0v-1.5a1 1 0 0 1 1-1ZM4.5 11h1.5a1 1 0 1 1 0 2H4.5a1 1 0 1 1 0-2Zm13.5 0h1.5a1 1 0 1 1 0 2H18a1 1 0 1 1 0-2ZM6.3 5a1 1 0 0 1 1.4 0l1 1a1 1 0 0 1-1.4 1.4l-1-1a1 1 0 0 1 0-1.4Zm10 10a1 1 0 0 1 1.4 0l1 1a1 1 0 0 1-1.4 1.4l-1-1a1 1 0 0 1 0-1.4Zm1.4-10a1 1 0 0 1 0 1.4l-1 1A1 1 0 0 1 15.3 6l1-1a1 1 0 0 1 1.4 0Zm-10 10a1 1 0 0 1 0 1.4l-1 1A1 1 0 0 1 5.3 16l1-1a1 1 0 0 1 1.4 0Z"
+          />
+        </svg>
+        <svg class="studio-theme__moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 13.2A9 9 0 1 1 10.8 3a7 7 0 0 0 10.2 10.2Z" />
+        </svg>
+      </span>
+    </span>
+  </button>
+</header>
+<a class="studio-skip" href="#studio-main">Skip to content</a>
+
+<div
+  class="bp-search"
+  data-bp-search
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Search the site"
+>
+  <div class="bp-search__panel">
+    <div class="bp-search__bar">
+      <svg class="bp-search__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12Zm0-2a8 8 0 1 0 4.9 14.32l4.39 4.39a1 1 0 0 0 1.42-1.42l-4.39-4.39A8 8 0 0 0 10 2Z"
+        />
+      </svg>
+      <input
+        type="search"
+        data-bp-search-input
+        placeholder="Search pages, products, pricing&hellip;"
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Search query"
+      />
+      <button
+        type="button"
+        class="bp-search__close"
+        data-bp-search-close
+        aria-label="Close search"
+      >
+        Esc
+      </button>
+    </div>
+    <p class="bp-search__status" data-bp-search-status aria-live="polite">
+      Type to search the site.
+    </p>
+    <ul class="bp-search__results" data-bp-search-results></ul>
+  </div>
+</div>

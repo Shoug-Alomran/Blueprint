@@ -1,0 +1,126 @@
+{% extends 'main.html' %} {% from 'partials/studio-icons.html' import icon %} {%
+block container %}
+<div class="md-content bp-home-shell studio-page" id="studio-main">
+  <div class="bp-home">
+    <section class="studio-hero studio-grid">
+      <div class="studio-wrap">
+        <span class="studio-label">STUDIO://ABOUT</span>
+        <h1>A small studio.<br /><em>A clear purpose.</em></h1>
+        <div class="studio-hero-bottom">
+          <p>
+            Your work deserves a website that makes it easy to understand.
+            Blueprint brings your content, ideas, and identity together in one
+            considered place.
+          </p>
+          <span class="studio-caption"
+            >INDEPENDENT STUDIO<br />RIYADH, SAUDI ARABIA · ARABIC &
+            ENGLISH</span
+          >
+        </div>
+      </div>
+    </section>
+    <section class="studio-section">
+      <div class="studio-wrap studio-split">
+        <div>
+          <span class="studio-label">THE PERSON BEHIND THE BUILD</span>
+          <h2>One point of contact.<br />From idea to launch.</h2>
+          <p>
+            Blueprint is run by Shoug Fawaz Alomran, a Software Engineering and
+            Cybersecurity student at Prince Sultan University, under ShougTech.
+          </p>
+          <p>
+            When you get in touch, you speak directly to the person building
+            your website. That means clear conversations, thoughtful decisions,
+            and a consistent experience from start to finish.
+          </p>
+          <a class="journey-more" href="{{ 'web-platforms/' | url }}"
+            >See what we’ve built →</a
+          >
+        </div>
+        <div class="studio-studio-art studio-grid" aria-hidden="true">
+          <div class="studio-studio-art-frame">
+            {{ icon('browser') }}<strong
+              >Built with<br /><em>intention.</em></strong
+            ><span>CLARITY / STRUCTURE / CRAFT</span>
+          </div>
+          <span class="studio-studio-coordinate"
+            >BLUEPRINT STUDIO — EST. RIYADH</span
+          >
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-tint">
+      <div class="studio-wrap">
+        <span class="studio-label">WHAT WE BELIEVE</span>
+        <h2>A good website makes<br />the important things clear.</h2>
+        <div class="journey-inputs studio-values">
+          {% for title,desc,ico in [('Content comes first','The website should
+          help people understand your work. We start with what you need to say
+          and who needs to hear it.','file'),('Structure brings clarity','Pages,
+          navigation, and hierarchy give your content a natural order. Visitors
+          should know where to go next.','structure'),('Details
+          matter','Typography, spacing, responsive layouts, and thoughtful
+          motion make the experience feel considered.','pen'),('Keep it
+          maintainable','Your finished website should be easy to host,
+          understand, and look after. We build with that in mind.','shield')] %}
+          <article class="studio-panel">
+            {{ icon(ico) }}
+            <h3>{{ title }}</h3>
+            <p>{{ desc }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section">
+      <div class="studio-wrap studio-split">
+        <div>
+          <span class="studio-label">A FOCUSED PRACTICE</span>
+          <h2>A home for what<br />you want to share.</h2>
+          <p>
+            We build portfolios, professional websites, course hubs, and
+            documentation sites. We also create CV templates and turn reports
+            into easy-to-read web pages.
+          </p>
+          <p>
+            Our focus is static websites: fast, dependable pages that present
+            your content without accounts, databases, or complicated application
+            systems.
+          </p>
+          <a class="bp-btn" href="{{ 'products/' | url }}"
+            >Explore the products →</a
+          >
+        </div>
+        <div class="studio-fit-list">
+          {% for title,desc in [('Students & graduates','Bring your projects,
+          experience, and achievements together.'),('Professionals &
+          creatives','Give your work and expertise a clear digital
+          presence.'),('Educators & researchers','Make courses, resources, and
+          research easier to navigate.'),('Small teams & organizations','Explain
+          what you do and help people find the right information.')] %}
+          <div>
+            <h3>{{ title }}</h3>
+            <p>{{ desc }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="studio-section studio-grid">
+      <div class="studio-wrap studio-final">
+        <span class="studio-label">YOUR IDEA://NEXT</span>
+        <h2>Let’s give your work<br />a place of its own.</h2>
+        <p>
+          Tell us what you have in mind. We’ll help you find the right
+          structure.
+        </p>
+        <div class="studio-actions">
+          <a class="bp-btn bp-btn--primary" href="{{ 'start-project/' | url }}"
+            >Start a Project →</a
+          ><a class="bp-btn" href="{{ 'contact/' | url }}">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

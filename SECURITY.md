@@ -11,6 +11,7 @@ This document outlines how security concerns are handled for Blueprint-managed r
 Blueprint focuses exclusively on static website architecture.
 
 Supported project types:
+
 - Digital gardens
 - Project documentation systems
 - Workshop and course websites

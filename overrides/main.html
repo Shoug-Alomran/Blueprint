@@ -1,89 +1,208 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block site_meta %}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+{% set meta = page.meta if page and page.meta else {} %} {% set redirect_to =
+meta.redirect_to if meta.redirect_to else "" %} {% set canonical_override =
+meta.canonical if meta.canonical else "" %} {% if meta.description %}
+<meta name="description" content="{{ meta.description }}" />
+{% elif config.site_description %}
+<meta name="description" content="{{ config.site_description }}" />
+{% endif %} {% if meta.author %}
+<meta name="author" content="{{ meta.author }}" />
+{% elif config.site_author %}
+<meta name="author" content="{{ config.site_author }}" />
+{% endif %} {% if redirect_to %}
+<link rel="canonical" href="{{ redirect_to }}" />
+{% elif canonical_override %}
+<link rel="canonical" href="{{ canonical_override }}" />
+{% elif page and page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url }}" />
+{% endif %} {% if page and page.previous_page %}
+<link rel="prev" href="{{ page.previous_page.url | url }}" />
+{% endif %} {% if page and page.next_page %}
+<link rel="next" href="{{ page.next_page.url | url }}" />
+{% endif %} {% if config.extra.alternate is iterable %} {% for alt in
+config.extra.alternate %}
+<link
+  rel="alternate"
+  href="{{ alt.link | url }}"
+  hreflang="{{ alt.lang | d(lang.t('language')) }}"
+/>
+{% endfor %} {% endif %} {% if "rss" in config.plugins %}
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="{{ lang.t('rss.created') }}"
+  href="{{ 'feed_rss_created.xml' | url }}"
+/>
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="{{ lang.t('rss.updated') }}"
+  href="{{ 'feed_rss_updated.xml' | url }}"
+/>
+{% endif %}
+<link rel="icon" href="{{ config.theme.favicon | url }}" />
+<meta
+  name="generator"
+  content="mkdocs-{{ mkdocs_version }}, mkdocs-material-9.7.2"
+/>
+{% endblock %} {% block extrahead %}
+<meta name="blueprint-root" content="{{ '.' | url }}/" />
+{{ super() }}
+<link rel="icon" href="{{ 'assets/favicon.svg' | url }}" type="image/svg+xml" />
+<link
+  rel="alternate icon"
+  href="{{ 'assets/favicon.ico' | url }}"
+  sizes="any"
+/>
+<link rel="apple-touch-icon" href="{{ 'assets/apple-touch-icon.png' | url }}" />
+<meta name="theme-color" content="#060b17" />
+{#- Applied before first paint so the page never flashes the wrong scheme. -#}
+<script>
+  (function () {
+    var system = "slate";
+    try {
+      if (window.matchMedia("(prefers-color-scheme: light)").matches)
+        system = "default";
+    } catch (e) {
+      /* matchMedia unavailable */
+    }
 
-{% block site_meta %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  {% set meta = page.meta if page and page.meta else {} %}
-  {% set redirect_to = meta.redirect_to if meta.redirect_to else "" %}
-  {% set canonical_override = meta.canonical if meta.canonical else "" %}
-  {% if meta.description %}
-    <meta name="description" content="{{ meta.description }}">
-  {% elif config.site_description %}
-    <meta name="description" content="{{ config.site_description }}">
-  {% endif %}
-  {% if meta.author %}
-    <meta name="author" content="{{ meta.author }}">
-  {% elif config.site_author %}
-    <meta name="author" content="{{ config.site_author }}">
-  {% endif %}
-  {% if redirect_to %}
-    <link rel="canonical" href="{{ redirect_to }}">
-  {% elif canonical_override %}
-    <link rel="canonical" href="{{ canonical_override }}">
-  {% elif page and page.canonical_url %}
-    <link rel="canonical" href="{{ page.canonical_url }}">
-  {% endif %}
-  {% if page and page.previous_page %}
-    <link rel="prev" href="{{ page.previous_page.url | url }}">
-  {% endif %}
-  {% if page and page.next_page %}
-    <link rel="next" href="{{ page.next_page.url | url }}">
-  {% endif %}
-  {% if config.extra.alternate is iterable %}
-    {% for alt in config.extra.alternate %}
-      <link rel="alternate" href="{{ alt.link | url }}" hreflang="{{ alt.lang | d(lang.t('language')) }}">
-    {% endfor %}
-  {% endif %}
-  {% if "rss" in config.plugins %}
-    <link rel="alternate" type="application/rss+xml" title="{{ lang.t('rss.created') }}" href="{{ 'feed_rss_created.xml' | url }}">
-    <link rel="alternate" type="application/rss+xml" title="{{ lang.t('rss.updated') }}" href="{{ 'feed_rss_updated.xml' | url }}">
-  {% endif %}
-  <link rel="icon" href="{{ config.theme.favicon | url }}">
-  <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-9.7.2">
-{% endblock %}
+    var stored = null;
+    try {
+      stored = localStorage.getItem("bp-scheme");
+    } catch (e) {
+      /* private mode */
+    }
+    if (stored !== "default" && stored !== "slate") stored = null;
 
-{% block extrahead %}
-  {{ super() }}
-  {% set meta = page.meta if page and page.meta else {} %}
-  {% set meta_description = meta.description if meta.description else config.site_description %}
-  {% set page_title = page.title if page and page.title else config.site_name %}
-  {% set redirect_to = meta.redirect_to if meta.redirect_to else "" %}
-  {% set canonical_override = meta.canonical if meta.canonical else "" %}
-  {% set robots_content = meta.robots if meta.robots else "" %}
-  {% set canonical_url = redirect_to if redirect_to else (canonical_override if canonical_override else (page.canonical_url if page and page.canonical_url else config.site_url)) %}
-  {% set social_image = config.site_url ~ 'assets/logo.png' %}
-  {% if redirect_to %}
-  <meta http-equiv="refresh" content="0; url={{ redirect_to }}">
-  {% endif %}
-  {% if robots_content %}
-  <meta name="robots" content="{{ robots_content }}">
-  {% endif %}
-  <meta property="og:site_name" content="{{ config.site_name }}">
-  <meta property="og:title" content="{{ page_title }}">
-  <meta property="og:description" content="{{ meta_description }}">
-  <meta property="og:url" content="{{ canonical_url }}">
-  <meta property="og:image" content="{{ social_image }}">
-  <meta property="og:type" content="{% if page and page.is_homepage %}website{% else %}article{% endif %}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page_title }}">
-  <meta name="twitter:description" content="{{ meta_description }}">
-  <meta name="twitter:image" content="{{ social_image }}">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "{% if page and page.is_homepage %}WebSite{% else %}WebPage{% endif %}",
-      "name": {{ page_title|tojson }},
-      "description": {{ meta_description|trim|tojson }},
-      "url": {{ canonical_url|tojson }},
-      "publisher": {
-        "@type": "Organization",
-        "name": {{ config.site_name|tojson }},
-        "url": {{ config.site_url|tojson }},
-        "logo": {
-          "@type": "ImageObject",
-          "url": {{ social_image|tojson }}
-        }
+    document.documentElement.setAttribute(
+      "data-md-color-scheme",
+      stored || system,
+    );
+  })();
+</script>
+<noscript
+  ><style>
+    [data-bp-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    @media (max-width: 900px) {
+      .studio-header {
+        flex-wrap: wrap;
+      }
+      .studio-menu {
+        display: none;
+      }
+      .studio-nav {
+        display: flex;
+        position: static;
+        flex-wrap: wrap;
+        width: 100%;
+        box-shadow: none;
+      }
+      .studio-nav a {
+        font-size: 12px;
       }
     }
-  </script>
-{% endblock %}
+  </style></noscript
+>
+{% set meta = page.meta if page and page.meta else {} %} {% set meta_description
+= meta.description if meta.description else config.site_description %} {% set
+page_title = page.title if page and page.title else config.site_name %} {% set
+redirect_to = meta.redirect_to if meta.redirect_to else "" %} {% set
+canonical_override = meta.canonical if meta.canonical else "" %} {% set
+robots_content = meta.robots if meta.robots else "" %} {% set canonical_url =
+redirect_to if redirect_to else (canonical_override if canonical_override else
+(page.canonical_url if page and page.canonical_url else config.site_url)) %} {%
+set social_image = config.site_url ~ 'assets/banner.png' %} {% if redirect_to %}
+<meta http-equiv="refresh" content="0; url={{ redirect_to }}" />
+{% endif %} {% if robots_content %}
+<meta name="robots" content="{{ robots_content }}" />
+{% endif %}
+<meta property="og:site_name" content="{{ config.site_name }}" />
+<meta property="og:title" content="{{ page_title }}" />
+<meta property="og:description" content="{{ meta_description }}" />
+<meta property="og:url" content="{{ canonical_url }}" />
+<meta property="og:image" content="{{ social_image }}" />
+<meta
+  property="og:type"
+  content="{% if page and page.is_homepage %}website{% else %}article{% endif %}"
+/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ page_title }}" />
+<meta name="twitter:description" content="{{ meta_description }}" />
+<meta name="twitter:image" content="{{ social_image }}" />
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{% if page and page.is_homepage %}WebSite{% else %}WebPage{% endif %}",
+    "name": {{ page_title|tojson }},
+    "description": {{ meta_description|trim|tojson }},
+    "url": {{ canonical_url|tojson }},
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ config.site_name|tojson }},
+      "url": {{ config.site_url|tojson }},
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ social_image|tojson }}
+      }
+    }
+  }
+</script>
+{% endblock %} {% block content %}
+<span id="studio-main" tabindex="-1"></span>
+{# Blueprint page band. Renders a breadcrumb and, when the page declares hero_*
+front matter, a full hero in the homepage's visual language. #} {% set meta =
+page.meta if page and page.meta else {} %} {% if not (page and page.is_homepage)
+%}
+<div class="bp-pagehead">
+  <span class="bp-pagehead__path">
+    {%- if page and page.ancestors -%} {%- for parent in page.ancestors |
+    reverse -%}
+    <i>{{ parent.title }}</i><b>/</b>
+    {%- endfor -%} {%- else -%}
+    <i>Blueprint</i><b>/</b>
+    {%- endif -%}
+    <em>{{ page.title if page else config.site_name }}</em>
+  </span>
+  {% if false %}
+  <span class="bp-pagehead__role">{{ meta.role }}</span>
+  {% endif %}
+</div>
+
+{% if meta.hero_title %}
+<section class="bp-ph">
+  {% if meta.hero_eyebrow %}
+  <span class="bp-ph__eyebrow">{{ meta.hero_eyebrow }}</span>
+  {% endif %}
+  <h1 class="bp-ph__title">{{ meta.hero_title | safe }}</h1>
+  {% if meta.hero_lede %}
+  <p class="bp-ph__lede">{{ meta.hero_lede | safe }}</p>
+  {% endif %} {% if meta.hero_actions %}
+  <div class="bp-ph__actions">
+    {% for action in meta.hero_actions %}
+    <a
+      class="md-button{% if action.primary %} md-button--primary{% endif %}"
+      href="{{ action.url | url }}"
+      >{{ action.label }}</a
+    >
+    {% endfor %}
+  </div>
+  {% endif %} {% set client_meta = meta.hero_meta | rejectattr('label', 'in',
+  ['Role', 'Scope']) | list if meta.hero_meta else [] %} {% if client_meta %}
+  <div class="bp-ph__meta">
+    {% for item in client_meta %}
+    <span><b>{{ item.label }}</b>{{ item.value }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endif %} {% endif %} {{ super() }} {% endblock %} {% block header %}{%
+include 'partials/studio-header.html' %}{% endblock %} {% block tabs %}{%
+endblock %} {% block site_nav %}{% endblock %} {% block footer %}{% include
+'partials/studio-footer.html' %}{% endblock %} {% block announce %}{% endblock
+%}

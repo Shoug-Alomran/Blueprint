@@ -1,0 +1,1239 @@
+/* ==========================================================================
+   Blueprint — site-wide visual language
+   Loaded last: establishes the dark blueprint interface across every page.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Material theme variables remapped onto the blueprint palette
+   -------------------------------------------------------------------------- */
+
+:root,
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: var(--bp-bg);
+  --md-default-bg-color--light: var(--bp-bg-2);
+  --md-default-bg-color--lighter: var(--bp-surface);
+  --md-default-fg-color: var(--bp-text);
+  --md-default-fg-color--light: var(--bp-text-soft);
+  --md-default-fg-color--lighter: var(--bp-text-mute);
+  --md-default-fg-color--lightest: var(--bp-text-faint);
+
+  --md-primary-fg-color: var(--bp-blue);
+  --md-primary-fg-color--light: var(--bp-blue-bright);
+  --md-primary-fg-color--dark: var(--bp-blue-deep);
+  --md-primary-bg-color: var(--bp-on-accent);
+  --md-primary-bg-color--light: var(--bp-text-soft);
+
+  --md-accent-fg-color: var(--bp-cyan);
+  --md-accent-fg-color--transparent: var(--bp-tint-3);
+  --md-accent-bg-color: var(--bp-bg);
+
+  --md-typeset-color: var(--bp-text-soft);
+  --md-typeset-a-color: var(--bp-cyan);
+  --md-code-bg-color: var(--bp-surface-2);
+  --md-code-fg-color: var(--bp-text-soft);
+  --md-footer-bg-color: transparent;
+  --md-footer-bg-color--dark: transparent;
+  --md-footer-fg-color: var(--bp-text-soft);
+}
+
+/* --------------------------------------------------------------------------
+   1. Page shell + blueprint grid motif
+   -------------------------------------------------------------------------- */
+
+html {
+  background: var(--bp-bg);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body,
+.md-main,
+.md-container,
+.md-content {
+  background: transparent !important;
+}
+
+body {
+  color: var(--bp-text);
+  font-family: var(--bp-font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Faint architectural grid + a soft blue horizon behind everything. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--bp-line-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bp-line-grid) 1px, transparent 1px);
+  background-size: var(--bp-grid-size) var(--bp-grid-size);
+  mask-image: radial-gradient(
+    ellipse 120% 80% at 50% 0%,
+    #000 20%,
+    transparent 78%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 120% 80% at 50% 0%,
+    #000 20%,
+    transparent 78%
+  );
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      60rem 34rem at 78% -8%,
+      rgba(47, 107, 255, 0.16),
+      transparent 62%
+    ),
+    radial-gradient(
+      48rem 30rem at 6% 4%,
+      rgba(27, 75, 216, 0.12),
+      transparent 64%
+    );
+}
+
+.md-grid,
+.md-main__inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   2. Header / navigation
+   -------------------------------------------------------------------------- */
+
+.md-header {
+  background: var(--bp-glass-1) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transition:
+    background 0.35s var(--bp-ease),
+    border-color 0.35s var(--bp-ease);
+}
+
+.md-header[data-md-state="shadow"],
+body.bp-scrolled .md-header {
+  background: var(--bp-glass-2) !important;
+  border-bottom-color: var(--bp-line) !important;
+  box-shadow: 0 10px 40px -24px rgba(0, 0, 0, 0.9) !important;
+}
+
+.md-tabs {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transition: background 0.35s var(--bp-ease);
+}
+
+body.bp-scrolled .md-tabs {
+  background: var(--bp-glass-2) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--bp-line) !important;
+}
+
+.md-header__title {
+  font-family: var(--bp-font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  border-radius: 0.42rem;
+}
+
+/* Tabs read as quiet nav links, with an animated blueprint underline. */
+.md-tabs__link {
+  position: relative;
+  opacity: 1;
+  color: var(--bp-text-soft) !important;
+  font-family: var(--bp-font-body);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.005em;
+  border-radius: 0;
+  padding: 0.2rem 0 !important;
+  margin: 0 0.62rem;
+  background: none !important;
+  transition: color 0.25s var(--bp-ease);
+}
+
+.md-tabs__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.18rem;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--bp-blue), var(--bp-cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--bp-ease);
+}
+
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  color: var(--bp-text) !important;
+}
+
+.md-tabs__link:hover::after,
+.md-tabs__link--active::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   3. Sidebars + table of contents
+   -------------------------------------------------------------------------- */
+
+.md-sidebar,
+.md-nav {
+  background: transparent !important;
+}
+
+.md-nav__title {
+  color: var(--bp-text-mute) !important;
+  font-family: var(--bp-font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.md-nav__link {
+  color: var(--bp-text-soft) !important;
+  border-radius: var(--bp-radius-sm);
+  padding: 0.22rem 0.5rem;
+  transition:
+    color 0.2s var(--bp-ease),
+    background 0.2s var(--bp-ease);
+}
+
+.md-nav__link:hover {
+  color: var(--bp-text) !important;
+  background: rgba(47, 107, 255, 0.1);
+}
+
+.md-nav__link--active,
+.md-nav__link--active:hover,
+.md-nav__item .md-nav__link--active {
+  color: var(--bp-cyan) !important;
+  background: rgba(47, 107, 255, 0.12);
+  font-weight: 700;
+}
+
+.md-nav--secondary .md-nav__list {
+  border-left: 1px solid var(--bp-line);
+  padding-left: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography
+   -------------------------------------------------------------------------- */
+
+.md-typeset {
+  color: var(--bp-text-soft);
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+
+.md-typeset :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--bp-font-display);
+  color: var(--bp-text);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.md-typeset h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+  font-weight: 800;
+  margin-bottom: 0.9rem;
+}
+
+.md-typeset h2 {
+  font-size: clamp(1.45rem, 3vw, 2.05rem);
+  font-weight: 800;
+  margin-top: 3.2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--bp-line);
+  position: relative;
+}
+
+/* Blueprint node marker on every section rule. */
+.md-typeset h2::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--bp-blue);
+  box-shadow: 0 0 0 4px rgba(47, 107, 255, 0.16);
+}
+
+.md-typeset h3 {
+  font-size: 1.02rem;
+  margin-top: 1.9rem;
+}
+
+.md-typeset p,
+.md-typeset li {
+  color: var(--bp-text-soft);
+}
+
+.md-typeset strong {
+  color: var(--bp-text);
+  font-weight: 700;
+}
+
+.md-typeset a {
+  color: var(--bp-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(124, 199, 255, 0.26);
+  transition:
+    color 0.2s var(--bp-ease),
+    border-color 0.2s var(--bp-ease);
+}
+
+.md-typeset a:hover {
+  color: var(--bp-text);
+  border-bottom-color: var(--bp-blue-bright);
+}
+
+.md-typeset code {
+  font-family: var(--bp-font-mono);
+  background: rgba(47, 107, 255, 0.12);
+  border: 1px solid var(--bp-line);
+  color: var(--bp-cyan);
+  border-radius: 0.35rem;
+  font-size: 0.85em;
+}
+
+.md-typeset hr {
+  border-color: var(--bp-line);
+}
+
+/* --------------------------------------------------------------------------
+   5. Buttons
+   -------------------------------------------------------------------------- */
+
+.md-typeset .md-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--bp-font-body);
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: -0.005em;
+  padding: 0.66rem 1.25rem;
+  border-radius: var(--bp-radius-sm);
+  border: 1px solid var(--bp-line-strong);
+  background: var(--bp-tint-1);
+  color: var(--bp-text) !important;
+  box-shadow: none;
+  transition:
+    transform 0.3s var(--bp-ease),
+    background 0.3s var(--bp-ease),
+    border-color 0.3s var(--bp-ease),
+    box-shadow 0.3s var(--bp-ease);
+}
+
+.md-typeset .md-button:hover {
+  transform: translateY(-2px);
+  background: rgba(47, 107, 255, 0.1);
+  border-color: var(--bp-blue);
+  color: var(--bp-text) !important;
+}
+
+.md-typeset .md-button--primary {
+  background: linear-gradient(135deg, var(--bp-blue), var(--bp-blue-deep));
+  border-color: transparent;
+  color: var(--bp-on-accent) !important;
+  box-shadow: 0 14px 38px -18px rgba(47, 107, 255, 0.95);
+}
+
+.md-typeset .md-button--primary:hover {
+  background: linear-gradient(135deg, var(--bp-blue-bright), var(--bp-blue));
+  box-shadow: 0 18px 46px -16px rgba(47, 107, 255, 1);
+}
+
+/* --------------------------------------------------------------------------
+   6. Cards (info-card powers most inner pages)
+   -------------------------------------------------------------------------- */
+
+.md-typeset .card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  margin: 1.6rem 0;
+}
+
+.md-typeset .info-card,
+.md-typeset .hero-card,
+.md-typeset .process-card,
+.md-typeset .example-card,
+.md-typeset .video-card,
+.md-typeset .cv-template-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    165deg,
+    var(--bp-tint-2),
+    var(--bp-tint-1)
+  ) !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: var(--bp-radius-lg) !important;
+  padding: 1.5rem 1.4rem !important;
+  box-shadow: none !important;
+  transition:
+    transform 0.4s var(--bp-ease),
+    border-color 0.4s var(--bp-ease),
+    box-shadow 0.4s var(--bp-ease),
+    background 0.4s var(--bp-ease);
+}
+
+/* A blueprint sheen that sweeps in on hover. */
+.md-typeset .info-card::after,
+.md-typeset .hero-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    22rem 14rem at 50% -20%,
+    rgba(47, 107, 255, 0.24),
+    transparent 70%
+  );
+  transition: opacity 0.45s var(--bp-ease);
+}
+
+.md-typeset .info-card:hover,
+.md-typeset .hero-card:hover,
+.md-typeset .process-card:hover,
+.md-typeset .example-card:hover,
+.md-typeset .video-card:hover,
+.md-typeset .cv-template-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--bp-line-strong) !important;
+  box-shadow: var(--bp-glow-soft) !important;
+}
+
+.md-typeset .info-card:hover::after,
+.md-typeset .hero-card:hover::after {
+  opacity: 1;
+}
+
+.md-typeset .info-card > *,
+.md-typeset .hero-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.md-typeset .info-card h3,
+.md-typeset .hero-card h3 {
+  color: var(--bp-text) !important;
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+}
+
+.md-typeset .info-card p,
+.md-typeset .info-card li,
+.md-typeset .hero-card p {
+  color: var(--bp-text-soft) !important;
+  font-size: 0.74rem;
+  margin: 0;
+}
+
+/* Numbered tier cards get a ghosted blueprint index. */
+.md-typeset .hero-cards--tiers .info-card::before,
+.md-typeset .hero-cards--timeline .info-card::before {
+  font-family: var(--bp-font-mono) !important;
+  color: rgba(122, 162, 255, 0.16) !important;
+  background: none !important;
+  border: 0 !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  top: 1rem !important;
+  right: 1.1rem !important;
+  left: auto !important;
+  width: auto !important;
+  height: auto !important;
+  box-shadow: none !important;
+}
+
+.md-typeset .hero-cards--timeline::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--bp-line-strong),
+    transparent
+  ) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Page heroes on inner pages
+   -------------------------------------------------------------------------- */
+
+.md-typeset .page-hero,
+.md-typeset .terminal-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    150deg,
+    rgba(15, 34, 71, 0.75),
+    var(--bp-glass-1)
+  ) !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: var(--bp-radius-xl) !important;
+  box-shadow: var(--bp-shadow) !important;
+  margin-bottom: 2.4rem;
+}
+
+.md-typeset .page-hero::before,
+.md-typeset .terminal-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(122, 162, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(122, 162, 255, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(
+    ellipse 80% 100% at 80% 0%,
+    #000,
+    transparent 72%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 100% at 80% 0%,
+    #000,
+    transparent 72%
+  );
+}
+
+.md-typeset .page-hero > *,
+.md-typeset .terminal-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.md-typeset .page-hero__bar,
+.md-typeset .terminal-bar {
+  background: var(--bp-glass-1) !important;
+  border-bottom: 1px solid var(--bp-line) !important;
+}
+
+.md-typeset .page-hero__ref,
+.md-typeset .terminal-label,
+.md-typeset .bp-section-label {
+  font-family: var(--bp-font-mono) !important;
+  color: var(--bp-cyan) !important;
+  font-size: 0.6rem !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase;
+}
+
+.md-typeset .page-hero__title,
+.md-typeset .terminal-body h1 {
+  font-family: var(--bp-font-display);
+  color: var(--bp-text) !important;
+  letter-spacing: -0.035em;
+  text-shadow: none !important;
+}
+
+.md-typeset .page-hero__summary,
+.md-typeset .terminal-body p {
+  color: var(--bp-text-soft) !important;
+}
+
+.md-typeset .terminal-command {
+  font-family: var(--bp-font-mono) !important;
+  color: var(--bp-text-mute) !important;
+  background: rgba(47, 107, 255, 0.07) !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: var(--bp-radius-sm);
+}
+
+.md-typeset .page-hero__chip {
+  background: var(--bp-tint-2) !important;
+  border: 1px solid var(--bp-line) !important;
+  color: var(--bp-text-soft) !important;
+  border-radius: var(--bp-radius-sm) !important;
+  transition: all 0.3s var(--bp-ease);
+}
+
+.md-typeset .page-hero__chip:hover {
+  background: rgba(47, 107, 255, 0.14) !important;
+  border-color: var(--bp-blue) !important;
+  color: var(--bp-text) !important;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   8. Tables, admonitions, forms
+   -------------------------------------------------------------------------- */
+
+.md-typeset table:not([class]) {
+  background: var(--bp-tint-1) !important;
+  border: 1px solid var(--bp-line) !important;
+  border-radius: var(--bp-radius) !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  font-size: 0.72rem;
+}
+
+.md-typeset table:not([class]) th {
+  background: rgba(47, 107, 255, 0.1) !important;
+  color: var(--bp-text) !important;
+  font-family: var(--bp-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--bp-line-strong) !important;
+}
+
+.md-typeset table:not([class]) td {
+  border-top: 1px solid var(--bp-line) !important;
+  color: var(--bp-text-soft) !important;
+}
+
+.md-typeset table:not([class]) tr:hover td {
+  background: rgba(47, 107, 255, 0.05) !important;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  background: var(--bp-tint-1) !important;
+  border: 1px solid var(--bp-line) !important;
+  border-left: 2px solid var(--bp-blue) !important;
+  border-radius: var(--bp-radius) !important;
+  box-shadow: none !important;
+  color: var(--bp-text-soft);
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background: rgba(47, 107, 255, 0.08) !important;
+  color: var(--bp-text) !important;
+}
+
+.md-typeset
+  :is(
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea
+  ) {
+  background: var(--bp-tint-2);
+  border: 1px solid var(--bp-line);
+  border-radius: var(--bp-radius-sm);
+  color: var(--bp-text);
+  font-family: var(--bp-font-body);
+  padding: 0.56rem 0.7rem;
+  transition:
+    border-color 0.25s var(--bp-ease),
+    box-shadow 0.25s var(--bp-ease);
+}
+
+.md-typeset :is(input, select, textarea):focus {
+  outline: none;
+  border-color: var(--bp-blue);
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   9. Search + footer
+   -------------------------------------------------------------------------- */
+
+.md-search__form {
+  background: var(--bp-tint-3) !important;
+  border: 1px solid var(--bp-line);
+  border-radius: var(--bp-radius-sm);
+}
+
+.md-search__input::placeholder {
+  color: var(--bp-text-mute);
+}
+
+.md-search__output,
+.md-search-result__meta,
+.md-search-result__article {
+  background: var(--bp-surface) !important;
+  color: var(--bp-text-soft);
+}
+
+.md-footer,
+.md-footer-meta {
+  background: transparent !important;
+  border-top: 1px solid var(--bp-line);
+}
+
+.md-footer__link {
+  color: var(--bp-text-soft);
+}
+
+.md-copyright,
+.md-footer-meta .md-copyright__highlight {
+  color: var(--bp-text-mute) !important;
+  font-family: var(--bp-font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------------------------------
+   10. Scroll-reveal utility (driven by blueprint-motion.js)
+   -------------------------------------------------------------------------- */
+
+[data-bp-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.85s var(--bp-ease-out),
+    transform 0.85s var(--bp-ease-out);
+  transition-delay: var(--bp-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-bp-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-bp-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+::selection {
+  background: rgba(47, 107, 255, 0.35);
+  color: var(--bp-text);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bp-void);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(122, 162, 255, 0.2);
+  border-radius: 999px;
+  border: 2px solid var(--bp-void);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(122, 162, 255, 0.36);
+}
+
+/* --------------------------------------------------------------------------
+   11. Inner-page header band
+   Renders above each page's H1 (see overrides/main.html) so every inner page
+   opens with the same blueprint language as the homepage.
+   -------------------------------------------------------------------------- */
+
+.md-content__inner {
+  position: relative;
+  padding-top: 1.4rem;
+}
+
+/* Grid + glow behind the opening of every inner page. */
+.md-content__inner:not(:has(.bp-home))::before {
+  content: "";
+  position: absolute;
+  top: -1.2rem;
+  left: -2.5rem;
+  right: -2.5rem;
+  height: 22rem;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(
+      38rem 16rem at 22% 0%,
+      rgba(47, 107, 255, 0.14),
+      transparent 68%
+    ),
+    linear-gradient(to right, rgba(122, 162, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(122, 162, 255, 0.055) 1px, transparent 1px);
+  background-size:
+    auto,
+    44px 44px,
+    44px 44px;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+}
+
+.md-content__inner > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bp-pagehead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+.bp-pagehead__path {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--bp-font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.bp-pagehead__path i {
+  font-style: normal;
+  color: var(--bp-text-faint);
+}
+.bp-pagehead__path b {
+  font-weight: 400;
+  color: var(--bp-text-faint);
+  opacity: 0.6;
+}
+.bp-pagehead__path em {
+  font-style: normal;
+  color: var(--bp-cyan);
+}
+
+.bp-pagehead__role {
+  font-family: var(--bp-font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bp-text-mute);
+  border: 1px solid var(--bp-line);
+  border-radius: 999px;
+  padding: 0.24rem 0.7rem;
+  background: rgba(47, 107, 255, 0.06);
+}
+
+/* The page's own H1 becomes the hero line of the band. */
+.md-content__inner > h1:first-of-type {
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  letter-spacing: -0.04em;
+  margin-bottom: 1.1rem;
+}
+
+/* A page's opening paragraph reads as a lede. */
+.md-content__inner > h1:first-of-type + p {
+  font-size: 0.92rem;
+  color: var(--bp-text-soft);
+  max-width: 44rem;
+}
+
+/* The first H2 needs no divider — the band already separates it. */
+.md-content__inner > h2:first-of-type:nth-child(2) {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.md-content__inner > h2:first-of-type:nth-child(2)::before {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer (markup injected by javascripts/cta-footer.js)
+   -------------------------------------------------------------------------- */
+
+.md-footer {
+  background: transparent !important;
+  border-top: 1px solid var(--bp-line) !important;
+  margin-top: clamp(3rem, 8vw, 6rem);
+}
+
+.md-footer-meta {
+  display: none !important;
+}
+
+.bp-footer {
+  position: relative;
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 4.6rem) clamp(1.4rem, 3.4vw, 3rem) 1.6rem;
+  color: var(--bp-text-soft);
+}
+
+.bp-footer__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+/* --- Brand ------------------------------------------------------------- */
+
+.bp-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none !important;
+  border: 0 !important;
+  margin-bottom: 1.2rem;
+}
+
+/* The diamond-in-square blueprint mark. */
+.bp-footer__mark {
+  position: relative;
+  width: 1.7rem;
+  height: 1.7rem;
+  flex: 0 0 auto;
+}
+
+.bp-footer__mark::before,
+.bp-footer__mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--bp-blue-bright);
+}
+
+.bp-footer__mark::after {
+  transform: rotate(45deg);
+}
+
+.bp-footer__name {
+  font-family: var(--bp-font-display);
+  font-size: 1.22rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--bp-text);
+}
+
+.bp-footer__tagline {
+  max-width: 21rem;
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--bp-text-soft);
+}
+
+/* --- Link columns ------------------------------------------------------ */
+
+.bp-footer__col {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+}
+
+.bp-footer__heading {
+  font-family: var(--bp-font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.024em;
+  color: var(--bp-text);
+  margin: 0 0 0.35rem;
+}
+
+.bp-footer__link {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--bp-text-soft) !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  width: fit-content;
+  transition:
+    color 0.22s var(--bp-ease),
+    transform 0.22s var(--bp-ease);
+}
+
+.bp-footer__link:hover {
+  color: var(--bp-text) !important;
+  transform: translateX(3px);
+}
+
+/* --- Base bar ---------------------------------------------------------- */
+
+.bp-footer__base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem 1.6rem;
+  margin-top: clamp(2.6rem, 6vw, 4rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--bp-line);
+}
+
+.bp-footer__rights {
+  font-family: var(--bp-font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  color: var(--bp-text-faint);
+}
+
+.bp-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+}
+
+.bp-footer__legal a {
+  font-family: var(--bp-font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--bp-text-mute) !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  transition: color 0.22s var(--bp-ease);
+}
+
+.bp-footer__legal a:hover {
+  color: var(--bp-text) !important;
+}
+
+/* --- Floating cart pill ------------------------------------------------ */
+
+.bp-cart-indicator {
+  background: var(--bp-blue) !important;
+  color: var(--bp-on-accent) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--bp-radius-sm) !important;
+  font-family: var(--bp-font-body) !important;
+  font-size: 0.76rem !important;
+  box-shadow: 0 16px 40px -16px rgba(47, 107, 255, 0.95) !important;
+  transition:
+    transform 0.3s var(--bp-ease),
+    background 0.3s var(--bp-ease);
+}
+
+.bp-cart-indicator:hover {
+  transform: translateY(-2px);
+  background: var(--bp-blue-bright) !important;
+}
+
+@media (max-width: 900px) {
+  .bp-footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .bp-footer__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.2rem;
+  }
+  .bp-footer__base {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bp-footer__legal {
+    gap: 1.1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Hero pages
+   Material injects an <h1> from page.title when the markdown has no level-1
+   heading. Pages that declare a front-matter hero already render their own,
+   so the injected one is suppressed.
+   -------------------------------------------------------------------------- */
+
+.md-content__inner .bp-ph ~ h1 {
+  display: none;
+}
+
+/* With a hero present the band's own backdrop is enough. */
+.md-content__inner:has(.bp-ph)::before {
+  display: none;
+}
+
+.md-content__inner:has(.bp-ph) > h2:first-of-type {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   14. Header mark
+   The design uses the diamond-in-square blueprint mark rather than the raster
+   logo, so the mark is drawn in CSS and the image is hidden.
+   -------------------------------------------------------------------------- */
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  display: none !important;
+}
+
+.md-header__button.md-logo {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 !important;
+  margin-inline-end: 0.5rem;
+  flex: 0 0 auto;
+}
+
+.md-header__button.md-logo::before,
+.md-header__button.md-logo::after {
+  content: "";
+  position: absolute;
+  inset: 0.12rem;
+  border: 1.5px solid var(--bp-blue-bright);
+  transition:
+    border-color 0.3s var(--bp-ease),
+    transform 0.5s var(--bp-ease);
+}
+
+.md-header__button.md-logo::after {
+  transform: rotate(45deg);
+}
+
+.md-header__button.md-logo:hover::after {
+  transform: rotate(135deg);
+}
+
+.md-header__button.md-logo:hover::before,
+.md-header__button.md-logo:hover::after {
+  border-color: var(--bp-cyan);
+}
+
+/* ===========================================================================
+   INTERACTION MOTION
+   Transitions for the states the site already had but changed instantly:
+   hovering a card, focusing a control, pressing a button. Everything here is
+   transform/opacity/colour only, so it stays off the layout path, and all of
+   it is disabled by the reduced-motion rule in tokens.css.
+   =========================================================================== */
+
+a,
+button,
+summary,
+.bp-btn,
+.bp-card,
+.bp-prod,
+.studio-panel,
+.studio-work-card,
+.showcase-card,
+.compare {
+  transition:
+    color var(--bp-dur-fast) var(--bp-ease),
+    background-color var(--bp-dur-fast) var(--bp-ease),
+    border-color var(--bp-dur-fast) var(--bp-ease),
+    box-shadow var(--bp-dur) var(--bp-ease),
+    transform var(--bp-dur) var(--bp-ease);
+}
+
+/* Cards lift a little and pick up a blueprint-blue edge. */
+.bp-card:hover,
+.bp-prod:hover,
+.studio-panel:hover,
+.studio-work-card:hover,
+.showcase-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--bp-line-strong);
+  box-shadow: var(--bp-shadow);
+}
+
+/* Buttons press in rather than just changing colour. */
+.bp-btn:active,
+.studio-nav-cta:active,
+.md-typeset .md-button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+/* One visible focus treatment everywhere, for keyboard users. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--bp-blue);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Inline links draw their underline in from the left. */
+.md-typeset a:not(.bp-btn):not(.md-button):not(.bp-prod__link) {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition:
+    background-size var(--bp-dur) var(--bp-ease),
+    color var(--bp-dur-fast) var(--bp-ease);
+}
+
+.md-typeset a:not(.bp-btn):not(.md-button):not(.bp-prod__link):hover {
+  background-size: 100% 1px;
+}
+
+/* Arrows in "explore" links nudge forward on hover. */
+.bp-prod__link span,
+.journey-more,
+.studio-nav-cta span {
+  transition: transform var(--bp-dur) var(--bp-ease);
+}
+
+.journey-more:hover,
+.studio-nav-cta:hover span {
+  transform: translateX(3px);
+}
+
+/* The sticky header condenses once the page scrolls (class set in JS). */
+.studio-header {
+  transition:
+    min-height var(--bp-dur) var(--bp-ease),
+    background-color var(--bp-dur) var(--bp-ease),
+    box-shadow var(--bp-dur) var(--bp-ease),
+    border-color var(--bp-dur) var(--bp-ease);
+}
+
+body.bp-scrolled .studio-header {
+  min-height: 68px;
+  box-shadow: var(--bp-shadow-sm);
+}
+
+@media (max-width: 600px) {
+  body.bp-scrolled .studio-header {
+    min-height: 58px;
+  }
+}
+
+/* Images and embedded previews fade in rather than popping. */
+.compare-view img,
+.showcase-frame iframe,
+.bp-mock--ba img {
+  transition:
+    opacity var(--bp-dur-slow) var(--bp-ease),
+    transform var(--bp-dur-slow) var(--bp-ease);
+}
+
+.compare:hover .compare-view img {
+  transform: scale(1.015);
+}

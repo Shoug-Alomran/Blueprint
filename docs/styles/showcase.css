@@ -1,0 +1,447 @@
+/* ==========================================================================
+   Blueprint — product showcases
+   Live CV template previews and PDF → HTML before/after comparisons.
+   Follows the studio design tokens defined in studio.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Tier cards above the CV gallery
+   -------------------------------------------------------------------------- */
+
+.showcase-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.showcase-note {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.showcase-note h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--bp-text);
+}
+.showcase-note p {
+  margin: 0;
+  color: var(--studio-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.showcase-note .journey-more {
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Live template gallery
+   -------------------------------------------------------------------------- */
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.showcase-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.showcase-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--studio-line);
+  border-radius: var(--bp-radius-lg);
+  background: var(--studio-panel);
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.showcase-card:hover .showcase-frame {
+  transform: translateY(-4px);
+  border-color: rgba(57, 129, 255, 0.5);
+  box-shadow: 0 24px 60px -34px rgba(57, 129, 255, 0.9);
+}
+
+.showcase-chrome {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 2;
+  display: flex;
+  gap: 5px;
+  padding: 9px 11px;
+  background: var(--bp-glass-3);
+  border-bottom: 1px solid var(--studio-line);
+}
+
+.showcase-chrome i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(143, 172, 220, 0.28);
+}
+
+/* The template renders at full width, then scales down to a thumbnail. */
+.showcase-frame iframe {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 250%;
+  height: calc(250% - 30px);
+  border: 0;
+  transform: scale(0.4);
+  transform-origin: top left;
+  pointer-events: none;
+  background: #fff;
+}
+
+.showcase-open {
+  position: absolute;
+  inset: 30px 0 0 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--bp-on-accent) !important;
+  text-decoration: none !important;
+  background: var(--bp-glass-2);
+  backdrop-filter: blur(2px);
+  transition: opacity 0.35s ease;
+}
+
+.showcase-frame:hover .showcase-open,
+.showcase-open:focus-visible {
+  opacity: 1;
+}
+
+.showcase-meta h3 {
+  margin: 4px 0 2px;
+  font-size: 17px;
+  color: var(--bp-text);
+}
+.showcase-meta p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--studio-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Before / after comparison
+   -------------------------------------------------------------------------- */
+
+.compare {
+  margin-top: 40px;
+  padding: 26px;
+  border: 1px solid var(--studio-line);
+  border-radius: var(--bp-radius-lg);
+  background: var(--studio-panel);
+}
+
+.compare-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.compare-head h3 {
+  margin: 8px 0 6px;
+  font-size: 24px;
+  color: var(--bp-text);
+  letter-spacing: -0.02em;
+}
+.compare-head p {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 14px;
+  color: var(--studio-muted);
+}
+
+.compare-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compare-tags li {
+  font-family: var(--bp-font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--studio-muted);
+  border: 1px solid var(--studio-line);
+  border-radius: 999px;
+  padding: 5px 11px;
+}
+
+.compare-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.compare-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.compare-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.compare-stage {
+  font-family: var(--bp-font-mono, ui-monospace, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--studio-muted);
+  border: 1px solid var(--studio-line);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.compare-stage--after {
+  color: var(--bp-on-accent);
+  border-color: transparent;
+  background: var(--studio-blue);
+}
+
+.compare-kind {
+  font-size: 12px;
+  color: var(--studio-muted);
+}
+
+.compare-view {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--studio-line);
+  border-radius: var(--bp-radius);
+  background: #fff;
+  transition: border-color 0.35s ease;
+}
+
+.compare-side--after .compare-view {
+  border-color: rgba(57, 129, 255, 0.38);
+}
+.compare-side:hover .compare-view {
+  border-color: rgba(57, 129, 255, 0.6);
+}
+
+.compare-view iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.compare-side .bp-btn {
+  justify-content: center;
+}
+
+.compare-arrow {
+  font-size: 22px;
+  color: var(--studio-blue);
+  opacity: 0.75;
+}
+
+@media (max-width: 1000px) {
+  .showcase-tiers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  /* Stack the pair and turn the connector to point downward. */
+  .compare-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .compare-arrow {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+  .compare {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .showcase-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Live previews embedded in the Products catalogue cards
+   -------------------------------------------------------------------------- */
+
+.bp-mock--live {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  background: #fff;
+}
+
+.bp-mock--live iframe {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  width: 250%;
+  height: calc(250% - 28px);
+  border: 0;
+  transform: scale(0.4);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.bp-mock__tag {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  font-family: var(--bp-font-mono, ui-monospace, monospace);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--bp-on-accent);
+  background: var(--studio-blue, #3981ff);
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+
+/* Before/after pair inside a product card */
+.bp-mock--ba {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+}
+
+.bp-mock--ba figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.bp-mock--ba iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--studio-line, rgba(143, 172, 220, 0.14));
+  border-radius: 3px;
+  background: #fff;
+  pointer-events: none;
+}
+
+.bp-mock--ba figcaption {
+  margin-top: 7px;
+  font-family: var(--bp-font-mono, ui-monospace, monospace);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--studio-muted, var(--bp-text-mute));
+  text-align: center;
+}
+
+.bp-mock--ba figcaption.is-after {
+  color: var(--studio-blue, #3981ff);
+}
+
+.bp-mock__arrow {
+  color: var(--studio-blue, #3981ff);
+  font-size: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Comparison viewports
+   The "before" is a rendered page image: iframe PDF embedding is unreliable
+   and simply blank on most mobile browsers.
+   -------------------------------------------------------------------------- */
+
+.compare-view--page {
+  display: grid;
+  place-items: start center;
+  overflow: hidden;
+  background: #f4f5f7;
+}
+
+.compare-view--page img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The "after" renders wide, then scales so the whole page composition reads. */
+.compare-view--live {
+  position: relative;
+}
+
+.compare-view--live iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  border: 0;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+/* Products card: the before side is an image, the after side a scaled frame. */
+.bp-mock--ba img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--studio-line, rgba(143, 172, 220, 0.14));
+  border-radius: 3px;
+  background: #fff;
+}
+
+.bp-mock--ba figure {
+  position: relative;
+}
+
+.bp-mock--ba figure:last-of-type {
+  overflow: hidden;
+}
+
+.bp-mock--ba figure:last-of-type iframe {
+  width: 200%;
+  height: 200%;
+  aspect-ratio: auto;
+  transform: scale(0.5);
+  transform-origin: top left;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bp-mock--ba figure:last-of-type::after {
+  content: "";
+  display: block;
+  aspect-ratio: 3 / 4;
+}

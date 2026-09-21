@@ -6,12 +6,23 @@ scope: Final deployment, validation, payment, and ownership transfer
 constraints: Final approval and payment required before handover
 metrics: deployment stability, handover clarity, ownership transfer completeness
 last_updated: 2026-03-02
----
-
-# 06 · Deployment & Handover
-
-The approved build is published to production, validated across devices, and transferred to the client. Deployment is only initiated after final approval is confirmed.
-
+hero_eyebrow: stage://06
+hero_title: Your website.<br><em>Ready for the world.</em>
+hero_lede: >
+  The approved build is published to production, validated across devices, and transferred to the client. Deployment is only initiated after final approval is confirmed.
+hero_meta:
+  - label: Stage
+    value: 06 of 06
+  - label: Role
+    value: Production Launch
+  - label: Scope
+    value: Final deployment, validation, payment, and ownership transfer
+hero_actions:
+  - label: Start a Project
+    url: start-project/
+    primary: true
+  - label: Previous stage
+    url: process/revision-rounds/
 ---
 
 ## What Happens at This Stage
@@ -69,8 +80,8 @@ The approved build is published to production, validated across devices, and tra
 
 Handover requires both conditions to be met:
 
-1. **Final approval**, all included revision rounds completed and client sign-off confirmed  
-2. **Payment confirmation**, full payment received before repository access or source files are transferred  
+1. **Final approval**, all included revision rounds completed and client sign-off confirmed
+2. **Payment confirmation**, full payment received before repository access or source files are transferred
 
 ---
 
@@ -82,11 +93,11 @@ The client assumes full responsibility for ongoing content updates unless a main
 
 ## Timeline
 
-| Tier | Typical Duration |
-| --- | --- |
-| Tier 1 – Personal Presence | 1 working day |
-| Tier 2 – Project Documentation | 1 working day |
-| Tier 3 – Research Documentation | 1–2 working days |# 06 · Deployment & Handover
+| Tier                            | Typical Duration |
+| ------------------------------- | ---------------- |
+| Tier 1 – Personal Presence      | 1 working day    |
+| Tier 2 – Project Documentation  | 1 working day    |
+| Tier 3 – Research Documentation | 1–2 working days | # 06 · Deployment & Handover |
 
 The approved build is published to production, validated across devices, and transferred to the client. Deployment is only initiated after final approval is confirmed.
 

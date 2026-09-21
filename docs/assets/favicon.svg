@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Blueprint Studio">
+  <defs>
+    <linearGradient id="bp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4d86ff"/>
+      <stop offset="1" stop-color="#1b4bd8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bp)"/>
+  <!-- Browser-window mark, matching the header icon. -->
+  <g fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="14" y="16" width="36" height="32" rx="3"/>
+    <path d="M14 26h36"/>
+    <path d="M24 26v22"/>
+  </g>
+  <g fill="#ffffff" opacity="0.92">
+    <circle cx="20.5" cy="21" r="1.7"/>
+    <circle cx="26.5" cy="21" r="1.7"/>
+  </g>
+</svg>

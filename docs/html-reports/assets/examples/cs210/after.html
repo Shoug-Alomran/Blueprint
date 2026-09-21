@@ -1,807 +1,1687 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
+  <head>
+    <!-- Blueprint browser and sharing identity -->
+    <link
+      rel="icon"
+      href="../../../../assets/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="alternate icon"
+      href="../../../../assets/favicon.ico"
+      sizes="any"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../../../../assets/apple-touch-icon.png"
+    />
+    <meta name="theme-color" content="#060b17" />
+    <meta property="og:site_name" content="Blueprint" />
+    <meta
+      property="og:title"
+      content="CS210 Project Report - Course Registration Analysis System"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://blueprint.shoug-tech.com/assets/banner.png"
+    />
+    <meta property="og:image:alt" content="Blueprint — ShougTech" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="CS210 Project Report - Course Registration Analysis System"
+    />
+    <meta
+      name="twitter:image"
+      content="https://blueprint.shoug-tech.com/assets/banner.png"
+    />
+    <meta name="twitter:image:alt" content="Blueprint — ShougTech" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CS210 Project Report - Course Registration Analysis System</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        padding: 40px;
+        text-align: center;
+      }
+
+      .university-logo {
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .subtitle {
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        opacity: 0.95;
+      }
+
+      .course-info {
+        margin: 20px 0;
+        font-size: 0.95em;
+      }
+
+      .authors {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .author {
+        margin: 5px 0;
+      }
+
+      main {
+        padding: 40px;
+      }
+
+      h2 {
+        color: #1e3c72;
+        font-size: 1.8em;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #2a5298;
+      }
+
+      h3 {
+        color: #2a5298;
+        font-size: 1.3em;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      h4 {
+        color: #3d5a80;
+        font-size: 1.1em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .abstract {
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-left: 4px solid #2a5298;
+        margin: 30px 0;
+        font-style: italic;
+      }
+
+      ul,
+      ol {
+        margin-left: 30px;
+        margin-bottom: 15px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .phase-list {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 20px 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      thead {
+        background-color: #2a5298;
+        color: white;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        letter-spacing: 0.5px;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      tbody tr:hover {
+        background-color: #e9ecef;
+      }
+
+      .code-block {
+        background-color: #f4f4f4;
+        border-left: 4px solid #2a5298;
+        padding: 15px;
+        margin: 20px 0;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+        font-size: 0.9em;
+        border-radius: 3px;
+      }
+
+      .code-block code {
+        display: block;
+        white-space: pre;
+        font-family: "Courier New", monospace;
+        line-height: 1.4;
+      }
+
+      pre {
+        margin: 0;
+      }
+
+      .highlight {
+        background-color: #fff3cd;
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+
+      .complexity {
+        display: inline-block;
+        background-color: #e7f3ff;
+        color: #0066cc;
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        font-weight: 600;
+      }
+
+      .section-intro {
+        font-weight: 500;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .criteria-box {
+        background-color: #f8f9fa;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        border-left: 4px solid #28a745;
+      }
+
+      .multiplier-list {
+        margin-left: 20px;
+      }
+
+      .multiplier-list li {
+        margin-bottom: 10px;
+      }
+
+      .flow-section {
+        margin: 30px 0;
+      }
+
+      footer {
+        background-color: #2a5298;
+        color: white;
+        padding: 20px 40px;
+        text-align: center;
+      }
+
+      .toc {
+        background-color: #f8f9fa;
+        padding: 25px;
+        margin: 30px 0;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+      }
+
+      .toc h2 {
+        margin-top: 0;
+        border-bottom: none;
+        font-size: 1.5em;
+      }
+
+      .toc ul {
+        list-style-type: none;
+        margin-left: 0;
+      }
+
+      .toc li {
+        margin-bottom: 8px;
+      }
+
+      .toc a {
+        color: #2a5298;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .toc a:hover {
+        text-decoration: underline;
+      }
+
+      .reference-link {
+        color: #0066cc;
+        text-decoration: none;
+        word-break: break-all;
+      }
+
+      .reference-link:hover {
+        text-decoration: underline;
+      }
+
+      /* ---------- Dark theme -------------------------------------------------
+           Replaces a `filter: invert(1) hue-rotate(180deg)` hack, which flipped
+           every surface indiscriminately: already-dark panels turned pale and
+           the palette drifted. These are real rules against the same elements,
+           so both themes are designed rather than computed. */
+      html[data-theme="dark"] body {
+        background-color: #0a1020;
+        color: #c3d0e2;
+      }
+
+      html[data-theme="dark"] .container {
+        background-color: #0e1728;
+        box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+      }
+
+      html[data-theme="dark"] header {
+        background: linear-gradient(135deg, #0d2350 0%, #16356b 100%);
+      }
+
+      html[data-theme="dark"] h2 {
+        color: #8ab4ff;
+        border-bottom-color: #2f6bff;
+      }
+
+      html[data-theme="dark"] h3,
+      html[data-theme="dark"] h4 {
+        color: #dbe6f5;
+      }
+
+      html[data-theme="dark"] .toc,
+      html[data-theme="dark"] .abstract,
+      html[data-theme="dark"] .criteria-box,
+      html[data-theme="dark"] .phase-list,
+      html[data-theme="dark"] .multiplier-list,
+      html[data-theme="dark"] .section-intro {
+        background-color: #131f36;
+        border-color: #26334d;
+        color: #c3d0e2;
+      }
+
+      html[data-theme="dark"] .code-block {
+        background-color: #091320;
+        border-left-color: #2f6bff;
+        color: #d7e4f6;
+      }
+
+      html[data-theme="dark"] .complexity {
+        background-color: rgba(47, 107, 255, 0.18);
+        color: #8fc9ff;
+      }
+
+      html[data-theme="dark"] table {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+      }
+      html[data-theme="dark"] td {
+        border-bottom-color: #26334d;
+      }
+      html[data-theme="dark"] tr:nth-child(even) {
+        background-color: #121c30;
+      }
+
+      html[data-theme="dark"] a,
+      html[data-theme="dark"] .reference-link {
+        color: #8fc9ff;
+      }
+
+      html[data-theme="dark"] .author,
+      html[data-theme="dark"] .authors,
+      html[data-theme="dark"] .course-info,
+      html[data-theme="dark"] .subtitle {
+        color: #e8eefb;
+      }
+
+      html[dir="rtl"] {
+        text-align: right;
+      }
+
+      html[dir="rtl"] .toc ul,
+      html[dir="rtl"] ul,
+      html[dir="rtl"] ol {
+        margin-right: 30px;
+        margin-left: 0;
+      }
+
+      html[dir="rtl"] .abstract {
+        border-left: none;
+        border-right: 4px solid #2a5298;
+      }
+
+      html[dir="rtl"] .criteria-box {
+        border-left: none;
+        border-right: 4px solid #28a745;
+      }
+
+      html[dir="rtl"] .code-block {
+        border-left: none;
+        border-right: 4px solid #2a5298;
+      }
+
+      html[dir="rtl"] th,
+      html[dir="rtl"] td {
+        text-align: right;
+      }
+
+      @media print {
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+          background-color: white;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          box-shadow: none;
         }
 
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
+          background: #1e3c72;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
+      }
 
-        .university-logo {
-            margin-bottom: 20px;
+      /* =====================================================================
+         Document toolbar
+         Replaces a floating pill that hovered over the top-right corner of the
+         page, overlapping the content it sat on. This is a real bar in the
+         document flow: it spans the page, names the report, and keeps the
+         controls out of the reading column.
+         ===================================================================== */
+      .report-tools {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px clamp(16px, 4vw, 44px);
+        background: rgba(255, 255, 255, 0.9);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border: 0;
+        border-bottom: 1px solid #e3e9f2;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .report-tools::before {
+        content: "CS210 \00b7 DATA STRUCTURES & ALGORITHMS";
+        margin-right: auto;
+        font:
+          600 11px ui-monospace,
+          "SF Mono",
+          Menlo,
+          monospace;
+        letter-spacing: 0.16em;
+        color: #64748b;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .report-tools button,
+      .report-tools select {
+        appearance: none;
+        -webkit-appearance: none;
+        border: 1px solid #d7e0ec;
+        background: #fff;
+        color: #1f2d45;
+        border-radius: 8px;
+        padding: 7px 13px;
+        font:
+          600 12px system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.2;
+        cursor: pointer;
+        transition:
+          border-color 0.18s ease,
+          background-color 0.18s ease,
+          transform 0.18s ease,
+          color 0.18s ease;
+      }
+
+      .report-tools button:hover,
+      .report-tools select:hover {
+        border-color: #2f6bff;
+        background: #f3f7ff;
+        transform: translateY(-1px);
+      }
+
+      .report-tools button:focus-visible,
+      .report-tools select:focus-visible {
+        outline: 2px solid #2f6bff;
+        outline-offset: 2px;
+      }
+
+      .report-tools #downloadPdfBtn {
+        background: #2f6bff;
+        border-color: #2f6bff;
+        color: #fff;
+      }
+
+      .report-tools #downloadPdfBtn:hover {
+        background: #1b4bd8;
+        border-color: #1b4bd8;
+      }
+
+      html[data-theme="dark"] .report-tools {
+        background: rgba(10, 16, 32, 0.92);
+        border-bottom-color: #26334d;
+      }
+      html[data-theme="dark"] .report-tools::before {
+        color: #8fa3bd;
+      }
+      html[data-theme="dark"] .report-tools button,
+      html[data-theme="dark"] .report-tools select {
+        background: #131f36;
+        border-color: #26334d;
+        color: #dbe6f5;
+      }
+      html[data-theme="dark"] .report-tools button:hover,
+      html[data-theme="dark"] .report-tools select:hover {
+        background: #1a2942;
+        border-color: #4d86ff;
+      }
+      html[data-theme="dark"] .report-tools #downloadPdfBtn {
+        background: #2f6bff;
+        border-color: #2f6bff;
+        color: #fff;
+      }
+
+      @media (max-width: 640px) {
+        .report-tools::before {
+          display: none;
         }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            margin-bottom: 5px;
-            opacity: 0.95;
-        }
-
-        .course-info {
-            margin: 20px 0;
-            font-size: 0.95em;
-        }
-
-        .authors {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .author {
-            margin: 5px 0;
-        }
-
-        main {
-            padding: 40px;
-        }
-
-        h2 {
-            color: #1e3c72;
-            font-size: 1.8em;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #2a5298;
-        }
-
-        h3 {
-            color: #2a5298;
-            font-size: 1.3em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        h4 {
-            color: #3d5a80;
-            font-size: 1.1em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .abstract {
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-left: 4px solid #2a5298;
-            margin: 30px 0;
-            font-style: italic;
-        }
-
-        ul,
-        ol {
-            margin-left: 30px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .phase-list {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        thead {
-            background-color: #2a5298;
-            color: white;
-        }
-
-        th,
-        td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 0.5px;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        tbody tr:hover {
-            background-color: #e9ecef;
-        }
-
-        .code-block {
-            background-color: #f4f4f4;
-            border-left: 4px solid #2a5298;
-            padding: 15px;
-            margin: 20px 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            border-radius: 3px;
-        }
-
-        .code-block code {
-            display: block;
-            white-space: pre;
-            font-family: 'Courier New', monospace;
-            line-height: 1.4;
-        }
-
-        pre {
-            margin: 0;
-        }
-
-        .highlight {
-            background-color: #fff3cd;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-
-        .complexity {
-            display: inline-block;
-            background-color: #e7f3ff;
-            color: #0066cc;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-            font-weight: 600;
-        }
-
-        .section-intro {
-            font-weight: 500;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .criteria-box {
-            background-color: #f8f9fa;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-            border-left: 4px solid #28a745;
-        }
-
-        .multiplier-list {
-            margin-left: 20px;
-        }
-
-        .multiplier-list li {
-            margin-bottom: 10px;
-        }
-
-        .flow-section {
-            margin: 30px 0;
-        }
-
-        footer {
-            background-color: #2a5298;
-            color: white;
-            padding: 20px 40px;
-            text-align: center;
-        }
-
-        .toc {
-            background-color: #f8f9fa;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 5px;
-            border: 1px solid #dee2e6;
-        }
-
-        .toc h2 {
-            margin-top: 0;
-            border-bottom: none;
-            font-size: 1.5em;
-        }
-
-        .toc ul {
-            list-style-type: none;
-            margin-left: 0;
-        }
-
-        .toc li {
-            margin-bottom: 8px;
-        }
-
-        .toc a {
-            color: #2a5298;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .toc a:hover {
-            text-decoration: underline;
-        }
-
-        .reference-link {
-            color: #0066cc;
-            text-decoration: none;
-            word-break: break-all;
-        }
-
-        .reference-link:hover {
-            text-decoration: underline;
-        }
-
         .report-tools {
-            position: fixed;
-            top: 14px;
-            right: 14px;
-            z-index: 9999;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            padding: 8px;
-            border-radius: 10px;
-            background: rgba(17, 24, 39, 0.9);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+          justify-content: flex-end;
+          gap: 8px;
+          padding: 9px 14px;
         }
-
         .report-tools button,
         .report-tools select {
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            background: rgba(255, 255, 255, 0.08);
-            color: #fff;
-            border-radius: 8px;
-            padding: 8px 10px;
-            font-size: 12px;
-            cursor: pointer;
+          padding: 7px 10px;
+          font-size: 11px;
         }
+      }
 
-        .report-tools select option {
-            color: #111827;
+      @media print {
+        .report-tools {
+          display: none !important;
         }
+      }
 
-        html[data-theme="dark"] body {
-            filter: invert(1) hue-rotate(180deg);
-            background: #0b1020;
+      /* =====================================================================
+         Visual refresh
+         The document kept a dated Segoe UI / hard-shadow look. Same structure,
+         modernised: system type stack, calmer surfaces, clearer hierarchy.
+         ===================================================================== */
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Inter,
+          Roboto,
+          "Helvetica Neue",
+          sans-serif;
+        background-color: #eef2f7;
+        line-height: 1.68;
+        color: #354256;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 1080px;
+        border-radius: 16px;
+        box-shadow: 0 18px 50px -28px rgba(15, 34, 71, 0.4);
+        /* Clip rounded corners without trapping the sticky contents sidebar. */
+        overflow: clip;
+        margin: 28px auto 56px;
+      }
+
+      header {
+        background: linear-gradient(135deg, #12306a 0%, #2f6bff 100%);
+        padding: 54px 40px;
+      }
+
+      header h1 {
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        opacity: 0.92;
+        font-size: 1.04em;
+      }
+
+      .author {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 8px;
+      }
+
+      h2 {
+        color: #12306a;
+        letter-spacing: -0.015em;
+        border-bottom-width: 2px;
+        border-bottom-color: #d7e0ec;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 64px;
+        height: 2px;
+        background: #2f6bff;
+      }
+
+      .toc,
+      .abstract,
+      .criteria-box,
+      .phase-list,
+      .multiplier-list {
+        border-radius: 12px;
+        border: 1px solid #e3e9f2;
+        background-color: #f7f9fc;
+      }
+
+      .abstract {
+        border-left: 3px solid #2f6bff;
+      }
+
+      .code-block {
+        border-radius: 10px;
+        border: 1px solid #e3e9f2;
+        border-left: 3px solid #2f6bff;
+        background-color: #f6f8fb;
+        font-size: 0.9em;
+      }
+
+      .complexity {
+        background-color: rgba(47, 107, 255, 0.1);
+        color: #1b4bd8;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: none;
+        border: 1px solid #e3e9f2;
+      }
+      th {
+        background: #12306a;
+        color: #fff;
+        padding: 12px 15px;
+      }
+      tr:nth-child(even) {
+        background: #f7f9fc;
+      }
+
+      a {
+        color: #1b4bd8;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
+
+      html[data-theme="dark"] body {
+        background-color: #080e1a;
+      }
+      html[data-theme="dark"] header {
+        background: linear-gradient(135deg, #0b1e42 0%, #1b4bd8 100%);
+      }
+      html[data-theme="dark"] h2 {
+        color: #8ab4ff;
+        border-bottom-color: #26334d;
+      }
+      html[data-theme="dark"] h2::after {
+        background: #4d86ff;
+      }
+      html[data-theme="dark"] th {
+        background: #16233b;
+        color: #e4ecfa;
+      }
+      html[data-theme="dark"] tr:nth-child(even) {
+        background: #121c30;
+      }
+      html[data-theme="dark"] .container {
+        box-shadow: 0 18px 50px -28px rgba(0, 0, 0, 0.8);
+      }
+
+      /* =====================================================================
+         Fluid layout
+         The document was fixed at 16px type in a 1000px column at every size:
+         ~39 characters per line on a phone and ~125 on a laptop, where 60-75
+         is comfortable. Type and gutters now scale with the viewport, the
+         reading column is capped in `ch`, and the space a laptop frees up on
+         the left becomes a sticky table of contents instead of empty margin.
+         ===================================================================== */
+      :root {
+        --doc-measure: 100%;
+        --doc-toc: 250px;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        font-size: clamp(15.5px, 0.92rem + 0.18vw, 18px);
+      }
+
+      .container {
+        max-width: calc(100% - clamp(12px, 4vw, 80px));
+        margin-inline: auto;
+      }
+
+      header,
+      main,
+      footer {
+        padding: clamp(22px, 4vw, 48px);
+      }
+      header {
+        padding-block: clamp(34px, 5vw, 60px);
+      }
+
+      header h1 {
+        font-size: clamp(1.55rem, 1.05rem + 2.1vw, 2.6rem);
+      }
+      .subtitle {
+        font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
+      }
+      h2 {
+        font-size: clamp(1.3rem, 1.05rem + 0.95vw, 1.9rem);
+      }
+      h3 {
+        font-size: clamp(1.08rem, 1rem + 0.42vw, 1.35rem);
+      }
+
+      /* Cap the measure, not the container: tables and code still use the
+         full column width. */
+      main p,
+      main li {
+        max-width: var(--doc-measure);
+      }
+      main p {
+        text-align: left;
+      }
+
+      .authors {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+        gap: 12px;
+      }
+
+      /* Comfortable tap targets for the contents list on touch screens. */
+      .toc li {
+        margin: 0;
+      }
+      .toc a {
+        display: block;
+        padding: 7px 4px;
+        border-radius: 6px;
+      }
+      .toc a:hover {
+        background: rgba(47, 107, 255, 0.08);
+      }
+
+      @media (max-width: 640px) {
+        .toc {
+          padding: 18px;
         }
-
-        html[data-theme="dark"] img,
-        html[data-theme="dark"] iframe,
-        html[data-theme="dark"] video {
-            filter: invert(1) hue-rotate(180deg);
+        table {
+          font-size: 0.9em;
         }
-
-        html[dir="rtl"] {
-            text-align: right;
+        .container {
+          max-width: calc(100% - 12px);
+          margin-block: 12px 28px;
         }
-
-        html[dir="rtl"] .toc ul,
-        html[dir="rtl"] ul,
-        html[dir="rtl"] ol {
-            margin-right: 30px;
-            margin-left: 0;
+        header,
+        main,
+        footer {
+          padding: 20px 16px;
         }
-
-        html[dir="rtl"] .abstract {
-            border-left: none;
-            border-right: 4px solid #2a5298;
+        header {
+          padding-block: 28px;
         }
+      }
 
-        html[dir="rtl"] .criteria-box {
-            border-left: none;
-            border-right: 4px solid #28a745;
+      /* Laptop and up: the contents list leaves the flow and docks. */
+      @media (min-width: 1180px) {
+        main {
+          display: grid;
+          grid-template-columns: var(--doc-toc) minmax(0, 1fr);
+          column-gap: clamp(34px, 3.2vw, 60px);
+          align-items: start;
         }
-
-        html[dir="rtl"] .code-block {
-            border-left: none;
-            border-right: 4px solid #2a5298;
+        main > * {
+          grid-column: 2;
         }
-
-        html[dir="rtl"] th,
-        html[dir="rtl"] td {
-            text-align: right;
+        main > .toc {
+          grid-column: 1;
+          grid-row: 1 / span 999;
+          position: sticky;
+          top: 78px;
+          margin: 0;
+          max-height: calc(100vh - 118px);
+          overflow-y: auto;
+          overscroll-behavior: contain;
+          font-size: 0.86em;
         }
-
-        @media print {
-            body {
-                background-color: white;
-            }
-
-            .container {
-                box-shadow: none;
-            }
-
-            header {
-                background: #1e3c72;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+        main > .toc h2 {
+          font-size: 1rem;
+          margin-top: 0;
         }
+      }
+
+      /* Collapsing the contents returns its column to the article. */
+      @media screen and (min-width: 1180px) {
+        main:has(> .toc[data-toc-collapsed="true"]) {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        main:has(> .toc[data-toc-collapsed="true"]) > * {
+          grid-column: 1;
+        }
+        main > .toc[data-toc-collapsed="true"] {
+          grid-row: auto;
+          position: static;
+          justify-self: start;
+          padding: 12px 18px;
+          margin-bottom: 16px;
+          max-height: none;
+        }
+        main > .toc[data-toc-collapsed="true"] h2 {
+          margin: 0;
+          padding-bottom: 0;
+        }
+      }
+
+      @media (min-width: 1600px) {
+        :root {
+          --doc-toc: 280px;
+        }
+      }
+
+      @media print {
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+        main {
+          display: block;
+        }
+      }
+
+      /* =====================================================================
+         Collapsible table of contents
+         The heading is the toggle. Its caret is drawn with ::after rather than
+         markup, because the language switcher rewrites the heading's innerHTML
+         and would otherwise wipe any element placed inside it. The panel
+         animates on grid-template-rows, which transitions cleanly from a
+         natural height without hardcoding one.
+         ===================================================================== */
+      .toc > h2,
+      .toc-slide > h2 {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        padding-right: 36px;
+        border-radius: 8px;
+        transition: color 0.2s ease;
+      }
+
+      .toc > h2:hover,
+      .toc-slide > h2:hover {
+        color: #2f6bff;
+      }
+
+      .toc > h2:focus-visible,
+      .toc-slide > h2:focus-visible {
+        outline: 2px solid #2f6bff;
+        outline-offset: 3px;
+      }
+
+      .toc > h2::after,
+      .toc-slide > h2::after {
+        content: "";
+        position: absolute;
+        left: auto;
+        right: 8px;
+        bottom: auto;
+        background: none;
+        top: 50%;
+        width: 9px;
+        height: 9px;
+        margin-top: -7px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        transform-origin: 60% 60%;
+        opacity: 0.6;
+        transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      [data-toc-collapsed="true"] > h2::after {
+        transform: rotate(-45deg);
+      }
+
+      .toc-panel {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition:
+          grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.25s ease;
+        opacity: 1;
+      }
+
+      .toc-panel__inner {
+        overflow: hidden;
+        min-height: 0;
+      }
+
+      [data-toc-collapsed="true"] .toc-panel {
+        grid-template-rows: 0fr;
+        opacity: 0;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .toc-panel,
+        .toc > h2::after,
+        .toc-slide > h2::after {
+          transition: none;
+        }
+      }
+
+      /* Printed copies always show the full contents. */
+      @media print {
+        .toc-panel {
+          grid-template-rows: 1fr !important;
+          opacity: 1 !important;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="report-tools" aria-label="Report controls">
-        <button id="themeToggle" type="button">Dark Mode</button>
-        <select id="langToggle" aria-label="Language">
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
-        </select>
-        <button id="downloadPdfBtn" type="button">Download PDF</button>
+      <button id="themeToggle" type="button">Dark Mode</button>
+      <select id="langToggle" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+      </select>
+      <button id="downloadPdfBtn" type="button">Download PDF</button>
     </div>
 
     <div class="container">
-        <header>
-            <div class="university-logo">
-                <h1 data-i18n="uni_name">College of Computer and Information Sciences (CCIS)</h1>
+      <header>
+        <div class="university-logo">
+          <h1 data-i18n="uni_name">
+            College of Computer and Information Sciences (CCIS)
+          </h1>
+        </div>
+        <h1 data-i18n="course_title">CS210: Data Structures and Algorithms</h1>
+        <div class="subtitle" data-i18n="project_title">
+          Developing an Intelligent System for Students' Course Registration
+          Analysis
+        </div>
+        <div class="course-info">
+          <strong data-i18n="instructor_label">Course Instructor:</strong>
+          <span data-i18n="instructor_name">Dr. Najla Althuniyan</span><br />
+          <strong data-i18n="section_label">Section #:</strong> 951
+        </div>
+        <div class="authors">
+          <div class="author">
+            <strong>LAYAN HESHAM RASHED BINDAYEL</strong> - 223410104
+          </div>
+          <div class="author">
+            <strong>SHOUG FAWAZ ABDULLAH ALOMRAN</strong> - 223410392
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <nav class="toc">
+          <h2 data-i18n="toc_title">Table of Contents</h2>
+          <ul>
+            <li><a href="#abstract" data-i18n="toc_abstract">Abstract</a></li>
+            <li>
+              <a href="#introduction" data-i18n="toc_intro">Introduction</a>
+            </li>
+            <li>
+              <a href="#system-design" data-i18n="toc_design"
+                >High-Level Solution / System Design Overview</a
+              >
+            </li>
+            <li>
+              <a href="#performance-analysis" data-i18n="toc_perf"
+                >Asymptotic Performance Analysis</a
+              >
+            </li>
+            <li>
+              <a href="#runtime-measurement" data-i18n="toc_runtime"
+                >Runtime Measurement</a
+              >
+            </li>
+            <li>
+              <a href="#interpretation" data-i18n="toc_interp"
+                >Interpretation of Results</a
+              >
+            </li>
+            <li>
+              <a href="#teamwork" data-i18n="toc_team"
+                >Teamwork Contribution and Coordination</a
+              >
+            </li>
+            <li>
+              <a href="#conclusion" data-i18n="toc_conclusion">Conclusion</a>
+            </li>
+            <li>
+              <a href="#references" data-i18n="toc_refs"
+                >References and Resources</a
+              >
+            </li>
+            <li>
+              <a href="#appendix-a" data-i18n="toc_appA"
+                >Appendix A: Flow Chart Illustration</a
+              >
+            </li>
+            <li>
+              <a href="#appendix-b" data-i18n="toc_appB"
+                >Appendix B: Full Java Code Implementation</a
+              >
+            </li>
+            <li>
+              <a href="#appendix-c" data-i18n="toc_appC"
+                >Appendix C: Full Run Pictures</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ABSTRACT -->
+        <section id="abstract">
+          <h2 data-i18n="toc_abstract">Abstract</h2>
+          <div class="abstract">
+            <p data-i18n="abstract_p1">
+              This project designed an intelligent system for managing students'
+              course registration records at Prince Sultan University,
+              predicting course demand through data structures such as linked
+              lists and arrays as well as sorting algorithms. The system stores
+              records in a self-developed linked list and has four algorithms
+              for sorting — Selection Sort, Insertion Sort, Merge Sort, and
+              Quick Sort — to compare their time complexity performance.
+            </p>
+            <p data-i18n="abstract_p2">
+              The outcomes were according to theoretical time complexities in
+              the sense that Merge Sort and Quick Sort O(n log n) had a huge
+              margin over Selection and Insertion Sorts O(n²) when given a
+              database with more than 3,000 records. The project amply justifies
+              the importance of algorithm choice on performance by confirming
+              that computationally intensive algorithms like Merge and Quick
+              Sort are best suited for efficient management of large data.
+            </p>
+          </div>
+        </section>
+
+        <!-- INTRODUCTION -->
+        <section id="introduction">
+          <h2 data-i18n="toc_intro">Introduction</h2>
+          <p data-i18n="intro_p1">
+            At the very foundation of programming is a simple but powerful
+            necessity: sorting things out. Sorting is one of the most useful
+            tools for a programmer, taking jumbled data and turning it into
+            organized information that is easy to locate, examine, and maximize.
+            For any code writer, having knowledge of the different ways to sort
+            isn't abstract — it's practical. Knowing which technique to employ
+            can be the difference between a speedy application and a slow one,
+            particularly as data volume increases.
+          </p>
+          <p data-i18n="intro_p2">
+            This project answers one central question of this field: in
+            practice, how do different sorting algorithms work? We're bridging
+            theory and practice by comparing how long it takes to run each one.
+            The goal is to demonstrate that an algorithm's inherent complexity
+            has a direct impact on real-world speed, and how our choices as
+            programmers affect the behavior of a program.
+          </p>
+          <p data-i18n="intro_p3">
+            To achieve this, we designed a special list to manage the
+            enrollments of the students into courses. We took the data and
+            sorted it four times through regular sorts: the inefficient but
+            simple Selection and Insertion Sorts, and the more sophisticated
+            divide-and-conquer Merge Sort and Quick Sort. We also timed each one
+            in order to see how their theoretical performance stacked up against
+            their actual speed. Ultimately, this project serves as a practical
+            example.
+          </p>
+        </section>
+
+        <!-- SYSTEM DESIGN -->
+        <section id="system-design">
+          <h2 data-i18n="toc_design">
+            High-Level Solution / System Design Overview
+          </h2>
+          <p class="section-intro" data-i18n="design_intro">
+            This application is meant to develop a Prince Sultan
+            University-specific system that takes the record of the student's
+            course registration and computes the demand for each course
+            accordingly. Additionally, this system undergoes three major phases:
+          </p>
+
+          <div class="phase-list">
+            <h3 data-i18n="phase1_title">Data Collection Phase</h3>
+            <p data-i18n="phase1_p1">
+              The system begins this phase by gathering the records of student
+              course registration retrieved from Prince Sultan University's
+              database, which has approximately 3000 entries. Each record has
+              the student's basic information like their ID number, course
+              enrolling, identified by its course ID, study level at the moment,
+              and the enrollment time.
+            </p>
+            <p data-i18n="phase1_p2">
+              In addition, the system carefully checks and reviews each record
+              to ensure the information is correct and complete, then starts
+              sorting and formatting it in a readable format. This provides the
+              system with a strong foundation in its capacity to effectively
+              understand and analyze students' requests in order to ascertain
+              course demand and trends, critical to inform future-stage
+              decision-making.
+            </p>
+          </div>
+
+          <div class="phase-list">
+            <h3 data-i18n="phase2_title">
+              Processing Phase (Demand Score Calculation)
+            </h3>
+            <p data-i18n="phase2_intro">
+              For each node the demandScorer calculates a certain score for each
+              student based on 4 criteria:
+            </p>
+
+            <div class="criteria-box">
+              <h4 data-i18n="crit1_title">1. Base Score: 50</h4>
+              <p data-i18n="crit1_desc">
+                This represents the initial score each student starts with.
+              </p>
             </div>
-            <h1 data-i18n="course_title">CS210: Data Structures and Algorithms</h1>
-            <div class="subtitle" data-i18n="project_title">Developing an Intelligent System for Students' Course
-                Registration Analysis</div>
-            <div class="course-info">
-                <strong data-i18n="instructor_label">Course Instructor:</strong> <span data-i18n="instructor_name">Dr.
-                    Najla Althuniyan</span><br>
-                <strong data-i18n="section_label">Section #:</strong> 951
+
+            <div class="criteria-box">
+              <h4 data-i18n="crit2_title">2. Class Multiplier</h4>
+              <p data-i18n="crit2_desc">
+                The base score is multiplied by a factor depending on the
+                current grade level of the students:
+              </p>
+              <ul class="multiplier-list">
+                <li data-i18n="level_freshman">
+                  <strong>Freshman:</strong> Base score × 0.75 (decreased by
+                  25%)
+                </li>
+                <li data-i18n="level_sophomore">
+                  <strong>Sophomore:</strong> Base score × 0.90 (decreased by
+                  10%)
+                </li>
+                <li data-i18n="level_junior">
+                  <strong>Junior:</strong> Base score × 1.1 (increased by 10%)
+                </li>
+                <li data-i18n="level_senior">
+                  <strong>Senior:</strong> Base score × 1.25 (increased by 25%)
+                </li>
+                <li data-i18n="level_graduate">
+                  <strong>Graduate:</strong> Base score × 1.5 (increased by 50%)
+                </li>
+              </ul>
+              <p data-i18n="crit2_note">
+                Therefore, the system ensures that high priority is assigned to
+                nearly graduated students or graduates and low priority to fresh
+                students, who are fortunate enough to have additional time to
+                register courses in future semesters.
+              </p>
             </div>
-            <div class="authors">
-                <div class="author"><strong>LAYAN HESHAM RASHED BINDAYEL</strong> - 223410104</div>
-                <div class="author"><strong>SHOUG FAWAZ ABDULLAH ALOMRAN</strong> - 223410392</div>
+
+            <div class="criteria-box">
+              <h4 data-i18n="crit3_title">3. Time of Registration</h4>
+              <p data-i18n="crit3_desc">
+                The demand score of students is highly determined by when they
+                register for a given course. Students who choose to register
+                early will be given bonus points, while students who register
+                late will be penalized in relative sequence:
+              </p>
+              <ul class="multiplier-list">
+                <li data-i18n="time_6_8">
+                  <strong>6:00–8:00 AM:</strong> +5 points bonus
+                </li>
+                <li data-i18n="time_8_10">
+                  <strong>8:00–10:00 AM (peak time):</strong> +10 points bonus
+                </li>
+                <li data-i18n="time_12_14">
+                  <strong>12:00–2:00 PM:</strong> No penalty or bonuses
+                </li>
+                <li data-i18n="time_14_16">
+                  <strong>2:00–4:00 PM:</strong> -5 points penalty
+                </li>
+                <li data-i18n="time_16_20">
+                  <strong>4:00–8:00 PM:</strong> -10 points penalty
+                </li>
+                <li data-i18n="time_after20">
+                  <strong>After 8:00 PM:</strong> -15 points or more penalty
+                </li>
+              </ul>
             </div>
-        </header>
 
-        <main>
-            <nav class="toc">
-                <h2 data-i18n="toc_title">Table of Contents</h2>
-                <ul>
-                    <li><a href="#abstract" data-i18n="toc_abstract">Abstract</a></li>
-                    <li><a href="#introduction" data-i18n="toc_intro">Introduction</a></li>
-                    <li><a href="#system-design" data-i18n="toc_design">High-Level Solution / System Design Overview</a>
-                    </li>
-                    <li><a href="#performance-analysis" data-i18n="toc_perf">Asymptotic Performance Analysis</a></li>
-                    <li><a href="#runtime-measurement" data-i18n="toc_runtime">Runtime Measurement</a></li>
-                    <li><a href="#interpretation" data-i18n="toc_interp">Interpretation of Results</a></li>
-                    <li><a href="#teamwork" data-i18n="toc_team">Teamwork Contribution and Coordination</a></li>
-                    <li><a href="#conclusion" data-i18n="toc_conclusion">Conclusion</a></li>
-                    <li><a href="#references" data-i18n="toc_refs">References and Resources</a></li>
-                    <li><a href="#appendix-a" data-i18n="toc_appA">Appendix A: Flow Chart Illustration</a></li>
-                    <li><a href="#appendix-b" data-i18n="toc_appB">Appendix B: Full Java Code Implementation</a></li>
-                    <li><a href="#appendix-c" data-i18n="toc_appC">Appendix C: Full Run Pictures</a></li>
-                </ul>
-            </nav>
+            <div class="criteria-box">
+              <h4 data-i18n="crit4_title">4. Course ID Priorities</h4>
+              <p data-i18n="crit4_desc">
+                This measure assigns greater weight to certain courses over
+                others:
+              </p>
+              <ul class="multiplier-list">
+                <li data-i18n="course_high">
+                  <strong>High-priority courses:</strong> Course code ends with
+                  an odd number (e.g., CS311) — adds +20 points bonus
+                </li>
+                <li data-i18n="course_low">
+                  <strong>Low-priority courses:</strong> Course code ends with
+                  an even number (e.g., CS210) — deducts -10 points penalty
+                </li>
+              </ul>
+            </div>
+          </div>
 
-            <!-- ABSTRACT -->
-            <section id="abstract">
-                <h2 data-i18n="toc_abstract">Abstract</h2>
-                <div class="abstract">
-                    <p data-i18n="abstract_p1">This project designed an intelligent system for managing students' course
-                        registration records at Prince Sultan University, predicting course demand through data
-                        structures such as linked lists and arrays as well as sorting algorithms. The system stores
-                        records in a self-developed linked list and has four algorithms for sorting — Selection Sort,
-                        Insertion Sort, Merge Sort, and Quick Sort — to compare their time complexity performance.</p>
-                    <p data-i18n="abstract_p2">The outcomes were according to theoretical time complexities in the sense
-                        that Merge Sort and Quick Sort O(n log n) had a huge margin over Selection and Insertion Sorts
-                        O(n²) when given a database with more than 3,000 records. The project amply justifies the
-                        importance of algorithm choice on performance by confirming that computationally intensive
-                        algorithms like Merge and Quick Sort are best suited for efficient management of large data.</p>
-                </div>
-            </section>
+          <div class="phase-list">
+            <h3 data-i18n="phase3_title">Documentation (Writing) Phase</h3>
+            <p data-i18n="phase3_p1">
+              Once all the data has been fully analyzed, examined, and processed
+              based on the above criteria, the system writes the final results
+              in a new file. It then proceeds to update each student's record
+              with his or her own demand score, which is a measure of how highly
+              demanded or popular a given course happens to be.
+            </p>
+            <p data-i18n="phase3_p2">
+              It then, after storing the updated student records, notifies
+              students that their registration requests have been processed and
+              results can be viewed. It leaves the data unsorted at this time,
+              allowing for the possibility of future performance testing using
+              sorting algorithms.
+            </p>
+            <p data-i18n="phase3_p3">
+              Hence, these phases emphasize how the prototype builds records
+              data and transforms it into beneficial information by way of
+              analyzing demand that enables smart decision making on the
+              registration system. These comprise enhanced course capacity and
+              reduced overcrowding, timetabling properly, and effective future
+              planning with resources being assigned and utilized based on the
+              demand of the students.
+            </p>
+          </div>
 
-            <!-- INTRODUCTION -->
-            <section id="introduction">
-                <h2 data-i18n="toc_intro">Introduction</h2>
-                <p data-i18n="intro_p1">At the very foundation of programming is a simple but powerful necessity:
-                    sorting things out. Sorting is one of the most useful tools for a programmer, taking jumbled data
-                    and turning it into organized information that is easy to locate, examine, and maximize. For any
-                    code writer, having knowledge of the different ways to sort isn't abstract — it's practical. Knowing
-                    which technique to employ can be the difference between a speedy application and a slow one,
-                    particularly as data volume increases.</p>
-                <p data-i18n="intro_p2">This project answers one central question of this field: in practice, how do
-                    different sorting algorithms work? We're bridging theory and practice by comparing how long it takes
-                    to run each one. The goal is to demonstrate that an algorithm's inherent complexity has a direct
-                    impact on real-world speed, and how our choices as programmers affect the behavior of a program.</p>
-                <p data-i18n="intro_p3">To achieve this, we designed a special list to manage the enrollments of the
-                    students into courses. We took the data and sorted it four times through regular sorts: the
-                    inefficient but simple Selection and Insertion Sorts, and the more sophisticated divide-and-conquer
-                    Merge Sort and Quick Sort. We also timed each one in order to see how their theoretical performance
-                    stacked up against their actual speed. Ultimately, this project serves as a practical example.</p>
-            </section>
+          <p data-i18n="design_conclusion">
+            Overall, it results in a more efficient way of course registration
+            management while enhancing the student experience with a data-driven
+            and intuitive registration system.
+          </p>
+        </section>
 
-            <!-- SYSTEM DESIGN -->
-            <section id="system-design">
-                <h2 data-i18n="toc_design">High-Level Solution / System Design Overview</h2>
-                <p class="section-intro" data-i18n="design_intro">This application is meant to develop a Prince Sultan
-                    University-specific system that takes the record of the student's course registration and computes
-                    the demand for each course accordingly. Additionally, this system undergoes three major phases:</p>
+        <!-- PERFORMANCE ANALYSIS -->
+        <section id="performance-analysis">
+          <h2 data-i18n="toc_perf">Asymptotic Performance Analysis</h2>
 
-                <div class="phase-list">
-                    <h3 data-i18n="phase1_title">Data Collection Phase</h3>
-                    <p data-i18n="phase1_p1">The system begins this phase by gathering the records of student course
-                        registration retrieved from Prince Sultan University's database, which has approximately 3000
-                        entries. Each record has the student's basic information like their ID number, course enrolling,
-                        identified by its course ID, study level at the moment, and the enrollment time.</p>
-                    <p data-i18n="phase1_p2">In addition, the system carefully checks and reviews each record to ensure
-                        the information is correct and complete, then starts sorting and formatting it in a readable
-                        format. This provides the system with a strong foundation in its capacity to effectively
-                        understand and analyze students' requests in order to ascertain course demand and trends,
-                        critical to inform future-stage decision-making.</p>
-                </div>
+          <h3 data-i18n="perf_readwrite_title">
+            The Writing and Reading Running Time
+          </h3>
+          <p data-i18n="perf_readwrite_desc">
+            The file reading and writing operations have a linear time
+            complexity of <span class="complexity">O(n)</span>, where n is the
+            number of registrations. Each record is processed exactly once
+            during reading, and each record is written exactly once during the
+            output phase.
+          </p>
 
-                <div class="phase-list">
-                    <h3 data-i18n="phase2_title">Processing Phase (Demand Score Calculation)</h3>
-                    <p data-i18n="phase2_intro">For each node the demandScorer calculates a certain score for each
-                        student based on 4 criteria:</p>
+          <h3 data-i18n="perf_processing_title">
+            The Processing (Demand Score Computation) Run Time
+          </h3>
+          <p data-i18n="perf_processing_desc">
+            The demand score calculation for all registrations has a time
+            complexity of <span class="complexity">O(n)</span>. The system
+            iterates through each node in the linked list exactly once,
+            performing a constant-time calculation for each student's demand
+            score based on the four criteria.
+          </p>
 
-                    <div class="criteria-box">
-                        <h4 data-i18n="crit1_title">1. Base Score: 50</h4>
-                        <p data-i18n="crit1_desc">This represents the initial score each student starts with.</p>
-                    </div>
+          <h3 data-i18n="perf_sorting_title">The Sorting Running Time</h3>
 
-                    <div class="criteria-box">
-                        <h4 data-i18n="crit2_title">2. Class Multiplier</h4>
-                        <p data-i18n="crit2_desc">The base score is multiplied by a factor depending on the current
-                            grade level of the students:</p>
-                        <ul class="multiplier-list">
-                            <li data-i18n="level_freshman"><strong>Freshman:</strong> Base score × 0.75 (decreased by
-                                25%)</li>
-                            <li data-i18n="level_sophomore"><strong>Sophomore:</strong> Base score × 0.90 (decreased by
-                                10%)</li>
-                            <li data-i18n="level_junior"><strong>Junior:</strong> Base score × 1.1 (increased by 10%)
-                            </li>
-                            <li data-i18n="level_senior"><strong>Senior:</strong> Base score × 1.25 (increased by 25%)
-                            </li>
-                            <li data-i18n="level_graduate"><strong>Graduate:</strong> Base score × 1.5 (increased by
-                                50%)</li>
-                        </ul>
-                        <p data-i18n="crit2_note">Therefore, the system ensures that high priority is assigned to nearly
-                            graduated students or graduates and low priority to fresh students, who are fortunate enough
-                            to have additional time to register courses in future semesters.</p>
-                    </div>
+          <h4 data-i18n="sort_selection">Selection Sort</h4>
+          <p data-i18n="sort_selection_desc">
+            Selection Sort has a time complexity of
+            <span class="complexity">O(n²)</span>. The algorithm uses two nested
+            loops: the outer loop runs n times, and for each iteration, the
+            inner loop searches through the remaining unsorted elements to find
+            the maximum value. This results in approximately n²/2 comparisons.
+          </p>
+          <div class="code-block">
+            <code
+              >Time Complexity: T(n) = n + n + n² + n² + n² + 3n + c Simplified:
+              T(n) = 3n² + 5n + c Big O Notation: O(n²)</code
+            >
+          </div>
 
-                    <div class="criteria-box">
-                        <h4 data-i18n="crit3_title">3. Time of Registration</h4>
-                        <p data-i18n="crit3_desc">The demand score of students is highly determined by when they
-                            register for a given course. Students who choose to register early will be given bonus
-                            points, while students who register late will be penalized in relative sequence:</p>
-                        <ul class="multiplier-list">
-                            <li data-i18n="time_6_8"><strong>6:00–8:00 AM:</strong> +5 points bonus</li>
-                            <li data-i18n="time_8_10"><strong>8:00–10:00 AM (peak time):</strong> +10 points bonus</li>
-                            <li data-i18n="time_12_14"><strong>12:00–2:00 PM:</strong> No penalty or bonuses</li>
-                            <li data-i18n="time_14_16"><strong>2:00–4:00 PM:</strong> -5 points penalty</li>
-                            <li data-i18n="time_16_20"><strong>4:00–8:00 PM:</strong> -10 points penalty</li>
-                            <li data-i18n="time_after20"><strong>After 8:00 PM:</strong> -15 points or more penalty</li>
-                        </ul>
-                    </div>
+          <h4 data-i18n="sort_insertion">Insertion Sort</h4>
+          <p data-i18n="sort_insertion_desc">
+            Insertion Sort also has a time complexity of
+            <span class="complexity">O(n²)</span> in the worst case. Starting
+            from the second element, each element is compared with all elements
+            to its left and inserted in the correct position. In the worst case
+            (reverse sorted array), this results in n²/2 comparisons.
+          </p>
+          <div class="code-block">
+            <code
+              >Time Complexity: O(n²) in worst case Best Case: O(n) when array
+              is already sorted</code
+            >
+          </div>
 
-                    <div class="criteria-box">
-                        <h4 data-i18n="crit4_title">4. Course ID Priorities</h4>
-                        <p data-i18n="crit4_desc">This measure assigns greater weight to certain courses over others:
-                        </p>
-                        <ul class="multiplier-list">
-                            <li data-i18n="course_high"><strong>High-priority courses:</strong> Course code ends with an
-                                odd number (e.g., CS311) — adds +20 points bonus</li>
-                            <li data-i18n="course_low"><strong>Low-priority courses:</strong> Course code ends with an
-                                even number (e.g., CS210) — deducts -10 points penalty</li>
-                        </ul>
-                    </div>
-                </div>
+          <h4 data-i18n="sort_merge">Merge Sort</h4>
+          <p data-i18n="sort_merge_desc">
+            Merge Sort has a time complexity of
+            <span class="complexity">O(n log n)</span>. The algorithm
+            recursively divides the array into two halves until base cases are
+            reached, then merges the sorted halves. The division creates log n
+            levels, and each level requires O(n) work to merge.
+          </p>
+          <div class="code-block">
+            <code
+              >Time Complexity: T(n) = 2T(n/2) + O(n) Solution: T(n) = O(n log
+              n) Space Complexity: O(n) for auxiliary arrays</code
+            >
+          </div>
 
-                <div class="phase-list">
-                    <h3 data-i18n="phase3_title">Documentation (Writing) Phase</h3>
-                    <p data-i18n="phase3_p1">Once all the data has been fully analyzed, examined, and processed based on
-                        the above criteria, the system writes the final results in a new file. It then proceeds to
-                        update each student's record with his or her own demand score, which is a measure of how highly
-                        demanded or popular a given course happens to be.</p>
-                    <p data-i18n="phase3_p2">It then, after storing the updated student records, notifies students that
-                        their registration requests have been processed and results can be viewed. It leaves the data
-                        unsorted at this time, allowing for the possibility of future performance testing using sorting
-                        algorithms.</p>
-                    <p data-i18n="phase3_p3">Hence, these phases emphasize how the prototype builds records data and
-                        transforms it into beneficial information by way of analyzing demand that enables smart decision
-                        making on the registration system. These comprise enhanced course capacity and reduced
-                        overcrowding, timetabling properly, and effective future planning with resources being assigned
-                        and utilized based on the demand of the students.</p>
-                </div>
+          <h4 data-i18n="sort_quick">Quick Sort</h4>
+          <p data-i18n="sort_quick_desc">
+            Quick Sort has an average time complexity of
+            <span class="complexity">O(n log n)</span>. The algorithm selects a
+            pivot element and partitions the array around it, then recursively
+            sorts the partitions. With good pivot selection, the array is
+            divided roughly in half at each level, creating log n levels with
+            O(n) work per level.
+          </p>
+          <div class="code-block">
+            <code
+              >Average Time Complexity: O(n log n) Worst Case: O(n²) (when pivot
+              is always smallest/largest) Space Complexity: O(log n) for
+              recursion stack</code
+            >
+          </div>
+        </section>
 
-                <p data-i18n="design_conclusion">Overall, it results in a more efficient way of course registration
-                    management while enhancing the student experience with a data-driven and intuitive registration
-                    system.</p>
-            </section>
+        <!-- RUNTIME MEASUREMENT -->
+        <section id="runtime-measurement">
+          <h2 data-i18n="toc_runtime">Runtime Measurement</h2>
+          <p data-i18n="runtime_intro">
+            The following table presents the actual runtime measurements for all
+            operations performed by the system on a dataset of
+            <strong>3,432 registrations</strong>:
+          </p>
 
-            <!-- PERFORMANCE ANALYSIS -->
-            <section id="performance-analysis">
-                <h2 data-i18n="toc_perf">Asymptotic Performance Analysis</h2>
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="table_operation">Operation</th>
+                <th data-i18n="table_complexity">Theoretical Complexity</th>
+                <th data-i18n="table_runtime">Actual Runtime (ms)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="op_reading">File Reading</td>
+                <td><span class="complexity">O(n)</span></td>
+                <td><strong>106</strong></td>
+              </tr>
+              <tr>
+                <td data-i18n="op_demand">
+                  Demand Score Calculation (Processing)
+                </td>
+                <td><span class="complexity">O(n)</span></td>
+                <td><strong>98</strong></td>
+              </tr>
+              <tr>
+                <td data-i18n="op_writing">File Writing (Unsorted)</td>
+                <td><span class="complexity">O(n)</span></td>
+                <td><strong>48</strong></td>
+              </tr>
+              <tr>
+                <td data-i18n="sort_selection">Selection Sort</td>
+                <td><span class="complexity">O(n²)</span></td>
+                <td><strong>45</strong></td>
+              </tr>
+              <tr>
+                <td data-i18n="sort_insertion">Insertion Sort</td>
+                <td><span class="complexity">O(n²)</span></td>
+                <td><strong>26</strong></td>
+              </tr>
+              <tr>
+                <td data-i18n="sort_merge">Merge Sort</td>
+                <td><span class="complexity">O(n log n)</span></td>
+                <td><strong>17</strong></td>
+              </tr>
+              <tr>
+                <td data-i18n="sort_quick">Quick Sort</td>
+                <td><span class="complexity">O(n log n)</span></td>
+                <td><strong>22</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
 
-                <h3 data-i18n="perf_readwrite_title">The Writing and Reading Running Time</h3>
-                <p data-i18n="perf_readwrite_desc">The file reading and writing operations have a linear time complexity
-                    of <span class="complexity">O(n)</span>, where n is the number of registrations. Each record is
-                    processed exactly once during reading, and each record is written exactly once during the output
-                    phase.</p>
+        <!-- INTERPRETATION -->
+        <section id="interpretation">
+          <h2 data-i18n="toc_interp">Interpretation of Results</h2>
+          <p data-i18n="interp_p1">
+            The results in the runtime table were obtained using a dataset of
+            3,432 registrations. Stating the dataset is significant because it
+            places the measured runtimes in context and enables the performance
+            results to be fairly interpreted. Since algorithmic efficiency
+            depends on input size, reporting that all timings were measured with
+            3,432 records shows that analysis was conducted under realistic and
+            standard conditions.
+          </p>
+          <p data-i18n="interp_p2">
+            This also allows fair comparison between the sorting algorithms and
+            makes it easier to reproduce in the event that the same dataset is
+            used again. The results clearly demonstrate the practical impact of
+            theoretical time complexity:
+          </p>
+          <ul>
+            <li data-i18n="interp_linear">
+              <strong>Linear operations (O(n)):</strong> File reading, demand
+              score calculation, and file writing all completed in under 110ms,
+              demonstrating efficient linear-time performance.
+            </li>
+            <li data-i18n="interp_quad">
+              <strong>Quadratic algorithms (O(n²)):</strong> Selection Sort
+              (45ms) and Insertion Sort (26ms) performed reasonably well on this
+              dataset size, though their performance would degrade significantly
+              with larger datasets.
+            </li>
+            <li data-i18n="interp_nlogn">
+              <strong>Linearithmic algorithms (O(n log n)):</strong> Merge Sort
+              (17ms) and Quick Sort (22ms) showed superior performance,
+              confirming their efficiency for larger datasets. These algorithms
+              are clearly the best choice for production systems handling
+              thousands of records.
+            </li>
+          </ul>
+          <p data-i18n="interp_p3">
+            The results validate the theoretical complexity analysis and
+            demonstrate why algorithm selection is crucial for system
+            performance, especially as data scales.
+          </p>
+        </section>
 
-                <h3 data-i18n="perf_processing_title">The Processing (Demand Score Computation) Run Time</h3>
-                <p data-i18n="perf_processing_desc">The demand score calculation for all registrations has a time
-                    complexity of <span class="complexity">O(n)</span>. The system iterates through each node in the
-                    linked list exactly once, performing a constant-time calculation for each student's demand score
-                    based on the four criteria.</p>
+        <!-- TEAMWORK -->
+        <section id="teamwork">
+          <h2 data-i18n="toc_team">Teamwork Contribution and Coordination</h2>
+          <p data-i18n="team_intro">
+            This project was completed in teamwork by Shoug Alomran and Layan
+            Bindayel under the supervision of Dr. Najla Althuniyan. The two
+            members worked together during the development, keeping each other
+            posted and sharing the responsibilities to ensure smooth flow and
+            integration.
+          </p>
 
-                <h3 data-i18n="perf_sorting_title">The Sorting Running Time</h3>
+          <h3>Layan Bindayel</h3>
+          <p data-i18n="layan_desc">
+            Layan coordinated and organized the project. She created the report
+            template, drew up the document outline, and divided the work evenly
+            between the two members. Layan did the implementation of the
+            lower-level system components, including:
+          </p>
+          <ul>
+            <li>Node.java</li>
+            <li>LinkedList.java</li>
+            <li>FileService.java</li>
+            <li>Comparators.java</li>
+          </ul>
+          <p data-i18n="layan_report">
+            Layan wrote the High-Level Solution and Asymptotic Performance
+            Analysis section of the report, explaining the overall design and
+            theoretical performance of the algorithms.
+          </p>
 
-                <h4 data-i18n="sort_selection">Selection Sort</h4>
-                <p data-i18n="sort_selection_desc">Selection Sort has a time complexity of <span
-                        class="complexity">O(n²)</span>. The algorithm uses two nested loops: the outer loop runs n
-                    times, and for each iteration, the inner loop searches through the remaining unsorted elements to
-                    find the maximum value. This results in approximately n²/2 comparisons.</p>
-                <div class="code-block"><code>Time Complexity: T(n) = n + n + n² + n² + n² + 3n + c
-Simplified: T(n) = 3n² + 5n + c
-Big O Notation: O(n²)</code></div>
+          <h3>Shoug Alomran</h3>
+          <p data-i18n="shoug_desc">
+            Shoug completed the analysis and runtime components of the project.
+            She implemented:
+          </p>
+          <ul>
+            <li data-i18n="shoug_li1">Input Validator Class</li>
+            <li data-i18n="shoug_li2">Demand Scorer Class</li>
+            <li data-i18n="shoug_li3">
+              Sorting algorithms (SelectionSort, InsertionSort, MergeSort, and
+              QuickSort)
+            </li>
+            <li data-i18n="shoug_li4">Bench Marker Class</li>
+            <li data-i18n="shoug_li5">Timer Class</li>
+          </ul>
+          <p data-i18n="shoug_report">
+            Shoug also completed the Runtime Measurement section of the report,
+            including measuring actual runtimes, generating tables, and
+            including screenshots to illustrate the performance of the system.
+          </p>
 
-                <h4 data-i18n="sort_insertion">Insertion Sort</h4>
-                <p data-i18n="sort_insertion_desc">Insertion Sort also has a time complexity of <span
-                        class="complexity">O(n²)</span> in the worst case. Starting from the second element, each
-                    element is compared with all elements to its left and inserted in the correct position. In the worst
-                    case (reverse sorted array), this results in n²/2 comparisons.</p>
-                <div class="code-block"><code>Time Complexity: O(n²) in worst case
-Best Case: O(n) when array is already sorted</code></div>
+          <h3 data-i18n="collab_title">Collaborative Work</h3>
+          <p data-i18n="collab_desc">
+            Both partners collaborated on Main Class, bringing all components
+            together in one program. Layan did data input and list integration,
+            while Shoug did processing, sorting, and benchmarking phases.
+            Together, they tested, debugged, and validated the entire system,
+            demonstrating overall teamwork, coordination, and fair contribution.
+          </p>
+        </section>
 
-                <h4 data-i18n="sort_merge">Merge Sort</h4>
-                <p data-i18n="sort_merge_desc">Merge Sort has a time complexity of <span class="complexity">O(n log
-                        n)</span>. The algorithm recursively divides the array into two halves until base cases are
-                    reached, then merges the sorted halves. The division creates log n levels, and each level requires
-                    O(n) work to merge.</p>
-                <div class="code-block"><code>Time Complexity: T(n) = 2T(n/2) + O(n)
-Solution: T(n) = O(n log n)
-Space Complexity: O(n) for auxiliary arrays</code></div>
+        <!-- CONCLUSION -->
+        <section id="conclusion">
+          <h2 data-i18n="toc_conclusion">Conclusion</h2>
+          <p data-i18n="conclusion_p1">
+            In essence, the results of this project confirmed that the
+            algorithms used behaved as theoretical and empirical expectations.
+            Runtime was utilized as a metric to determine that Merge Sort and
+            Quick Sort were the fastest in terms of runtime because of their
+            sound O(n log n) complexity, with Selection Sort and Insertion Sort
+            being much slower, as would be expected from their O(n²) complexity.
+            That theoretical consideration would match actual results in such a
+            manner ensures system implementation and design correctness and
+            optimality.
+          </p>
+          <p data-i18n="conclusion_p2">
+            Along the way, we were taught a valuable lesson in the trade-off
+            between simplicity and efficiency. The more straightforward
+            algorithms that we have such as Selection Sort and Insertion Sort
+            are easier to comprehend and implement but thus adequate for small
+            data or teaching purposes. Their performance is traded off, however,
+            with larger input size, to the more complicated divide-and-conquer
+            approach used by Merge Sort and Quick Sort.
+          </p>
+          <p data-i18n="conclusion_p3">
+            This project expressed extremely well the direct relation of
+            algorithmic efficiency to program performance in real-world
+            applications. The system can be adapted to take actual registration
+            data directly from university databases to analyze live course
+            demand patterns in the future.
+          </p>
+          <p data-i18n="conclusion_p4">
+            Any other features, such as the graphical user interface to display
+            the demand scores, machine verification of the input data, or
+            inclusion of yet another complicated algorithm like Heap Sort or
+            Counting Sort, would also make it all the more performance-driven
+            and user-friendly. Overall, the project accomplished what it
+            intended to do — coming up with an effective system that
+            demonstrates how an algorithm's design is incorporated into data
+            structures and run-time behavior in the real world for a learning
+            context.
+          </p>
+        </section>
 
-                <h4 data-i18n="sort_quick">Quick Sort</h4>
-                <p data-i18n="sort_quick_desc">Quick Sort has an average time complexity of <span class="complexity">O(n
-                        log n)</span>. The algorithm selects a pivot element and partitions the array around it, then
-                    recursively sorts the partitions. With good pivot selection, the array is divided roughly in half at
-                    each level, creating log n levels with O(n) work per level.</p>
-                <div class="code-block"><code>Average Time Complexity: O(n log n)
-Worst Case: O(n²) (when pivot is always smallest/largest)
-Space Complexity: O(log n) for recursion stack</code></div>
-            </section>
+        <!-- REFERENCES -->
+        <section id="references">
+          <h2 data-i18n="toc_refs">References and Resources</h2>
+          <ol>
+            <li>
+              Alomran, S., &amp; Bindayel, L. (2025).
+              <em>CS210 Project, Student Course Registration Analysis</em>
+              [Computer software]. GitHub.
+              <a
+                href="https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis"
+                class="reference-link"
+                target="_blank"
+                >https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis</a
+              >
+            </li>
+            <li>
+              GeeksforGeeks. (n.d.).
+              <em>Sorting Algorithms – Complete Guide</em>. Retrieved October
+              2025.
+              <a
+                href="https://www.geeksforgeeks.org/sorting-algorithms/"
+                class="reference-link"
+                target="_blank"
+                >https://www.geeksforgeeks.org/sorting-algorithms/</a
+              >
+            </li>
+            <li>
+              W3Schools. (n.d.). <em>Java BufferedWriter</em>. Retrieved October
+              2025.
+              <a
+                href="https://www.w3schools.com/java/java_bufferedwriter.asp"
+                class="reference-link"
+                target="_blank"
+                >https://www.w3schools.com/java/java_bufferedwriter.asp</a
+              >
+            </li>
+            <li>
+              W3Schools. (n.d.). <em>Java BufferedReader</em>. Retrieved October
+              2025.
+              <a
+                href="https://www.w3schools.com/java/java_bufferedreader.asp"
+                class="reference-link"
+                target="_blank"
+                >https://www.w3schools.com/java/java_bufferedreader.asp</a
+              >
+            </li>
+            <li>
+              W3Schools. (n.d.). <em>Java Files</em>. Retrieved October 2025.
+              <a
+                href="https://www.w3schools.com/java/java_files.asp"
+                class="reference-link"
+                target="_blank"
+                >https://www.w3schools.com/java/java_files.asp</a
+              >
+            </li>
+            <li>
+              Alsomali, Y., &amp; Alsubaie, H. (n.d.).
+              <em>Prince Sultan University Parking Intelligent System Report</em
+              >. CS210: Data Structures and Algorithms, Dr. Najla Althuniyan,
+              Prince Sultan University.
+            </li>
+          </ol>
+        </section>
 
-            <!-- RUNTIME MEASUREMENT -->
-            <section id="runtime-measurement">
-                <h2 data-i18n="toc_runtime">Runtime Measurement</h2>
-                <p data-i18n="runtime_intro">The following table presents the actual runtime measurements for all
-                    operations performed by the system on a dataset of <strong>3,432 registrations</strong>:</p>
+        <!-- APPENDIX A -->
+        <section id="appendix-a">
+          <h2 data-i18n="toc_appA">Appendix A: Flow Chart Illustration</h2>
+          <div
+            style="
+              background-color: #f8f9fa;
+              padding: 30px;
+              text-align: center;
+              border: 2px dashed #6c757d;
+              border-radius: 5px;
+              margin: 20px 0;
+            "
+          >
+            <p style="color: #6c757d; font-size: 1.1em; margin-bottom: 10px">
+              <strong data-i18n="appA_placeholder"
+                >Flow Chart Image Placeholder</strong
+              >
+            </p>
+            <p style="color: #6c757d" data-i18n="appA_desc">
+              System workflow diagram showing the three main phases:
+            </p>
+            <ul
+              style="
+                list-style: none;
+                color: #6c757d;
+                text-align: left;
+                display: inline-block;
+              "
+            >
+              <li data-i18n="appA_phase1">→ Data Collection Phase</li>
+              <li data-i18n="appA_phase2">
+                → Processing Phase (Demand Score Calculation)
+              </li>
+              <li data-i18n="appA_phase3">→ Documentation (Writing) Phase</li>
+            </ul>
+          </div>
+        </section>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-i18n="table_operation">Operation</th>
-                            <th data-i18n="table_complexity">Theoretical Complexity</th>
-                            <th data-i18n="table_runtime">Actual Runtime (ms)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-i18n="op_reading">File Reading</td>
-                            <td><span class="complexity">O(n)</span></td>
-                            <td><strong>106</strong></td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="op_demand">Demand Score Calculation (Processing)</td>
-                            <td><span class="complexity">O(n)</span></td>
-                            <td><strong>98</strong></td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="op_writing">File Writing (Unsorted)</td>
-                            <td><span class="complexity">O(n)</span></td>
-                            <td><strong>48</strong></td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="sort_selection">Selection Sort</td>
-                            <td><span class="complexity">O(n²)</span></td>
-                            <td><strong>45</strong></td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="sort_insertion">Insertion Sort</td>
-                            <td><span class="complexity">O(n²)</span></td>
-                            <td><strong>26</strong></td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="sort_merge">Merge Sort</td>
-                            <td><span class="complexity">O(n log n)</span></td>
-                            <td><strong>17</strong></td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="sort_quick">Quick Sort</td>
-                            <td><span class="complexity">O(n log n)</span></td>
-                            <td><strong>22</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+        <!-- APPENDIX B -->
+        <section id="appendix-b">
+          <h2 data-i18n="toc_appB">
+            Appendix B: Full Java Code Implementation
+          </h2>
 
-            <!-- INTERPRETATION -->
-            <section id="interpretation">
-                <h2 data-i18n="toc_interp">Interpretation of Results</h2>
-                <p data-i18n="interp_p1">The results in the runtime table were obtained using a dataset of 3,432
-                    registrations. Stating the dataset is significant because it places the measured runtimes in context
-                    and enables the performance results to be fairly interpreted. Since algorithmic efficiency depends
-                    on input size, reporting that all timings were measured with 3,432 records shows that analysis was
-                    conducted under realistic and standard conditions.</p>
-                <p data-i18n="interp_p2">This also allows fair comparison between the sorting algorithms and makes it
-                    easier to reproduce in the event that the same dataset is used again. The results clearly
-                    demonstrate the practical impact of theoretical time complexity:</p>
-                <ul>
-                    <li data-i18n="interp_linear"><strong>Linear operations (O(n)):</strong> File reading, demand score
-                        calculation, and file writing all completed in under 110ms, demonstrating efficient linear-time
-                        performance.</li>
-                    <li data-i18n="interp_quad"><strong>Quadratic algorithms (O(n²)):</strong> Selection Sort (45ms) and
-                        Insertion Sort (26ms) performed reasonably well on this dataset size, though their performance
-                        would degrade significantly with larger datasets.</li>
-                    <li data-i18n="interp_nlogn"><strong>Linearithmic algorithms (O(n log n)):</strong> Merge Sort
-                        (17ms) and Quick Sort (22ms) showed superior performance, confirming their efficiency for larger
-                        datasets. These algorithms are clearly the best choice for production systems handling thousands
-                        of records.</li>
-                </ul>
-                <p data-i18n="interp_p3">The results validate the theoretical complexity analysis and demonstrate why
-                    algorithm selection is crucial for system performance, especially as data scales.</p>
-            </section>
-
-            <!-- TEAMWORK -->
-            <section id="teamwork">
-                <h2 data-i18n="toc_team">Teamwork Contribution and Coordination</h2>
-                <p data-i18n="team_intro">This project was completed in teamwork by Shoug Alomran and Layan Bindayel
-                    under the supervision of Dr. Najla Althuniyan. The two members worked together during the
-                    development, keeping each other posted and sharing the responsibilities to ensure smooth flow and
-                    integration.</p>
-
-                <h3>Layan Bindayel</h3>
-                <p data-i18n="layan_desc">Layan coordinated and organized the project. She created the report template,
-                    drew up the document outline, and divided the work evenly between the two members. Layan did the
-                    implementation of the lower-level system components, including:</p>
-                <ul>
-                    <li>Node.java</li>
-                    <li>LinkedList.java</li>
-                    <li>FileService.java</li>
-                    <li>Comparators.java</li>
-                </ul>
-                <p data-i18n="layan_report">Layan wrote the High-Level Solution and Asymptotic Performance Analysis
-                    section of the report, explaining the overall design and theoretical performance of the algorithms.
-                </p>
-
-                <h3>Shoug Alomran</h3>
-                <p data-i18n="shoug_desc">Shoug completed the analysis and runtime components of the project. She
-                    implemented:</p>
-                <ul>
-                    <li data-i18n="shoug_li1">Input Validator Class</li>
-                    <li data-i18n="shoug_li2">Demand Scorer Class</li>
-                    <li data-i18n="shoug_li3">Sorting algorithms (SelectionSort, InsertionSort, MergeSort, and
-                        QuickSort)</li>
-                    <li data-i18n="shoug_li4">Bench Marker Class</li>
-                    <li data-i18n="shoug_li5">Timer Class</li>
-                </ul>
-                <p data-i18n="shoug_report">Shoug also completed the Runtime Measurement section of the report,
-                    including measuring actual runtimes, generating tables, and including screenshots to illustrate the
-                    performance of the system.</p>
-
-                <h3 data-i18n="collab_title">Collaborative Work</h3>
-                <p data-i18n="collab_desc">Both partners collaborated on Main Class, bringing all components together in
-                    one program. Layan did data input and list integration, while Shoug did processing, sorting, and
-                    benchmarking phases. Together, they tested, debugged, and validated the entire system, demonstrating
-                    overall teamwork, coordination, and fair contribution.</p>
-            </section>
-
-            <!-- CONCLUSION -->
-            <section id="conclusion">
-                <h2 data-i18n="toc_conclusion">Conclusion</h2>
-                <p data-i18n="conclusion_p1">In essence, the results of this project confirmed that the algorithms used
-                    behaved as theoretical and empirical expectations. Runtime was utilized as a metric to determine
-                    that Merge Sort and Quick Sort were the fastest in terms of runtime because of their sound O(n log
-                    n) complexity, with Selection Sort and Insertion Sort being much slower, as would be expected from
-                    their O(n²) complexity. That theoretical consideration would match actual results in such a manner
-                    ensures system implementation and design correctness and optimality.</p>
-                <p data-i18n="conclusion_p2">Along the way, we were taught a valuable lesson in the trade-off between
-                    simplicity and efficiency. The more straightforward algorithms that we have such as Selection Sort
-                    and Insertion Sort are easier to comprehend and implement but thus adequate for small data or
-                    teaching purposes. Their performance is traded off, however, with larger input size, to the more
-                    complicated divide-and-conquer approach used by Merge Sort and Quick Sort.</p>
-                <p data-i18n="conclusion_p3">This project expressed extremely well the direct relation of algorithmic
-                    efficiency to program performance in real-world applications. The system can be adapted to take
-                    actual registration data directly from university databases to analyze live course demand patterns
-                    in the future.</p>
-                <p data-i18n="conclusion_p4">Any other features, such as the graphical user interface to display the
-                    demand scores, machine verification of the input data, or inclusion of yet another complicated
-                    algorithm like Heap Sort or Counting Sort, would also make it all the more performance-driven and
-                    user-friendly. Overall, the project accomplished what it intended to do — coming up with an
-                    effective system that demonstrates how an algorithm's design is incorporated into data structures
-                    and run-time behavior in the real world for a learning context.</p>
-            </section>
-
-            <!-- REFERENCES -->
-            <section id="references">
-                <h2 data-i18n="toc_refs">References and Resources</h2>
-                <ol>
-                    <li>Alomran, S., &amp; Bindayel, L. (2025). <em>CS210 Project, Student Course Registration
-                            Analysis</em> [Computer software]. GitHub. <a
-                            href="https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis"
-                            class="reference-link"
-                            target="_blank">https://github.com/Shoug-Alomran/CS210-Project-Linked-List-Implementation-and-Runtime-Analysis</a>
-                    </li>
-                    <li>GeeksforGeeks. (n.d.). <em>Sorting Algorithms – Complete Guide</em>. Retrieved October 2025. <a
-                            href="https://www.geeksforgeeks.org/sorting-algorithms/" class="reference-link"
-                            target="_blank">https://www.geeksforgeeks.org/sorting-algorithms/</a></li>
-                    <li>W3Schools. (n.d.). <em>Java BufferedWriter</em>. Retrieved October 2025. <a
-                            href="https://www.w3schools.com/java/java_bufferedwriter.asp" class="reference-link"
-                            target="_blank">https://www.w3schools.com/java/java_bufferedwriter.asp</a></li>
-                    <li>W3Schools. (n.d.). <em>Java BufferedReader</em>. Retrieved October 2025. <a
-                            href="https://www.w3schools.com/java/java_bufferedreader.asp" class="reference-link"
-                            target="_blank">https://www.w3schools.com/java/java_bufferedreader.asp</a></li>
-                    <li>W3Schools. (n.d.). <em>Java Files</em>. Retrieved October 2025. <a
-                            href="https://www.w3schools.com/java/java_files.asp" class="reference-link"
-                            target="_blank">https://www.w3schools.com/java/java_files.asp</a></li>
-                    <li>Alsomali, Y., &amp; Alsubaie, H. (n.d.). <em>Prince Sultan University Parking Intelligent System
-                            Report</em>. CS210: Data Structures and Algorithms, Dr. Najla Althuniyan, Prince Sultan
-                        University.</li>
-                </ol>
-            </section>
-
-            <!-- APPENDIX A -->
-            <section id="appendix-a">
-                <h2 data-i18n="toc_appA">Appendix A: Flow Chart Illustration</h2>
-                <div
-                    style="background-color: #f8f9fa; padding: 30px; text-align: center; border: 2px dashed #6c757d; border-radius: 5px; margin: 20px 0;">
-                    <p style="color: #6c757d; font-size: 1.1em; margin-bottom: 10px;"><strong
-                            data-i18n="appA_placeholder">Flow Chart Image Placeholder</strong></p>
-                    <p style="color: #6c757d;" data-i18n="appA_desc">System workflow diagram showing the three main
-                        phases:</p>
-                    <ul style="list-style: none; color: #6c757d; text-align: left; display: inline-block;">
-                        <li data-i18n="appA_phase1">→ Data Collection Phase</li>
-                        <li data-i18n="appA_phase2">→ Processing Phase (Demand Score Calculation)</li>
-                        <li data-i18n="appA_phase3">→ Documentation (Writing) Phase</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- APPENDIX B -->
-            <section id="appendix-b">
-                <h2 data-i18n="toc_appB">Appendix B: Full Java Code Implementation</h2>
-
-                <h3 data-i18n="code_main">Main Class</h3>
-                <pre class="code-block"><code>import java.util.Arrays;
+          <h3 data-i18n="code_main">Main Class</h3>
+          <pre class="code-block"><code>import java.util.Arrays;
 
 public class Main {
 public static void main(String[] args) {
@@ -859,14 +1739,14 @@ public static void calculateAllDemandScores(LinkedList registrations) {
 }
 }</code></pre>
 
-                <h3 data-i18n="code_sorter">Sorter Interface</h3>
-                <pre class="code-block"><code>public interface Sorter {
+          <h3 data-i18n="code_sorter">Sorter Interface</h3>
+          <pre class="code-block"><code>public interface Sorter {
     void sort(Registration[] a);
     String name();
 }</code></pre>
 
-                <h3 data-i18n="code_node">Node Class</h3>
-                <pre class="code-block"><code>public class Node {
+          <h3 data-i18n="code_node">Node Class</h3>
+          <pre class="code-block"><code>public class Node {
     Registration studData;
     Node next;
 
@@ -876,8 +1756,8 @@ public static void calculateAllDemandScores(LinkedList registrations) {
     }
 }</code></pre>
 
-                <h3 data-i18n="code_timer">Timer Class</h3>
-                <pre class="code-block"><code>public class Timer {
+          <h3 data-i18n="code_timer">Timer Class</h3>
+          <pre class="code-block"><code>public class Timer {
     private long startTime;
     private long endTime;
 
@@ -886,8 +1766,8 @@ public static void calculateAllDemandScores(LinkedList registrations) {
     public long getElapsedTimeMillis() { return endTime - startTime; }
 }</code></pre>
 
-                <h3 data-i18n="code_ll">LinkedList Class</h3>
-                <pre class="code-block"><code>public class LinkedList {
+          <h3 data-i18n="code_ll">LinkedList Class</h3>
+          <pre class="code-block"><code>public class LinkedList {
     Node head;
     int size;
     Node tail;
@@ -944,8 +1824,8 @@ public static void calculateAllDemandScores(LinkedList registrations) {
     }
 }</code></pre>
 
-                <h3 data-i18n="code_bench">Benchmarker Class</h3>
-                <pre class="code-block"><code>public class Benchmarker {
+          <h3 data-i18n="code_bench">Benchmarker Class</h3>
+          <pre class="code-block"><code>public class Benchmarker {
     private static Registration[] makeCopy(Registration[] original) {
         Registration[] copy = new Registration[original.length];
         for (int i = 0; i < original.length; i++) copy[i] = original[i];
@@ -978,8 +1858,8 @@ public static void calculateAllDemandScores(LinkedList registrations) {
     }
 }</code></pre>
 
-                <h3 data-i18n="code_comp">Comparator Class</h3>
-                <pre class="code-block"><code>import java.util.Comparator;
+          <h3 data-i18n="code_comp">Comparator Class</h3>
+          <pre class="code-block"><code>import java.util.Comparator;
 
 public final class Comparators {
     private Comparators() {}
@@ -1007,8 +1887,8 @@ public final class Comparators {
     }
 }</code></pre>
 
-                <h3 data-i18n="code_reg">Registration Class</h3>
-                <pre class="code-block"><code>public class Registration {
+          <h3 data-i18n="code_reg">Registration Class</h3>
+          <pre class="code-block"><code>public class Registration {
     private String studentID;
     private String courseID;
     private int academicLevel;
@@ -1042,8 +1922,8 @@ public final class Comparators {
     }
 }</code></pre>
 
-                <h3 data-i18n="code_demand">DemandScorer Class</h3>
-                <pre class="code-block"><code>public class DemandScorer {
+          <h3 data-i18n="code_demand">DemandScorer Class</h3>
+          <pre class="code-block"><code>public class DemandScorer {
     public static void computeDemandScore(Registration reg) {
         double score = 50;
         score = applyStudentClassMultiplier(score, reg.getAcademicLevel());
@@ -1084,8 +1964,8 @@ public final class Comparators {
     }
 }</code></pre>
 
-                <h3 data-i18n="code_validator">InputValidator Class</h3>
-                <pre class="code-block"><code>import java.io.*;
+          <h3 data-i18n="code_validator">InputValidator Class</h3>
+          <pre class="code-block"><code>import java.io.*;
 import java.util.*;
 
 public class InputValidator {
@@ -1126,8 +2006,8 @@ public class InputValidator {
     }
 }</code></pre>
 
-                <h3 data-i18n="code_file">FileService Class</h3>
-                <pre class="code-block"><code>import java.io.*;
+          <h3 data-i18n="code_file">FileService Class</h3>
+          <pre class="code-block"><code>import java.io.*;
 
 public class FileService {
     public static LinkedList readRegistrationsFromFile(String filename) {
@@ -1146,8 +2026,10 @@ public class FileService {
     }
 }</code></pre>
 
-                <h3 data-i18n="code_insertion">Insertion Sort Class</h3>
-                <pre class="code-block"><code>public class InsertionSort implements Sorter {
+          <h3 data-i18n="code_insertion">Insertion Sort Class</h3>
+          <pre
+            class="code-block"
+          ><code>public class InsertionSort implements Sorter {
     @Override
     public void sort(Registration[] array) {
         for (int i = 1; i &lt; array.length; i++) {
@@ -1164,8 +2046,10 @@ public class FileService {
     @Override public String name() { return "Insertion Sort"; }
 }</code></pre>
 
-                <h3 data-i18n="code_merge">Merge Sort Class</h3>
-                <pre class="code-block"><code>public class MergeSort implements Sorter {
+          <h3 data-i18n="code_merge">Merge Sort Class</h3>
+          <pre
+            class="code-block"
+          ><code>public class MergeSort implements Sorter {
     @Override
     public void sort(Registration[] array) {
         if (array.length &lt; 2) return;
@@ -1189,8 +2073,10 @@ public class FileService {
     @Override public String name() { return "Merge Sort"; }
 }</code></pre>
 
-                <h3 data-i18n="code_quick">Quick Sort Class</h3>
-                <pre class="code-block"><code>public class QuickSort implements Sorter {
+          <h3 data-i18n="code_quick">Quick Sort Class</h3>
+          <pre
+            class="code-block"
+          ><code>public class QuickSort implements Sorter {
     @Override
     public void sort(Registration[] array) { quickSort(array, 0, array.length - 1); }
 
@@ -1217,8 +2103,10 @@ public class FileService {
     @Override public String name() { return "Quick Sort"; }
 }</code></pre>
 
-                <h3 data-i18n="code_selection">Selection Sort Class</h3>
-                <pre class="code-block"><code>public class SelectionSort implements Sorter {
+          <h3 data-i18n="code_selection">Selection Sort Class</h3>
+          <pre
+            class="code-block"
+          ><code>public class SelectionSort implements Sorter {
     @Override
     public void sort(Registration[] array) {
         for (int i = 0; i &lt; array.length - 1; i++) {
@@ -1231,408 +2119,652 @@ public class FileService {
     }
     @Override public String name() { return "Selection Sort"; }
 }</code></pre>
-            </section>
+        </section>
 
-            <!-- APPENDIX C -->
-            <section id="appendix-c">
-                <h2 data-i18n="toc_appC">Appendix C: Full Run Pictures</h2>
-                <div
-                    style="background-color: #f8f9fa; padding: 30px; text-align: center; border: 2px dashed #6c757d; border-radius: 5px; margin: 20px 0;">
-                    <p style="color: #6c757d; font-size: 1.1em; margin-bottom: 10px;"><strong
-                            data-i18n="appC_placeholder">Console Output Screenshot Placeholder</strong></p>
-                    <p style="color: #6c757d;" data-i18n="appC_desc">Full program execution showing:</p>
-                    <ul style="list-style: none; color: #6c757d; text-align: left; display: inline-block;">
-                        <li data-i18n="run_1">✓ File reading completed: 106 ms</li>
-                        <li data-i18n="run_2">✓ Successfully read 3432 registrations</li>
-                        <li data-i18n="run_3">✓ Demand score calculations completed: 98 ms</li>
-                        <li data-i18n="run_4">✓ File writing completed: 48 ms</li>
-                        <li data-i18n="run_5">✓ Selection Sort: 45 ms</li>
-                        <li data-i18n="run_6">✓ Insertion Sort: 26 ms</li>
-                        <li data-i18n="run_7">✓ Merge Sort: 17 ms</li>
-                        <li data-i18n="run_8">✓ Quick Sort: 22 ms</li>
-                        <li data-i18n="run_9">✓ All sorting completed and results saved</li>
-                    </ul>
-                </div>
-            </section>
-        </main>
+        <!-- APPENDIX C -->
+        <section id="appendix-c">
+          <h2 data-i18n="toc_appC">Appendix C: Full Run Pictures</h2>
+          <div
+            style="
+              background-color: #f8f9fa;
+              padding: 30px;
+              text-align: center;
+              border: 2px dashed #6c757d;
+              border-radius: 5px;
+              margin: 20px 0;
+            "
+          >
+            <p style="color: #6c757d; font-size: 1.1em; margin-bottom: 10px">
+              <strong data-i18n="appC_placeholder"
+                >Console Output Screenshot Placeholder</strong
+              >
+            </p>
+            <p style="color: #6c757d" data-i18n="appC_desc">
+              Full program execution showing:
+            </p>
+            <ul
+              style="
+                list-style: none;
+                color: #6c757d;
+                text-align: left;
+                display: inline-block;
+              "
+            >
+              <li data-i18n="run_1">✓ File reading completed: 106 ms</li>
+              <li data-i18n="run_2">✓ Successfully read 3432 registrations</li>
+              <li data-i18n="run_3">
+                ✓ Demand score calculations completed: 98 ms
+              </li>
+              <li data-i18n="run_4">✓ File writing completed: 48 ms</li>
+              <li data-i18n="run_5">✓ Selection Sort: 45 ms</li>
+              <li data-i18n="run_6">✓ Insertion Sort: 26 ms</li>
+              <li data-i18n="run_7">✓ Merge Sort: 17 ms</li>
+              <li data-i18n="run_8">✓ Quick Sort: 22 ms</li>
+              <li data-i18n="run_9">
+                ✓ All sorting completed and results saved
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
 
-        <footer>
-            <p data-i18n="footer_1">© 2025 Prince Sultan University - College of Computer and Information Sciences</p>
-            <p data-i18n="footer_2">CS210: Data Structures and Algorithms - Section 951</p>
-        </footer>
+      <footer>
+        <p data-i18n="footer_1">
+          © 2025 Prince Sultan University - College of Computer and Information
+          Sciences
+        </p>
+        <p data-i18n="footer_2">
+          CS210: Data Structures and Algorithms - Section 951
+        </p>
+      </footer>
     </div>
 
     <script>
-        (function () {
-            // ── Translation dictionary ────────────────────────────────────────────────
-            var T = {
-                en: {
-                    // toolbar
-                    dark: "Dark Mode", light: "Light Mode", download: "Download PDF",
-                    // header
-                    uni_name: "College of Computer and Information Sciences (CCIS)",
-                    course_title: "CS210: Data Structures and Algorithms",
-                    project_title: "Developing an Intelligent System for Students' Course Registration Analysis",
-                    instructor_label: "Course Instructor:",
-                    instructor_name: "Dr. Najla Althuniyan",
-                    section_label: "Section #:",
-                    // TOC
-                    toc_title: "Table of Contents",
-                    toc_abstract: "Abstract",
-                    toc_intro: "Introduction",
-                    toc_design: "High-Level Solution / System Design Overview",
-                    toc_perf: "Asymptotic Performance Analysis",
-                    toc_runtime: "Runtime Measurement",
-                    toc_interp: "Interpretation of Results",
-                    toc_team: "Teamwork Contribution and Coordination",
-                    toc_conclusion: "Conclusion",
-                    toc_refs: "References and Resources",
-                    toc_appA: "Appendix A: Flow Chart Illustration",
-                    toc_appB: "Appendix B: Full Java Code Implementation",
-                    toc_appC: "Appendix C: Full Run Pictures",
-                    // Abstract
-                    abstract_p1: "This project designed an intelligent system for managing students' course registration records at Prince Sultan University, predicting course demand through data structures such as linked lists and arrays as well as sorting algorithms. The system stores records in a self-developed linked list and has four algorithms for sorting — Selection Sort, Insertion Sort, Merge Sort, and Quick Sort — to compare their time complexity performance.",
-                    abstract_p2: "The outcomes were according to theoretical time complexities in the sense that Merge Sort and Quick Sort O(n log n) had a huge margin over Selection and Insertion Sorts O(n²) when given a database with more than 3,000 records. The project amply justifies the importance of algorithm choice on performance by confirming that computationally intensive algorithms like Merge and Quick Sort are best suited for efficient management of large data.",
-                    // Introduction
-                    intro_p1: "At the very foundation of programming is a simple but powerful necessity: sorting things out. Sorting is one of the most useful tools for a programmer, taking jumbled data and turning it into organized information that is easy to locate, examine, and maximize. For any code writer, having knowledge of the different ways to sort isn't abstract — it's practical. Knowing which technique to employ can be the difference between a speedy application and a slow one, particularly as data volume increases.",
-                    intro_p2: "This project answers one central question of this field: in practice, how do different sorting algorithms work? We're bridging theory and practice by comparing how long it takes to run each one. The goal is to demonstrate that an algorithm's inherent complexity has a direct impact on real-world speed, and how our choices as programmers affect the behavior of a program.",
-                    intro_p3: "To achieve this, we designed a special list to manage the enrollments of the students into courses. We took the data and sorted it four times through regular sorts: the inefficient but simple Selection and Insertion Sorts, and the more sophisticated divide-and-conquer Merge Sort and Quick Sort. We also timed each one in order to see how their theoretical performance stacked up against their actual speed. Ultimately, this project serves as a practical example.",
-                    // System Design
-                    design_intro: "This application is meant to develop a Prince Sultan University-specific system that takes the record of the student's course registration and computes the demand for each course accordingly. Additionally, this system undergoes three major phases:",
-                    phase1_title: "Data Collection Phase",
-                    phase1_p1: "The system begins this phase by gathering the records of student course registration retrieved from Prince Sultan University's database, which has approximately 3000 entries. Each record has the student's basic information like their ID number, course enrolling, identified by its course ID, study level at the moment, and the enrollment time.",
-                    phase1_p2: "In addition, the system carefully checks and reviews each record to ensure the information is correct and complete, then starts sorting and formatting it in a readable format. This provides the system with a strong foundation in its capacity to effectively understand and analyze students' requests in order to ascertain course demand and trends, critical to inform future-stage decision-making.",
-                    phase2_title: "Processing Phase (Demand Score Calculation)",
-                    phase2_intro: "For each node the demandScorer calculates a certain score for each student based on 4 criteria:",
-                    crit1_title: "1. Base Score: 50",
-                    crit1_desc: "This represents the initial score each student starts with.",
-                    crit2_title: "2. Class Multiplier",
-                    crit2_desc: "The base score is multiplied by a factor depending on the current grade level of the students:",
-                    level_freshman: "<strong>Freshman:</strong> Base score × 0.75 (decreased by 25%)",
-                    level_sophomore: "<strong>Sophomore:</strong> Base score × 0.90 (decreased by 10%)",
-                    level_junior: "<strong>Junior:</strong> Base score × 1.1 (increased by 10%)",
-                    level_senior: "<strong>Senior:</strong> Base score × 1.25 (increased by 25%)",
-                    level_graduate: "<strong>Graduate:</strong> Base score × 1.5 (increased by 50%)",
-                    crit2_note: "Therefore, the system ensures that high priority is assigned to nearly graduated students or graduates and low priority to fresh students, who are fortunate enough to have additional time to register courses in future semesters.",
-                    crit3_title: "3. Time of Registration",
-                    crit3_desc: "The demand score of students is highly determined by when they register for a given course. Students who choose to register early will be given bonus points, while students who register late will be penalized in relative sequence:",
-                    time_6_8: "<strong>6:00–8:00 AM:</strong> +5 points bonus",
-                    time_8_10: "<strong>8:00–10:00 AM (peak time):</strong> +10 points bonus",
-                    time_12_14: "<strong>12:00–2:00 PM:</strong> No penalty or bonuses",
-                    time_14_16: "<strong>2:00–4:00 PM:</strong> -5 points penalty",
-                    time_16_20: "<strong>4:00–8:00 PM:</strong> -10 points penalty",
-                    time_after20: "<strong>After 8:00 PM:</strong> -15 points or more penalty",
-                    crit4_title: "4. Course ID Priorities",
-                    crit4_desc: "This measure assigns greater weight to certain courses over others:",
-                    course_high: "<strong>High-priority courses:</strong> Course code ends with an odd number (e.g., CS311) — adds +20 points bonus",
-                    course_low: "<strong>Low-priority courses:</strong> Course code ends with an even number (e.g., CS210) — deducts -10 points penalty",
-                    phase3_title: "Documentation (Writing) Phase",
-                    phase3_p1: "Once all the data has been fully analyzed, examined, and processed based on the above criteria, the system writes the final results in a new file. It then proceeds to update each student's record with his or her own demand score, which is a measure of how highly demanded or popular a given course happens to be.",
-                    phase3_p2: "It then, after storing the updated student records, notifies students that their registration requests have been processed and results can be viewed. It leaves the data unsorted at this time, allowing for the possibility of future performance testing using sorting algorithms.",
-                    phase3_p3: "Hence, these phases emphasize how the prototype builds records data and transforms it into beneficial information by way of analyzing demand that enables smart decision making on the registration system. These comprise enhanced course capacity and reduced overcrowding, timetabling properly, and effective future planning with resources being assigned and utilized based on the demand of the students.",
-                    design_conclusion: "Overall, it results in a more efficient way of course registration management while enhancing the student experience with a data-driven and intuitive registration system.",
-                    // Performance Analysis
-                    perf_readwrite_title: "The Writing and Reading Running Time",
-                    perf_readwrite_desc: "The file reading and writing operations have a linear time complexity of <span class=\"complexity\">O(n)</span>, where n is the number of registrations. Each record is processed exactly once during reading, and each record is written exactly once during the output phase.",
-                    perf_processing_title: "The Processing (Demand Score Computation) Run Time",
-                    perf_processing_desc: "The demand score calculation for all registrations has a time complexity of <span class=\"complexity\">O(n)</span>. The system iterates through each node in the linked list exactly once, performing a constant-time calculation for each student's demand score based on the four criteria.",
-                    perf_sorting_title: "The Sorting Running Time",
-                    sort_selection: "Selection Sort",
-                    sort_selection_desc: "Selection Sort has a time complexity of <span class=\"complexity\">O(n²)</span>. The algorithm uses two nested loops: the outer loop runs n times, and for each iteration, the inner loop searches through the remaining unsorted elements to find the maximum value. This results in approximately n²/2 comparisons.",
-                    sort_insertion: "Insertion Sort",
-                    sort_insertion_desc: "Insertion Sort also has a time complexity of <span class=\"complexity\">O(n²)</span> in the worst case. Starting from the second element, each element is compared with all elements to its left and inserted in the correct position. In the worst case (reverse sorted array), this results in n²/2 comparisons.",
-                    sort_merge: "Merge Sort",
-                    sort_merge_desc: "Merge Sort has a time complexity of <span class=\"complexity\">O(n log n)</span>. The algorithm recursively divides the array into two halves until base cases are reached, then merges the sorted halves. The division creates log n levels, and each level requires O(n) work to merge.",
-                    sort_quick: "Quick Sort",
-                    sort_quick_desc: "Quick Sort has an average time complexity of <span class=\"complexity\">O(n log n)</span>. The algorithm selects a pivot element and partitions the array around it, then recursively sorts the partitions. With good pivot selection, the array is divided roughly in half at each level, creating log n levels with O(n) work per level.",
-                    // Runtime Measurement
-                    runtime_intro: "The following table presents the actual runtime measurements for all operations performed by the system on a dataset of <strong>3,432 registrations</strong>:",
-                    table_operation: "Operation",
-                    table_complexity: "Theoretical Complexity",
-                    table_runtime: "Actual Runtime (ms)",
-                    op_reading: "File Reading",
-                    op_demand: "Demand Score Calculation (Processing)",
-                    op_writing: "File Writing (Unsorted)",
-                    // Interpretation
-                    interp_p1: "The results in the runtime table were obtained using a dataset of 3,432 registrations. Stating the dataset is significant because it places the measured runtimes in context and enables the performance results to be fairly interpreted. Since algorithmic efficiency depends on input size, reporting that all timings were measured with 3,432 records shows that analysis was conducted under realistic and standard conditions.",
-                    interp_p2: "This also allows fair comparison between the sorting algorithms and makes it easier to reproduce in the event that the same dataset is used again. The results clearly demonstrate the practical impact of theoretical time complexity:",
-                    interp_linear: "<strong>Linear operations (O(n)):</strong> File reading, demand score calculation, and file writing all completed in under 110ms, demonstrating efficient linear-time performance.",
-                    interp_quad: "<strong>Quadratic algorithms (O(n²)):</strong> Selection Sort (45ms) and Insertion Sort (26ms) performed reasonably well on this dataset size, though their performance would degrade significantly with larger datasets.",
-                    interp_nlogn: "<strong>Linearithmic algorithms (O(n log n)):</strong> Merge Sort (17ms) and Quick Sort (22ms) showed superior performance, confirming their efficiency for larger datasets. These algorithms are clearly the best choice for production systems handling thousands of records.",
-                    interp_p3: "The results validate the theoretical complexity analysis and demonstrate why algorithm selection is crucial for system performance, especially as data scales.",
-                    // Teamwork
-                    team_intro: "This project was completed in teamwork by Shoug Alomran and Layan Bindayel under the supervision of Dr. Najla Althuniyan. The two members worked together during the development, keeping each other posted and sharing the responsibilities to ensure smooth flow and integration.",
-                    layan_desc: "Layan coordinated and organized the project. She created the report template, drew up the document outline, and divided the work evenly between the two members. Layan did the implementation of the lower-level system components, including:",
-                    layan_report: "Layan wrote the High-Level Solution and Asymptotic Performance Analysis section of the report, explaining the overall design and theoretical performance of the algorithms.",
-                    shoug_desc: "Shoug completed the analysis and runtime components of the project. She implemented:",
-                    shoug_li1: "Input Validator Class",
-                    shoug_li2: "Demand Scorer Class",
-                    shoug_li3: "Sorting algorithms (SelectionSort, InsertionSort, MergeSort, and QuickSort)",
-                    shoug_li4: "Bench Marker Class",
-                    shoug_li5: "Timer Class",
-                    shoug_report: "Shoug also completed the Runtime Measurement section of the report, including measuring actual runtimes, generating tables, and including screenshots to illustrate the performance of the system.",
-                    collab_title: "Collaborative Work",
-                    collab_desc: "Both partners collaborated on Main Class, bringing all components together in one program. Layan did data input and list integration, while Shoug did processing, sorting, and benchmarking phases. Together, they tested, debugged, and validated the entire system, demonstrating overall teamwork, coordination, and fair contribution.",
-                    // Conclusion
-                    conclusion_p1: "In essence, the results of this project confirmed that the algorithms used behaved as theoretical and empirical expectations. Runtime was utilized as a metric to determine that Merge Sort and Quick Sort were the fastest in terms of runtime because of their sound O(n log n) complexity, with Selection Sort and Insertion Sort being much slower, as would be expected from their O(n²) complexity. That theoretical consideration would match actual results in such a manner ensures system implementation and design correctness and optimality.",
-                    conclusion_p2: "Along the way, we were taught a valuable lesson in the trade-off between simplicity and efficiency. The more straightforward algorithms that we have such as Selection Sort and Insertion Sort are easier to comprehend and implement but thus adequate for small data or teaching purposes. Their performance is traded off, however, with larger input size, to the more complicated divide-and-conquer approach used by Merge Sort and Quick Sort.",
-                    conclusion_p3: "This project expressed extremely well the direct relation of algorithmic efficiency to program performance in real-world applications. The system can be adapted to take actual registration data directly from university databases to analyze live course demand patterns in the future.",
-                    conclusion_p4: "Any other features, such as the graphical user interface to display the demand scores, machine verification of the input data, or inclusion of yet another complicated algorithm like Heap Sort or Counting Sort, would also make it all the more performance-driven and user-friendly. Overall, the project accomplished what it intended to do — coming up with an effective system that demonstrates how an algorithm's design is incorporated into data structures and run-time behavior in the real world for a learning context.",
-                    // Appendix A
-                    appA_placeholder: "Flow Chart Image Placeholder",
-                    appA_desc: "System workflow diagram showing the three main phases:",
-                    appA_phase1: "→ Data Collection Phase",
-                    appA_phase2: "→ Processing Phase (Demand Score Calculation)",
-                    appA_phase3: "→ Documentation (Writing) Phase",
-                    // Appendix B code section headings
-                    code_main: "Main Class",
-                    code_sorter: "Sorter Interface",
-                    code_node: "Node Class",
-                    code_timer: "Timer Class",
-                    code_ll: "LinkedList Class",
-                    code_bench: "Benchmarker Class",
-                    code_comp: "Comparator Class",
-                    code_reg: "Registration Class",
-                    code_demand: "DemandScorer Class",
-                    code_validator: "InputValidator Class",
-                    code_file: "FileService Class",
-                    code_insertion: "Insertion Sort Class",
-                    code_merge: "Merge Sort Class",
-                    code_quick: "Quick Sort Class",
-                    code_selection: "Selection Sort Class",
-                    // Appendix C
-                    appC_placeholder: "Console Output Screenshot Placeholder",
-                    appC_desc: "Full program execution showing:",
-                    run_1: "✓ File reading completed: 106 ms",
-                    run_2: "✓ Successfully read 3432 registrations",
-                    run_3: "✓ Demand score calculations completed: 98 ms",
-                    run_4: "✓ File writing completed: 48 ms",
-                    run_5: "✓ Selection Sort: 45 ms",
-                    run_6: "✓ Insertion Sort: 26 ms",
-                    run_7: "✓ Merge Sort: 17 ms",
-                    run_8: "✓ Quick Sort: 22 ms",
-                    run_9: "✓ All sorting completed and results saved",
-                    // Footer
-                    footer_1: "© 2025 Prince Sultan University - College of Computer and Information Sciences",
-                    footer_2: "CS210: Data Structures and Algorithms - Section 951"
-                },
+      (function () {
+        // ── Translation dictionary ────────────────────────────────────────────────
+        var T = {
+          en: {
+            // toolbar
+            dark: "Dark Mode",
+            light: "Light Mode",
+            download: "Download PDF",
+            // header
+            uni_name: "College of Computer and Information Sciences (CCIS)",
+            course_title: "CS210: Data Structures and Algorithms",
+            project_title:
+              "Developing an Intelligent System for Students' Course Registration Analysis",
+            instructor_label: "Course Instructor:",
+            instructor_name: "Dr. Najla Althuniyan",
+            section_label: "Section #:",
+            // TOC
+            toc_title: "Table of Contents",
+            toc_abstract: "Abstract",
+            toc_intro: "Introduction",
+            toc_design: "High-Level Solution / System Design Overview",
+            toc_perf: "Asymptotic Performance Analysis",
+            toc_runtime: "Runtime Measurement",
+            toc_interp: "Interpretation of Results",
+            toc_team: "Teamwork Contribution and Coordination",
+            toc_conclusion: "Conclusion",
+            toc_refs: "References and Resources",
+            toc_appA: "Appendix A: Flow Chart Illustration",
+            toc_appB: "Appendix B: Full Java Code Implementation",
+            toc_appC: "Appendix C: Full Run Pictures",
+            // Abstract
+            abstract_p1:
+              "This project designed an intelligent system for managing students' course registration records at Prince Sultan University, predicting course demand through data structures such as linked lists and arrays as well as sorting algorithms. The system stores records in a self-developed linked list and has four algorithms for sorting — Selection Sort, Insertion Sort, Merge Sort, and Quick Sort — to compare their time complexity performance.",
+            abstract_p2:
+              "The outcomes were according to theoretical time complexities in the sense that Merge Sort and Quick Sort O(n log n) had a huge margin over Selection and Insertion Sorts O(n²) when given a database with more than 3,000 records. The project amply justifies the importance of algorithm choice on performance by confirming that computationally intensive algorithms like Merge and Quick Sort are best suited for efficient management of large data.",
+            // Introduction
+            intro_p1:
+              "At the very foundation of programming is a simple but powerful necessity: sorting things out. Sorting is one of the most useful tools for a programmer, taking jumbled data and turning it into organized information that is easy to locate, examine, and maximize. For any code writer, having knowledge of the different ways to sort isn't abstract — it's practical. Knowing which technique to employ can be the difference between a speedy application and a slow one, particularly as data volume increases.",
+            intro_p2:
+              "This project answers one central question of this field: in practice, how do different sorting algorithms work? We're bridging theory and practice by comparing how long it takes to run each one. The goal is to demonstrate that an algorithm's inherent complexity has a direct impact on real-world speed, and how our choices as programmers affect the behavior of a program.",
+            intro_p3:
+              "To achieve this, we designed a special list to manage the enrollments of the students into courses. We took the data and sorted it four times through regular sorts: the inefficient but simple Selection and Insertion Sorts, and the more sophisticated divide-and-conquer Merge Sort and Quick Sort. We also timed each one in order to see how their theoretical performance stacked up against their actual speed. Ultimately, this project serves as a practical example.",
+            // System Design
+            design_intro:
+              "This application is meant to develop a Prince Sultan University-specific system that takes the record of the student's course registration and computes the demand for each course accordingly. Additionally, this system undergoes three major phases:",
+            phase1_title: "Data Collection Phase",
+            phase1_p1:
+              "The system begins this phase by gathering the records of student course registration retrieved from Prince Sultan University's database, which has approximately 3000 entries. Each record has the student's basic information like their ID number, course enrolling, identified by its course ID, study level at the moment, and the enrollment time.",
+            phase1_p2:
+              "In addition, the system carefully checks and reviews each record to ensure the information is correct and complete, then starts sorting and formatting it in a readable format. This provides the system with a strong foundation in its capacity to effectively understand and analyze students' requests in order to ascertain course demand and trends, critical to inform future-stage decision-making.",
+            phase2_title: "Processing Phase (Demand Score Calculation)",
+            phase2_intro:
+              "For each node the demandScorer calculates a certain score for each student based on 4 criteria:",
+            crit1_title: "1. Base Score: 50",
+            crit1_desc:
+              "This represents the initial score each student starts with.",
+            crit2_title: "2. Class Multiplier",
+            crit2_desc:
+              "The base score is multiplied by a factor depending on the current grade level of the students:",
+            level_freshman:
+              "<strong>Freshman:</strong> Base score × 0.75 (decreased by 25%)",
+            level_sophomore:
+              "<strong>Sophomore:</strong> Base score × 0.90 (decreased by 10%)",
+            level_junior:
+              "<strong>Junior:</strong> Base score × 1.1 (increased by 10%)",
+            level_senior:
+              "<strong>Senior:</strong> Base score × 1.25 (increased by 25%)",
+            level_graduate:
+              "<strong>Graduate:</strong> Base score × 1.5 (increased by 50%)",
+            crit2_note:
+              "Therefore, the system ensures that high priority is assigned to nearly graduated students or graduates and low priority to fresh students, who are fortunate enough to have additional time to register courses in future semesters.",
+            crit3_title: "3. Time of Registration",
+            crit3_desc:
+              "The demand score of students is highly determined by when they register for a given course. Students who choose to register early will be given bonus points, while students who register late will be penalized in relative sequence:",
+            time_6_8: "<strong>6:00–8:00 AM:</strong> +5 points bonus",
+            time_8_10:
+              "<strong>8:00–10:00 AM (peak time):</strong> +10 points bonus",
+            time_12_14: "<strong>12:00–2:00 PM:</strong> No penalty or bonuses",
+            time_14_16: "<strong>2:00–4:00 PM:</strong> -5 points penalty",
+            time_16_20: "<strong>4:00–8:00 PM:</strong> -10 points penalty",
+            time_after20:
+              "<strong>After 8:00 PM:</strong> -15 points or more penalty",
+            crit4_title: "4. Course ID Priorities",
+            crit4_desc:
+              "This measure assigns greater weight to certain courses over others:",
+            course_high:
+              "<strong>High-priority courses:</strong> Course code ends with an odd number (e.g., CS311) — adds +20 points bonus",
+            course_low:
+              "<strong>Low-priority courses:</strong> Course code ends with an even number (e.g., CS210) — deducts -10 points penalty",
+            phase3_title: "Documentation (Writing) Phase",
+            phase3_p1:
+              "Once all the data has been fully analyzed, examined, and processed based on the above criteria, the system writes the final results in a new file. It then proceeds to update each student's record with his or her own demand score, which is a measure of how highly demanded or popular a given course happens to be.",
+            phase3_p2:
+              "It then, after storing the updated student records, notifies students that their registration requests have been processed and results can be viewed. It leaves the data unsorted at this time, allowing for the possibility of future performance testing using sorting algorithms.",
+            phase3_p3:
+              "Hence, these phases emphasize how the prototype builds records data and transforms it into beneficial information by way of analyzing demand that enables smart decision making on the registration system. These comprise enhanced course capacity and reduced overcrowding, timetabling properly, and effective future planning with resources being assigned and utilized based on the demand of the students.",
+            design_conclusion:
+              "Overall, it results in a more efficient way of course registration management while enhancing the student experience with a data-driven and intuitive registration system.",
+            // Performance Analysis
+            perf_readwrite_title: "The Writing and Reading Running Time",
+            perf_readwrite_desc:
+              'The file reading and writing operations have a linear time complexity of <span class="complexity">O(n)</span>, where n is the number of registrations. Each record is processed exactly once during reading, and each record is written exactly once during the output phase.',
+            perf_processing_title:
+              "The Processing (Demand Score Computation) Run Time",
+            perf_processing_desc:
+              'The demand score calculation for all registrations has a time complexity of <span class="complexity">O(n)</span>. The system iterates through each node in the linked list exactly once, performing a constant-time calculation for each student\'s demand score based on the four criteria.',
+            perf_sorting_title: "The Sorting Running Time",
+            sort_selection: "Selection Sort",
+            sort_selection_desc:
+              'Selection Sort has a time complexity of <span class="complexity">O(n²)</span>. The algorithm uses two nested loops: the outer loop runs n times, and for each iteration, the inner loop searches through the remaining unsorted elements to find the maximum value. This results in approximately n²/2 comparisons.',
+            sort_insertion: "Insertion Sort",
+            sort_insertion_desc:
+              'Insertion Sort also has a time complexity of <span class="complexity">O(n²)</span> in the worst case. Starting from the second element, each element is compared with all elements to its left and inserted in the correct position. In the worst case (reverse sorted array), this results in n²/2 comparisons.',
+            sort_merge: "Merge Sort",
+            sort_merge_desc:
+              'Merge Sort has a time complexity of <span class="complexity">O(n log n)</span>. The algorithm recursively divides the array into two halves until base cases are reached, then merges the sorted halves. The division creates log n levels, and each level requires O(n) work to merge.',
+            sort_quick: "Quick Sort",
+            sort_quick_desc:
+              'Quick Sort has an average time complexity of <span class="complexity">O(n log n)</span>. The algorithm selects a pivot element and partitions the array around it, then recursively sorts the partitions. With good pivot selection, the array is divided roughly in half at each level, creating log n levels with O(n) work per level.',
+            // Runtime Measurement
+            runtime_intro:
+              "The following table presents the actual runtime measurements for all operations performed by the system on a dataset of <strong>3,432 registrations</strong>:",
+            table_operation: "Operation",
+            table_complexity: "Theoretical Complexity",
+            table_runtime: "Actual Runtime (ms)",
+            op_reading: "File Reading",
+            op_demand: "Demand Score Calculation (Processing)",
+            op_writing: "File Writing (Unsorted)",
+            // Interpretation
+            interp_p1:
+              "The results in the runtime table were obtained using a dataset of 3,432 registrations. Stating the dataset is significant because it places the measured runtimes in context and enables the performance results to be fairly interpreted. Since algorithmic efficiency depends on input size, reporting that all timings were measured with 3,432 records shows that analysis was conducted under realistic and standard conditions.",
+            interp_p2:
+              "This also allows fair comparison between the sorting algorithms and makes it easier to reproduce in the event that the same dataset is used again. The results clearly demonstrate the practical impact of theoretical time complexity:",
+            interp_linear:
+              "<strong>Linear operations (O(n)):</strong> File reading, demand score calculation, and file writing all completed in under 110ms, demonstrating efficient linear-time performance.",
+            interp_quad:
+              "<strong>Quadratic algorithms (O(n²)):</strong> Selection Sort (45ms) and Insertion Sort (26ms) performed reasonably well on this dataset size, though their performance would degrade significantly with larger datasets.",
+            interp_nlogn:
+              "<strong>Linearithmic algorithms (O(n log n)):</strong> Merge Sort (17ms) and Quick Sort (22ms) showed superior performance, confirming their efficiency for larger datasets. These algorithms are clearly the best choice for production systems handling thousands of records.",
+            interp_p3:
+              "The results validate the theoretical complexity analysis and demonstrate why algorithm selection is crucial for system performance, especially as data scales.",
+            // Teamwork
+            team_intro:
+              "This project was completed in teamwork by Shoug Alomran and Layan Bindayel under the supervision of Dr. Najla Althuniyan. The two members worked together during the development, keeping each other posted and sharing the responsibilities to ensure smooth flow and integration.",
+            layan_desc:
+              "Layan coordinated and organized the project. She created the report template, drew up the document outline, and divided the work evenly between the two members. Layan did the implementation of the lower-level system components, including:",
+            layan_report:
+              "Layan wrote the High-Level Solution and Asymptotic Performance Analysis section of the report, explaining the overall design and theoretical performance of the algorithms.",
+            shoug_desc:
+              "Shoug completed the analysis and runtime components of the project. She implemented:",
+            shoug_li1: "Input Validator Class",
+            shoug_li2: "Demand Scorer Class",
+            shoug_li3:
+              "Sorting algorithms (SelectionSort, InsertionSort, MergeSort, and QuickSort)",
+            shoug_li4: "Bench Marker Class",
+            shoug_li5: "Timer Class",
+            shoug_report:
+              "Shoug also completed the Runtime Measurement section of the report, including measuring actual runtimes, generating tables, and including screenshots to illustrate the performance of the system.",
+            collab_title: "Collaborative Work",
+            collab_desc:
+              "Both partners collaborated on Main Class, bringing all components together in one program. Layan did data input and list integration, while Shoug did processing, sorting, and benchmarking phases. Together, they tested, debugged, and validated the entire system, demonstrating overall teamwork, coordination, and fair contribution.",
+            // Conclusion
+            conclusion_p1:
+              "In essence, the results of this project confirmed that the algorithms used behaved as theoretical and empirical expectations. Runtime was utilized as a metric to determine that Merge Sort and Quick Sort were the fastest in terms of runtime because of their sound O(n log n) complexity, with Selection Sort and Insertion Sort being much slower, as would be expected from their O(n²) complexity. That theoretical consideration would match actual results in such a manner ensures system implementation and design correctness and optimality.",
+            conclusion_p2:
+              "Along the way, we were taught a valuable lesson in the trade-off between simplicity and efficiency. The more straightforward algorithms that we have such as Selection Sort and Insertion Sort are easier to comprehend and implement but thus adequate for small data or teaching purposes. Their performance is traded off, however, with larger input size, to the more complicated divide-and-conquer approach used by Merge Sort and Quick Sort.",
+            conclusion_p3:
+              "This project expressed extremely well the direct relation of algorithmic efficiency to program performance in real-world applications. The system can be adapted to take actual registration data directly from university databases to analyze live course demand patterns in the future.",
+            conclusion_p4:
+              "Any other features, such as the graphical user interface to display the demand scores, machine verification of the input data, or inclusion of yet another complicated algorithm like Heap Sort or Counting Sort, would also make it all the more performance-driven and user-friendly. Overall, the project accomplished what it intended to do — coming up with an effective system that demonstrates how an algorithm's design is incorporated into data structures and run-time behavior in the real world for a learning context.",
+            // Appendix A
+            appA_placeholder: "Flow Chart Image Placeholder",
+            appA_desc: "System workflow diagram showing the three main phases:",
+            appA_phase1: "→ Data Collection Phase",
+            appA_phase2: "→ Processing Phase (Demand Score Calculation)",
+            appA_phase3: "→ Documentation (Writing) Phase",
+            // Appendix B code section headings
+            code_main: "Main Class",
+            code_sorter: "Sorter Interface",
+            code_node: "Node Class",
+            code_timer: "Timer Class",
+            code_ll: "LinkedList Class",
+            code_bench: "Benchmarker Class",
+            code_comp: "Comparator Class",
+            code_reg: "Registration Class",
+            code_demand: "DemandScorer Class",
+            code_validator: "InputValidator Class",
+            code_file: "FileService Class",
+            code_insertion: "Insertion Sort Class",
+            code_merge: "Merge Sort Class",
+            code_quick: "Quick Sort Class",
+            code_selection: "Selection Sort Class",
+            // Appendix C
+            appC_placeholder: "Console Output Screenshot Placeholder",
+            appC_desc: "Full program execution showing:",
+            run_1: "✓ File reading completed: 106 ms",
+            run_2: "✓ Successfully read 3432 registrations",
+            run_3: "✓ Demand score calculations completed: 98 ms",
+            run_4: "✓ File writing completed: 48 ms",
+            run_5: "✓ Selection Sort: 45 ms",
+            run_6: "✓ Insertion Sort: 26 ms",
+            run_7: "✓ Merge Sort: 17 ms",
+            run_8: "✓ Quick Sort: 22 ms",
+            run_9: "✓ All sorting completed and results saved",
+            // Footer
+            footer_1:
+              "© 2025 Prince Sultan University - College of Computer and Information Sciences",
+            footer_2: "CS210: Data Structures and Algorithms - Section 951",
+          },
 
-                ar: {
-                    // toolbar
-                    dark: "الوضع الداكن", light: "الوضع الفاتح", download: "تنزيل PDF",
-                    // header
-                    uni_name: "كلية علوم الحاسب والمعلومات (CCIS)",
-                    course_title: "CS210: هياكل البيانات والخوارزميات",
-                    project_title: "تطوير نظام ذكي لتحليل تسجيل المقررات الدراسية للطلاب",
-                    instructor_label: "أستاذ المقرر:",
-                    instructor_name: "د. نجلاء الثنيان",
-                    section_label: "رقم الشعبة:",
-                    // TOC
-                    toc_title: "جدول المحتويات",
-                    toc_abstract: "الملخص",
-                    toc_intro: "المقدمة",
-                    toc_design: "الحل عالي المستوى / نظرة عامة على تصميم النظام",
-                    toc_perf: "التحليل التقاربي للأداء",
-                    toc_runtime: "قياس زمن التنفيذ",
-                    toc_interp: "تفسير النتائج",
-                    toc_team: "مساهمة الفريق والتنسيق",
-                    toc_conclusion: "الخاتمة",
-                    toc_refs: "المراجع والمصادر",
-                    toc_appA: "الملحق أ: رسم توضيحي لمخطط التدفق",
-                    toc_appB: "الملحق ب: تنفيذ كود جافا الكامل",
-                    toc_appC: "الملحق ج: صور التشغيل الكاملة",
-                    // Abstract
-                    abstract_p1: "صمم هذا المشروع نظاما ذكيا لإدارة سجلات تسجيل الطلاب في المقررات بجامعة الأمير سلطان، والتنبؤ بالطلب على المقررات من خلال هياكل البيانات كالقوائم المترابطة والمصفوفات، فضلا عن خوارزميات الترتيب. يخزن النظام السجلات في قائمة مترابطة مطورة ذاتيا، ويمتلك أربع خوارزميات للترتيب — ترتيب الاختيار، وترتيب الإدراج، وترتيب الدمج، والترتيب السريع — لمقارنة أداء تعقيدها الزمني.",
-                    abstract_p2: "جاءت النتائج متوافقة مع التعقيدات الزمنية النظرية؛ إذ تفوق ترتيب الدمج والترتيب السريع O(n log n) بفارق كبير على ترتيب الاختيار والإدراج O(n²) عند معالجة قاعدة بيانات تحتوي على أكثر من 3000 سجل. يثبت المشروع بجلاء أهمية اختيار الخوارزمية المناسبة على أداء النظام، مؤكدا أن الخوارزميات عالية الكفاءة كترتيب الدمج والترتيب السريع هي الأنسب لإدارة البيانات الكبيرة بفعالية.",
-                    // Introduction
-                    intro_p1: "في صميم البرمجة ضرورة بسيطة لكنها قوية: تنظيم البيانات. يعد الترتيب من أكثر الأدوات فائدة للمبرمج؛ إذ يحول البيانات المبعثرة إلى معلومات منظمة يسهل تحديدها وفحصها والاستفادة منها. ولأي مطور برامج، معرفة أساليب الترتيب المختلفة ليست مجردة — بل عملية تطبيقية. فمعرفة الأسلوب المناسب للاستخدام قد تكون الفارق بين تطبيق سريع وآخر بطيء، لا سيما مع تزايد حجم البيانات.",
-                    intro_p2: "يجيب هذا المشروع عن سؤال محوري في هذا المجال: كيف تعمل خوارزميات الترتيب المختلفة عمليا؟ نربط النظرية بالتطبيق من خلال مقارنة المدة الزمنية التي تستغرقها كل خوارزمية. الهدف هو إثبات أن التعقيد الجوهري للخوارزمية يؤثر مباشرة على السرعة الفعلية، وأن خياراتنا كمبرمجين تشكل سلوك البرنامج.",
-                    intro_p3: "لتحقيق ذلك، صممنا قائمة خاصة لإدارة تسجيلات الطلاب في المقررات. رتبنا البيانات أربع مرات باستخدام خوارزميات مختلفة: ترتيب الاختيار وترتيب الإدراج البسيطين رغم عدم كفاءتهما، وترتيب الدمج والترتيب السريع الأكثر تطورا القائمين على مبدأ التقسيم والحل. قسنا أيضا وقت تنفيذ كل خوارزمية للتحقق من مدى توافق أدائها النظري مع سرعتها الفعلية. يشكل هذا المشروع في نهاية المطاف مثالا تطبيقيا عمليا.",
-                    // System Design
-                    design_intro: "تهدف هذه التطبيق إلى تطوير نظام خاص بجامعة الأمير سلطان يستوعب سجلات تسجيل الطلاب في المقررات ويحسب مستوى الطلب على كل مقرر. يمر النظام بثلاث مراحل رئيسية:",
-                    phase1_title: "مرحلة جمع البيانات",
-                    phase1_p1: "يبدأ النظام هذه المرحلة بجمع سجلات تسجيل الطلاب المستخرجة من قاعدة بيانات جامعة الأمير سلطان، والتي تحتوي على ما يقارب 3000 إدخال. يتضمن كل سجل المعلومات الأساسية للطالب كرقمه التعريفي، والمقرر المسجل فيه عبر رمز المقرر، ومستواه الأكاديمي الحالي، ووقت التسجيل.",
-                    phase1_p2: "علاوة على ذلك، يفحص النظام بعناية كل سجل للتحقق من صحة المعلومات واكتمالها، ثم يبدأ بترتيبها وتنسيقها بصيغة مقروءة. يوفر هذا أساسا متينا للنظام لفهم طلبات الطلاب وتحليلها بفعالية وتحديد مستويات الطلب على المقررات واتجاهاتها، وهو أمر بالغ الأهمية لاتخاذ القرارات في المراحل اللاحقة.",
-                    phase2_title: "مرحلة المعالجة (حساب درجة الطلب)",
-                    phase2_intro: "يحسب نظام الطلب درجة معينة لكل طالب استنادا إلى 4 معايير:",
-                    crit1_title: "١. الدرجة الأساسية: ٥٠",
-                    crit1_desc: "تمثل هذه الدرجة الأولية التي يبدأ بها كل طالب.",
-                    crit2_title: "٢. مضاعف المستوى الدراسي",
-                    crit2_desc: "تضرب الدرجة الأساسية بمعامل يعتمد على المستوى الدراسي الحالي للطالب:",
-                    level_freshman: "<strong>السنة الأولى:</strong> الدرجة الأساسية × ٠.٧٥ (تخفيض ٢٥٪)",
-                    level_sophomore: "<strong>السنة الثانية:</strong> الدرجة الأساسية × ٠.٩٠ (تخفيض ١٠٪)",
-                    level_junior: "<strong>السنة الثالثة:</strong> الدرجة الأساسية × ١.١ (زيادة ١٠٪)",
-                    level_senior: "<strong>السنة الرابعة:</strong> الدرجة الأساسية × ١.٢٥ (زيادة ٢٥٪)",
-                    level_graduate: "<strong>الدراسات العليا:</strong> الدرجة الأساسية × ١.٥ (زيادة ٥٠٪)",
-                    crit2_note: "يضمن النظام بذلك منح الأولوية العالية للطلاب المقبلين على التخرج أو الخريجين، ومنح الأولوية المنخفضة لطلاب السنة الأولى الذين لديهم وقت كاف للتسجيل في فصول دراسية قادمة.",
-                    crit3_title: "٣. وقت التسجيل",
-                    crit3_desc: "يحدد مستوى الطلب بشكل كبير بناء على وقت تسجيل الطالب في المقرر. يمنح الطلاب المبادرون في التسجيل نقاطا إضافية، بينما يعاقب المتأخرون:",
-                    time_6_8: "<strong>٦:٠٠–٨:٠٠ صباحا:</strong> +٥ نقاط مكافأة",
-                    time_8_10: "<strong>٨:٠٠–١٠:٠٠ صباحا (وقت الذروة):</strong> +١٠ نقاط مكافأة",
-                    time_12_14: "<strong>١٢:٠٠–٢:٠٠ ظهرا:</strong> لا غرامة ولا مكافأة",
-                    time_14_16: "<strong>٢:٠٠–٤:٠٠ مساء:</strong> -٥ نقاط غرامة",
-                    time_16_20: "<strong>٤:٠٠–٨:٠٠ مساء:</strong> -١٠ نقاط غرامة",
-                    time_after20: "<strong>بعد ٨:٠٠ مساء:</strong> -١٥ نقطة أو أكثر غرامة",
-                    crit4_title: "٤. أولويات رمز المقرر",
-                    crit4_desc: "يعطي هذا المعيار وزنا أكبر لبعض المقررات على غيرها:",
-                    course_high: "<strong>المقررات عالية الأولوية:</strong> رمز المقرر ينتهي برقم فردي (مثل CS311) — إضافة +٢٠ نقطة مكافأة",
-                    course_low: "<strong>المقررات منخفضة الأولوية:</strong> رمز المقرر ينتهي برقم زوجي (مثل CS210) — خصم -١٠ نقاط غرامة",
-                    phase3_title: "مرحلة التوثيق (الكتابة)",
-                    phase3_p1: "بعد تحليل جميع البيانات وفحصها ومعالجتها وفق المعايير المذكورة أعلاه، يكتب النظام النتائج النهائية في ملف جديد، ثم يعمل على تحديث سجل كل طالب بدرجة الطلب الخاصة به، وهي مقياس لمدى الطلب على مقرر معين أو شعبيته.",
-                    phase3_p2: "بعد حفظ سجلات الطلاب المحدثة، يخطر النظام الطلاب بأن طلبات تسجيلهم قد جرت معالجتها ويمكنهم الاطلاع على النتائج، تاركا البيانات غير مرتبة في الوقت الحالي لإتاحة اختبار الأداء مستقبلا باستخدام خوارزميات الترتيب.",
-                    phase3_p3: "تجسد هذه المراحل كيف يبني النموذج الأولي بيانات السجلات ويحولها إلى معلومات مفيدة عبر تحليل الطلب، مما يمكن من اتخاذ قرارات ذكية على مستوى نظام التسجيل، تشمل تحسين استيعاب المقررات والحد من الاكتظاظ، وجدولة المقررات بشكل صحيح، والتخطيط المستقبلي الفعال بتخصيص الموارد واستثمارها وفق طلب الطلاب.",
-                    design_conclusion: "في المحصلة، يفضي ذلك إلى أسلوب أكثر كفاءة في إدارة تسجيل المقررات مع تعزيز تجربة الطالب من خلال نظام تسجيل مدروس يعتمد على البيانات.",
-                    // Performance Analysis
-                    perf_readwrite_title: "زمن تنفيذ عمليات الكتابة والقراءة",
-                    perf_readwrite_desc: "تمتلك عمليات قراءة وكتابة الملفات تعقيدا زمنيا خطيا <span class=\"complexity\">O(n)</span>، حيث n هو عدد التسجيلات. تتم معالجة كل سجل مرة واحدة بالضبط أثناء القراءة، وكتابة كل سجل مرة واحدة بالضبط أثناء مرحلة الإخراج.",
-                    perf_processing_title: "زمن تنفيذ المعالجة (حساب درجة الطلب)",
-                    perf_processing_desc: "يمتلك حساب درجة الطلب لجميع التسجيلات تعقيدا زمنيا <span class=\"complexity\">O(n)</span>. يمر النظام على كل عقدة في القائمة المترابطة مرة واحدة بالضبط، منفذا حسابا ثابت الوقت لدرجة الطلب لكل طالب استنادا إلى المعايير الأربعة.",
-                    perf_sorting_title: "زمن تنفيذ الترتيب",
-                    sort_selection: "ترتيب الاختيار",
-                    sort_selection_desc: "يمتلك ترتيب الاختيار تعقيدا زمنيا <span class=\"complexity\">O(n²)</span>. تستخدم الخوارزمية حلقتين متداخلتين: تنفذ الحلقة الخارجية n مرة، وفي كل تكرار تبحث الحلقة الداخلية في العناصر غير المرتبة المتبقية لإيجاد القيمة العظمى. يؤدي ذلك إلى ما يقارب n²/2 مقارنة.",
-                    sort_insertion: "ترتيب الإدراج",
-                    sort_insertion_desc: "يمتلك ترتيب الإدراج أيضا تعقيدا زمنيا <span class=\"complexity\">O(n²)</span> في أسوأ الحالات. ابتداء من العنصر الثاني، تقارن كل عنصر بجميع العناصر التي تسبقه وتدرج في الموضع الصحيح. في أسوأ الحالات (مصفوفة مرتبة عكسيا)، يؤدي ذلك إلى n²/2 مقارنة.",
-                    sort_merge: "ترتيب الدمج",
-                    sort_merge_desc: "يمتلك ترتيب الدمج تعقيدا زمنيا <span class=\"complexity\">O(n log n)</span>. تقسم الخوارزمية المصفوفة بشكل متكرر إلى نصفين حتى الوصول إلى الحالات الأساسية، ثم تدمج النصفين المرتبين. ينتج عن التقسيم log n مستوى، ويتطلب كل مستوى عملا بمقدار O(n) للدمج.",
-                    sort_quick: "الترتيب السريع",
-                    sort_quick_desc: "يمتلك الترتيب السريع متوسط تعقيد زمني <span class=\"complexity\">O(n log n)</span>. تختار الخوارزمية عنصرا محوريا وتقسم المصفوفة حوله، ثم ترتب الأقسام بشكل متكرر. مع اختيار محور جيد، تقسم المصفوفة تقريبا إلى النصف في كل مستوى، ما ينشئ log n مستوى مع O(n) عمل في كل مستوى.",
-                    // Runtime Measurement
-                    runtime_intro: "يعرض الجدول التالي قياسات زمن التنفيذ الفعلية لجميع العمليات التي أجراها النظام على مجموعة بيانات تضم <strong>٣٤٣٢ تسجيلا</strong>:",
-                    table_operation: "العملية",
-                    table_complexity: "التعقيد النظري",
-                    table_runtime: "زمن التنفيذ الفعلي (مللي ثانية)",
-                    op_reading: "قراءة الملف",
-                    op_demand: "حساب درجة الطلب (المعالجة)",
-                    op_writing: "كتابة الملف (بدون ترتيب)",
-                    // Interpretation
-                    interp_p1: "تم الحصول على النتائج الواردة في جدول زمن التنفيذ باستخدام مجموعة بيانات تضم ٣٤٣٢ تسجيلا. يكتسب توضيح حجم مجموعة البيانات أهمية بالغة لأنه يضع أزمنة التنفيذ المقاسة في سياقها الصحيح ويتيح تفسير نتائج الأداء بموضوعية. ونظرا لأن كفاءة الخوارزميات تعتمد على حجم الإدخال، فإن الإفصاح عن أن جميع الأزمنة قيست باستخدام ٣٤٣٢ سجلا يثبت أن التحليل أجري في ظروف واقعية وموحدة.",
-                    interp_p2: "يتيح ذلك أيضا إجراء مقارنة عادلة بين خوارزميات الترتيب ويسهل إعادة الاختبار عند استخدام مجموعة البيانات نفسها. تظهر النتائج بوضوح الأثر العملي للتعقيد الزمني النظري:",
-                    interp_linear: "<strong>العمليات الخطية (O(n)):</strong> أنهت قراءة الملف وحساب درجة الطلب وكتابة الملف جميعها في أقل من ١١٠ مللي ثانية، مما يجسد أداء خطيا فعالا.",
-                    interp_quad: "<strong>الخوارزميات التربيعية (O(n²)):</strong> حقق ترتيب الاختيار (٤٥ مللي ثانية) وترتيب الإدراج (٢٦ مللي ثانية) أداء مقبولا مع هذا الحجم من البيانات، غير أن أداءهما سيتراجع بشكل ملحوظ مع مجموعات بيانات أكبر.",
-                    interp_nlogn: "<strong>الخوارزميات شبه الخطية (O(n log n)):</strong> أبدى ترتيب الدمج (١٧ مللي ثانية) والترتيب السريع (٢٢ مللي ثانية) أداء متفوقا، مما يؤكد كفاءتهما مع مجموعات البيانات الكبيرة. تعد هذه الخوارزميات الخيار الأمثل لأنظمة الإنتاج التي تتعامل مع آلاف السجلات.",
-                    interp_p3: "تصادق هذه النتائج على تحليل التعقيد النظري وتثبت لماذا يعد اختيار الخوارزمية المناسبة أمرا بالغ الأهمية لأداء النظام، لا سيما مع تنامي حجم البيانات.",
-                    // Teamwork
-                    team_intro: "أنجز هذا المشروع بشكل تعاوني كل من شوق العمران وليان بنديل تحت إشراف د. نجلاء الثنيان. تعاون العضوان طوال فترة التطوير، وحافظا على التواصل المستمر وتقاسما المسؤوليات لضمان سير العمل بانسيابية وتكامل.",
-                    layan_desc: "تولت ليان تنسيق المشروع وتنظيمه، فأعدت قالب التقرير ووضعت مخطط الوثيقة ووزعت العمل بالتساوي بين العضوين. نفذت ليان المكونات البرمجية على مستوى النظام الأدنى، وتشمل:",
-                    layan_report: "كتبت ليان قسمي الحل عالي المستوى والتحليل التقاربي للأداء في التقرير، شارحة التصميم العام والأداء النظري للخوارزميات.",
-                    shoug_desc: "أنجزت شوق مكونات التحليل وقياس زمن التنفيذ في المشروع، ونفذت:",
-                    shoug_li1: "صنف التحقق من المدخلات",
-                    shoug_li2: "صنف حساب درجة الطلب",
-                    shoug_li3: "خوارزميات الترتيب (ترتيب الاختيار، وترتيب الإدراج، وترتيب الدمج، والترتيب السريع)",
-                    shoug_li4: "صنف قياس الأداء",
-                    shoug_li5: "صنف المؤقت",
-                    shoug_report: "أكملت شوق أيضا قسم قياس زمن التنفيذ في التقرير، الذي يشمل قياس أزمنة التنفيذ الفعلية وإنشاء الجداول وإضافة لقطات الشاشة التوضيحية لأداء النظام.",
-                    collab_title: "العمل الجماعي",
-                    collab_desc: "تعاون الشريكان على الصنف الرئيسي لجمع جميع المكونات في برنامج واحد؛ تولت ليان إدخال البيانات ودمج القائمة، بينما تكفلت شوق بمراحل المعالجة والترتيب وقياس الأداء. اختبر الشريكان معا النظام بأكمله وأصلحا أخطاءه والتحققا من صحته، في تجسيد واضح للعمل الجماعي والتنسيق والمساهمة المتوازنة.",
-                    // Conclusion
-                    conclusion_p1: "أكدت نتائج هذا المشروع في جوهرها أن الخوارزميات المستخدمة تصرفت وفق التوقعات النظرية والتجريبية؛ إذ كشفت أزمنة التنفيذ أن ترتيب الدمج والترتيب السريع كانا الأسرع بفضل تعقيدهما الزمني السليم O(n log n)، في حين كان ترتيب الاختيار وترتيب الإدراج أبطأ بكثير كما هو متوقع من تعقيدهما O(n²). إن توافق الاعتبارات النظرية مع النتائج الفعلية بهذه الدقة يثبت صحة تصميم النظام وكفاءة تنفيذه.",
-                    conclusion_p2: "تعلمنا في هذه الرحلة درسا قيما في المفاضلة بين البساطة والكفاءة. الخوارزميات الأبسط كترتيب الاختيار وترتيب الإدراج أسهل في الفهم والتنفيذ وكافية للبيانات الصغيرة أو الأغراض التعليمية، بيد أن أداءها يتراجع مع تزايد حجم الإدخال لصالح الأسلوب الأكثر تعقيدا القائم على التقسيم والحل الذي تعتمده خوارزميتا ترتيب الدمج والترتيب السريع.",
-                    conclusion_p3: "جسد هذا المشروع بامتياز العلاقة المباشرة بين كفاءة الخوارزمية وأداء البرنامج في التطبيقات العملية. يمكن تطوير النظام مستقبلا ليعمل مع بيانات التسجيل الفعلية مباشرة من قواعد البيانات الجامعية لتحليل أنماط الطلب على المقررات في الوقت الفعلي.",
-                    conclusion_p4: "يمكن كذلك إضافة ميزات أخرى كواجهة مستخدم رسومية لعرض درجات الطلب، والتحقق الآلي من بيانات الإدخال، أو دمج خوارزميات أكثر تعقيدا كترتيب الكومة أو ترتيب العد، مما سيعزز الأداء وسهولة الاستخدام. في المجمل، حقق المشروع هدفه المنشود بإنجاز نظام فعال يجسد كيف يندمج تصميم الخوارزمية مع هياكل البيانات وسلوك زمن التنفيذ في السياق الواقعي التعليمي.",
-                    // Appendix A
-                    appA_placeholder: "مكان صورة مخطط التدفق",
-                    appA_desc: "مخطط سير عمل النظام يظهر المراحل الثلاث الرئيسية:",
-                    appA_phase1: "← مرحلة جمع البيانات",
-                    appA_phase2: "← مرحلة المعالجة (حساب درجة الطلب)",
-                    appA_phase3: "← مرحلة التوثيق (الكتابة)",
-                    // Appendix B code section headings
-                    code_main: "الصنف الرئيسي",
-                    code_sorter: "واجهة الترتيب",
-                    code_node: "صنف العقدة",
-                    code_timer: "صنف المؤقت",
-                    code_ll: "صنف القائمة المترابطة",
-                    code_bench: "صنف قياس الأداء",
-                    code_comp: "صنف المقارنة",
-                    code_reg: "صنف التسجيل",
-                    code_demand: "صنف حساب درجة الطلب",
-                    code_validator: "صنف التحقق من المدخلات",
-                    code_file: "صنف خدمة الملفات",
-                    code_insertion: "صنف ترتيب الإدراج",
-                    code_merge: "صنف ترتيب الدمج",
-                    code_quick: "صنف الترتيب السريع",
-                    code_selection: "صنف ترتيب الاختيار",
-                    // Appendix C
-                    appC_placeholder: "مكان لقطة شاشة مخرجات الكونسول",
-                    appC_desc: "تنفيذ البرنامج الكامل يظهر:",
-                    run_1: "✓ اكتملت قراءة الملف: ١٠٦ مللي ثانية",
-                    run_2: "✓ تم قراءة ٣٤٣٢ تسجيلا بنجاح",
-                    run_3: "✓ اكتملت حسابات درجة الطلب: ٩٨ مللي ثانية",
-                    run_4: "✓ اكتملت كتابة الملف: ٤٨ مللي ثانية",
-                    run_5: "✓ ترتيب الاختيار: ٤٥ مللي ثانية",
-                    run_6: "✓ ترتيب الإدراج: ٢٦ مللي ثانية",
-                    run_7: "✓ ترتيب الدمج: ١٧ مللي ثانية",
-                    run_8: "✓ الترتيب السريع: ٢٢ مللي ثانية",
-                    run_9: "✓ اكتمل جميع عمليات الترتيب وتم حفظ النتائج",
-                    // Footer
-                    footer_1: "© ٢٠٢٥ جامعة الأمير سلطان - كلية علوم الحاسب والمعلومات",
-                    footer_2: "CS210: هياكل البيانات والخوارزميات - الشعبة ٩٥١"
-                }
-            };
+          ar: {
+            // toolbar
+            dark: "الوضع الداكن",
+            light: "الوضع الفاتح",
+            download: "تنزيل PDF",
+            // header
+            uni_name: "كلية علوم الحاسب والمعلومات (CCIS)",
+            course_title: "CS210: هياكل البيانات والخوارزميات",
+            project_title:
+              "تطوير نظام ذكي لتحليل تسجيل المقررات الدراسية للطلاب",
+            instructor_label: "أستاذ المقرر:",
+            instructor_name: "د. نجلاء الثنيان",
+            section_label: "رقم الشعبة:",
+            // TOC
+            toc_title: "جدول المحتويات",
+            toc_abstract: "الملخص",
+            toc_intro: "المقدمة",
+            toc_design: "الحل عالي المستوى / نظرة عامة على تصميم النظام",
+            toc_perf: "التحليل التقاربي للأداء",
+            toc_runtime: "قياس زمن التنفيذ",
+            toc_interp: "تفسير النتائج",
+            toc_team: "مساهمة الفريق والتنسيق",
+            toc_conclusion: "الخاتمة",
+            toc_refs: "المراجع والمصادر",
+            toc_appA: "الملحق أ: رسم توضيحي لمخطط التدفق",
+            toc_appB: "الملحق ب: تنفيذ كود جافا الكامل",
+            toc_appC: "الملحق ج: صور التشغيل الكاملة",
+            // Abstract
+            abstract_p1:
+              "صمم هذا المشروع نظاما ذكيا لإدارة سجلات تسجيل الطلاب في المقررات بجامعة الأمير سلطان، والتنبؤ بالطلب على المقررات من خلال هياكل البيانات كالقوائم المترابطة والمصفوفات، فضلا عن خوارزميات الترتيب. يخزن النظام السجلات في قائمة مترابطة مطورة ذاتيا، ويمتلك أربع خوارزميات للترتيب — ترتيب الاختيار، وترتيب الإدراج، وترتيب الدمج، والترتيب السريع — لمقارنة أداء تعقيدها الزمني.",
+            abstract_p2:
+              "جاءت النتائج متوافقة مع التعقيدات الزمنية النظرية؛ إذ تفوق ترتيب الدمج والترتيب السريع O(n log n) بفارق كبير على ترتيب الاختيار والإدراج O(n²) عند معالجة قاعدة بيانات تحتوي على أكثر من 3000 سجل. يثبت المشروع بجلاء أهمية اختيار الخوارزمية المناسبة على أداء النظام، مؤكدا أن الخوارزميات عالية الكفاءة كترتيب الدمج والترتيب السريع هي الأنسب لإدارة البيانات الكبيرة بفعالية.",
+            // Introduction
+            intro_p1:
+              "في صميم البرمجة ضرورة بسيطة لكنها قوية: تنظيم البيانات. يعد الترتيب من أكثر الأدوات فائدة للمبرمج؛ إذ يحول البيانات المبعثرة إلى معلومات منظمة يسهل تحديدها وفحصها والاستفادة منها. ولأي مطور برامج، معرفة أساليب الترتيب المختلفة ليست مجردة — بل عملية تطبيقية. فمعرفة الأسلوب المناسب للاستخدام قد تكون الفارق بين تطبيق سريع وآخر بطيء، لا سيما مع تزايد حجم البيانات.",
+            intro_p2:
+              "يجيب هذا المشروع عن سؤال محوري في هذا المجال: كيف تعمل خوارزميات الترتيب المختلفة عمليا؟ نربط النظرية بالتطبيق من خلال مقارنة المدة الزمنية التي تستغرقها كل خوارزمية. الهدف هو إثبات أن التعقيد الجوهري للخوارزمية يؤثر مباشرة على السرعة الفعلية، وأن خياراتنا كمبرمجين تشكل سلوك البرنامج.",
+            intro_p3:
+              "لتحقيق ذلك، صممنا قائمة خاصة لإدارة تسجيلات الطلاب في المقررات. رتبنا البيانات أربع مرات باستخدام خوارزميات مختلفة: ترتيب الاختيار وترتيب الإدراج البسيطين رغم عدم كفاءتهما، وترتيب الدمج والترتيب السريع الأكثر تطورا القائمين على مبدأ التقسيم والحل. قسنا أيضا وقت تنفيذ كل خوارزمية للتحقق من مدى توافق أدائها النظري مع سرعتها الفعلية. يشكل هذا المشروع في نهاية المطاف مثالا تطبيقيا عمليا.",
+            // System Design
+            design_intro:
+              "تهدف هذه التطبيق إلى تطوير نظام خاص بجامعة الأمير سلطان يستوعب سجلات تسجيل الطلاب في المقررات ويحسب مستوى الطلب على كل مقرر. يمر النظام بثلاث مراحل رئيسية:",
+            phase1_title: "مرحلة جمع البيانات",
+            phase1_p1:
+              "يبدأ النظام هذه المرحلة بجمع سجلات تسجيل الطلاب المستخرجة من قاعدة بيانات جامعة الأمير سلطان، والتي تحتوي على ما يقارب 3000 إدخال. يتضمن كل سجل المعلومات الأساسية للطالب كرقمه التعريفي، والمقرر المسجل فيه عبر رمز المقرر، ومستواه الأكاديمي الحالي، ووقت التسجيل.",
+            phase1_p2:
+              "علاوة على ذلك، يفحص النظام بعناية كل سجل للتحقق من صحة المعلومات واكتمالها، ثم يبدأ بترتيبها وتنسيقها بصيغة مقروءة. يوفر هذا أساسا متينا للنظام لفهم طلبات الطلاب وتحليلها بفعالية وتحديد مستويات الطلب على المقررات واتجاهاتها، وهو أمر بالغ الأهمية لاتخاذ القرارات في المراحل اللاحقة.",
+            phase2_title: "مرحلة المعالجة (حساب درجة الطلب)",
+            phase2_intro:
+              "يحسب نظام الطلب درجة معينة لكل طالب استنادا إلى 4 معايير:",
+            crit1_title: "١. الدرجة الأساسية: ٥٠",
+            crit1_desc: "تمثل هذه الدرجة الأولية التي يبدأ بها كل طالب.",
+            crit2_title: "٢. مضاعف المستوى الدراسي",
+            crit2_desc:
+              "تضرب الدرجة الأساسية بمعامل يعتمد على المستوى الدراسي الحالي للطالب:",
+            level_freshman:
+              "<strong>السنة الأولى:</strong> الدرجة الأساسية × ٠.٧٥ (تخفيض ٢٥٪)",
+            level_sophomore:
+              "<strong>السنة الثانية:</strong> الدرجة الأساسية × ٠.٩٠ (تخفيض ١٠٪)",
+            level_junior:
+              "<strong>السنة الثالثة:</strong> الدرجة الأساسية × ١.١ (زيادة ١٠٪)",
+            level_senior:
+              "<strong>السنة الرابعة:</strong> الدرجة الأساسية × ١.٢٥ (زيادة ٢٥٪)",
+            level_graduate:
+              "<strong>الدراسات العليا:</strong> الدرجة الأساسية × ١.٥ (زيادة ٥٠٪)",
+            crit2_note:
+              "يضمن النظام بذلك منح الأولوية العالية للطلاب المقبلين على التخرج أو الخريجين، ومنح الأولوية المنخفضة لطلاب السنة الأولى الذين لديهم وقت كاف للتسجيل في فصول دراسية قادمة.",
+            crit3_title: "٣. وقت التسجيل",
+            crit3_desc:
+              "يحدد مستوى الطلب بشكل كبير بناء على وقت تسجيل الطالب في المقرر. يمنح الطلاب المبادرون في التسجيل نقاطا إضافية، بينما يعاقب المتأخرون:",
+            time_6_8: "<strong>٦:٠٠–٨:٠٠ صباحا:</strong> +٥ نقاط مكافأة",
+            time_8_10:
+              "<strong>٨:٠٠–١٠:٠٠ صباحا (وقت الذروة):</strong> +١٠ نقاط مكافأة",
+            time_12_14: "<strong>١٢:٠٠–٢:٠٠ ظهرا:</strong> لا غرامة ولا مكافأة",
+            time_14_16: "<strong>٢:٠٠–٤:٠٠ مساء:</strong> -٥ نقاط غرامة",
+            time_16_20: "<strong>٤:٠٠–٨:٠٠ مساء:</strong> -١٠ نقاط غرامة",
+            time_after20:
+              "<strong>بعد ٨:٠٠ مساء:</strong> -١٥ نقطة أو أكثر غرامة",
+            crit4_title: "٤. أولويات رمز المقرر",
+            crit4_desc: "يعطي هذا المعيار وزنا أكبر لبعض المقررات على غيرها:",
+            course_high:
+              "<strong>المقررات عالية الأولوية:</strong> رمز المقرر ينتهي برقم فردي (مثل CS311) — إضافة +٢٠ نقطة مكافأة",
+            course_low:
+              "<strong>المقررات منخفضة الأولوية:</strong> رمز المقرر ينتهي برقم زوجي (مثل CS210) — خصم -١٠ نقاط غرامة",
+            phase3_title: "مرحلة التوثيق (الكتابة)",
+            phase3_p1:
+              "بعد تحليل جميع البيانات وفحصها ومعالجتها وفق المعايير المذكورة أعلاه، يكتب النظام النتائج النهائية في ملف جديد، ثم يعمل على تحديث سجل كل طالب بدرجة الطلب الخاصة به، وهي مقياس لمدى الطلب على مقرر معين أو شعبيته.",
+            phase3_p2:
+              "بعد حفظ سجلات الطلاب المحدثة، يخطر النظام الطلاب بأن طلبات تسجيلهم قد جرت معالجتها ويمكنهم الاطلاع على النتائج، تاركا البيانات غير مرتبة في الوقت الحالي لإتاحة اختبار الأداء مستقبلا باستخدام خوارزميات الترتيب.",
+            phase3_p3:
+              "تجسد هذه المراحل كيف يبني النموذج الأولي بيانات السجلات ويحولها إلى معلومات مفيدة عبر تحليل الطلب، مما يمكن من اتخاذ قرارات ذكية على مستوى نظام التسجيل، تشمل تحسين استيعاب المقررات والحد من الاكتظاظ، وجدولة المقررات بشكل صحيح، والتخطيط المستقبلي الفعال بتخصيص الموارد واستثمارها وفق طلب الطلاب.",
+            design_conclusion:
+              "في المحصلة، يفضي ذلك إلى أسلوب أكثر كفاءة في إدارة تسجيل المقررات مع تعزيز تجربة الطالب من خلال نظام تسجيل مدروس يعتمد على البيانات.",
+            // Performance Analysis
+            perf_readwrite_title: "زمن تنفيذ عمليات الكتابة والقراءة",
+            perf_readwrite_desc:
+              'تمتلك عمليات قراءة وكتابة الملفات تعقيدا زمنيا خطيا <span class="complexity">O(n)</span>، حيث n هو عدد التسجيلات. تتم معالجة كل سجل مرة واحدة بالضبط أثناء القراءة، وكتابة كل سجل مرة واحدة بالضبط أثناء مرحلة الإخراج.',
+            perf_processing_title: "زمن تنفيذ المعالجة (حساب درجة الطلب)",
+            perf_processing_desc:
+              'يمتلك حساب درجة الطلب لجميع التسجيلات تعقيدا زمنيا <span class="complexity">O(n)</span>. يمر النظام على كل عقدة في القائمة المترابطة مرة واحدة بالضبط، منفذا حسابا ثابت الوقت لدرجة الطلب لكل طالب استنادا إلى المعايير الأربعة.',
+            perf_sorting_title: "زمن تنفيذ الترتيب",
+            sort_selection: "ترتيب الاختيار",
+            sort_selection_desc:
+              'يمتلك ترتيب الاختيار تعقيدا زمنيا <span class="complexity">O(n²)</span>. تستخدم الخوارزمية حلقتين متداخلتين: تنفذ الحلقة الخارجية n مرة، وفي كل تكرار تبحث الحلقة الداخلية في العناصر غير المرتبة المتبقية لإيجاد القيمة العظمى. يؤدي ذلك إلى ما يقارب n²/2 مقارنة.',
+            sort_insertion: "ترتيب الإدراج",
+            sort_insertion_desc:
+              'يمتلك ترتيب الإدراج أيضا تعقيدا زمنيا <span class="complexity">O(n²)</span> في أسوأ الحالات. ابتداء من العنصر الثاني، تقارن كل عنصر بجميع العناصر التي تسبقه وتدرج في الموضع الصحيح. في أسوأ الحالات (مصفوفة مرتبة عكسيا)، يؤدي ذلك إلى n²/2 مقارنة.',
+            sort_merge: "ترتيب الدمج",
+            sort_merge_desc:
+              'يمتلك ترتيب الدمج تعقيدا زمنيا <span class="complexity">O(n log n)</span>. تقسم الخوارزمية المصفوفة بشكل متكرر إلى نصفين حتى الوصول إلى الحالات الأساسية، ثم تدمج النصفين المرتبين. ينتج عن التقسيم log n مستوى، ويتطلب كل مستوى عملا بمقدار O(n) للدمج.',
+            sort_quick: "الترتيب السريع",
+            sort_quick_desc:
+              'يمتلك الترتيب السريع متوسط تعقيد زمني <span class="complexity">O(n log n)</span>. تختار الخوارزمية عنصرا محوريا وتقسم المصفوفة حوله، ثم ترتب الأقسام بشكل متكرر. مع اختيار محور جيد، تقسم المصفوفة تقريبا إلى النصف في كل مستوى، ما ينشئ log n مستوى مع O(n) عمل في كل مستوى.',
+            // Runtime Measurement
+            runtime_intro:
+              "يعرض الجدول التالي قياسات زمن التنفيذ الفعلية لجميع العمليات التي أجراها النظام على مجموعة بيانات تضم <strong>٣٤٣٢ تسجيلا</strong>:",
+            table_operation: "العملية",
+            table_complexity: "التعقيد النظري",
+            table_runtime: "زمن التنفيذ الفعلي (مللي ثانية)",
+            op_reading: "قراءة الملف",
+            op_demand: "حساب درجة الطلب (المعالجة)",
+            op_writing: "كتابة الملف (بدون ترتيب)",
+            // Interpretation
+            interp_p1:
+              "تم الحصول على النتائج الواردة في جدول زمن التنفيذ باستخدام مجموعة بيانات تضم ٣٤٣٢ تسجيلا. يكتسب توضيح حجم مجموعة البيانات أهمية بالغة لأنه يضع أزمنة التنفيذ المقاسة في سياقها الصحيح ويتيح تفسير نتائج الأداء بموضوعية. ونظرا لأن كفاءة الخوارزميات تعتمد على حجم الإدخال، فإن الإفصاح عن أن جميع الأزمنة قيست باستخدام ٣٤٣٢ سجلا يثبت أن التحليل أجري في ظروف واقعية وموحدة.",
+            interp_p2:
+              "يتيح ذلك أيضا إجراء مقارنة عادلة بين خوارزميات الترتيب ويسهل إعادة الاختبار عند استخدام مجموعة البيانات نفسها. تظهر النتائج بوضوح الأثر العملي للتعقيد الزمني النظري:",
+            interp_linear:
+              "<strong>العمليات الخطية (O(n)):</strong> أنهت قراءة الملف وحساب درجة الطلب وكتابة الملف جميعها في أقل من ١١٠ مللي ثانية، مما يجسد أداء خطيا فعالا.",
+            interp_quad:
+              "<strong>الخوارزميات التربيعية (O(n²)):</strong> حقق ترتيب الاختيار (٤٥ مللي ثانية) وترتيب الإدراج (٢٦ مللي ثانية) أداء مقبولا مع هذا الحجم من البيانات، غير أن أداءهما سيتراجع بشكل ملحوظ مع مجموعات بيانات أكبر.",
+            interp_nlogn:
+              "<strong>الخوارزميات شبه الخطية (O(n log n)):</strong> أبدى ترتيب الدمج (١٧ مللي ثانية) والترتيب السريع (٢٢ مللي ثانية) أداء متفوقا، مما يؤكد كفاءتهما مع مجموعات البيانات الكبيرة. تعد هذه الخوارزميات الخيار الأمثل لأنظمة الإنتاج التي تتعامل مع آلاف السجلات.",
+            interp_p3:
+              "تصادق هذه النتائج على تحليل التعقيد النظري وتثبت لماذا يعد اختيار الخوارزمية المناسبة أمرا بالغ الأهمية لأداء النظام، لا سيما مع تنامي حجم البيانات.",
+            // Teamwork
+            team_intro:
+              "أنجز هذا المشروع بشكل تعاوني كل من شوق العمران وليان بنديل تحت إشراف د. نجلاء الثنيان. تعاون العضوان طوال فترة التطوير، وحافظا على التواصل المستمر وتقاسما المسؤوليات لضمان سير العمل بانسيابية وتكامل.",
+            layan_desc:
+              "تولت ليان تنسيق المشروع وتنظيمه، فأعدت قالب التقرير ووضعت مخطط الوثيقة ووزعت العمل بالتساوي بين العضوين. نفذت ليان المكونات البرمجية على مستوى النظام الأدنى، وتشمل:",
+            layan_report:
+              "كتبت ليان قسمي الحل عالي المستوى والتحليل التقاربي للأداء في التقرير، شارحة التصميم العام والأداء النظري للخوارزميات.",
+            shoug_desc:
+              "أنجزت شوق مكونات التحليل وقياس زمن التنفيذ في المشروع، ونفذت:",
+            shoug_li1: "صنف التحقق من المدخلات",
+            shoug_li2: "صنف حساب درجة الطلب",
+            shoug_li3:
+              "خوارزميات الترتيب (ترتيب الاختيار، وترتيب الإدراج، وترتيب الدمج، والترتيب السريع)",
+            shoug_li4: "صنف قياس الأداء",
+            shoug_li5: "صنف المؤقت",
+            shoug_report:
+              "أكملت شوق أيضا قسم قياس زمن التنفيذ في التقرير، الذي يشمل قياس أزمنة التنفيذ الفعلية وإنشاء الجداول وإضافة لقطات الشاشة التوضيحية لأداء النظام.",
+            collab_title: "العمل الجماعي",
+            collab_desc:
+              "تعاون الشريكان على الصنف الرئيسي لجمع جميع المكونات في برنامج واحد؛ تولت ليان إدخال البيانات ودمج القائمة، بينما تكفلت شوق بمراحل المعالجة والترتيب وقياس الأداء. اختبر الشريكان معا النظام بأكمله وأصلحا أخطاءه والتحققا من صحته، في تجسيد واضح للعمل الجماعي والتنسيق والمساهمة المتوازنة.",
+            // Conclusion
+            conclusion_p1:
+              "أكدت نتائج هذا المشروع في جوهرها أن الخوارزميات المستخدمة تصرفت وفق التوقعات النظرية والتجريبية؛ إذ كشفت أزمنة التنفيذ أن ترتيب الدمج والترتيب السريع كانا الأسرع بفضل تعقيدهما الزمني السليم O(n log n)، في حين كان ترتيب الاختيار وترتيب الإدراج أبطأ بكثير كما هو متوقع من تعقيدهما O(n²). إن توافق الاعتبارات النظرية مع النتائج الفعلية بهذه الدقة يثبت صحة تصميم النظام وكفاءة تنفيذه.",
+            conclusion_p2:
+              "تعلمنا في هذه الرحلة درسا قيما في المفاضلة بين البساطة والكفاءة. الخوارزميات الأبسط كترتيب الاختيار وترتيب الإدراج أسهل في الفهم والتنفيذ وكافية للبيانات الصغيرة أو الأغراض التعليمية، بيد أن أداءها يتراجع مع تزايد حجم الإدخال لصالح الأسلوب الأكثر تعقيدا القائم على التقسيم والحل الذي تعتمده خوارزميتا ترتيب الدمج والترتيب السريع.",
+            conclusion_p3:
+              "جسد هذا المشروع بامتياز العلاقة المباشرة بين كفاءة الخوارزمية وأداء البرنامج في التطبيقات العملية. يمكن تطوير النظام مستقبلا ليعمل مع بيانات التسجيل الفعلية مباشرة من قواعد البيانات الجامعية لتحليل أنماط الطلب على المقررات في الوقت الفعلي.",
+            conclusion_p4:
+              "يمكن كذلك إضافة ميزات أخرى كواجهة مستخدم رسومية لعرض درجات الطلب، والتحقق الآلي من بيانات الإدخال، أو دمج خوارزميات أكثر تعقيدا كترتيب الكومة أو ترتيب العد، مما سيعزز الأداء وسهولة الاستخدام. في المجمل، حقق المشروع هدفه المنشود بإنجاز نظام فعال يجسد كيف يندمج تصميم الخوارزمية مع هياكل البيانات وسلوك زمن التنفيذ في السياق الواقعي التعليمي.",
+            // Appendix A
+            appA_placeholder: "مكان صورة مخطط التدفق",
+            appA_desc: "مخطط سير عمل النظام يظهر المراحل الثلاث الرئيسية:",
+            appA_phase1: "← مرحلة جمع البيانات",
+            appA_phase2: "← مرحلة المعالجة (حساب درجة الطلب)",
+            appA_phase3: "← مرحلة التوثيق (الكتابة)",
+            // Appendix B code section headings
+            code_main: "الصنف الرئيسي",
+            code_sorter: "واجهة الترتيب",
+            code_node: "صنف العقدة",
+            code_timer: "صنف المؤقت",
+            code_ll: "صنف القائمة المترابطة",
+            code_bench: "صنف قياس الأداء",
+            code_comp: "صنف المقارنة",
+            code_reg: "صنف التسجيل",
+            code_demand: "صنف حساب درجة الطلب",
+            code_validator: "صنف التحقق من المدخلات",
+            code_file: "صنف خدمة الملفات",
+            code_insertion: "صنف ترتيب الإدراج",
+            code_merge: "صنف ترتيب الدمج",
+            code_quick: "صنف الترتيب السريع",
+            code_selection: "صنف ترتيب الاختيار",
+            // Appendix C
+            appC_placeholder: "مكان لقطة شاشة مخرجات الكونسول",
+            appC_desc: "تنفيذ البرنامج الكامل يظهر:",
+            run_1: "✓ اكتملت قراءة الملف: ١٠٦ مللي ثانية",
+            run_2: "✓ تم قراءة ٣٤٣٢ تسجيلا بنجاح",
+            run_3: "✓ اكتملت حسابات درجة الطلب: ٩٨ مللي ثانية",
+            run_4: "✓ اكتملت كتابة الملف: ٤٨ مللي ثانية",
+            run_5: "✓ ترتيب الاختيار: ٤٥ مللي ثانية",
+            run_6: "✓ ترتيب الإدراج: ٢٦ مللي ثانية",
+            run_7: "✓ ترتيب الدمج: ١٧ مللي ثانية",
+            run_8: "✓ الترتيب السريع: ٢٢ مللي ثانية",
+            run_9: "✓ اكتمل جميع عمليات الترتيب وتم حفظ النتائج",
+            // Footer
+            footer_1: "© ٢٠٢٥ جامعة الأمير سلطان - كلية علوم الحاسب والمعلومات",
+            footer_2: "CS210: هياكل البيانات والخوارزميات - الشعبة ٩٥١",
+          },
+        };
 
-            // ── Core i18n engine ─────────────────────────────────────────────────────
-            function applyLang(lang) {
-                var dict = T[lang] || T.en;
-                document.documentElement.setAttribute("lang", lang);
-                document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+        // ── Core i18n engine ─────────────────────────────────────────────────────
+        function applyLang(lang) {
+          var dict = T[lang] || T.en;
+          document.documentElement.setAttribute("lang", lang);
+          document.documentElement.setAttribute(
+            "dir",
+            lang === "ar" ? "rtl" : "ltr",
+          );
 
-                // Translate every element that has a data-i18n attribute
-                document.querySelectorAll("[data-i18n]").forEach(function (el) {
-                    var key = el.getAttribute("data-i18n");
-                    if (dict[key] !== undefined) {
-                        el.innerHTML = dict[key];
-                    }
-                });
-
-                // Update toolbar labels
-                var isDark = document.documentElement.getAttribute("data-theme") === "dark";
-                var themeBtn = document.getElementById("themeToggle");
-                if (themeBtn) themeBtn.textContent = isDark ? dict.light : dict.dark;
-                var pdfBtn = document.getElementById("downloadPdfBtn");
-                if (pdfBtn) pdfBtn.textContent = dict.download;
-
-                try { localStorage.setItem("reportLang", lang); } catch (_) { }
+          // Translate every element that has a data-i18n attribute
+          document.querySelectorAll("[data-i18n]").forEach(function (el) {
+            var key = el.getAttribute("data-i18n");
+            if (dict[key] !== undefined) {
+              el.innerHTML = dict[key];
             }
+          });
 
-            function applyTheme(theme) {
-                document.documentElement.setAttribute("data-theme", theme);
-                var lang = document.documentElement.getAttribute("lang") || "en";
-                var dict = T[lang] || T.en;
-                var themeBtn = document.getElementById("themeToggle");
-                if (themeBtn) themeBtn.textContent = theme === "dark" ? dict.light : dict.dark;
-                try { localStorage.setItem("reportTheme", theme); } catch (_) { }
-            }
+          // Update toolbar labels
+          var isDark =
+            document.documentElement.getAttribute("data-theme") === "dark";
+          var themeBtn = document.getElementById("themeToggle");
+          if (themeBtn) themeBtn.textContent = isDark ? dict.light : dict.dark;
+          var pdfBtn = document.getElementById("downloadPdfBtn");
+          if (pdfBtn) pdfBtn.textContent = dict.download;
 
-            // ── Boot ────────────────────────────────────────────────────────────────
-            var savedLang = "en", savedTheme = "light";
-            try { savedLang = localStorage.getItem("reportLang") || "en"; } catch (_) { }
-            try { savedTheme = localStorage.getItem("reportTheme") || "light"; } catch (_) { }
+          try {
+            localStorage.setItem("reportLang", lang);
+          } catch (_) {}
+        }
 
-            document.addEventListener("DOMContentLoaded", function () {
-                var langSel = document.getElementById("langToggle");
-                var themeBtn = document.getElementById("themeToggle");
-                var pdfBtn = document.getElementById("downloadPdfBtn");
+        function applyTheme(theme) {
+          document.documentElement.setAttribute("data-theme", theme);
+          var lang = document.documentElement.getAttribute("lang") || "en";
+          var dict = T[lang] || T.en;
+          var themeBtn = document.getElementById("themeToggle");
+          if (themeBtn)
+            themeBtn.textContent = theme === "dark" ? dict.light : dict.dark;
+          try {
+            localStorage.setItem("reportTheme", theme);
+          } catch (_) {}
+        }
 
-                if (langSel) langSel.value = savedLang;
-                applyLang(savedLang);
-                applyTheme(savedTheme);
+        // ── Boot ────────────────────────────────────────────────────────────────
+        var savedLang = "en",
+          savedTheme = "light";
+        try {
+          savedLang = localStorage.getItem("reportLang") || "en";
+        } catch (_) {}
+        try {
+          savedTheme = localStorage.getItem("reportTheme") || "light";
+        } catch (_) {}
 
-                if (themeBtn) {
-                    themeBtn.addEventListener("click", function () {
-                        var cur = document.documentElement.getAttribute("data-theme");
-                        applyTheme(cur === "dark" ? "light" : "dark");
-                    });
-                }
-                if (langSel) {
-                    langSel.addEventListener("change", function () {
-                        applyLang(this.value);
-                    });
-                }
-                if (pdfBtn) {
-                    pdfBtn.addEventListener("click", function () { window.print(); });
-                }
+        document.addEventListener("DOMContentLoaded", function () {
+          var langSel = document.getElementById("langToggle");
+          var themeBtn = document.getElementById("themeToggle");
+          var pdfBtn = document.getElementById("downloadPdfBtn");
+
+          if (langSel) langSel.value = savedLang;
+          applyLang(savedLang);
+          applyTheme(savedTheme);
+
+          if (themeBtn) {
+            themeBtn.addEventListener("click", function () {
+              var cur = document.documentElement.getAttribute("data-theme");
+              applyTheme(cur === "dark" ? "light" : "dark");
             });
-        })();
+          }
+          if (langSel) {
+            langSel.addEventListener("change", function () {
+              applyLang(this.value);
+            });
+          }
+          if (pdfBtn) {
+            pdfBtn.addEventListener("click", function () {
+              window.print();
+            });
+          }
+        });
+      })();
     </script>
-</body>
 
+    <script>
+      /* Collapsible table of contents.
+     Binds to the heading element itself (not content inside it) so the
+     language switcher's innerHTML rewrite cannot detach the control. The
+     open/closed choice is remembered per document; before a choice is made,
+     the contents start collapsed on narrow screens where the list would
+     otherwise push the report far down the page. */
+      (function () {
+        var KEY = "report-toc-open:" + location.pathname;
+        var panels = 0;
+
+        function stored() {
+          try {
+            return localStorage.getItem(KEY);
+          } catch (e) {
+            return null;
+          }
+        }
+
+        function remember(open) {
+          try {
+            localStorage.setItem(KEY, open ? "1" : "0");
+          } catch (e) {}
+        }
+
+        document.querySelectorAll(".toc, .toc-slide").forEach(function (toc) {
+          var head = toc.querySelector(":scope > h2");
+          if (!head || toc.dataset.tocReady) return;
+          toc.dataset.tocReady = "true";
+
+          // Everything after the heading becomes the collapsible panel.
+          var panel = document.createElement("div");
+          panel.className = "toc-panel";
+          var inner = document.createElement("div");
+          inner.className = "toc-panel__inner";
+          panel.appendChild(inner);
+
+          var node = head.nextSibling;
+          while (node) {
+            var next = node.nextSibling;
+            inner.appendChild(node);
+            node = next;
+          }
+          if (!inner.childNodes.length) return;
+          toc.appendChild(panel);
+
+          var id = "toc-panel-" + ++panels;
+          panel.id = id;
+
+          head.setAttribute("role", "button");
+          head.setAttribute("tabindex", "0");
+          head.setAttribute("aria-controls", id);
+
+          var choice = stored();
+          var open =
+            choice === null ? window.innerWidth >= 900 : choice === "1";
+
+          function apply(next, persist) {
+            open = next;
+            toc.setAttribute("data-toc-collapsed", String(!open));
+            head.setAttribute("aria-expanded", String(open));
+            panel.setAttribute("aria-hidden", String(!open));
+            panel.inert = !open;
+            if (persist) remember(open);
+          }
+
+          apply(open, false);
+
+          head.addEventListener("click", function () {
+            apply(!open, true);
+          });
+          head.addEventListener("keydown", function (event) {
+            if (
+              event.key === "Enter" ||
+              event.key === " " ||
+              event.key === "Spacebar"
+            ) {
+              event.preventDefault();
+              apply(!open, true);
+            }
+          });
+
+          // Following a link inside the contents reveals the target; on a phone
+          // the list is tall, so close it behind the reader.
+          inner.addEventListener("click", function (event) {
+            if (event.target.closest("a") && window.innerWidth < 900)
+              apply(false, true);
+          });
+        });
+      })();
+    </script>
+  </body>
 </html>
